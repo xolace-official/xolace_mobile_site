@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Geist_Mono, Space_Grotesk } from "next/font/google"
+import { Geist_Mono, Lora, Space_Grotesk } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -8,6 +8,12 @@ import { Footer } from "@/components/landing/footer"
 import { cn } from "@/lib/utils";
 
 const spaceGrotesk = Space_Grotesk({subsets:['latin'],variable:'--font-sans'})
+
+const lora = Lora({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+})
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -32,7 +38,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", spaceGrotesk.variable)}
+      className={cn("antialiased", fontMono.variable, lora.variable, "font-sans", spaceGrotesk.variable)}
     >
       <body>
         <ThemeProvider>
