@@ -224,6 +224,8 @@
 }
 
 .asymmetric-layout {
+    max-width: 1536px;
+    margin-inline: auto;
     padding-left: clamp(2rem, 10vw, 8rem);
     padding-right: clamp(2rem, 15vw, 12rem);
 }

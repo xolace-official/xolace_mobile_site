@@ -82,7 +82,7 @@ export function ReflectionsSection() {
     <section className="py-32 md:py-40">
       <div className="space-y-16">
         {/* Header */}
-        <div className="text-center space-y-4 px-8">
+        <div className="text-center space-y-4 px-8 max-w-screen-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl text-foreground font-light">
             You&apos;re not the only one carrying this.
           </h2>

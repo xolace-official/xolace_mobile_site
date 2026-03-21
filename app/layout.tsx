@@ -32,6 +32,30 @@ export const metadata: Metadata = {
   },
   description:
     "A digital space for the moments between. Not a feed. Not a clinic. A quiet place to be human.",
+     keywords: [
+    "Xolace",
+    "Social",
+    "Platform",
+    "Thoughts",
+    "Stories",
+    "Experiences",
+    "Fostering",
+    "Engagement",
+    "Self-Expression",
+    "Unique",
+    "User-Centered",
+    "Space",
+    "Communities",
+    "Mental healthcare",
+    "Professional Support",
+  ],
+  creator: "Xolace Inc.",
+  publisher: "Xolace Inc.",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 }
 
 export default function RootLayout({
