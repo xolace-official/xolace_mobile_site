@@ -23,7 +23,7 @@ export function Diagnosis() {
         <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
           We live in performance culture. Vulnerability is either monetized or
           dismissed. You can post a breakdown on social media and get likes for
-          it &mdash; or you can sit alone with it and pretend everything is fine.
+          it or you can sit alone with it and pretend everything is fine.
           There is no in-between.
         </p>
         <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">

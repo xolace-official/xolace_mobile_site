@@ -8,7 +8,7 @@ const steps = [
     number: "01",
     title: "Say what\u2019s true.",
     description:
-      "Type what\u2019s real \u2014 or tap words that feel close. There\u2019s no pressure to be profound, just honest.",
+      "Type what\u2019s real or tap words that feel close. There\u2019s no pressure to be profound, just honest.",
   },
   {
     number: "02",
@@ -205,7 +205,7 @@ function ScreenChooseWhatsNext() {
               key={path.label}
               className={`flex items-center gap-4 rounded-xl border p-4 transition-colors ${
                 i === 0
-                  ? "border-primary/25 bg-primary/[0.04]"
+                  ? "border-primary/25 bg-primary/4"
                   : "border-border/30 bg-xo-surface-low/50"
               }`}
             >

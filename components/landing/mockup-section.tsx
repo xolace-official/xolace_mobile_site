@@ -49,7 +49,7 @@ function PhoneMockup() {
         </div>
 
         {/* Decorative glow */}
-        <div className="absolute bottom-[-50px] left-[-20px] w-48 h-48 bg-primary/5 blur-[40px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-[-50px] left-[-20px] w-48 h-48 bg-primary/5 blur-2xl rounded-full pointer-events-none" />
       </div>
     </div>
   )

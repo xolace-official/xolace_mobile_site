@@ -14,7 +14,7 @@ const principles = [
     body: "You are not a brand. You are not a data point. You are a person, and your value is inherent, not produced.",
   },
   {
-    title: "Technology can hold space \u2014 if it\u2019s built with care.",
+    title: "Technology can hold space if it\u2019s built with care.",
     body: "We don\u2019t wait for the break. We build the infrastructure to sustain the spirit before the weight becomes too much to carry.",
   },
 ]

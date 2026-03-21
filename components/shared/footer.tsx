@@ -47,7 +47,7 @@ export function Footer() {
         />
         <div className="flex flex-wrap justify-center gap-8 mb-4">
           <Link
-            href="#"
+            href="/manifesto"
             className="text-xs tracking-[0.05rem] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
           >
             Manifesto

@@ -8,10 +8,10 @@ const antidotes = [
 ]
 
 const neverStatements = [
-  "Xolace will never be a chatbot therapist. We don\u2019t give advice. We don\u2019t diagnose. We don\u2019t pretend an algorithm understands you. The AI mirrors \u2014 that\u2019s it.",
+  "Xolace will never be a chatbot therapist. We don\u2019t give advice. We don\u2019t diagnose. We don\u2019t pretend an algorithm understands you. The AI mirrors, that\u2019s it.",
   "Xolace will never be a social feed. There are no profiles, no followers, no likes, no content to perform for. The things you say are yours.",
   "Xolace will never show you ads. Not now. Not ever. Showing an ad to someone who just typed something honest would break everything this is supposed to be.",
-  "Xolace will never replace a therapist. If you need professional care, we\u2019ll help you find it \u2014 not pretend to be it. We know what we are. And we know what we\u2019re not.",
+  "Xolace will never replace a therapist. If you need professional care, we\u2019ll help you find it, not pretend to be it. We know what we are. And we know what we\u2019re not.",
   "Xolace will never sell your data. Your emotional life is not a product.",
 ]
 
