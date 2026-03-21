@@ -27,10 +27,10 @@ export function SpaceBetween() {
 
         <ScrollReveal delay={0.15}>
           <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
-            The second is therapy. It helps &mdash; when you can get it. But
-            therapy is expensive, time-bound, and designed for when things are
-            already bad. You have to know what&apos;s wrong before you walk in
-            the door. You have to have the words.
+            The second is therapy. It helps when you can get it. But therapy is
+            expensive, time-bound, and designed for when things are already bad.
+            You have to know what&apos;s wrong before you walk in the door. You
+            have to have the words.
           </p>
         </ScrollReveal>
 

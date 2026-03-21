@@ -26,9 +26,9 @@ export function WhyAI() {
             When an AI says &ldquo;I understand what you&apos;re going
             through,&rdquo; it doesn&apos;t. It&apos;s pattern matching.
             It&apos;s prediction. It has read millions of words about human pain
-            and it can reflect yours back with startling accuracy &mdash; but it
-            has never felt the weight on its own chest at 2am. It has never been
-            that person in the bed.
+            and it can reflect yours back with startling accuracy, but it has
+            never felt the weight on its own chest at 2am. It has never been that
+            person in the bed.
           </p>
         </ScrollReveal>
 
@@ -63,9 +63,9 @@ export function WhyAI() {
             else happens. You see that other people have carried this too. Not in
             a chat room. Not in a comments section. Not in a support group where
             you have to introduce yourself and tell your story. Just quiet,
-            anonymous words from someone who was exactly where you are &mdash;
-            who felt the same nameless thing and found their version of the words
-            for it.
+            anonymous words from someone who was exactly where you are, who felt
+            the same nameless thing and found their version of the words for
+            it.
           </p>
         </ScrollReveal>
 
@@ -101,14 +101,13 @@ export function WhyAI() {
       <div className="max-w-2xl md:ml-auto space-y-6">
         <ScrollReveal delay={0.1}>
           <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
-            When you read those and something in your chest loosens &mdash;
-            that&apos;s not AI. That&apos;s human. That&apos;s one
-            person&apos;s honesty reaching another across the silence. The AI
-            helped you name your feeling. Another person helped you feel less
-            alone in it.{" "}
+            When you read those and something in your chest loosens, that&apos;s
+            not AI. That&apos;s human. That&apos;s one person&apos;s honesty
+            reaching another across the silence. The AI helped you name your
+            feeling. Another person helped you feel less alone in it.{" "}
             <strong className="text-foreground">
-              That combination &mdash; machine precision and human recognition
-              &mdash; is what nothing else provides.
+              That combination, machine precision and human recognition, is
+              what nothing else provides.
             </strong>
           </p>
         </ScrollReveal>
@@ -119,8 +118,8 @@ export function WhyAI() {
             requires conversation. It requires recognition. The feeling of{" "}
             <em className="font-serif italic">&ldquo;I&apos;m not the only one&rdquo;</em>{" "}
             is quieter than a conversation and more powerful than any chatbot
-            response. Our job is to engineer that moment of recognition &mdash;
-            and to protect it fiercely.
+            response. Our job is to engineer that moment of recognition and to
+            protect it fiercely.
           </p>
         </ScrollReveal>
       </div>

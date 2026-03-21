@@ -35,7 +35,7 @@ export function Experience() {
               <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
                 You type whatever&apos;s true. It doesn&apos;t have to be
                 eloquent. It doesn&apos;t have to make sense. If you can&apos;t
-                find the words, you can tap what feels close &mdash;{" "}
+                find the words, you can tap what feels close{" "}
                 <em className="font-serif italic text-primary/70 tracking-wide">
                   heavy
                 </em>
@@ -55,7 +55,7 @@ export function Experience() {
                 <em className="font-serif italic text-primary/70 tracking-wide">
                   scattered
                 </em>{" "}
-                &mdash; and that&apos;s enough.
+                and that&apos;s enough.
               </p>
             </div>
           </ScrollReveal>
@@ -68,7 +68,7 @@ export function Experience() {
                 chatbot. It doesn&apos;t give you advice. It doesn&apos;t tell
                 you what you&apos;re feeling. It mirrors. It takes the messy,
                 tangled thing you just poured out and reflects it back with
-                precision &mdash; in one or two sentences that make you stop and
+                precision in one or two sentences that make you stop and
                 think:
               </p>
               <div className="border-l-2 border-primary/30 pl-6 py-2">
@@ -83,13 +83,12 @@ export function Experience() {
           <ScrollReveal delay={0.25}>
             <div className="space-y-4">
               <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
-                That moment &mdash; the moment you see your own feeling named
-                clearly for the first time &mdash; is the core of what we built.
-                It turns out that articulation itself is a kind of exhale.
-                Getting the shape of the thing outside of you, even just onto a
-                screen, changes your relationship to it. It&apos;s no longer a
-                shapeless weight. It&apos;s something with edges. Something you
-                can look at.
+                That moment, the moment you see your own feeling named clearly
+                for the first time, is the core of what we built. It turns out
+                that articulation itself is a kind of exhale. Getting the shape
+                of the thing outside of you, even just onto a screen, changes
+                your relationship to it. It&apos;s no longer a shapeless weight.
+                It&apos;s something with edges. Something you can look at.
               </p>
             </div>
           </ScrollReveal>

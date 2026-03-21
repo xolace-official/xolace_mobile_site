@@ -8,7 +8,7 @@ import { ScrollReveal } from "@/components/manifesto/v2/shared/scroll-reveal"
 const neverStatements = [
   {
     headline: "Never a chatbot therapist.",
-    body: "We don\u2019t give advice. We don\u2019t diagnose. We don\u2019t pretend an algorithm understands your pain. The AI mirrors \u2014 and then it connects you to the humans who actually do.",
+    body: "We don\u2019t give advice. We don\u2019t diagnose. We don\u2019t pretend an algorithm understands your pain. The AI mirrors and then it connects you to the humans who actually do.",
   },
   {
     headline: "Never a social feed.",
@@ -20,7 +20,7 @@ const neverStatements = [
   },
   {
     headline: "Never replacing a therapist.",
-    body: "If you need professional care, we\u2019ll help you find it \u2014 not with a cold hotline number, but with warmth and context. We know what we are. And we know what we\u2019re not.",
+    body: "If you need professional care, we\u2019ll help you find it, not with a cold hotline number, but with warmth and context. We know what we are. And we know what we\u2019re not.",
   },
   {
     headline: "Never selling your data.",
@@ -56,7 +56,7 @@ export function Never() {
   }
 
   return (
-    <section className="py-20 md:py-48 mb-32 md:mb-32">
+    <section className="py-20 md:py-32 mb-32 md:mb-32">
       {/* Header with navigation */}
       <div className="asymmetric-layout mb-4">
         <ScrollReveal>

@@ -12,10 +12,10 @@ export function QuietPart() {
             we&apos;re building this.
           </p>
           <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
-            In ten years, we want someone lying in bed at night &mdash; with
-            that weight on their chest, with that thing they can&apos;t name
-            &mdash; to have an instinct that isn&apos;t &ldquo;scroll&rdquo; or
-            &ldquo;push it down.&rdquo;
+            In ten years, we want someone lying in bed at night with that weight
+            on their chest, with that thing they can&apos;t name, to have an
+            instinct that isn&apos;t &ldquo;scroll&rdquo; or &ldquo;push it
+            down.&rdquo;
           </p>
           <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
             We want their instinct to be:{" "}

@@ -22,7 +22,7 @@ const beliefs = [
   },
   {
     title: "Safe spaces need structure, not just intention.",
-    body: "Anyone can say \u201Cthis is a safe space.\u201D We engineer it \u2014 through design that prevents hierarchies, through anonymity that prevents performance. Safety is architecture, not a promise.",
+    body: "Anyone can say \u201Cthis is a safe space.\u201D We engineer it through design that prevents hierarchies, through anonymity that prevents performance. Safety is architecture, not a promise.",
   },
 ]
 

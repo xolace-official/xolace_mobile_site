@@ -35,7 +35,7 @@ export function OpeningV2() {
         <ScrollReveal delay={0.3}>
           <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
             You&apos;re lying in bed. The day is over. And something is sitting
-            on your chest &mdash; not an emergency, not a crisis, just a weight.
+            on your chest, not an emergency, not a crisis, just a weight.
             You don&apos;t know what to call it. You don&apos;t have anyone to
             call about it. You definitely don&apos;t think it&apos;s &ldquo;bad
             enough&rdquo; for therapy.
