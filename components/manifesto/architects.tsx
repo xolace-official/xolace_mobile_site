@@ -21,7 +21,7 @@ const founders: Founder[] = [
 
 export function Architects() {
   return (
-    <section className="mb-32 md:mb-52">
+    <section className="mb-32 md:mb-52 max-w-screen-2xl mx-auto">
       {/* Header — asymmetric like other sections */}
       <div className="asymmetric-layout mb-4">
         <h2 className="text-4xl md:text-5xl text-foreground mb-6 font-light">

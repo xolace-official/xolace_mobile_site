@@ -252,13 +252,13 @@ export function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl text-foreground font-light"
+          className="text-4xl md:text-5xl text-foreground font-light 2xl:text-center"
         >
           How it works.
         </motion.h2>
       </div>
 
-      <div className="space-y-32 md:space-y-48">
+      <div className="space-y-32 md:space-y-48 max-w-screen-2xl mx-auto">
         {steps.map((step, i) => {
           const isReversed = i % 2 === 1
           return (

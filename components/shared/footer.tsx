@@ -1,12 +1,17 @@
+import Image from "next/image"
 import Link from "next/link"
 
 export function Footer() {
   return (
     <footer className="bg-xo-surface-lowest w-full pt-20 pb-12 border-t border-border">
       <div className="flex flex-col items-center text-center space-y-6 px-8 max-w-screen-2xl mx-auto">
-        <span className="text-lg text-foreground mb-4 block font-medium tracking-tighter">
-          Xolace
-        </span>
+        <Image
+          src="/images/use-x-remove-bg.png"
+          alt="Xolace mascot"
+          width={48}
+          height={48}
+          className="size-12 object-contain mb-4"
+        />
         <div className="flex flex-wrap justify-center gap-8 mb-4">
           <Link
             href="#"

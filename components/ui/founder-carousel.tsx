@@ -91,7 +91,7 @@ export function FounderCarousel({
     <CarouselCtx.Provider
       value={{ onCardClose: handleCardClose, currentIndex }}
     >
-      <div className="relative w-full">
+      <div className="relative w-full max-w-screen-2xl mx-auto">
         {/* Scroll track */}
         <div
           ref={scrollRef}
