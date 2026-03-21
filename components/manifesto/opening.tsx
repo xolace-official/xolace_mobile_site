@@ -18,7 +18,7 @@ export function Opening() {
         <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
           There&apos;s a moment most people know but never talk about.
           You&apos;re lying in bed at night. The day is over. And something is
-          sitting on your chest &mdash; not an emergency, not a crisis, just a
+          sitting on your chest; not an emergency, not a crisis, just a
           weight. You don&apos;t know what to call it. You don&apos;t have
           anyone to call about it. You definitely don&apos;t think it&apos;s
           &ldquo;bad enough&rdquo; for therapy.
