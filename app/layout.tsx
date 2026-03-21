@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Geist_Mono, Lora, Space_Grotesk } from "next/font/google"
 
 import "./globals.css"
@@ -7,6 +7,10 @@ import { Navbar } from "@/components/shared/navbar"
 import { Footer } from "@/components/shared/footer"
 import { cn } from "@/lib/utils";
 import { MotionProvider } from "@/providers/motion-provider";
+
+export const viewport: Viewport = {
+  maximumScale: 1,
+};
 
 const spaceGrotesk = Space_Grotesk({subsets:['latin'],variable:'--font-sans'})
 

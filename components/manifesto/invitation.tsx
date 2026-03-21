@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input"
 export function Invitation() {
   return (
     <section className="asymmetric-layout mb-32" id="waitlist">
-      <div className="bg-card p-8 md:p-20 rounded-xl relative overflow-hidden">
+      <div className="bg-card p-5 md:p-20 rounded-xl relative overflow-hidden">
         {/* Subtle gradient glow */}
         <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 blur-[100px] rounded-full" />
         <div className="relative z-10 max-w-xl">

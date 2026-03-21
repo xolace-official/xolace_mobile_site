@@ -226,3 +226,10 @@
     padding-left: clamp(2rem, 10vw, 8rem);
     padding-right: clamp(2rem, 15vw, 12rem);
 }
+
+/* View Transition API — theme toggle animation */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
