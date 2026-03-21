@@ -13,12 +13,12 @@ export function WaitlistForm({ className }: { className?: string }) {
       <Input
         type="email"
         placeholder="Your email"
-        className="h-auto w-full md:flex-1 border-none bg-input ring-1 ring-xo-outline-variant/15 focus-visible:ring-secondary/50 rounded-lg px-6 py-4 text-sm text-foreground transition-all duration-500"
+        className="h-auto w-full md:flex-1 border-none bg-input ring-1 ring-xo-outline-variant/15 focus-visible:ring-primary/50 rounded-lg px-6 py-4 text-sm text-foreground transition-all duration-500"
       />
       <Button
         type="submit"
         size="lg"
-        className="h-auto w-full md:w-auto px-8 py-4 rounded-lg border-none cta-gradient text-secondary-foreground font-semibold transition-all duration-500"
+        className="h-auto w-full md:w-auto px-8 py-4 rounded-lg border-none cta-gradient text-primary-foreground font-semibold transition-all duration-500"
       >
         Save my spot
       </Button>

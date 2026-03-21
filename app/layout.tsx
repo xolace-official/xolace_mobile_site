@@ -1,11 +1,16 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Geist_Mono, Lora, Space_Grotesk } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { Navbar } from "@/components/landing/navbar"
-import { Footer } from "@/components/landing/footer"
+import { Navbar } from "@/components/shared/navbar"
+import { Footer } from "@/components/shared/footer"
 import { cn } from "@/lib/utils";
+import { MotionProvider } from "@/providers/motion-provider";
+
+export const viewport: Viewport = {
+  maximumScale: 1,
+};
 
 const spaceGrotesk = Space_Grotesk({subsets:['latin'],variable:'--font-sans'})
 
@@ -42,9 +47,12 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>
-          <Navbar />
-          {children}
-          <Footer />
+          <MotionProvider>
+            <Navbar />
+            <div className="texture" />
+            {children}
+            <Footer />
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>

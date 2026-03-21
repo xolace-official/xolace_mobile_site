@@ -2,7 +2,7 @@ import { Lock, UserX, EyeOff, Ban, Shield } from "lucide-react"
 
 const features = [
   { icon: Lock, text: "Words are end-to-end encrypted." },
-  { icon: UserX, text: "No account required." },
+  { icon: UserX, text: "Account only needed for reflections." },
   { icon: EyeOff, text: "Anonymous means anonymous." },
   { icon: Ban, text: "No ads. No data selling. Ever." },
 ]
@@ -22,17 +22,17 @@ export function TrustSection() {
               {features.map(({ icon: Icon, text }, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-3 text-primary/80"
+                  className="flex items-center gap-3 text-muted-foreground"
                 >
-                  <Icon className="size-[18px] text-secondary" />
+                  <Icon className="size-[18px] text-accent" />
                   <span className="text-sm">{text}</span>
                 </div>
               ))}
             </div>
           </div>
           <div className="relative flex items-center justify-center">
-            <div className="w-full aspect-square rounded-full border border-primary/10 flex items-center justify-center">
-              <div className="w-3/4 aspect-square rounded-full border border-primary/5 flex items-center justify-center">
+            <div className="w-full aspect-square rounded-full border border-border flex items-center justify-center">
+              <div className="w-3/4 aspect-square rounded-full border border-border/50 flex items-center justify-center">
                 <Shield
                   className="size-16 text-primary/20"
                   fill="currentColor"
