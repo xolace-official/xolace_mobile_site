@@ -8,6 +8,7 @@ import React, {
   useContext,
   useCallback,
 } from "react"
+import Image from "next/image"
 import { ArrowLeft, ArrowRight, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { AnimatePresence, motion } from "motion/react"
@@ -24,6 +25,7 @@ export type Founder = {
   bio: string
   quote?: string
   gradient: string // tailwind gradient classes for the placeholder bg
+  image?: string // path to founder photo
 }
 
 /* ------------------------------------------------------------------ */
@@ -217,13 +219,23 @@ function FounderCard({
               {/* Avatar large */}
               <div
                 className={cn(
-                  "size-36 md:size-44 rounded-2xl flex items-center justify-center mb-8",
+                  "size-36 md:size-44 rounded-2xl flex items-center justify-center mb-8 overflow-hidden",
                   founder.gradient
                 )}
               >
-                <span className="text-6xl md:text-7xl text-foreground/20 font-light">
-                  {founder.initials}
-                </span>
+                {founder.image ? (
+                  <Image
+                    src={founder.image}
+                    alt={founder.name}
+                    width={176}
+                    height={176}
+                    className="size-full object-cover"
+                  />
+                ) : (
+                  <span className="text-6xl md:text-7xl text-foreground/20 font-light">
+                    {founder.initials}
+                  </span>
+                )}
               </div>
 
               <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-2">
@@ -260,18 +272,27 @@ function FounderCard({
           "hover:ring-primary/20 hover:shadow-[0_0_40px_var(--primary)/0.08]"
         )}
       >
-        {/* Gradient background placeholder */}
-        <div
-          className={cn(
-            "absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105",
-            founder.gradient
-          )}
-        />
-
-        {/* Initials watermark */}
-        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[8rem] md:text-[10rem] font-light text-foreground/[0.04] select-none pointer-events-none">
-          {founder.initials}
-        </span>
+        {/* Background — photo or gradient with initials */}
+        {founder.image ? (
+          <Image
+            src={founder.image}
+            alt={founder.name}
+            fill
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+        ) : (
+          <>
+            <div
+              className={cn(
+                "absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105",
+                founder.gradient
+              )}
+            />
+            <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[8rem] md:text-[10rem] font-light text-foreground/[0.04] select-none pointer-events-none">
+              {founder.initials}
+            </span>
+          </>
+        )}
 
         {/* Bottom gradient overlay */}
         <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-background/80 via-background/40 to-transparent" />

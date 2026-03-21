@@ -2,20 +2,35 @@ import { FounderCarousel, type Founder } from "@/components/ui/founder-carousel"
 
 const founders: Founder[] = [
   {
-    name: "Elias",
-    role: "Co-Founder",
-    initials: "E",
-    bio: "Spent a decade in tech watching human connection turn into engagement metrics. Wanted to build something that actually cared about the human on the other side.",
-    quote: "We kept optimizing for attention. I wanted to optimize for honesty.",
+    name: "Nathaniel Edem Adama",
+    role: "CEO",
+    initials: "N",
+    bio: "Placeholder bio — to be updated.",
+    image: "/founders/Nathan-mini.jpeg",
     gradient: "bg-gradient-to-br from-primary/30 via-accent/15 to-background",
   },
   {
-    name: "Sloane",
-    role: "Co-Founder",
-    initials: "S",
-    bio: "Realized that traditional support systems were failing her friends in their darkest hours. Needed a space that felt like a sanctuary, not a hospital.",
-    quote: "The people I loved most had nowhere to go at 3 AM. That had to change.",
+    name: "Andrew Nana Beniako",
+    role: "CMO",
+    initials: "A",
+    bio: "Placeholder bio — to be updated.",
+    image: "/founders/kobby-mini.jpeg",
     gradient: "bg-gradient-to-br from-accent/20 via-primary/15 to-background",
+  },
+  {
+    name: "Emmanuel Acquah",
+    role: "COO",
+    initials: "E",
+    bio: "Placeholder bio — to be updated.",
+    image: "/founders/kwame.jpeg",
+    gradient: "bg-gradient-to-br from-primary/20 via-accent/20 to-background",
+  },
+  {
+    name: "Emmanuel Somuah",
+    role: "CTO",
+    initials: "E",
+    bio: "Placeholder bio — to be updated.",
+    gradient: "bg-gradient-to-br from-accent/25 via-primary/10 to-background",
   },
 ]
 
