@@ -170,20 +170,20 @@ function FounderCard({
     }
   }, [open])
 
+  const handleClose = useCallback(() => {
+    setOpen(false)
+    onCardClose(index)
+  }, [onCardClose, index])
+
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") handleClose()
     }
     if (open) window.addEventListener("keydown", onKeyDown)
     return () => window.removeEventListener("keydown", onKeyDown)
-  }, [open])
+  }, [open, handleClose])
 
-  useOutsideClick(modalRef, () => handleClose())
-
-  const handleClose = () => {
-    setOpen(false)
-    onCardClose(index)
-  }
+  useOutsideClick(modalRef, handleClose)
 
   return (
     <>
@@ -208,6 +208,7 @@ function FounderCard({
               {/* Close */}
               <button
                 onClick={handleClose}
+                aria-label="Close"
                 className="sticky top-4 float-right flex size-8 items-center justify-center rounded-full bg-xo-surface-bright/80 transition-colors hover:bg-muted"
               >
                 <X className="size-4 text-foreground/70" />
