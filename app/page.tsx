@@ -1,19 +1,30 @@
-import { Button } from "@/components/ui/button"
+import type { Metadata } from "next"
+import { Hero } from "@/components/landing/hero"
+import { ProblemSection } from "@/components/landing/problem-section"
+import { PhilosophySection } from "@/components/landing/philosophy-section"
+import { HowItWorks } from "@/components/landing/how-it-works"
+import { MockupSection } from "@/components/landing/mockup-section"
+import { ReflectionsSection } from "@/components/landing/reflections-section"
+import { TrustSection } from "@/components/landing/trust-section"
+import { WaitlistCTA } from "@/components/landing/waitlist-cta"
 
-export default function Page() {
+export const metadata: Metadata = {
+  title: "Emotional Infrastructure",
+  description:
+    "Not everything needs fixing. Some things just need to be said. Xolace is a quiet place to be human.",
+}
+
+export default function LandingPage() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
-    </div>
+    <main className="relative overflow-hidden">
+      <Hero />
+      <ProblemSection />
+      <PhilosophySection />
+      <HowItWorks />
+      <MockupSection />
+      <ReflectionsSection />
+      <TrustSection />
+      <WaitlistCTA />
+    </main>
   )
 }
