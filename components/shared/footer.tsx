@@ -1,5 +1,38 @@
 import Image from "next/image"
 import Link from "next/link"
+import { Instagram } from "@/components/socials/instagram-icon"
+import { LinkedIn } from "@/components/socials/linkedin-icon"
+import { WhatsApp } from "@/components/socials/whatsapp-icon"
+import { TikTokDark } from "@/components/socials/tiktok-icon-dark"
+import { TikTokLight } from "@/components/socials/tiktok-icon-light"
+
+const socials = [
+  {
+    label: "TikTok",
+    href: "https://www.tiktok.com/@talk.with.xolace?_r=1&_t=ZS-93PtIXpzJAr",
+    icon: (
+      <>
+        <TikTokLight className="size-[18px] block dark:hidden" />
+        <TikTokDark className="size-[18px] hidden dark:block" />
+      </>
+    ),
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/xolaceinc?utm_source=qr&igsh=anB2bTA4ZTJiM2tu",
+    icon: <Instagram className="size-[18px]" />,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/xolace-inc/",
+    icon: <LinkedIn className="size-[18px]" />,
+  },
+  {
+    label: "WhatsApp",
+    href: "https://whatsapp.com/channel/0029Vb68RgXGpLHPmY1pL73s",
+    icon: <WhatsApp className="size-[18px]" />,
+  },
+]
 
 export function Footer() {
   return (
@@ -26,6 +59,23 @@ export function Footer() {
             Privacy Policy
           </Link>
         </div>
+
+        {/* Socials */}
+        <div className="flex items-center gap-5">
+          {socials.map((social) => (
+            <Link
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
+              className="opacity-60 hover:opacity-100 transition-opacity duration-300"
+            >
+              {social.icon}
+            </Link>
+          ))}
+        </div>
+
         <p className="text-xs tracking-[0.05rem] uppercase text-muted-foreground">
           &copy; 2026 Xolace. Built by people who needed this to exist.
         </p>
