@@ -3,8 +3,8 @@ import { Geist_Mono, Lora, Space_Grotesk } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { Navbar } from "@/components/landing/navbar"
-import { Footer } from "@/components/landing/footer"
+import { Navbar } from "@/components/shared/navbar"
+import { Footer } from "@/components/shared/footer"
 import { cn } from "@/lib/utils";
 import { MotionProvider } from "@/providers/motion-provider";
 

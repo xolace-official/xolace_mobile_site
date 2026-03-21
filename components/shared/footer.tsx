@@ -22,7 +22,7 @@ export function Footer() {
           </Link>
         </div>
         <p className="text-xs tracking-[0.05rem] uppercase text-primary/80">
-          &copy; 2024 Xolace. Built by people who needed this to exist.
+          &copy; 2026 Xolace. Built by people who needed this to exist.
         </p>
       </div>
     </footer>
