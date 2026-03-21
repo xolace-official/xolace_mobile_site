@@ -69,7 +69,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={social.label}
-              className="opacity-60 hover:opacity-100 transition-opacity duration-300"
+              className="flex items-center justify-center p-2.5 rounded-full opacity-60 hover:opacity-100 transition-opacity duration-300"
             >
               {social.icon}
             </Link>
