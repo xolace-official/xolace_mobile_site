@@ -128,7 +128,7 @@ export function FounderCarousel({
             className="flex size-10 items-center justify-center rounded-full bg-xo-surface-low ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="Scroll left"
           >
-            <ArrowLeft className="size-4 text-primary/70" />
+            <ArrowLeft className="size-4 text-foreground/70" />
           </button>
           <button
             onClick={() => scroll("right")}
@@ -136,7 +136,7 @@ export function FounderCarousel({
             className="flex size-10 items-center justify-center rounded-full bg-xo-surface-low ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="Scroll right"
           >
-            <ArrowRight className="size-4 text-primary/70" />
+            <ArrowRight className="size-4 text-foreground/70" />
           </button>
         </div>
       </div>
@@ -208,9 +208,9 @@ function FounderCard({
               {/* Close */}
               <button
                 onClick={handleClose}
-                className="sticky top-4 float-right flex size-8 items-center justify-center rounded-full bg-xo-surface-bright/80 transition-colors hover:bg-secondary/20"
+                className="sticky top-4 float-right flex size-8 items-center justify-center rounded-full bg-xo-surface-bright/80 transition-colors hover:bg-muted"
               >
-                <X className="size-4 text-primary/70" />
+                <X className="size-4 text-foreground/70" />
               </button>
 
               {/* Avatar large */}
@@ -220,25 +220,25 @@ function FounderCard({
                   founder.gradient
                 )}
               >
-                <span className="text-6xl md:text-7xl text-secondary/60 font-light">
+                <span className="text-6xl md:text-7xl text-foreground/20 font-light">
                   {founder.initials}
                 </span>
               </div>
 
-              <p className="text-xs uppercase tracking-[0.25em] text-secondary/60 mb-2">
+              <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-2">
                 {founder.role}
               </p>
               <h3 className="text-3xl md:text-4xl text-foreground font-light mb-6">
                 {founder.name}
               </h3>
 
-              <p className="text-primary/60 leading-relaxed font-serif text-base md:text-lg mb-8">
+              <p className="text-muted-foreground leading-relaxed font-serif text-base md:text-lg mb-8">
                 {founder.bio}
               </p>
 
               {founder.quote && (
-                <blockquote className="border-l-2 border-secondary/30 pl-6 py-2">
-                  <p className="text-primary/50 italic font-serif leading-relaxed">
+                <blockquote className="border-l-2 border-primary/30 pl-6 py-2">
+                  <p className="text-muted-foreground/80 italic font-serif leading-relaxed">
                     &ldquo;{founder.quote}&rdquo;
                   </p>
                 </blockquote>
@@ -256,7 +256,7 @@ function FounderCard({
         className={cn(
           "group relative flex h-[22rem] w-[15rem] md:h-[28rem] md:w-[20rem] flex-col justify-end overflow-hidden rounded-2xl text-left",
           "ring-1 ring-xo-outline-variant/10 transition-shadow duration-500",
-          "hover:ring-secondary/20 hover:shadow-[0_0_40px_oklch(0.84_0.155_82/0.08)]"
+          "hover:ring-primary/20 hover:shadow-[0_0_40px_var(--primary)/0.08]"
         )}
       >
         {/* Gradient background placeholder */}
@@ -268,22 +268,22 @@ function FounderCard({
         />
 
         {/* Initials watermark */}
-        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[8rem] md:text-[10rem] font-light text-white/[0.06] select-none pointer-events-none">
+        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[8rem] md:text-[10rem] font-light text-foreground/[0.04] select-none pointer-events-none">
           {founder.initials}
         </span>
 
         {/* Bottom gradient overlay */}
-        <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-background/80 via-background/40 to-transparent" />
 
         {/* Content overlay */}
         <div className="relative z-10 p-6 md:p-8">
-          <p className="text-[10px] uppercase tracking-[0.25em] text-secondary/70 mb-1.5">
+          <p className="text-[10px] uppercase tracking-[0.25em] text-primary/70 mb-1.5">
             {founder.role}
           </p>
-          <h4 className="text-xl md:text-2xl text-white font-light mb-3">
+          <h4 className="text-xl md:text-2xl text-foreground font-light mb-3">
             {founder.name}
           </h4>
-          <p className="text-white/50 text-sm font-serif italic line-clamp-2 leading-relaxed">
+          <p className="text-muted-foreground text-sm font-serif italic line-clamp-2 leading-relaxed">
             {founder.bio}
           </p>
         </div>

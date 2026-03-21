@@ -31,11 +31,11 @@ export function Principles() {
               i % 2 === 0 ? "md:translate-y-12" : ""
             )}
           >
-            <p className="text-xs text-secondary/60">
+            <p className="text-xs text-primary/60">
               {String(i + 1).padStart(2, "0")}
             </p>
             <h3 className="text-3xl text-foreground font-light">{p.title}</h3>
-            <p className="text-primary/60 max-w-sm font-serif">{p.body}</p>
+            <p className="text-muted-foreground max-w-sm font-serif">{p.body}</p>
           </div>
         ))}
       </div>

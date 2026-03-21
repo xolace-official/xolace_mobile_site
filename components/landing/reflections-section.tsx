@@ -58,18 +58,18 @@ function ReflectionCard({ quote, time }: { quote: string; time: string }) {
     <figure
       className={cn(
         "relative w-72 md:w-80 cursor-default overflow-hidden rounded-xl p-6",
-        "bg-xo-surface-low/80 border-l-2 border-secondary/25",
+        "bg-xo-surface-low/80 border-l-2 border-primary/25",
         "ring-1 ring-xo-outline-variant/[0.07]",
         "transition-all duration-500",
-        "hover:bg-xo-surface-low hover:border-secondary/40 hover:ring-xo-outline-variant/15"
+        "hover:bg-xo-surface-low hover:border-primary/40 hover:ring-xo-outline-variant/15"
       )}
     >
-      <blockquote className="text-primary/80 font-serif italic text-sm leading-relaxed">
+      <blockquote className="text-foreground/80 font-serif italic text-sm leading-relaxed">
         &ldquo;{quote}&rdquo;
       </blockquote>
       <div className="mt-4 flex items-center gap-3">
-        <div className="h-px flex-1 bg-secondary/15" />
-        <p className="text-[10px] text-primary/35 tracking-[0.15em] uppercase whitespace-nowrap">
+        <div className="h-px flex-1 bg-primary/15" />
+        <p className="text-[10px] text-muted-foreground/60 tracking-[0.15em] uppercase whitespace-nowrap">
           Anonymous &mdash; {time}
         </p>
       </div>
@@ -86,7 +86,7 @@ export function ReflectionsSection() {
           <h2 className="text-4xl md:text-5xl text-foreground font-light">
             You&apos;re not the only one carrying this.
           </h2>
-          <p className="text-primary/50 font-serif max-w-md mx-auto">
+          <p className="text-muted-foreground font-serif max-w-md mx-auto">
             Anonymized reflections from the collective quiet.
           </p>
         </div>
@@ -109,8 +109,8 @@ export function ReflectionsSection() {
           </Marquee>
 
           {/* Edge fades */}
-          <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r" />
-          <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l" />
+          <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-linear-to-r" />
+          <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-linear-to-l" />
         </div>
       </div>
     </section>

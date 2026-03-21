@@ -15,9 +15,9 @@ type SpotlightProps = {
 }
 
 export function Spotlight({
-  gradientFirst = "radial-gradient(68.54% 68.72% at 55.02% 31.46%, oklch(0.84 0.155 82 / 0.07) 0%, oklch(0.67 0.155 78 / 0.03) 50%, oklch(0.82 0.028 295 / 0) 80%)",
-  gradientSecond = "radial-gradient(50% 50% at 50% 50%, oklch(0.84 0.155 82 / 0.05) 0%, oklch(0.67 0.155 78 / 0.02) 80%, transparent 100%)",
-  gradientThird = "radial-gradient(50% 50% at 50% 50%, oklch(0.82 0.028 295 / 0.04) 0%, oklch(0.82 0.028 295 / 0.01) 80%, transparent 100%)",
+  gradientFirst = "radial-gradient(68.54% 68.72% at 55.02% 31.46%, var(--primary) 0%, transparent 80%)",
+  gradientSecond = "radial-gradient(50% 50% at 50% 50%, var(--accent) 0%, transparent 100%)",
+  gradientThird = "radial-gradient(50% 50% at 50% 50%, var(--primary) 0%, transparent 100%)",
   translateY = -350,
   width = 560,
   height = 1380,
@@ -41,7 +41,7 @@ export function Spotlight({
           repeatType: "reverse",
           ease: "easeInOut",
         }}
-        className="absolute top-0 left-0 w-screen h-screen z-40 pointer-events-none"
+        className="absolute top-0 left-0 w-screen h-screen z-40 pointer-events-none opacity-[0.07]"
       >
         <div
           style={{
@@ -81,7 +81,7 @@ export function Spotlight({
           repeatType: "reverse",
           ease: "easeInOut",
         }}
-        className="absolute top-0 right-0 w-screen h-screen z-40 pointer-events-none"
+        className="absolute top-0 right-0 w-screen h-screen z-40 pointer-events-none opacity-[0.07]"
       >
         <div
           style={{

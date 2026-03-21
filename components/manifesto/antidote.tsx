@@ -25,8 +25,8 @@ export function Antidote() {
         <div className="flex flex-wrap gap-8 md:gap-x-20 md:gap-y-12 max-w-5xl mb-20">
           {antidotes.map((item, i) => (
             <div key={i} className="flex items-center gap-4">
-              <X className="size-4 text-secondary/40" />
-              <span className="text-2xl text-primary/50 font-light">
+              <X className="size-4 text-primary/40" />
+              <span className="text-2xl text-muted-foreground font-light">
                 {item}
               </span>
             </div>
@@ -36,7 +36,7 @@ export function Antidote() {
           {neverStatements.map((statement, i) => (
             <p
               key={i}
-              className="font-serif text-base text-primary/50 leading-loose"
+              className="font-serif text-base text-muted-foreground leading-loose"
             >
               {statement}
             </p>

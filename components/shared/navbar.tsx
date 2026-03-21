@@ -13,13 +13,13 @@ export function Navbar() {
         <div className="flex items-center gap-6 md:gap-10 text-sm tracking-wide">
           <Link
             href="/manifesto"
-            className="text-secondary font-medium transition-colors duration-500"
+            className="text-primary font-medium transition-colors duration-500"
           >
             Manifesto
           </Link>
           <Link
             href="#waitlist"
-            className="text-primary/70 hover:text-secondary transition-colors duration-500"
+            className="text-muted-foreground hover:text-primary transition-colors duration-500"
           >
             Waitlist
           </Link>

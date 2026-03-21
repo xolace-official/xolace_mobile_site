@@ -14,7 +14,7 @@ export function WaitlistCTA() {
         <WaitlistForm />
       </div>
       {/* Decorative Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-secondary/5 blur-[120px] rounded-[100%] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-primary/5 blur-[120px] rounded-[100%] pointer-events-none" />
     </section>
   )
 }
