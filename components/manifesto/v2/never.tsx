@@ -146,15 +146,15 @@ function NeverCard({
     <motion.div
       whileHover={{ y: -4 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="group relative w-[22rem] md:w-[28rem] h-[16rem] md:h-[18rem] rounded-2xl bg-xo-surface-lowest ring-1 ring-xo-outline-variant/10 overflow-hidden transition-shadow duration-500 hover:ring-primary/15 hover:shadow-[0_0_40px_var(--primary)/0.05]"
+      className="group relative w-88 md:w-md h-64 md:h-72 rounded-2xl bg-xo-surface-lowest ring-1 ring-xo-outline-variant/10 overflow-hidden transition-shadow duration-500 hover:ring-primary/15 hover:shadow-[0_0_40px_var(--primary)/0.05]"
     >
       {/* Large faded number in background */}
-      <span className="absolute -bottom-6 -right-2 text-[10rem] md:text-[12rem] font-light leading-none text-foreground/[0.03] select-none pointer-events-none tabular-nums">
+      <span className="absolute -bottom-6 -right-2 text-[10rem] md:text-[12rem] font-light leading-none text-foreground/3 select-none pointer-events-none tabular-nums">
         {String(index + 1).padStart(2, "0")}
       </span>
 
       {/* Thin accent bar at top */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-primary/30 via-primary/10 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-primary/30 via-primary/10 to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-between h-full p-7 md:p-9">
