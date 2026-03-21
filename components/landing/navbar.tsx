@@ -12,7 +12,7 @@ export function Navbar() {
         </Link>
         <div className="flex items-center gap-6 md:gap-10 text-sm tracking-wide">
           <Link
-            href="#manifesto"
+            href="/manifesto"
             className="text-secondary font-medium transition-colors duration-500"
           >
             Manifesto
