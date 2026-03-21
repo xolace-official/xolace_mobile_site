@@ -63,7 +63,7 @@
     --popover-foreground: oklch(0.141 0.005 285.823);
     --primary: oklch(0.21 0.006 285.885);
     --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.967 0.001 286.375);
+    --secondary: oklch(0.84 0.155 82);
     --secondary-foreground: oklch(0.21 0.006 285.885);
     --muted: oklch(0.967 0.001 286.375);
     --muted-foreground: oklch(0.552 0.016 285.938);
@@ -161,6 +161,21 @@
 }
 
 /* Xolace — Utility classes */
+  .texture {
+    background-image: url(https://matsu-theme.vercel.app/texture.jpg);
+    background-size: 100% 100%;
+    background-repeat: repeat;
+    opacity: 0.12;
+    mix-blend-mode: multiply;
+    z-index: 100;
+    isolation: isolate;
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100dvh;
+    pointer-events: none;
+  }
+
 .animate-gentle-pulse {
     animation: gentle-pulse 4s ease-in-out infinite;
 }
