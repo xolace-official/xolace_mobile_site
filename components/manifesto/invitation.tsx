@@ -10,6 +10,9 @@ export function Invitation() {
         <div className="relative z-10 max-w-xl">
           <h2 className="text-3xl md:text-5xl text-foreground mb-6 font-light">
             Come home.
+            <span className="text-sm text-muted-foreground mt-4">
+              (opening soon)
+            </span>
           </h2>
           <p className="text-muted-foreground mb-12 text-lg font-serif">
             If any of this resonated, we&apos;d like you to be there when it
@@ -20,11 +23,13 @@ export function Invitation() {
               type="email"
               placeholder="Your email address"
               className="h-auto w-full border-none bg-input ring-1 ring-xo-outline-variant/15 focus-visible:ring-primary/50 rounded-lg px-6 py-4 text-sm text-foreground transition-all duration-500"
+              disabled
             />
             <Button
               type="submit"
               size="lg"
               className="h-auto w-full md:w-auto px-10 py-4 rounded-lg border-none cta-gradient text-primary-foreground font-semibold tracking-widest uppercase text-xs transition-all duration-500"
+              disabled
             >
               Join the Waitlist
             </Button>
