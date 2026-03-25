@@ -23,7 +23,7 @@ export function Navbar() {
             height={32}
             className="size-8 object-contain transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
           />
-          <span className="text-xl tracking-tighter text-foreground font-medium">
+          <span className="text-xl tracking-tighter text-foreground font-medium italic hidden sm:block">
             Xolace
           </span>
         </Link>
