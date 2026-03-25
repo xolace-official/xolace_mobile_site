@@ -10,9 +10,6 @@ export function WaitlistCTA() {
           <span className="italic font-extralight opacity-80">
             we&apos;ll find you.
           </span>
-          <span className="text-sm text-muted-foreground mt-4">
-            (opening soon)
-          </span>
         </h2>
         <WaitlistForm />
       </div>
