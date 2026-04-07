@@ -53,10 +53,22 @@ export function Footer() {
             Manifesto
           </Link>
           <Link
-            href="#"
+            href="/privacy"
             className="text-xs tracking-[0.05rem] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
           >
-            Privacy Policy
+            Privacy
+          </Link>
+          <Link
+            href="/terms"
+            className="text-xs tracking-[0.05rem] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Terms
+          </Link>
+          <Link
+            href="/support"
+            className="text-xs tracking-[0.05rem] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Support
           </Link>
         </div>
 
