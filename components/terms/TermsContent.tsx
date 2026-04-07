@@ -82,7 +82,7 @@ export function TermsContent() {
           Xolace does not provide medical, mental health, or crisis services. If you are experiencing
           a crisis, feel unsafe, or need immediate support, contact your local emergency services or a
           licensed professional immediately. Xolace is designed for self-reflection and emotional
-          processing — not diagnosis, treatment, or intervention.
+          processing, not diagnosis, treatment, or intervention.
         </p>
       </div>
 
@@ -367,13 +367,13 @@ export function TermsContent() {
             Get in touch
           </p>
           <a
-            href="mailto:legal@xolace.app"
+            href="mailto:legal@xolaceinc.com"
             className="block text-sm font-medium text-primary hover:underline underline-offset-4 transition-colors"
           >
-            legal@xolace.app
+            legal@xolaceinc.com
           </a>
           <p className="text-xs text-muted-foreground font-serif">
-            Xolace — a tool for seeing what you&apos;re carrying more clearly.
+            Xolace, a tool for seeing what you&apos;re carrying more clearly.
           </p>
         </div>
       </Section>

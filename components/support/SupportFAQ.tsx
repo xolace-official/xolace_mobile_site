@@ -33,7 +33,7 @@ const faqs: FAQItem[] = [
   {
     question: "Can I delete my data?",
     answer:
-      "Yes. You can request deletion of your account and all associated data at any time. Depending on your location, you may also have additional rights under applicable privacy law. Contact us at privacy@xolace.app to exercise any of your data rights.",
+      "Yes. You can request deletion of your account and all associated data at any time. Depending on your location, you may also have additional rights under applicable privacy law. Contact us at privacy@xolaceinc.com to exercise any of your data rights.",
   },
   {
     question: "Does Xolace sell my data?",
