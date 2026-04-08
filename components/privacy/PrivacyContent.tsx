@@ -104,13 +104,11 @@ export function PrivacyContent() {
         <Body>When you create an account, we may collect:</Body>
         <List
           items={[
-            "Name (if provided through authentication providers)",
-            "Email address",
             "Authentication identifiers (e.g., Google account ID)",
           ]}
         />
 
-        <SubHeading>B. Emotional Input ("Reflection Data")</SubHeading>
+        <SubHeading>B. Emotional Input (&quot;Reflection Data&quot;)</SubHeading>
         <Body>
           When you use Xolace, we collect the information you choose to share, including:
         </Body>
