@@ -15,8 +15,8 @@ export function Hero() {
           </span>
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Xolace is a digital space for the moments between. Not a feed. Not a
-          clinic. A quiet place to be human.
+          Xolace is a quiet space for the moments between. Not a feed. Not a
+          clinic. A place to be human.
         </p>
       </div>
 

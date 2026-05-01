@@ -3,8 +3,13 @@
 import Link from "next/link"
 import Image from "next/image"
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
+import { usePathname } from "next/navigation"
+import { cn } from "@/lib/utils"
 
 export function Navbar() {
+  const pathname = usePathname()
+  const isAmbassador = pathname.includes("/ambassadors")
+  const isManifesto = pathname.includes("/manifesto")
   return (
     <nav className="fixed top-0 w-full z-50">
       {/* Glassy backdrop */}
@@ -33,15 +38,16 @@ export function Navbar() {
           <div className="flex items-center gap-5 md:gap-8 text-sm tracking-wide">
             <Link
               href="/manifesto"
-              className="text-primary font-medium transition-colors duration-500"
+              className={cn(isManifesto ? "text-primary" : "text-muted-foreground hover:text-primary font-medium transition-colors duration-500")}
             >
               Manifesto
             </Link>
             <Link
-              href="#waitlist"
-              className="text-muted-foreground hover:text-primary transition-colors duration-500"
+            target="_blank"
+              href="https://ambassador.xolaceinc.com"
+              className={cn(isAmbassador ? "text-primary" : "text-muted-foreground hover:text-primary transition-colors duration-500")}
             >
-              Waitlist
+              Ambassadors
             </Link>
           </div>
 

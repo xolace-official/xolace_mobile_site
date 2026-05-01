@@ -36,6 +36,11 @@ const faqs: FAQItem[] = [
       "Yes. You can request deletion of your account and all associated data at any time. Depending on your location, you may also have additional rights under applicable privacy law. Contact us at privacy@xolaceinc.com to exercise any of your data rights.",
   },
   {
+    question: "Can I delete my account?",
+    answer:
+      "Yes. You can request deletion of your account and all associated data at any time directly within the app settings. ",
+  },
+  {
     question: "Does Xolace sell my data?",
     answer:
       "No. We do not sell your personal data. Full stop. We may share limited information with trusted service providers (like hosting and AI processing partners) who are contractually required to protect it and may not use it for their own purposes.",

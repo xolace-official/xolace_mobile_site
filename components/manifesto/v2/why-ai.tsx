@@ -43,11 +43,11 @@ export function WhyAI() {
             Not because we think AI can replace human empathy. Because it can do
             something humans can&apos;t always do in the moment:{" "}
             <strong className="text-foreground">
-              it can help you find the words when you have none.
+              find the words when you have none.
             </strong>{" "}
-            It can sit with you at 2am without judgment, without fatigue, without
-            needing you to perform your pain in a way that makes sense. It can
-            hold the space while you figure out what you&apos;re carrying.
+            Sit with you at 2am without judgment, without fatigue, without
+            needing you to perform your pain in a way that makes sense. Hold the
+            space while you figure out what you&apos;re carrying.
           </p>
         </ScrollReveal>
 
@@ -102,12 +102,11 @@ export function WhyAI() {
         <ScrollReveal delay={0.1}>
           <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
             When you read those and something in your chest loosens, that&apos;s
-            not AI. That&apos;s human. That&apos;s one person&apos;s honesty
-            reaching another across the silence. The AI helped you name your
-            feeling. Another person helped you feel less alone in it.{" "}
+            not AI. That&apos;s human. One person&apos;s honesty reaching another
+            across the silence. The AI helped you name your feeling. Another
+            person helped you feel less alone in it.{" "}
             <strong className="text-foreground">
-              That combination, machine precision and human recognition, is
-              what nothing else provides.
+              That combination, machine precision and human recognition, is what nothing else provides.
             </strong>
           </p>
         </ScrollReveal>
@@ -115,11 +114,10 @@ export function WhyAI() {
         <ScrollReveal delay={0.15}>
           <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
             We believe in human connection deeply. We just don&apos;t believe it
-            requires conversation. It requires recognition. The feeling of{" "}
+            requires conversation. It requires recognition.{" "}
             <em className="font-serif italic">&ldquo;I&apos;m not the only one&rdquo;</em>{" "}
             is quieter than a conversation and more powerful than any chatbot
-            response. Our job is to engineer that moment of recognition and to
-            protect it fiercely.
+            response. Our job is to engineer that moment and protect it fiercely.
           </p>
         </ScrollReveal>
       </div>
