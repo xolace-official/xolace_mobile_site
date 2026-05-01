@@ -4,7 +4,7 @@ import { PrivacyPage } from "@/components/privacy/page/PrivacyPage"
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Why Xolace exists. We built this because we needed it. Because nothing else did what we were looking for.",
+    "Your privacy is central to how Xolace is designed and operated. This policy explains what we collect, how we use it, and the choices you always have.",
 }
 
 export default function Privacy() {

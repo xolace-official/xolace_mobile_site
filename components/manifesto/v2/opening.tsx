@@ -17,10 +17,9 @@ export function OpeningV2() {
       <ScrollReveal delay={0.15}>
         <div className="max-w-2xl">
           <p className="font-serif italic text-xl md:text-2xl text-muted-foreground leading-relaxed">
-            We built this because we needed it. Because nothing else did what we
-            were looking for. We&apos;re not trying to fix you. We&apos;re
-            trying to build the place we wished existed on the nights we needed
-            it most.
+            We built this because we needed it. Nothing else did what we were
+            looking for. We&apos;re not trying to fix you, we&apos;re trying to
+            build the place we wished existed on the nights we needed it most.
           </p>
         </div>
       </ScrollReveal>

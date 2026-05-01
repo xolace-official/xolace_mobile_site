@@ -22,7 +22,7 @@ const steps = [
     number: "03",
     title: "Choose what\u2019s next.",
     description:
-      "A guided moment, peer reflections, or just closing knowing you said it. You\u2019re in control of the quiet.",
+      "A guided moment, peer reflections, or just closing knowing you said it. Every session ends complete \u2014 nothing left unresolved to pull you back.",
     image: "/app-images/choose-whats-next.jpeg",
   },
 ]

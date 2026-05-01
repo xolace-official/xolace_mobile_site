@@ -8,11 +8,11 @@ import { ScrollReveal } from "@/components/manifesto/v2/shared/scroll-reveal"
 const neverStatements = [
   {
     headline: "Never a chatbot therapist.",
-    body: "We don\u2019t give advice. We don\u2019t diagnose. We don\u2019t pretend an algorithm understands your pain. The AI mirrors and then it connects you to the humans who actually do.",
+    body: "We don't give advice. We don't diagnose. We don't pretend an algorithm understands your pain. The AI mirrors then connects you to the humans who actually do.",
   },
   {
     headline: "Never a social feed.",
-    body: "There are no profiles, no followers, no likes, no content to perform for. The things you share are yours. If they reach someone else, it\u2019s anonymously, and only with your explicit permission.",
+    body: "No profiles, no followers, no likes, no content to perform for. What you share is yours. If it reaches someone else, it's anonymously, and only with your explicit permission.",
   },
   {
     headline: "Never showing you ads.",
@@ -20,7 +20,7 @@ const neverStatements = [
   },
   {
     headline: "Never replacing a therapist.",
-    body: "If you need professional care, we\u2019ll help you find it, not with a cold hotline number, but with warmth and context. We know what we are. And we know what we\u2019re not.",
+    body: "If you need professional care, we\u2019ll help you find it; not with a cold hotline number, but with warmth and context. We know what we are. We know what we\u2019re not.",
   },
   {
     headline: "Never selling your data.",
@@ -28,7 +28,7 @@ const neverStatements = [
   },
   {
     headline: "Never trying to keep you.",
-    body: "There are no streaks, no guilt notifications, no \u201Cyou haven\u2019t visited in 3 days.\u201D The app is designed for 3\u20138 minutes. It encourages you to leave. An app that respects your time earns something no engagement hack can manufacture: trust.",
+    body: "No streaks. No guilt notifications. No 'you haven't visited in 3 days.' The app is designed for 3-8 minutes. It encourages you to leave. Respecting your time earns something no engagement hack can manufacture: trust",
   },
 ]
 

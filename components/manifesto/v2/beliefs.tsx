@@ -14,7 +14,7 @@ const beliefs = [
   },
   {
     title: "AI should augment human connection, not replace it.",
-    body: "The AI finds the words. Humans provide the warmth. One without the other is incomplete. A mirror that only reflects back to you is useful. A mirror that shows you others have stood here too is transformative.",
+    body: "The AI finds the words. Humans provide the warmth. One without the other is incomplete. A mirror that only reflects back is useful. A mirror that shows you others have stood here too is transformative.",
   },
   {
     title: "People deserve a place to be human without performing.",

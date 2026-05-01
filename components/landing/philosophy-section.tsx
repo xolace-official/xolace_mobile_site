@@ -10,7 +10,8 @@ export function PhilosophySection() {
           outside therapy.
         </h2>
         <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
-          A space where you say what&apos;s true and see it mirrored clearly.
+          Sometimes you want clarity. Sometimes you just need to say it and let
+          it go. Xolace holds both.
         </p>
       </div>
     </section>
