@@ -9,18 +9,21 @@ const steps = [
     title: "Say what\u2019s true.",
     description:
       "Type what\u2019s real or tap words that feel close. There\u2019s no pressure to be profound, just honest.",
+    image: "/app-images/say-whats-true.jpeg",
   },
   {
     number: "02",
     title: "See it clearly.",
     description:
       "An AI mirrors your feeling back with precision. Not to solve it, but to let you see it for what it really is.",
+    image: "/app-images/see-it-clearly.jpeg",
   },
   {
     number: "03",
     title: "Choose what\u2019s next.",
     description:
       "A guided moment, peer reflections, or just closing knowing you said it. You\u2019re in control of the quiet.",
+    image: "/app-images/choose-whats-next.jpeg",
   },
 ]
 
@@ -290,7 +293,9 @@ export function HowItWorks() {
               {/* Phone mockup */}
               <div className="w-full md:w-1/2 flex justify-center">
                 <div className="w-[240px] md:w-[280px]">
-                  <Iphone>{screens[i]}</Iphone>
+                  <Iphone
+                    src={step.image}
+                  />
                 </div>
               </div>
             </motion.div>

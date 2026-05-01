@@ -1,5 +1,6 @@
 import { Hero } from "@/components/landing/hero"
 import { ProblemSection } from "@/components/landing/problem-section"
+import { CompanionBridge } from "@/components/landing/companion-bridge"
 import { PhilosophySection } from "@/components/landing/philosophy-section"
 import { HowItWorks } from "@/components/landing/how-it-works"
 import { MockupSection } from "@/components/landing/mockup-section"
@@ -14,6 +15,7 @@ export function HomePage() {
     <main className="relative overflow-hidden">
       <Hero />
       <ProblemSection />
+      <CompanionBridge />
       <PhilosophySection />
       <HowItWorks />
       <MockupSection />
