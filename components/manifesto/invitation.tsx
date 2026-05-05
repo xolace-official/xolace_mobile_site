@@ -59,10 +59,12 @@ export function Invitation() {
             />
           </a>
 
-          <span
-            title="App Store — coming soon"
-            className="opacity-40 cursor-not-allowed select-none"
-            aria-label="App Store — coming soon"
+          <a
+            href="https://apps.apple.com/gh/app/xolace/id6761601429"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-all duration-300 hover:scale-105 hover:opacity-90 active:scale-95"
+            aria-label="Get Xolace on the App Store"
           >
             <Image
               src="/images/app-store-mobile.png"
@@ -78,7 +80,7 @@ export function Invitation() {
               height={59}
               className="h-14 w-auto rounded-xl hidden dark:block"
             />
-          </span>
+          </a>
           </motion.div>
 
           <motion.p
