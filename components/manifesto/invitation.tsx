@@ -1,53 +1,11 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Check } from "lucide-react"
-import { motion, AnimatePresence } from "motion/react"
-import { useState } from "react"
-import { getSupabaseBrowserClient } from "@/utils/supabase/client"
-import { Coolshape } from "coolshapes-react"
+import Image from "next/image"
+import { motion } from "motion/react"
 
 export function Invitation() {
-  const supabase = getSupabaseBrowserClient()
-
-  const [email, setEmail] = useState("")
-  const [submitted, setSubmitted] = useState(false)
-  const [error, setError] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    if (!email.trim()) return
-    setIsLoading(true)
-
-    try {
-      const { error: insertError } = await supabase
-        .from("waitlist")
-        .insert({ email })
-
-      if (insertError) throw insertError
-
-      setSubmitted(true)
-      setIsLoading(false)
-
-      setTimeout(() => {
-        setEmail("")
-        setSubmitted(false)
-      }, 8000)
-    } catch (err) {
-      console.error("Waitlist submission error:", err)
-      setError(true)
-      setIsLoading(false)
-
-      setTimeout(() => {
-        setError(false)
-      }, 3000)
-    }
-  }
-
   return (
-    <section className="asymmetric-layout mb-32" id="waitlist">
+    <section className="asymmetric-layout mb-32" id="download">
       <div className="bg-card p-5 md:p-20 rounded-xl relative overflow-hidden">
         {/* Subtle gradient glow */}
         <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 blur-[100px] rounded-full" />
@@ -68,103 +26,69 @@ export function Invitation() {
             viewport={{ once: true, margin: "-50px" }}
             className="text-muted-foreground mb-12 text-lg font-serif"
           >
-            If any of this resonated, we&apos;d like you to be there when it
-            opens.
+            If any of this resonated — Xolace is live. It&apos;s ready when you are.
           </motion.p>
 
-          <AnimatePresence mode="wait">
-            {submitted ? (
-              <motion.div
-                key="success"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                className="flex items-center gap-4 py-4"
-              >
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                  className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/15 shrink-0"
-                >
-                  <Check className="w-6 h-6 text-primary" />
-                </motion.div>
-                <div className="space-y-1">
-                  <p className="text-foreground font-light">
-                    You&apos;re on the list.
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    We&apos;ll send regular updates & a quiet note when it&apos;s time.
-                  </p>
-                </div>
-              </motion.div>
-            ) : error ? (
-              <motion.div
-                key="error"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                className="flex items-center gap-4 py-4"
-              >
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                  className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-destructive/15 shrink-0"
-                >
-                  <Coolshape type="triangle" index={9} size={28} noise />
-                </motion.div>
-                <div className="space-y-1">
-                  <p className="text-foreground font-light">
-                    Something went wrong.
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    Please try again in a moment.
-                  </p>
-                </div>
-              </motion.div>
-            ) : (
-              <motion.form
-                key="form"
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true, margin: "-50px" }}
-                onSubmit={handleSubmit}
-                className="space-y-6"
-              >
-                <Input
-                  type="email"
-                  name="email"
-                  autoComplete="email"
-                  spellCheck={false}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email address"
-                  required
-                  className="h-auto w-full border-none bg-input ring-1 ring-xo-outline-variant/15 focus-visible:ring-primary/50 rounded-lg px-6 py-4 text-sm text-foreground transition-all duration-500"
-                />
-                <Button
-                  type="submit"
-                  size="lg"
-                  disabled={isLoading}
-                  className="h-auto w-full md:w-auto px-10 py-4 rounded-lg border-none cta-gradient text-primary-foreground font-semibold tracking-widest uppercase text-xs transition-all duration-500 disabled:opacity-60 disabled:cursor-not-allowed"
-                >
-                  {isLoading ? "Joining..." : "Join the Waitlist"}
-                </Button>
-              </motion.form>
-            )}
-          </AnimatePresence>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="flex flex-wrap items-center gap-4"
+          >
+          <a
+            href="https://play.google.com/store/apps/details?id=com.xolaceincorg.xolace"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-all duration-300 hover:scale-105 hover:opacity-90 active:scale-95"
+            aria-label="Get Xolace on Google Play"
+          >
+            <Image
+              src="/images/play-store-light.png"
+              alt="Get it on Google Play"
+              width={200}
+              height={59}
+              className="h-14 w-auto dark:hidden"
+            />
+            <Image
+              src="/images/play-store-dark.png"
+              alt="Get it on Google Play"
+              width={200}
+              height={59}
+              className="h-14 w-auto hidden dark:block"
+            />
+          </a>
+
+          <span
+            title="App Store — coming soon"
+            className="opacity-40 cursor-not-allowed select-none"
+            aria-label="App Store — coming soon"
+          >
+            <Image
+              src="/images/app-store-mobile.png"
+              alt="Download on the App Store"
+              width={200}
+              height={59}
+              className="h-14 w-auto rounded-xl dark:hidden"
+            />
+            <Image
+              src="/images/app-store-mobile-dark.png"
+              alt="Download on the App Store"
+              width={200}
+              height={59}
+              className="h-14 w-auto rounded-xl hidden dark:block"
+            />
+          </span>
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true, margin: "-50px" }}
-            className="text-xs text-muted-foreground mt-4"
+            className="text-xs text-muted-foreground mt-6"
           >
-            No spam. Just regular updates & a quiet note when it&apos;s ready.
+            iOS coming soon.
           </motion.p>
         </div>
       </div>
