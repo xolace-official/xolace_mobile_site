@@ -75,20 +75,23 @@ export function LaunchSection() {
           </a>
 
           <span
+            role="img"
             title="App Store — coming soon"
             className="opacity-40 cursor-not-allowed select-none"
             aria-label="App Store — coming soon"
           >
             <Image
               src="/images/app-store-mobile.png"
-              alt="Download on the App Store"
+              alt=""
+              aria-hidden="true"
               width={200}
               height={59}
               className="h-14 w-auto rounded-xl dark:hidden"
             />
             <Image
               src="/images/app-store-mobile-dark.png"
-              alt="Download on the App Store"
+              alt=""
+              aria-hidden="true"
               width={200}
               height={59}
               className="h-14 w-auto rounded-xl hidden dark:block"
