@@ -6,7 +6,7 @@ import { HowItWorks } from "@/components/landing/how-it-works"
 import { MockupSection } from "@/components/landing/mockup-section"
 import { ReflectionsSection } from "@/components/landing/reflections-section"
 import { TrustSection } from "@/components/landing/trust-section"
-import { WaitlistCTA } from "@/components/landing/waitlist-cta"
+import { LaunchSection } from "@/components/landing/launch-section"
 import { SmoothScroll } from "@/components/shared/smooth-scroll"
 
 export function HomePage() {
@@ -21,7 +21,7 @@ export function HomePage() {
       <MockupSection />
       <ReflectionsSection />
       <TrustSection />
-      <WaitlistCTA />
+      <LaunchSection />
     </main>
     </SmoothScroll>
   )
