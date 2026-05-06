@@ -100,15 +100,6 @@ export function LaunchSection() {
           </a>
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center text-xs text-muted-foreground/60"
-        >
-          iOS coming soon.
-        </motion.p>
       </div>
 
       {/* Decorative glow */}

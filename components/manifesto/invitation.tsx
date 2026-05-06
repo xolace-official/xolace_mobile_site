@@ -26,7 +26,7 @@ export function Invitation() {
             viewport={{ once: true, margin: "-50px" }}
             className="text-muted-foreground mb-12 text-lg font-serif"
           >
-            If any of this resonated — Xolace is live. It&apos;s ready when you are.
+            If this is the place you&apos;ve been looking for, Xolace is live.
           </motion.p>
 
           <motion.div
@@ -83,15 +83,6 @@ export function Invitation() {
           </a>
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true, margin: "-50px" }}
-            className="text-xs text-muted-foreground mt-6"
-          >
-            iOS coming soon.
-          </motion.p>
         </div>
       </div>
     </section>

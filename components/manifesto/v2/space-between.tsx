@@ -71,12 +71,9 @@ export function SpaceBetween() {
       {/* The articulation thesis — visually elevated */}
       <ScrollReveal delay={0.15} className="max-w-3xl mt-16 md:mt-24">
         <p className="text-2xl md:text-3xl text-foreground font-light leading-snug">
-          And through building Xolace, we discovered something we didn&apos;t
-          expect:{" "}
-          <strong className="text-foreground">
-            the core problem isn&apos;t that people lack places to express
-            themselves. It&apos;s that they lack language for what they feel.
-          </strong>
+          We built Xolace to give people space to express themselves. What we
+          discovered is that expression was never the problem.{" "}
+          <strong className="text-foreground">Language was.</strong>
         </p>
         <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose mt-6">
           Most people don&apos;t avoid processing emotions because they

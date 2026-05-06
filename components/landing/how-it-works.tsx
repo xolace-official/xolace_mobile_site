@@ -6,9 +6,9 @@ import { motion } from "motion/react"
 const steps = [
   {
     number: "01",
-    title: "Say what\u2019s true.",
+    title: "Say what's true or let it out.",
     description:
-      "Type what\u2019s real or tap words that feel close. There\u2019s no pressure to be profound, just honest.",
+      "Type what's real, tap words that feel close, or speak it out loud. No pressure to be profound, just honest.",
     image: "/app-images/say-whats-true.jpeg",
   },
   {
@@ -20,9 +20,9 @@ const steps = [
   },
   {
     number: "03",
-    title: "Choose what\u2019s next.",
+    title: "Choose what's next.",
     description:
-      "A guided moment, peer reflections, or just closing knowing you said it. Every session ends complete nothing left unresolved to pull you back.",
+      "A guided moment, peer reflections, or just closing knowing you said it. Every session ends complete, nothing left unresolved to pull you back.",
     image: "/app-images/choose-whats-next.jpeg",
   },
 ]
