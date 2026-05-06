@@ -13,7 +13,7 @@ const beliefs = [
     body: "Mental wellness shouldn\u2019t begin at crisis. You don\u2019t wait until you\u2019re sick to take care of your body. You shouldn\u2019t wait until you\u2019re broken to take care of your mind.",
   },
   {
-    title: "AI should augment human connection, not replace it.",
+    title: "AI should make human connection more reachable, not replace it.",
     body: "The AI finds the words. Humans provide the warmth. One without the other is incomplete. A mirror that only reflects back is useful. A mirror that shows you others have stood here too is transformative.",
   },
   {

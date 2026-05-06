@@ -26,7 +26,7 @@ export function Invitation() {
             viewport={{ once: true, margin: "-50px" }}
             className="text-muted-foreground mb-12 text-lg font-serif"
           >
-            If any of this resonated — Xolace is live. It&apos;s ready when you are.
+            If this is the place you&apos;ve been looking for, Xolace is live.
           </motion.p>
 
           <motion.div
@@ -59,10 +59,12 @@ export function Invitation() {
             />
           </a>
 
-          <span
-            title="App Store — coming soon"
-            className="opacity-40 cursor-not-allowed select-none"
-            aria-label="App Store — coming soon"
+          <a
+            href="https://apps.apple.com/gh/app/xolace/id6761601429"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-all duration-300 hover:scale-105 hover:opacity-90 active:scale-95"
+            aria-label="Get Xolace on the App Store"
           >
             <Image
               src="/images/app-store-mobile.png"
@@ -78,18 +80,9 @@ export function Invitation() {
               height={59}
               className="h-14 w-auto rounded-xl hidden dark:block"
             />
-          </span>
+          </a>
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true, margin: "-50px" }}
-            className="text-xs text-muted-foreground mt-6"
-          >
-            iOS coming soon.
-          </motion.p>
         </div>
       </div>
     </section>

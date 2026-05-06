@@ -16,6 +16,9 @@ export function ProblemSection() {
               Not depressed -{" "}
               <span className="text-primary/60 italic">just hollow.</span>
             </p>
+            <p className="text-lg md:text-xl text-primary/60 italic text-center mt-8 pt-4">
+              That space. That&apos;s where Xolace lives.
+            </p>
           </div>
         </div>
       </div>

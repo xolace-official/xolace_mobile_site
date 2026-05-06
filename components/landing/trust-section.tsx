@@ -2,8 +2,8 @@ import { Lock, UserX, EyeOff, Ban, Shield } from "lucide-react"
 
 const features = [
   { icon: Lock, text: "Words are end-to-end encrypted." },
-  { icon: UserX, text: "Account only needed for reflections." },
-  { icon: EyeOff, text: "Anonymous means anonymous." },
+  { icon: UserX, text: "Account only needed to share your thoughts with others." },
+  { icon: EyeOff, text: "Your name is never attached to what you write." },
   { icon: Ban, text: "No ads. No data selling. Ever." },
 ]
 

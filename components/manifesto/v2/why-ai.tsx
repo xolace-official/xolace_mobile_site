@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/manifesto/v2/shared/scroll-reveal"
 const peerReflections = [
   "Some days I feel like I\u2019m performing being okay and no one can tell.",
   "The exhaustion isn\u2019t physical. It\u2019s from pretending.",
-  "I keep waiting for someone to ask how I really am.",
+  "I've described it to three different people and none of them got it. I'm not even sure I got it.",
 ]
 
 export function WhyAI() {
@@ -106,7 +106,7 @@ export function WhyAI() {
             across the silence. The AI helped you name your feeling. Another
             person helped you feel less alone in it.{" "}
             <strong className="text-foreground">
-              That combination, machine precision and human recognition, is what nothing else provides.
+              That combination of language from the AI and recognition from another human is what nothing else offers.
             </strong>
           </p>
         </ScrollReveal>

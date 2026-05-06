@@ -18,6 +18,12 @@ export function Hero() {
           Xolace is a quiet space for the moments between. Not a feed. Not a
           clinic. A place to be human.
         </p>
+        <a
+          href="#download"
+          className="inline-block text-sm text-muted-foreground/50 hover:text-muted-foreground transition-colors duration-300 tracking-wide"
+        >
+          Download free ↓
+        </a>
       </div>
 
       {/* Abstract background shapes */}

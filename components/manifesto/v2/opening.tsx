@@ -19,7 +19,8 @@ export function OpeningV2() {
           <p className="font-serif italic text-xl md:text-2xl text-muted-foreground leading-relaxed">
             We built this because we needed it. Nothing else did what we were
             looking for. We&apos;re not trying to fix you, we&apos;re trying to
-            build the place we wished existed on the nights we needed it most.
+            build the place we wished existed on the nights when something was
+            sitting on our chest and we had no one to call.
           </p>
         </div>
       </ScrollReveal>

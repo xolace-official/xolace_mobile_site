@@ -17,8 +17,7 @@ const reflections = [
     time: "2:05 AM",
   },
   {
-    quote:
-      "I smiled at a stranger today and they smiled back. That was the best part of my week.",
+    quote: "I don't even know what I'm sad about. That's the worst part.",
     time: "6:41 PM",
   },
   {

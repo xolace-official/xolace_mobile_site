@@ -16,16 +16,27 @@ export function CompanionBridge() {
   return (
     <section
       ref={ref}
-      className="relative py-24 md:py-40 overflow-hidden flex items-center justify-center"
+      className="relative py-24 md:py-40 overflow-hidden flex items-center justify-center gap-5"
     >
       {/* Ambient glow — echoes the blue in the image */}
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"
       >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] rounded-full bg-blue-400/[0.06] blur-[120px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[40%] w-[300px] h-[300px] rounded-full bg-primary/[0.04] blur-[80px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] rounded-full bg-blue-400/6 blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[40%] w-[300px] h-[300px] rounded-full bg-primary/4 blur-[80px]" />
       </div>
+
+      {/* Tagline */}
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 text-center text-lg md:text-xl text-muted-foreground font-serif italic mb-10 max-w-md px-6"
+      >
+        The AI finds the words. Another person proves you&apos;re not alone in them.
+      </motion.p>
 
       {/* Image — centered, floating */}
       <motion.div
