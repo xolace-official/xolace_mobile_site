@@ -132,6 +132,154 @@ People who find those articles are our users. They're literally doing what Xolac
 
 ---
 
+## Flux — Poses & Animations We Need
+
+This is the production checklist for the design team. Each scene below is a specific Flux asset the site needs. When you generate each one, you can check it off.
+
+A note on format:
+- **Still image (PNG)** — used anywhere Flux is just present in the frame, not moving
+- **Looping animation (MP4)** — used where Flux breathes, floats, or idles continuously
+- **One-shot animation (MP4)** — plays once when triggered (like when the user scrolls into a section), then holds the final frame
+
+All animations should have a clean, transparent-friendly background so they sit naturally on any page color (light or dark). Export both a light-mode and dark-mode version if the background matters.
+
+---
+
+### Phase 1 — Needed Before Launch
+
+These are the assets that block the engineering work. The site can't go live with Flux sections empty.
+
+---
+
+#### 1. Hero Idle — Looping animation
+
+**Where:** Homepage hero section, top of the page. The very first thing a visitor sees.
+
+**The scene:** Flux is sitting or floating quietly. Gem barely glowing — like an ember, not a fire. The body breathes slowly. Nothing urgent. Just presence. The message is: *you're safe here, take your time.*
+
+**What it should feel like:** Like sitting next to a calm fire at night. Not trying to get your attention. Just there.
+
+**Format:** MP4 loop. Seamless — the end frame flows back into the start.
+
+**Size:** Roughly 300–400px wide. Sits beside or slightly below the main headline text. Doesn't dominate — supports.
+
+---
+
+#### 2. Download Celebration — One-shot animation
+
+**Where:** The download section at the bottom of the homepage (the "Get Xolace" area).
+
+**The scene:** Arms open, body lifted, gem absolutely blazing bright. This is Flux at its most joyful — like a cheer when someone decides to take the leap. Plays once as the user scrolls into the section.
+
+**What it should feel like:** The payoff. The whole page builds to this moment. Flux should feel like it's genuinely excited *for the user* — not performing for attention.
+
+**Format:** MP4 one-shot. Ends on the open, joyful pose and holds there.
+
+**Size:** Can be larger here — this is a hero moment. 400–500px wide.
+
+---
+
+#### 3. 404 Lost — Looping animation
+
+**Where:** The 404 error page (when someone lands on a broken link).
+
+**The scene:** Flux is looking around — turning its head, maybe glancing left and right with mild curiosity. Not panicked. Not sad. Just... mildly puzzled in a cute way. Gem is at a calm middle brightness.
+
+**What it should feel like:** The page copy says "You wandered somewhere quiet. That's okay." Flux should match that energy. Unbothered. A little lost together with the visitor, but fine about it.
+
+**Format:** MP4 loop.
+
+**Size:** Center of the page, mid-size. 300px wide.
+
+---
+
+#### 4. About Page Warm — Still image (PNG)
+
+**Where:** The /about page, near the top. Greets visitors before they read about the team.
+
+**The scene:** Flux standing or sitting, facing forward (or slightly angled). Warm, grounded. Gem glowing softly. Not jumping, not performing — just present and open. The vibe: *glad you're here, let me tell you who we are.*
+
+**What it should feel like:** Meeting a thoughtful person for the first time. Calm confidence. Not trying too hard.
+
+**Format:** PNG with transparent background.
+
+**Size:** Medium — sits beside or above the hero text on the page.
+
+---
+
+#### 5. 404 Confused — Still image (PNG) *(alternative to animation if timeline is tight)*
+
+**Where:** Backup option for the 404 page if the looping animation takes too long.
+
+**The scene:** Same energy as the looping version — curious, unbothered, mildly puzzled. A single frame works fine here.
+
+**Format:** PNG.
+
+---
+
+### Phase 1.5 — Nice to Have for Launch, Not Blocking
+
+These don't need to exist on day one but should come shortly after.
+
+---
+
+#### 6. Trust / Protective — Still image (PNG)
+
+**Where:** The trust section on the homepage (the section that talks about privacy, data, how Xolace handles what you share).
+
+**The scene:** Flux holding something close — the gem cradled gently, or arms curved inward protectively. Not defensive. Warm-protective. The message: *what you share here is safe.*
+
+**What it should feel like:** The way you'd hold something fragile. Careful. Gentle.
+
+**Format:** PNG.
+
+---
+
+#### 7. How It Works Steps — Still images (PNG × 3)
+
+**Where:** The "How It Works" section on the homepage. Three steps — feel it, name it, find peace. Each step gets its own small Flux illustration.
+
+**The scenes:**
+- **Step 1 (Feel it):** Flux with the gem dim, body slightly curled or inward. Holding the weight. Present in the hard moment.
+- **Step 2 (Name it):** Flux mid-motion — gem starting to brighten. A sense of something shifting. Discovery.
+- **Step 3 (Find peace):** Gem fully lit. Body relaxed, open. The exhale after clarity arrives.
+
+**What it should feel like:** A three-panel emotional arc, told entirely through Flux's body and gem brightness. No words needed — the progression says it all.
+
+**Format:** PNG × 3. Consistent size and style so they read as a set.
+
+---
+
+#### 8. Press Page Confident — Still image (PNG)
+
+**Where:** The /press page (for journalists).
+
+**The scene:** Flux standing upright, facing forward, gem at full brightness. Brand ambassador energy — professional but still warm. The vibe: *we're ready for you, here's everything you need.*
+
+**Format:** PNG.
+
+---
+
+### Phase 2 — Future (Journal Articles)
+
+When the /journal launches, each article will have a Flux image at the top. The pose gets matched to the emotional topic of the piece — so these are generated on demand, not pre-made. The design team just needs to know: for every article, request a Flux pose that matches the article's emotional tone, following the gem brightness rule.
+
+---
+
+### The Gem Brightness Rule — Quick Reference
+
+This governs every Flux asset across the whole site:
+
+| Gem state | What it means | Use when... |
+|-----------|---------------|-------------|
+| Dim / barely glowing | Flux is with you in the hard moment | Hero idle, heavy trust copy, Step 1 |
+| Medium glow | Something is shifting — clarity arriving | Step 2, transition moments |
+| Bright / blazing | Joy, clarity, celebration | Download section, Step 3, press page |
+
+**Hard rule:** Never use a bright-gem Flux pose next to vulnerable or heavy emotional copy. Those moments need to breathe alone.
+
+---
+
 ## What We're NOT Doing
 
 To keep scope clear:
