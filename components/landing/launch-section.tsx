@@ -7,7 +7,7 @@ export function LaunchSection() {
   return (
     <section id="download" className="py-40 px-8 relative overflow-hidden">
       <div className="max-w-3xl mx-auto relative z-10 space-y-16">
-        {/* Heading */}
+
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -16,18 +16,16 @@ export function LaunchSection() {
           className="text-center space-y-4"
         >
           <h2 className="text-5xl md:text-6xl text-foreground leading-tight font-light">
-            We&apos;re live.{" "}
-            <br />
-            <span className="italic font-extralight opacity-80">
-              Find your quiet corner.
+            Carry it{" "}
+            <span className="font-serif italic font-light opacity-80">
+              with you.
             </span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-lg mx-auto leading-relaxed">
-            Xolace is out in the world. Watch what we built, then carry it with you.
+          <p className="text-muted-foreground text-lg max-w-md mx-auto leading-relaxed">
+            Xolace is free to download. Your first session takes 3 minutes.
           </p>
         </motion.div>
 
-        {/* Launch video */}
         <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -43,7 +41,6 @@ export function LaunchSection() {
           />
         </motion.div>
 
-        {/* Download badges */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,22 +55,9 @@ export function LaunchSection() {
             className="transition-all duration-300 hover:scale-105 hover:opacity-90 active:scale-95"
             aria-label="Get Xolace on Google Play"
           >
-            <Image
-              src="/images/play-store-light.png"
-              alt="Get it on Google Play"
-              width={200}
-              height={59}
-              className="h-14 w-auto dark:hidden"
-            />
-            <Image
-              src="/images/play-store-dark.png"
-              alt="Get it on Google Play"
-              width={200}
-              height={59}
-              className="h-14 w-auto hidden dark:block"
-            />
+            <Image src="/images/play-store-light.png" alt="Get it on Google Play" width={200} height={59} className="h-14 w-auto dark:hidden" />
+            <Image src="/images/play-store-dark.png" alt="Get it on Google Play" width={200} height={59} className="h-14 w-auto hidden dark:block" />
           </a>
-
           <a
             href="https://apps.apple.com/gh/app/xolace/id6761601429"
             target="_blank"
@@ -81,29 +65,14 @@ export function LaunchSection() {
             className="transition-all duration-300 hover:scale-105 hover:opacity-90 active:scale-95"
             aria-label="Download Xolace on the App Store"
           >
-            <Image
-              src="/images/app-store-mobile.png"
-              alt="Download Xolace on the App Store"
-              aria-hidden="true"
-              width={200}
-              height={59}
-              className="h-14 w-auto rounded-xl dark:hidden"
-            />
-            <Image
-              src="/images/app-store-mobile-dark.png"
-              alt="Download Xolace on the App Store"
-              aria-hidden="true"
-              width={200}
-              height={59}
-              className="h-14 w-auto rounded-xl hidden dark:block"
-            />
+            <Image src="/images/app-store-mobile.png" alt="Download on the App Store" width={200} height={59} className="h-14 w-auto rounded-xl dark:hidden" />
+            <Image src="/images/app-store-mobile-dark.png" alt="Download on the App Store" width={200} height={59} className="h-14 w-auto rounded-xl hidden dark:block" />
           </a>
         </motion.div>
 
       </div>
 
-      {/* Decorative glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-primary/5 blur-[120px] rounded-[100%] pointer-events-none" />
+      <div aria-hidden className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-primary/5 blur-[120px] rounded-[100%] pointer-events-none" />
     </section>
   )
 }

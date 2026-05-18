@@ -1,17 +1,13 @@
 "use client"
 
-import { cn } from "@/lib/utils"
 import { motion } from "motion/react"
-import { Star } from "lucide-react"
 
 type Review = {
   quote: string
   author: string
-  // null means no platform badge — used for beta user fallbacks
   platform: "App Store" | "Google Play" | null
 }
 
-// Fallback until we have enough real App Store / Play Store reviews
 const fallbackReviews: Review[] = [
   {
     quote: "I didn't have words for what I was carrying. Xolace gave them to me.",
@@ -30,39 +26,16 @@ const fallbackReviews: Review[] = [
   },
 ]
 
-function StarRating() {
+function Attribution({ author, platform }: Pick<Review, "author" | "platform">) {
   return (
-    <div className="flex items-center gap-0.5">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} className="size-3 fill-primary text-primary" />
-      ))}
-    </div>
-  )
-}
-
-function ReviewCard({ quote, author, platform }: Review) {
-  return (
-    <figure className={cn(
-      "flex flex-col gap-5 rounded-2xl p-7",
-      "bg-xo-surface-low border border-xo-outline-variant/10",
-      "ring-1 ring-xo-outline-variant/[0.06]",
-    )}>
-      <StarRating />
-      <blockquote className="flex-1 font-serif italic text-foreground/80 leading-relaxed text-sm md:text-base">
-        &ldquo;{quote}&rdquo;
-      </blockquote>
-      <figcaption className="flex items-center gap-2">
-        <span className="text-xs text-muted-foreground">{author}</span>
-        {platform && (
-          <>
-            <span className="text-xo-outline-variant/40 text-xs">·</span>
-            <span className="text-[10px] tracking-[0.08em] uppercase text-primary/60 font-mono">
-              {platform}
-            </span>
-          </>
-        )}
-      </figcaption>
-    </figure>
+    <p className="text-xs text-muted-foreground/40 tracking-wide font-light">
+      — {author}
+      {platform && (
+        <span className="ml-2 font-mono uppercase tracking-[0.12em] text-primary/40 text-[10px]">
+          · {platform}
+        </span>
+      )}
+    </p>
   )
 }
 
@@ -71,40 +44,56 @@ type TestimonialsSectionProps = {
 }
 
 export function TestimonialsSection({ reviews }: TestimonialsSectionProps) {
-  // Never show fewer than 3 — fallback keeps the section alive before real reviews arrive
   const display = reviews && reviews.length >= 3 ? reviews : fallbackReviews
+  const [featured, second, third] = display
 
   return (
     <section className="py-32 px-8">
-      <div className="max-w-5xl mx-auto space-y-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+      <div className="max-w-5xl mx-auto space-y-20">
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center space-y-3"
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/40"
         >
-          <h2 className="text-4xl md:text-5xl text-foreground font-light">
-            What it&apos;s like inside.
-          </h2>
-          <p className="text-muted-foreground font-serif italic max-w-sm mx-auto">
-            From people who needed this before they knew it existed.
-          </p>
+          What people are saying
+        </motion.p>
+
+        {/* Featured — large pull quote */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="space-y-6 border-t border-border/15 pt-12"
+        >
+          <blockquote className="text-3xl md:text-4xl lg:text-5xl text-foreground font-serif italic font-light leading-[1.25]">
+            &ldquo;{featured.quote}&rdquo;
+          </blockquote>
+          <Attribution author={featured.author} platform={featured.platform} />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {display.map((review, i) => (
+        {/* Two secondary quotes side by side */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 divide-y md:divide-y-0 md:divide-x divide-border/15">
+          {[second, third].map((review, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.7, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className={`space-y-5 py-10 ${i === 0 ? "md:pr-12" : "md:pl-12"}`}
             >
-              <ReviewCard {...review} />
+              <blockquote className="text-xl md:text-2xl text-foreground/80 font-serif italic font-light leading-relaxed">
+                &ldquo;{review.quote}&rdquo;
+              </blockquote>
+              <Attribution author={review.author} platform={review.platform} />
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   )

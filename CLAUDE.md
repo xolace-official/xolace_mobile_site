@@ -173,20 +173,21 @@ Reference: `waitlist-form.tsx` + `waitlist-cta.tsx`. Every new form (supporters,
 
 ```
 HomePage.tsx
-  ├── Hero
-  ├── ProblemSection
-  ├── CompanionBridge
-  ├── PhilosophySection
-  ├── HowItWorks
-  ├── MockupSection
-  ├── ReflectionsSection
-  ├── TrustSection
-  ├── TestimonialsSection    ← added Phase 1
-  ├── LaunchSection          (id="download" — sticky bar hides when this is visible)
-  └── SupportSection         ← added Phase 1
+  ├── Hero              — emotional hook + download badges (direct)
+  ├── ProblemSection    — raw vignettes ("Monday 11pm, chest tight")
+  ├── PathsSection      — Mirror / Vent / Glimpses explained
+  ├── HowItWorks        — 3-step flow with real app screenshots
+  ├── MockupSection     — Mirror conversation demo
+  ├── ReflectionsSection — anonymous quotes marquee
+  ├── TrustSection      — privacy signals
+  ├── TestimonialsSection — real user reviews
+  ├── LaunchSection     — video + download badges (id="download")
+  └── SupportSection    — early supporter email form
 ```
 
-`MobileDownloadBar` is rendered outside `<main>` inside `SmoothScroll`, so it's not part of the scroll flow.
+`CompanionBridge` and `PhilosophySection` are NOT in the page. Their key ideas live in `PathsSection` now. Do not re-add them without discussing first.
+
+`MobileDownloadBar` is rendered outside `<main>` inside `SmoothScroll` — it's not part of the scroll flow.
 
 ### Supabase
 

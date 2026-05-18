@@ -6,56 +6,59 @@ import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 
+const navLinks = [
+  { href: "/manifesto", label: "Manifesto" },
+  { href: "https://ambassador.xolaceinc.com", label: "Ambassadors", external: true },
+]
+
 export function Navbar() {
   const pathname = usePathname()
-  const isAmbassador = pathname.includes("/ambassadors")
-  const isManifesto = pathname.includes("/manifesto")
+
   return (
     <nav className="fixed top-0 w-full z-50">
-      {/* Glassy backdrop */}
-      <div className="absolute inset-0 bg-background/60 backdrop-blur-2xl backdrop-saturate-150 border-b border-border/40" />
+      <div className="absolute inset-0 bg-background/70 backdrop-blur-2xl backdrop-saturate-150" />
 
-      <div className="relative flex justify-between items-center px-6 md:px-12 py-4 md:py-5 max-w-screen-2xl mx-auto">
-        {/* Logo + mascot */}
-        <Link
-          href="/"
-          className="flex items-center gap-2.5 group"
-        >
+      <div className="relative flex justify-between items-center px-6 md:px-12 py-4 max-w-screen-2xl mx-auto">
+
+        <Link href="/" className="flex items-center gap-2.5 group">
           <Image
             src="/images/use-x-remove-bg.png"
-            alt="Xolace mascot"
-            width={32}
-            height={32}
-            className="size-8 object-contain transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
+            alt="Xolace"
+            width={28}
+            height={28}
+            className="size-7 object-contain transition-transform duration-500 group-hover:scale-110"
           />
-          <span className="text-xl tracking-tighter text-foreground font-medium italic hidden md:block">
+          <span className="font-serif italic text-lg text-foreground/80 group-hover:text-foreground transition-colors duration-300 hidden md:block">
             Xolace
           </span>
         </Link>
 
-        {/* Right side — nav links + theme toggle */}
-        <div className="flex items-center gap-4 md:gap-8">
-          <div className="flex items-center gap-5 md:gap-8 text-sm tracking-wide">
-            <Link
-              href="/manifesto"
-              className={cn(isManifesto ? "text-primary" : "text-muted-foreground hover:text-primary font-medium transition-colors duration-500")}
-            >
-              Manifesto
-            </Link>
-            <Link
-            target="_blank"
-              href="https://ambassador.xolaceinc.com"
-              className={cn(isAmbassador ? "text-primary" : "text-muted-foreground hover:text-primary transition-colors duration-500")}
-            >
-              Ambassadors
-            </Link>
+        <div className="flex items-center gap-8">
+          <div className="flex items-center gap-6 text-sm">
+            {navLinks.map(({ href, label, external }) => {
+              const isActive = !external && pathname.startsWith(href)
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  target={external ? "_blank" : undefined}
+                  rel={external ? "noopener noreferrer" : undefined}
+                  className={cn(
+                    "transition-colors duration-300 font-light tracking-wide",
+                    isActive
+                      ? "text-foreground"
+                      : "text-muted-foreground/70 hover:text-foreground"
+                  )}
+                >
+                  {label}
+                </Link>
+              )
+            })}
           </div>
-
-          {/* Divider */}
-          <div className="h-5 w-px bg-border/60" />
 
           <AnimatedThemeToggler />
         </div>
+
       </div>
     </nav>
   )

@@ -12,155 +12,157 @@ const socials = [
     href: "https://www.tiktok.com/@talk.with.xolace?_r=1&_t=ZS-93PtIXpzJAr",
     icon: (
       <>
-        <TikTokLight className="size-[16px] block dark:hidden" />
-        <TikTokDark className="size-[16px] hidden dark:block" />
+        <TikTokLight className="size-[15px] block dark:hidden" />
+        <TikTokDark className="size-[15px] hidden dark:block" />
       </>
     ),
   },
   {
     label: "Instagram",
     href: "https://www.instagram.com/xolaceinc?utm_source=qr&igsh=anB2bTA4ZTJiM2tu",
-    icon: <Instagram className="size-[16px]" />,
+    icon: <Instagram className="size-[15px]" />,
   },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/company/xolace-inc/",
-    icon: <LinkedIn className="size-[16px]" />,
+    icon: <LinkedIn className="size-[15px]" />,
   },
   {
     label: "WhatsApp",
     href: "https://whatsapp.com/channel/0029Vb68RgXGpLHPmY1pL73s",
-    icon: <WhatsApp className="size-[16px]" />,
+    icon: <WhatsApp className="size-[15px]" />,
   },
 ]
 
-const contactLinks = [
-  { label: "General enquiries", href: "mailto:hello@xolaceinc.com" },
-  { label: "Privacy & data", href: "mailto:privacy@xolaceinc.com" },
-  { label: "Press", href: "mailto:press@xolaceinc.com" },
-]
-
-const legalLinks = [
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms of Service", href: "/terms" },
-  { label: "Support", href: "/support" },
-]
+const links = {
+  product: [
+    { label: "Manifesto", href: "/manifesto" },
+    { label: "Ambassadors", href: "https://ambassador.xolaceinc.com", external: true },
+    { label: "Support", href: "/support" },
+  ],
+  legal: [
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
+  ],
+  contact: [
+    { label: "hello@xolaceinc.com", href: "mailto:hello@xolaceinc.com" },
+    { label: "press@xolaceinc.com", href: "mailto:press@xolaceinc.com" },
+  ],
+}
 
 export function Footer() {
   return (
-    <footer className="bg-xo-surface-lowest w-full border-t border-border">
+    <footer className="bg-xo-surface-lowest border-t border-border/30">
 
-      {/* Top row — brand left, contact right */}
-      <div className="px-8 md:px-12 lg:px-16 max-w-screen-2xl mx-auto pt-16 pb-14">
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-12">
+      {/* Main content */}
+      <div className="px-8 md:px-12 lg:px-16 max-w-screen-2xl mx-auto py-16 md:py-20">
+        <div className="flex flex-col md:flex-row md:justify-between gap-12 md:gap-20">
 
-          {/* Left — brand + nav + socials */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-3">
+          {/* Brand */}
+          <div className="space-y-6 md:max-w-xs">
+            <Link href="/" className="flex items-center gap-2.5 group w-fit">
               <Image
                 src="/images/use-x-remove-bg.png"
                 alt="Xolace"
-                width={28}
-                height={28}
-                className="size-7 object-contain"
+                width={26}
+                height={26}
+                className="size-6 object-contain"
               />
-              <span className="text-sm font-medium tracking-tight">Xolace</span>
-            </div>
-
-            <nav className="flex flex-wrap gap-x-6 gap-y-2">
-              <Link
-                href="/manifesto"
-                className="text-[11px] tracking-[0.08em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
-              >
-                Manifesto
-              </Link>
-              <Link
-                href="/support"
-                className="text-[11px] tracking-[0.08em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
-              >
-                Support
-              </Link>
-            </nav>
-
+              <span className="font-serif italic text-base text-foreground/70">Xolace</span>
+            </Link>
+            <p className="text-sm text-muted-foreground/70 leading-relaxed font-light">
+              A quiet place to be human. Not a feed. Not a clinic.
+              The space before, between, and outside therapy.
+            </p>
             <div className="flex items-center gap-1">
-              {socials.map((social) => (
+              {socials.map((s) => (
                 <Link
-                  key={social.label}
-                  href={social.href}
+                  key={s.label}
+                  href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="flex items-center justify-center p-2 rounded-lg opacity-50 hover:opacity-100 hover:bg-muted transition-all duration-300"
+                  aria-label={s.label}
+                  className="flex items-center justify-center p-2 rounded-lg opacity-40 hover:opacity-80 hover:bg-muted transition-all duration-300"
                 >
-                  {social.icon}
+                  {s.icon}
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Right — get in touch */}
-          <div className="space-y-4">
-            <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground">
-              Get in touch
-            </p>
-            <div className="space-y-2">
-              {contactLinks.map((link) => (
-                <div key={link.label}>
+          {/* Links */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-16">
+            <div className="space-y-3">
+              <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground/40">
+                Product
+              </p>
+              {links.product.map((l) => (
+                <div key={l.label}>
                   <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
+                    href={l.href}
+                    target={(l as { external?: boolean }).external ? "_blank" : undefined}
+                    rel={(l as { external?: boolean }).external ? "noopener noreferrer" : undefined}
+                    className="text-sm text-muted-foreground/60 hover:text-foreground transition-colors duration-300 font-light"
                   >
-                    {link.href.replace("mailto:", "")}
+                    {l.label}
                   </Link>
-                  <p className="text-[10px] font-mono uppercase tracking-[0.08em] text-muted-foreground/60 mt-0.5">
-                    {link.label}
-                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="space-y-3">
+              <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground/40">
+                Legal
+              </p>
+              {links.legal.map((l) => (
+                <div key={l.label}>
+                  <Link
+                    href={l.href}
+                    className="text-sm text-muted-foreground/60 hover:text-foreground transition-colors duration-300 font-light"
+                  >
+                    {l.label}
+                  </Link>
+                </div>
+              ))}
+            </div>
+
+            <div className="space-y-3">
+              <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground/40">
+                Contact
+              </p>
+              {links.contact.map((l) => (
+                <div key={l.label}>
+                  <Link
+                    href={l.href}
+                    className="text-sm text-muted-foreground/60 hover:text-foreground transition-colors duration-300 font-light"
+                  >
+                    {l.label}
+                  </Link>
                 </div>
               ))}
             </div>
           </div>
+
         </div>
       </div>
 
-      {/* Acknowledgment — crisis notice */}
-      <div className="border-t border-border px-8 md:px-12 lg:px-16 max-w-screen-2xl mx-auto py-8">
-        <div className="max-w-2xl">
-          <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground mb-3">
-            Acknowledgment
-          </p>
-          <p className="font-serif text-[13px] text-muted-foreground leading-relaxed">
-            Xolace is not designed to be used in crisis. If you are experiencing a mental health
-            emergency or feel unsafe, please contact your local emergency services or reach out to a
-            crisis line. In the US, you can call or text{" "}
-            <a
-              href="tel:988"
-              className="text-foreground underline underline-offset-4 hover:text-primary transition-colors duration-300"
-            >
-              988
-            </a>{" "}
-            at any time.
-          </p>
-        </div>
+      {/* Crisis notice — always present for a mental-health-adjacent product */}
+      <div className="px-8 md:px-12 lg:px-16 max-w-screen-2xl mx-auto pb-8">
+        <p className="font-serif text-[12px] text-muted-foreground/40 leading-relaxed italic max-w-2xl">
+          Xolace is not designed for crisis. If you feel unsafe, contact your local emergency services
+          or call/text{" "}
+          <a href="tel:988" className="underline underline-offset-2 hover:text-muted-foreground/70 transition-colors duration-300">
+            988
+          </a>{" "}
+          (US) at any time.
+        </p>
       </div>
 
-      {/* Bottom bar — copyright + legal links */}
-      <div className="border-t border-border px-8 md:px-12 lg:px-16 max-w-screen-2xl mx-auto py-5">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <p className="text-[11px] tracking-[0.05em] text-muted-foreground">
-            &copy; 2026 Xolace. Built by people who needed this to exist.
-          </p>
-          <div className="flex items-center gap-6">
-            {legalLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-[11px] tracking-[0.05em] text-muted-foreground hover:text-foreground transition-colors duration-300"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </div>
+      {/* Copyright */}
+      <div className="border-t border-border/20 px-8 md:px-12 lg:px-16 max-w-screen-2xl mx-auto py-5">
+        <p className="text-[11px] text-muted-foreground/35 tracking-[0.04em]">
+          &copy; 2026 Xolace Inc. — Built by people who needed this to exist.
+        </p>
       </div>
 
     </footer>
