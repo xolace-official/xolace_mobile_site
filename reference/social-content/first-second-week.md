@@ -247,3 +247,66 @@ Slow looping animation — phone screen glow in a dark room. Text overlays the v
 - **LinkedIn links:** Put the download link in the first comment, not the post body — LinkedIn suppresses reach on posts with external links.
 - **X/Twitter:** The 3am post (Day 2) has the highest share potential — consider pinning it after the launch thread.
 - **Frequency:** Mon / Wed / Fri keeps cadence consistent without overposting during re-entry.
+
+
+
+
+---
+  Pre-Launch: Thu May 7 → Sun May 10
+
+  ---
+  Today (Thursday) — Re-activation, no announcement
+
+  Just drop back in with a pure brand-voice thought. No context needed.
+
+  X/Twitter
+
+  ▎ There's a version of "I'm fine" that's technically true and completely exhausting to keep saying.
+
+  LinkedIn
+
+  ▎ There's a version of "I'm fine" that's technically true and completely exhausting to maintain.
+  ▎
+  ▎ Most people live there more than they admit. That space between what we say and what we actually carry is bigger than we talk about.
+  ▎
+  ▎ Something for that gap is almost here.
+
+  ---
+  Friday (May 8) — Soft teaser
+
+  X/Twitter
+
+  ▎ We've been building something quietly.
+  ▎
+  ▎ For everyone who knows what it's like to feel something they can't name.
+  ▎
+  ▎ Monday.
+
+  LinkedIn
+
+  ▎ We've been quiet. We've been building.
+  ▎
+  ▎ Monday, we share what we made — and why we think it matters.
+
+  ---
+  Weekend (pick Saturday OR Sunday — not both)
+
+  One single line. Pure anticipation.
+
+  X/Twitter
+
+  ▎ Monday. ✦
+
+  LinkedIn
+
+  ▎ Something drops Monday. Keep an eye out.
+
+  ---
+  Why this works
+
+  - Thursday re-activates the account with zero awkwardness — it just sounds like Xolace being Xolace
+  - Friday plants the "Monday" hook so people who see it will be primed to look
+  - Weekend is optional — only post it if the Friday one got traction; don't over-tease
+  - Monday you hit with the full launch thread and it lands with an audience that's already been warmed up
+
+  The Thursday post is the most important one — it signals the voice is back without making the launch feel rushed.
