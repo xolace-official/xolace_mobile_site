@@ -80,7 +80,7 @@ Make visitors want to root for us. Not a corporate "our mission is..." page. Som
 
 ---
 
-### 3. Press Page `/press` — *New page*
+### 3. Press Page `/press` — *New page* (We can Defer this one)
 
 When a journalist or blogger wants to write about Xolace, they need specific things — a logo, app screenshots, a description they can copy, headshots. Right now they'd have to email us and hope we respond. Most won't bother.
 
@@ -98,7 +98,13 @@ A press page removes that friction entirely.
 
 ---
 
-### 4. 404 Page — *New page*
+### 4. FAQ Page `/faq` — *New page*
+
+Right now, if a user has a question about pricing, data, or how Xolace actually works, they're out of luck. They either give up or try to find us on social media.
+
+---
+
+### 5. 404 Page — *New page*
 
 Currently hitting a broken link probably shows a generic Next.js error. That's a missed moment.
 
@@ -112,7 +118,7 @@ Currently hitting a broken link probably shows a generic Next.js error. That's a
 
 ---
 
-### 5. The Journal `/journal` — *Future page, Phase 2*
+### 6. The Journal `/journal` — *Future page, Phase 2*
 
 This is the content play. Not urgent right now, but important to plan for.
 
@@ -143,13 +149,18 @@ To keep scope clear:
 |------|--------|----------|-----|
 | `/` Landing | Exists — adding to it | P1 | Core conversion page |
 | `/about` | New | P1 | Team credibility |
-| `/press` | New | P1 | Journalist self-service |
+| `/press` | New - Phase 2 | P1 | Journalist self-service |
 | `/manifesto` | Exists — no changes | — | Already strong |
+| `/faq` | New | P1 | Answer common questions |
 | `/404` | New | P1 | Brand consistency in error states |
 | `/journal` | New — Phase 2 | P2 | Content moat / SEO |
 | `/privacy`, `/terms`, `/support` | Exist — no changes | — | Fine as-is |
 
 ---
+
+## Your Own ideas
+You can add more sections/pages to the website as long as they align with the brand and don't deviate from the core message. I'm open to new ideas!
+#### NB: We should only try adding pages we can provide content with at this moment. If i is a nice page to have bu cant provide the content now, we should defer it for later.
 
 ## The Feeling We're Going For
 
