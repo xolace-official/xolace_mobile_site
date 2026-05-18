@@ -1,52 +1,20 @@
+"use client"
+
+import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
 import { Marquee } from "@/components/ui/marquee"
 
 const reflections = [
-  {
-    quote:
-      "Thinking about how much of my life I spend waiting for the 'real' part to start.",
-    time: "11:24 PM",
-  },
-  {
-    quote: "Today felt like a performance I wasn't prepared for.",
-    time: "4:12 PM",
-  },
-  {
-    quote:
-      "The silence in my apartment used to feel lonely. Tonight, it just feels like space.",
-    time: "2:05 AM",
-  },
-  {
-    quote: "I don't even know what I'm sad about. That's the worst part.",
-    time: "6:41 PM",
-  },
-  {
-    quote: "Nobody asks how I'm doing anymore. I think they assume I'm fine.",
-    time: "1:17 AM",
-  },
-  {
-    quote:
-      "Deleted the whole message before sending. Some things are safer left unsaid.",
-    time: "9:33 PM",
-  },
-  {
-    quote:
-      "I keep replaying that conversation. The version in my head always goes differently.",
-    time: "3:48 AM",
-  },
-  {
-    quote: "Felt something today for the first time in weeks. I don't even know what it was.",
-    time: "7:22 PM",
-  },
-  {
-    quote: "Everyone's moving forward and I'm just… here.",
-    time: "12:09 AM",
-  },
-  {
-    quote:
-      "The hardest part isn't being sad. It's pretending you're not.",
-    time: "10:55 PM",
-  },
+  { quote: "Thinking about how much of my life I spend waiting for the 'real' part to start.", time: "11:24 PM" },
+  { quote: "Today felt like a performance I wasn't prepared for.", time: "4:12 PM" },
+  { quote: "The silence in my apartment used to feel lonely. Tonight, it just feels like space.", time: "2:05 AM" },
+  { quote: "I don't even know what I'm sad about. That's the worst part.", time: "6:41 PM" },
+  { quote: "Nobody asks how I'm doing anymore. I think they assume I'm fine.", time: "1:17 AM" },
+  { quote: "Deleted the whole message before sending. Some things are safer left unsaid.", time: "9:33 PM" },
+  { quote: "I keep replaying that conversation. The version in my head always goes differently.", time: "3:48 AM" },
+  { quote: "Felt something today for the first time in weeks. I don't even know what it was.", time: "7:22 PM" },
+  { quote: "Everyone's moving forward and I'm just… here.", time: "12:09 AM" },
+  { quote: "The hardest part isn't being sad. It's pretending you're not.", time: "10:55 PM" },
 ]
 
 const firstRow = reflections.slice(0, Math.ceil(reflections.length / 2))
@@ -80,34 +48,33 @@ export function ReflectionsSection() {
   return (
     <section className="py-32 md:py-40">
       <div className="space-y-16">
-        {/* Header */}
-        <div className="text-center space-y-4 px-8 max-w-screen-2xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center space-y-4 px-8 max-w-screen-2xl mx-auto"
+        >
           <h2 className="text-4xl md:text-5xl text-foreground font-light">
             You&apos;re not the only one carrying this.
           </h2>
-          <p className="text-muted-foreground font-serif max-w-md mx-auto">
+          <p className="text-muted-foreground font-serif italic max-w-md mx-auto">
             Anonymized reflections from the collective quiet.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Marquee */}
         <div className="relative">
           <Marquee pauseOnHover className="[--duration:55s] [--gap:1.25rem]">
             {firstRow.map((r, i) => (
               <ReflectionCard key={i} {...r} />
             ))}
           </Marquee>
-          <Marquee
-            reverse
-            pauseOnHover
-            className="[--duration:50s] [--gap:1.25rem] mt-5"
-          >
+          <Marquee reverse pauseOnHover className="[--duration:50s] [--gap:1.25rem] mt-5">
             {secondRow.map((r, i) => (
               <ReflectionCard key={i} {...r} />
             ))}
           </Marquee>
 
-          {/* Edge fades */}
           <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-linear-to-r" />
           <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-linear-to-l" />
         </div>
