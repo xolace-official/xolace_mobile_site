@@ -3,7 +3,8 @@
     "allow": [
       "Bash(dir \"C:\\\\Users\\\\Work\\\\Aims\\\\xolace_mobile_site\\\\public\\\\images\")",
       "Bash(bun run *)",
-      "Bash(git restore *)"
+      "Bash(git restore *)",
+      "Bash(bun add *)"
     ]
   },
   "enableAllProjectMcpServers": true,

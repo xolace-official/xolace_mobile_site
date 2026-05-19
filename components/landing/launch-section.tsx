@@ -1,7 +1,7 @@
 "use client"
 
-import Image from "next/image"
 import { motion } from "motion/react"
+import { DownloadButtons } from "@/components/shared/download-buttons"
 
 export function LaunchSection() {
   return (
@@ -46,32 +46,11 @@ export function LaunchSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-wrap items-center justify-center gap-5"
         >
-          <a
-            href="https://play.google.com/store/apps/details?id=com.xolaceincorg.xolace"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-all duration-300 hover:scale-105 hover:opacity-90 active:scale-95"
-            aria-label="Get Xolace on Google Play"
-          >
-            <Image src="/images/play-store-light.png" alt="Get it on Google Play" width={200} height={59} className="h-12 w-auto dark:hidden" />
-            <Image src="/images/play-store-dark.png" alt="Get it on Google Play" width={200} height={59} className="h-12 w-auto hidden dark:block" />
-          </a>
-          <a
-            href="https://apps.apple.com/gh/app/xolace/id6761601429"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-all duration-300 hover:scale-105 hover:opacity-90 active:scale-95"
-            aria-label="Download Xolace on the App Store"
-          >
-            <Image src="/images/app-store-mobile.png" alt="Download on the App Store" width={200} height={59} className="h-12 w-auto rounded-lg dark:hidden" />
-            <Image src="/images/app-store-mobile-dark.png" alt="Download on the App Store" width={200} height={59} className="h-12 w-auto rounded-lg hidden dark:block" />
-          </a>
+          <DownloadButtons align="center" />
         </motion.div>
 
       </div>
-
     </section>
   )
 }

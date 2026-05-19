@@ -47,20 +47,16 @@ function PathRow({ number, Icon, tag, headline, body, index }: PathRowProps) {
       transition={{ duration: 0.75, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       className="grid grid-cols-1 md:grid-cols-[5rem_1fr] gap-6 md:gap-16 py-12 border-t border-border/15 first:border-t-0"
     >
-      {/* Ghost number — visual weight without taking focus */}
       <div className="hidden md:flex items-start pt-1">
         <span className="text-[4.5rem] font-light leading-none text-foreground/[0.05] select-none tabular-nums">
           {number}
         </span>
       </div>
 
-      {/* Content */}
       <div className="space-y-3">
         <div className="flex items-center gap-3">
           <Icon className="size-4 text-primary/50" strokeWidth={1.5} />
-          <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-muted-foreground/50">
-            {tag}
-          </span>
+          <span className="section-label">{tag}</span>
         </div>
 
         <h3 className="text-2xl md:text-3xl text-foreground font-light leading-snug">
@@ -90,7 +86,7 @@ export function PathsSection() {
             Three quiet things.
           </h2>
           <p className="text-lg leading-relaxed font-light text-muted-foreground/70">
-           {` You don't have to know what you're feeling to begin.`}
+            {`You don't have to know what you're feeling to begin.`}
           </p>
         </motion.div>
 

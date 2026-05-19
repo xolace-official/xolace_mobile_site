@@ -84,7 +84,7 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href="/#download"
-              className="cta-gradient text-primary-foreground text-xs font-medium px-4 py-2 rounded-full hover:scale-105 hover:opacity-90 transition-all duration-300"
+              className="bg-primary text-primary-foreground text-xs font-medium px-4 py-2 rounded-full hover:bg-primary/85 hover:scale-105 transition-all duration-300"
             >
               Download
             </Link>
@@ -134,7 +134,7 @@ export function Navbar() {
           <div className="pt-4">
             <Link
               href="/#download"
-              className="cta-gradient block text-primary-foreground text-sm font-medium px-4 py-2.5 rounded-full text-center"
+              className="block bg-primary text-primary-foreground text-sm font-medium px-4 py-2.5 rounded-full text-center hover:bg-primary/85 transition-colors duration-300"
             >
               Download Xolace — Free
             </Link>

@@ -3,6 +3,7 @@ import { Geist_Mono, Lora, Space_Grotesk } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "sonner"
 import { Navbar } from "@/components/shared/navbar"
 import { Footer } from "@/components/shared/footer"
 import { cn } from "@/lib/utils";
@@ -76,6 +77,7 @@ export default function RootLayout({
             <div className="texture" />
             {children}
             <Footer />
+            <Toaster position="top-center" richColors />
           </MotionProvider>
         </ThemeProvider>
       </body>
