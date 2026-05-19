@@ -16,10 +16,10 @@ export function Hero() {
         >
           <h1>
             {/* The Xolace truth — takes over the screen */}
-            <span className="block font-serif text-5xl leading-[1.1] font-light text-foreground italic md:text-6xl lg:text-[5.0rem]">
+            <span className="block font-serif text-4xl leading-[1.1] font-light text-foreground italic md:text-6xl lg:text-[5.0rem]">
               {`For the moments that`}
               <br />
-              don't have a name yet.
+              don&apos;t have a name yet.
             </span>
           </h1>
         </motion.div>
@@ -28,13 +28,13 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="mx-auto max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl"
+          className="mx-auto max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg"
         >
           {`A quiet place to say what's true, when you can't find the words for it on your own.`}
         </motion.p>
       </div>
 
-      {/* Warm ambient glow — deep indigo centre, accent bloom bottom-right */}
+      {/* Warm ambient glow — deep indigo center, accent bloom bottom-right */}
       <div aria-hidden className="absolute inset-0 pointer-events-none">
         <div className="absolute w-175 h-175 rounded-full bg-primary/4 blur-[140px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
         <div className="absolute w-87.5 h-87.5 rounded-full bg-accent/4 blur-[100px] bottom-0 right-1/3" />

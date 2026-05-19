@@ -49,7 +49,7 @@ export function ThreeLayers() {
           Three things, each its own quiet moment.
         </h2>
 
-        {layers.map((layer, i) => (
+        {layers.map((layer) => (
           <div key={layer.heading}>
             {/* Hairline divider between layers, 1px at 40% muted opacity */}
             <hr className="my-16 md:my-20 border-none h-px bg-muted-foreground/20" />

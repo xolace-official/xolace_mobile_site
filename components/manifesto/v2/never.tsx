@@ -58,7 +58,7 @@ export function Never() {
   return (
     <section className="py-20 md:py-32 mb-32 md:mb-32">
       {/* Header with navigation */}
-      <div className="asymmetric-layout mb-4">
+      <div className="section-container-wide mb-4">
         <ScrollReveal>
           <div className="flex items-end justify-between">
             <h2 className="text-4xl md:text-5xl text-foreground font-light">

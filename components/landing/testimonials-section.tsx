@@ -126,7 +126,7 @@ export function TestimonialsSection({ reviews }: TestimonialsSectionProps) {
   const hasCenters = centers.length === 3
 
   return (
-    <section className="section-spacing border">
+    <section className="section-spacing border-t border-border/15">
       <div className="section-container">
         <div className="flex flex-col md:flex-row gap-16 md:gap-28 items-center">
 
@@ -136,7 +136,7 @@ export function TestimonialsSection({ reviews }: TestimonialsSectionProps) {
             {/* Section header */}
             <div className="mb-18 space-y-3">
               <div className="h-1 w-24 bg-accent rounded-full" />
-              <p className="font-semibold text-2xl text-foreground tracking-wide">
+              <p className="text-2xl font-light text-foreground">
                 Customer Reviews
               </p>
             </div>
@@ -233,7 +233,7 @@ export function TestimonialsSection({ reviews }: TestimonialsSectionProps) {
                           {review.name}
                         </p>
                         <p className="mt-1 flex flex-row gap-2 font-mono text-[10px] tracking-[0.12em] text-muted-foreground uppercase">
-                          {review.date}·{review.platform}
+                          {review.date} · {review.platform}
                         </p>
                       </motion.div>
                     </button>

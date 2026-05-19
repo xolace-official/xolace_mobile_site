@@ -39,7 +39,7 @@ export function TrustSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full md:w-1/2 space-y-0 divide-y divide-border/15 "
+            className="w-full md:w-1/2 space-y-0 divide-y divide-border/15"
           >
             {features.map(({ Icon, text }, i) => (
               <motion.div
@@ -52,13 +52,13 @@ export function TrustSection() {
                   delay: i * 0.07,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="flex gap-4 py-5 "
+                className="flex gap-4 py-5"
               >
                 <Icon
                   className="mt-0.5 size-4 shrink-0 text-accent"
                   strokeWidth={1.5}
                 />
-                <span className="text-sm  font-light text-foreground/70">
+                <span className="text-sm font-light text-foreground/70">
                   {text}
                 </span>
               </motion.div>

@@ -73,7 +73,7 @@ export default function RootLayout({
         <ThemeProvider>
           <MotionProvider>
             <Navbar />
-            <div className="" />
+            <div className="texture" />
             {children}
             <Footer />
           </MotionProvider>

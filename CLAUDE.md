@@ -119,7 +119,7 @@ Every design decision should feel like it belongs in the same room as the app: *
 - **Serif (`font-serif`, Lora)** — for emotional content: mirrors, reflections, quotes, manifesto
 - **Sans (`font-sans`, Space Grotesk)** — for UI: buttons, labels, navigation
 - **Minimal motion** — fades and breath animations only. Nothing bouncy except the download/celebration moment.
-- **Global utility classes** (defined in `globals.css`): `.texture`, `.cta-gradient`, `.asymmetric-layout`, `.animate-gentle-pulse`, `.screen-content-gradient`
+- **Global utility classes** (defined in `globals.css`): `.texture`, `.cta-gradient`, `.animate-gentle-pulse`, `.screen-content-gradient`
 
 ---
 
@@ -132,6 +132,9 @@ Route files only export `metadata` and delegate rendering to a `*Page` component
 ```
 app/page.tsx              →  components/landing/page/HomePage.tsx
 app/manifesto/page.tsx    →  components/manifesto/page/ManifestoPageV2.tsx
+app/about/page.tsx        →  components/about/page/AboutPage.tsx
+app/faq/page.tsx          →  components/faq/page/FaqPage.tsx
+app/press/page.tsx        →  components/press/page/PressPage.tsx
 app/privacy/page.tsx      →  components/privacy/page/PrivacyPage.tsx
 app/terms/page.tsx        →  components/terms/page/TermsPage.tsx
 app/support/page.tsx      →  components/support/page/SupportPage.tsx
@@ -157,7 +160,7 @@ components/
   ui/             # shadcn primitives + custom UI (Iphone, Marquee, Spotlight…)
   socials/        # Brand SVG icons (TikTok, Instagram, LinkedIn, WhatsApp) — no lucide equivalent
 providers/        # MotionProvider (and future PostHogProvider)
-lib/              # utils.ts (cn helper). team.ts will be the single source for founder data.
+lib/              # utils.ts (cn helper). team.ts is the single source for founder data — import from here, not from component files.
 utils/supabase/   # Browser client factory — getSupabaseBrowserClient()
 ```
 

@@ -36,7 +36,7 @@ export function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-4xl font-light text-foreground md:text-5xl"
+          className="mb-16 text-4xl leading-tight font-light text-foreground md:text-5xl"
         >
           How it works.
         </motion.h2>
@@ -50,7 +50,7 @@ export function HowItWorks() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className={`flex flex-col items-center gap-12 md:gap-16 ${
                   isReversed ? "md:flex-row-reverse" : "md:flex-row"
                 }`}
