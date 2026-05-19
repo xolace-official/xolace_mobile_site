@@ -12,7 +12,7 @@ export function TeamSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="section-container-wide mb-10"
+        className="section-container mb-10"
       >
         <span className="section-label mb-5">The team</span>
         <h2 className="text-4xl md:text-5xl text-foreground font-light mb-4">

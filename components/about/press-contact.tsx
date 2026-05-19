@@ -34,7 +34,7 @@ export function PressContact() {
             Writing about Xolace?
           </h2>
           <p className="font-serif text-muted-foreground/65 leading-relaxed">
-            We&apos;ll respond the same day. Assets and boilerplate copy available on request — or visit the{" "}
+            We&apos;ll respond the same day. Assets and boilerplate copy available on request - or visit the{" "}
             <a href="/press" className="underline underline-offset-4 hover:text-foreground transition-colors duration-200">
               press page
             </a>

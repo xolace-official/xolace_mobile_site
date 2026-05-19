@@ -40,7 +40,7 @@ export function SupportForm() {
 
   const onSubmit = async (data: FormValues) => {
     // name is prepended to message until supporters table has a name column migration
-    const fullMessage = [data.name, data.message?.trim()].filter(Boolean).join(" — ")
+    const fullMessage = [data.name, data.message?.trim()].filter(Boolean).join(" - ")
 
     const { error } = await supabase
       .from("supporters")

@@ -13,11 +13,11 @@ type Asset = {
 const assets: Asset[] = [
   {
     label: "Logo",
-    description: "Wordmark and icon — light and dark variants.",
+    description: "Wordmark and icon - light and dark variants.",
     Icon: ImageIcon,
     files: [
-      { name: "Logo — Light (PNG)", href: "/press/assets/xolace-logo-light.png" },
-      { name: "Logo — Dark (PNG)", href: "/press/assets/xolace-logo-dark.png" },
+      { name: "Logo - Light (PNG)", href: "/press/assets/xolace-logo-light.png" },
+      { name: "Logo - Dark (PNG)", href: "/press/assets/xolace-logo-dark.png" },
       { name: "Icon only (PNG)", href: "/press/assets/xolace-icon.png" },
     ],
   },
@@ -47,7 +47,8 @@ const assets: Asset[] = [
 export function PressAssets() {
   return (
     <section className="section-spacing border-t border-border/10">
-      <div className="section-container-wide">
+      <div className="section-container">
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -59,7 +60,7 @@ export function PressAssets() {
           <h2 className="text-3xl md:text-4xl text-foreground font-light mb-3">
             Download everything.
           </h2>
-          <p className="font-serif text-muted-foreground/60 leading-relaxed max-w-lg">
+          <p className="font-serif text-muted-foreground leading-relaxed max-w-lg">
             All assets are cleared for editorial use. Need a different format or size? Email us.
           </p>
         </motion.div>
@@ -102,6 +103,7 @@ export function PressAssets() {
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   )

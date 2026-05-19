@@ -4,13 +4,18 @@ import { motion } from "motion/react"
 
 export function FaqHero() {
   return (
-    <section className="pb-12">
-      <div className="section-container text-center">
+    <section className="relative hero-pb overflow-hidden">
+
+      <div aria-hidden className="absolute inset-0 pointer-events-none">
+        <div className="absolute w-[600px] h-[600px] rounded-full bg-accent/[0.04] blur-[120px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+      </div>
+
+      <div className="section-container relative z-10 text-center">
         <motion.h1
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="font-serif italic text-5xl md:text-6xl lg:text-7xl font-light text-foreground leading-[1.1] mb-6"
+          transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+          className="font-serif italic text-4xl md:text-5xl lg:text-[4rem] font-light text-foreground leading-[1.1] mb-6"
         >
           Questions<br />worth asking.
         </motion.h1>

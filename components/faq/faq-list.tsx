@@ -104,23 +104,23 @@ function FaqRow({ item, isOpen, onToggle }: { item: FaqItem; isOpen: boolean; on
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="flex w-full items-start justify-between gap-8 py-5 text-left group"
+        className="flex w-full items-start justify-between gap-8 py-6 text-left group"
       >
         <span className={cn(
-          "text-base font-light leading-snug transition-colors duration-300",
-          isOpen ? "text-foreground" : "text-foreground/70 group-hover:text-foreground"
+          "text-lg font-light leading-snug transition-colors duration-300",
+          isOpen ? "text-foreground" : "text-foreground/75 group-hover:text-foreground"
         )}>
           {item.question}
         </span>
         <motion.span
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="shrink-0 mt-0.5"
+          className="shrink-0 mt-1"
         >
           <ChevronDown
             className={cn(
-              "size-4 transition-colors duration-300",
-              isOpen ? "text-primary" : "text-muted-foreground/35 group-hover:text-muted-foreground"
+              "size-5 transition-colors duration-300",
+              isOpen ? "text-primary" : "text-muted-foreground/40 group-hover:text-muted-foreground"
             )}
             strokeWidth={1.5}
           />
@@ -136,7 +136,7 @@ function FaqRow({ item, isOpen, onToggle }: { item: FaqItem; isOpen: boolean; on
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             style={{ overflow: "hidden" }}
           >
-            <p className="font-serif text-sm md:text-base text-muted-foreground/70 leading-relaxed pb-5 max-w-2xl">
+            <p className="font-serif text-base md:text-lg text-muted-foreground leading-relaxed pb-7 max-w-2xl">
               {item.answer}
             </p>
           </motion.div>
@@ -152,7 +152,7 @@ export function FaqList() {
 
   return (
     <section className="section-spacing border-t border-border/10">
-      <div className="section-container-wide">
+      <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-16 lg:gap-24">
 
           <aside className="hidden lg:block">
