@@ -5,8 +5,8 @@ import { motion } from "motion/react"
 
 export function LaunchSection() {
   return (
-    <section id="download" className="py-40 px-8 relative overflow-hidden">
-      <div className="max-w-3xl mx-auto relative z-10 space-y-16">
+    <section id="download" className="section-spacing relative overflow-hidden bg-xo-outline-variant">
+      <div className="section-container-narrow relative z-10 space-y-16">
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -55,8 +55,8 @@ export function LaunchSection() {
             className="transition-all duration-300 hover:scale-105 hover:opacity-90 active:scale-95"
             aria-label="Get Xolace on Google Play"
           >
-            <Image src="/images/play-store-light.png" alt="Get it on Google Play" width={200} height={59} className="h-14 w-auto dark:hidden" />
-            <Image src="/images/play-store-dark.png" alt="Get it on Google Play" width={200} height={59} className="h-14 w-auto hidden dark:block" />
+            <Image src="/images/play-store-light.png" alt="Get it on Google Play" width={200} height={59} className="h-12 w-auto dark:hidden" />
+            <Image src="/images/play-store-dark.png" alt="Get it on Google Play" width={200} height={59} className="h-12 w-auto hidden dark:block" />
           </a>
           <a
             href="https://apps.apple.com/gh/app/xolace/id6761601429"
@@ -65,14 +65,13 @@ export function LaunchSection() {
             className="transition-all duration-300 hover:scale-105 hover:opacity-90 active:scale-95"
             aria-label="Download Xolace on the App Store"
           >
-            <Image src="/images/app-store-mobile.png" alt="Download on the App Store" width={200} height={59} className="h-14 w-auto rounded-xl dark:hidden" />
-            <Image src="/images/app-store-mobile-dark.png" alt="Download on the App Store" width={200} height={59} className="h-14 w-auto rounded-xl hidden dark:block" />
+            <Image src="/images/app-store-mobile.png" alt="Download on the App Store" width={200} height={59} className="h-12 w-auto rounded-lg dark:hidden" />
+            <Image src="/images/app-store-mobile-dark.png" alt="Download on the App Store" width={200} height={59} className="h-12 w-auto rounded-lg hidden dark:block" />
           </a>
         </motion.div>
 
       </div>
 
-      <div aria-hidden className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-primary/5 blur-[120px] rounded-[100%] pointer-events-none" />
     </section>
   )
 }

@@ -4,8 +4,8 @@ import { motion } from "motion/react"
 
 export function ProblemSection() {
   return (
-    <section className="py-32 md:py-40 bg-xo-surface-lowest overflow-hidden">
-      <div className="max-w-6xl mx-auto px-8 space-y-20 md:space-y-24">
+    <section className="section-spacing bg-xo-surface-lowest overflow-hidden">
+      <div className="section-container space-y-20">
 
         {/* Vignette 1 — left */}
         <motion.div

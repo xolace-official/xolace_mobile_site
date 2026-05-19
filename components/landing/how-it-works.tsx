@@ -29,55 +29,53 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="py-32 md:py-48">
-      <div className="asymmetric-layout mb-20">
+    <section className="section-spacing bg-xo-surface-lowest">
+      <div className="section-container">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl text-foreground font-light 2xl:text-center"
+          className="mb-16 text-4xl font-light text-foreground md:text-5xl"
         >
           How it works.
         </motion.h2>
-      </div>
 
-      <div className="space-y-32 md:space-y-48 max-w-screen-2xl mx-auto">
-        {steps.map((step, i) => {
-          const isReversed = i % 2 === 1
-          return (
-            <motion.div
-              key={step.number}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-              className={`flex flex-col items-center gap-12 md:gap-20 px-8 md:px-0 ${
-                isReversed
-                  ? "md:flex-row-reverse md:pr-[clamp(2rem,10vw,8rem)] md:pl-[clamp(2rem,15vw,12rem)]"
-                  : "md:flex-row md:pl-[clamp(2rem,10vw,8rem)] md:pr-[clamp(2rem,15vw,12rem)]"
-              }`}
-            >
-              <div className="w-full md:w-1/2 space-y-5">
-                <span className="text-primary text-sm tracking-[0.05em] font-light">
-                  {step.number}
-                </span>
-                <h3 className="text-3xl md:text-4xl text-foreground font-light">
-                  {step.title}
-                </h3>
-                <p className="text-muted-foreground text-lg leading-relaxed max-w-md">
-                  {step.description}
-                </p>
-              </div>
-
-              <div className="w-full md:w-1/2 flex justify-center">
-                <div className="w-[240px] md:w-[280px]">
-                  <Iphone src={step.image} />
+        <div className="space-y-24 md:space-y-28">
+          {steps.map((step, i) => {
+            const isReversed = i % 2 === 1
+            return (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className={`flex flex-col items-center gap-12 md:gap-16 ${
+                  isReversed ? "md:flex-row-reverse" : "md:flex-row"
+                }`}
+              >
+                <div className="w-full space-y-5 md:w-1/2">
+                  <span className="text-sm font-light tracking-[0.05em] text-primary">
+                    {step.number}
+                  </span>
+                  <h3 className="text-3xl font-light text-foreground md:text-4xl">
+                    {step.title}
+                  </h3>
+                  <p className="max-w-md text-lg leading-relaxed text-muted-foreground">
+                    {step.description}
+                  </p>
                 </div>
-              </div>
-            </motion.div>
-          )
-        })}
+
+                <div className="flex w-full justify-center md:w-1/2">
+                  <div className="w-60 md:w-70">
+                    <Iphone src={step.image} />
+                  </div>
+                </div>
+              </motion.div>
+            )
+          })}
+        </div>
       </div>
     </section>
   )

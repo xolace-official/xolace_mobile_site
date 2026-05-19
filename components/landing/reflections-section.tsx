@@ -46,14 +46,15 @@ function ReflectionCard({ quote, time }: { quote: string; time: string }) {
 
 export function ReflectionsSection() {
   return (
-    <section className="py-32 md:py-40">
+    // marquee is full-bleed — section-spacing-y keeps px off so the rows reach the edges
+    <section className="section-spacing-y">
       <div className="space-y-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center space-y-4 px-8 max-w-screen-2xl mx-auto"
+          className="text-center space-y-4 section-container"
         >
           <h2 className="text-4xl md:text-5xl text-foreground font-light">
             You&apos;re not the only one carrying this.

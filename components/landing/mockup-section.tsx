@@ -5,8 +5,8 @@ import { Iphone } from "@/components/ui/iphone"
 
 export function MockupSection() {
   return (
-    <section className="py-40 px-8 bg-xo-surface-lowest/30">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-20">
+    <section className="section-spacing bg-xo-surface-lowest/30">
+      <div className="section-container flex flex-col md:flex-row items-center justify-center gap-20">
 
         <motion.div
           initial={{ opacity: 0, x: -32 }}

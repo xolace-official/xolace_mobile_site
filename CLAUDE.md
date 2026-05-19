@@ -209,6 +209,47 @@ create table supporters (
 
 ---
 
+## Layout Spacing System
+
+All section spacing is driven by CSS tokens in `app/globals.css`. **Never hardcode `py-*` or `px-*` on a `<section>` element.** Use the utility classes instead.
+
+| Token | Default | Desktop (`≥768px`) | Meaning |
+|-------|---------|---------------------|---------|
+| `--section-py` | `5rem` (80px) | `8rem` (128px) | Section top/bottom padding |
+| `--section-px` | `2rem` (32px) | same | Section left/right padding — **always equal** |
+| `--content-w` | `64rem` (1024px) | — | Standard content max-width |
+| `--content-w-wide` | `80rem` (1280px) | — | Wide two-column layouts |
+| `--content-w-narrow` | `48rem` (768px) | — | Focused sections (download, etc.) |
+
+**Utility classes:**
+- `.section-spacing` — full padding (y + x) — use on every `<section>`
+- `.section-spacing-y` — vertical only — use when content must be full-bleed horizontally (e.g. marquee)
+- `.section-spacing-x` — horizontal only — use on inner containers that need to match section px
+- `.section-container` — standard `max-width: --content-w`, centered, no padding
+- `.section-container-wide` — `max-width: --content-w-wide`
+- `.section-container-narrow` — `max-width: --content-w-narrow`
+
+**Correct section structure:**
+```tsx
+<section className="section-spacing [optional-bg-class]">
+  <div className="section-container">
+    {/* content */}
+  </div>
+</section>
+```
+
+**Correct structure for full-bleed (marquee etc.):**
+```tsx
+<section className="section-spacing-y">
+  <div className="section-spacing-x section-container"> {/* header */} </div>
+  <div> {/* full-bleed content — no container, no px */} </div>
+</section>
+```
+
+**Do not use `.asymmetric-layout`** — it is deprecated. It had unequal left/right padding which caused the visual imbalance. The replacement is `section-container-wide` inside a `section-spacing` section.
+
+---
+
 ## Animation Pattern
 
 Every landing section uses `motion/react` for scroll-triggered entrance animations. The pattern is consistent across all sections:

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "motion/react"
-import { Sparkles, Mic2, Users } from "lucide-react"
+import { Sparkles, ShieldCheck, Users } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
 type PathItem = {
@@ -17,22 +17,22 @@ const paths: PathItem[] = [
     number: "01",
     Icon: Sparkles,
     tag: "Mirror",
-    headline: "Name what you're carrying.",
-    body: "You express — through words, texture words, or body sensation. The AI mirrors it back with more precision than you found yourself. One moment: \"Yes. That's exactly what I'm feeling.\" Then you choose what comes next.",
+    headline: "Words for what you couldn't say.",
+    body: "You arrive with a feeling that has no shape. Tap a word, type a fragment, or just speak. The Mirror gives it back to you, named.",
   },
   {
     number: "02",
-    Icon: Mic2,
-    tag: "Vent",
-    headline: "Release it and have it gone.",
-    body: "You speak. An affirming presence listens — no advice, no diagnosis, no reflection back. When you stop, a beat of silence. Then: \"Gone.\" Nothing stored. No transcript. Just release.",
+    Icon: Users,
+    tag: "Echo",
+    headline: "Someone else carried this too.",
+    body: "After your session, an anonymous moment surfaces — shared by someone who felt the same shape. Not advice. Just: you're not alone in it tonight.",
   },
   {
     number: "03",
-    Icon: Users,
-    tag: "Glimpses",
-    headline: "Find others who came through.",
-    body: "After your session, a 60-second video surfaces: a real person who felt something close to what you just processed. Not advice. Not a testimonial. Just: \"I felt this. I'm still here.\"",
+    Icon: ShieldCheck,
+    tag: "Safety",
+    headline: "Held, even when it's heavier.",
+    body: "If what you write suggests real danger, the Mirror responds differently — gently, with real help nearby. A safe place doesn't leave you alone.",
   },
 ]
 
@@ -55,7 +55,7 @@ function PathRow({ number, Icon, tag, headline, body, index }: PathRowProps) {
       </div>
 
       {/* Content */}
-      <div className="space-y-5">
+      <div className="space-y-3">
         <div className="flex items-center gap-3">
           <Icon className="size-4 text-primary/50" strokeWidth={1.5} />
           <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-muted-foreground/50">
@@ -77,21 +77,20 @@ function PathRow({ number, Icon, tag, headline, body, index }: PathRowProps) {
 
 export function PathsSection() {
   return (
-    <section id="paths" className="py-32 px-8">
-      <div className="max-w-4xl mx-auto">
-
+    <section id="paths" className="section-spacing">
+      <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 space-y-3"
+          className="mb-12 space-y-3"
         >
-          <h2 className="text-4xl md:text-5xl text-foreground font-light leading-tight">
-            However you need to process.
+          <h2 className="text-4xl leading-tight font-light text-foreground md:text-5xl">
+            Three quiet things.
           </h2>
-          <p className="text-lg text-muted-foreground/70 font-light leading-relaxed">
-            Three paths. Each complete in itself. No session leaves you unresolved.
+          <p className="text-lg leading-relaxed font-light text-muted-foreground/70">
+           {` You don't have to know what you're feeling to begin.`}
           </p>
         </motion.div>
 
@@ -106,15 +105,14 @@ export function PathsSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.35 }}
-          className="pt-12 border-t border-border/15"
+          className="border-t border-border/15 pt-8"
         >
-          <p className="text-base text-muted-foreground/40 font-serif italic leading-relaxed">
+          <p className="font-serif text-base leading-relaxed text-muted-foreground/40 italic">
             Not therapy. Not a chatbot. Not a social platform.
             <br className="hidden md:block" />
             The space before, between, and outside all of those.
           </p>
         </motion.div>
-
       </div>
     </section>
   )
