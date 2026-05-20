@@ -127,7 +127,7 @@ export function FounderCarousel({
           <button
             onClick={() => scroll("left")}
             disabled={!canScrollLeft}
-            className="flex size-10 items-center justify-center rounded-full bg-xo-surface-low ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:opacity-30 disabled:cursor-not-allowed"
+            className="flex size-10 items-center justify-center rounded-full bg-xo-surface-bright/80  ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="Scroll left"
           >
             <ArrowLeft className="size-4 text-foreground/70" />
@@ -135,7 +135,7 @@ export function FounderCarousel({
           <button
             onClick={() => scroll("right")}
             disabled={!canScrollRight}
-            className="flex size-10 items-center justify-center rounded-full bg-xo-surface-low ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:opacity-30 disabled:cursor-not-allowed"
+            className="flex size-10 items-center justify-center rounded-full bg-xo-surface-bright/80 ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="Scroll right"
           >
             <ArrowRight className="size-4 text-foreground/70" />

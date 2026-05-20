@@ -10,8 +10,9 @@ import { Menu, X } from "lucide-react"
 
 const navLinks = [
   { href: "/about", label: "About" },
-  { href: "/manifesto", label: "Manifesto" },
-  { href: "/faq", label: "FAQ" },
+  // { href: "/manifesto", label: "Manifesto" },
+  { href: "/press", label: "Press" },
+  // { href: "/faq", label: "FAQ" },
   { href: "https://ambassador.xolaceinc.com", label: "Ambassadors", external: true },
 ]
 
@@ -82,12 +83,12 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-3">
-            <Link
-              href="/#download"
-              className="bg-primary text-primary-foreground text-xs font-medium px-4 py-2 rounded-full hover:bg-primary/85 hover:scale-105 transition-all duration-300"
-            >
-              Download
-            </Link>
+            {/*<Link*/}
+            {/*  href="/#download"*/}
+            {/*  className="bg-secondary-foreground text-primary-foreground text-xs font-medium px-4 py-2 rounded-full hover:bg-primary/85 hover:scale-105 transition-all duration-300"*/}
+            {/*>*/}
+            {/* Begin*/}
+            {/*</Link>*/}
             <AnimatedThemeToggler />
           </div>
         </div>
@@ -136,7 +137,7 @@ export function Navbar() {
               href="/#download"
               className="block bg-primary text-primary-foreground text-sm font-medium px-4 py-2.5 rounded-full text-center hover:bg-primary/85 transition-colors duration-300"
             >
-              Download Xolace — Free
+              Try Xolace for Free
             </Link>
           </div>
         </div>

@@ -4,7 +4,9 @@
       "Bash(dir \"C:\\\\Users\\\\Work\\\\Aims\\\\xolace_mobile_site\\\\public\\\\images\")",
       "Bash(bun run *)",
       "Bash(git restore *)",
-      "Bash(bun add *)"
+      "Bash(bun add *)",
+      "Bash(Select-String \"accordion\")",
+      "Bash(bunx shadcn@latest add accordion --yes)"
     ]
   },
   "enableAllProjectMcpServers": true,

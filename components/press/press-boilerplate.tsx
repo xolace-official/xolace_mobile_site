@@ -39,7 +39,7 @@ function CopyButton({ text, label }: { text: string; label: string }) {
 
 export function PressBoilerplate() {
   return (
-    <section className="section-spacing border-t border-border/10">
+    <section className=" border-t border-border/10">
       <div className="section-container">
 
         <motion.div

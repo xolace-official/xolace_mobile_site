@@ -20,7 +20,7 @@ const contacts = [
 
 export function PressContact() {
   return (
-    <section className="section-spacing border-t border-border/10">
+    <section className=" border-t border-border/10">
       <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
 

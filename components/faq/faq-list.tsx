@@ -151,7 +151,7 @@ export function FaqList() {
   const toggle = (key: string) => setOpenKey(openKey === key ? null : key)
 
   return (
-    <section className="section-spacing border-t border-border/10">
+    <section className="border-t border-border/10">
       <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-16 lg:gap-24">
 

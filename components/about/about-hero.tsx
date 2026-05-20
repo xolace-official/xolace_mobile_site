@@ -7,7 +7,7 @@ export function AboutHero() {
     <section className="relative hero-pb overflow-hidden">
 
       <div aria-hidden className="absolute inset-0 pointer-events-none">
-        <div className="absolute w-[600px] h-[600px] rounded-full bg-primary/[0.05] blur-[120px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute w-150 h-[600px] rounded-full bg-primary/5 blur-[120px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
       </div>
 
       <div className="section-container relative z-10 text-center">

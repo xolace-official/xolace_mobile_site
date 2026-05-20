@@ -14,7 +14,7 @@ const letter = [
 
 export function FounderLetter() {
   return (
-    <section className="section-spacing border-t border-border/10">
+    <section className="border-t border-border/10 ">
       <div className="section-container">
         <motion.span
           initial={{ opacity: 0 }}
