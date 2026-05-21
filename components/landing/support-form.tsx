@@ -11,7 +11,6 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { getSupabaseBrowserClient } from "@/utils/supabase/client"
 
 const schema = z.object({
   name: z.string().min(1, { message: "Full name is required" }),
@@ -26,7 +25,6 @@ function RequiredMark() {
 }
 
 export function SupportForm() {
-  const supabase = getSupabaseBrowserClient()
   const [submitted, setSubmitted] = useState(false)
 
   const {
@@ -39,19 +37,8 @@ export function SupportForm() {
   })
 
   const onSubmit = async (data: FormValues) => {
-    // name is prepended to message until supporters table has a name column migration
-    const fullMessage = [data.name, data.message?.trim()].filter(Boolean).join(" - ")
-
-    const { error } = await supabase
-      .from("supporters")
-      .insert({ email: data.email, message: fullMessage || null })
-
-    if (error) {
-      console.error("Supporter submission error:", error)
-      toast.error("Something went wrong. Please try again.")
-      return
-    }
-
+    console.log("Supporter submission:", data)
+    toast.success("You're in. Thank you for believing in this.")
     setSubmitted(true)
   }
 

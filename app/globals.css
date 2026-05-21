@@ -306,6 +306,12 @@
         color:          color-mix(in oklch, var(--muted-foreground) 40%, transparent);
         display:        block;
     }
+
+    /* Hide scrollbar across all browsers while keeping scroll behaviour. */
+    .scrollbar-none {
+        scrollbar-width: none;
+        &::-webkit-scrollbar { display: none; }
+    }
 }
 
 /* View Transition API — theme toggle animation */

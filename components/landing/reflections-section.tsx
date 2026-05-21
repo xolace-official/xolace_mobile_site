@@ -47,7 +47,7 @@ function ReflectionCard({ quote, time }: { quote: string; time: string }) {
 export function ReflectionsSection() {
   return (
     // marquee is full-bleed — section-spacing-y keeps px off so the rows reach the edges
-    <section className="section-spacing-y">
+    <section className="">
       <div className="space-y-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

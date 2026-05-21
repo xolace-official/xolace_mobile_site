@@ -74,7 +74,7 @@ export default function RootLayout({
         <ThemeProvider>
           <MotionProvider>
             <Navbar />
-            <div className="texture" />
+            {/*<div className="texture" />*/}
             {children}
             <Footer />
             <Toaster position="top-center" richColors />

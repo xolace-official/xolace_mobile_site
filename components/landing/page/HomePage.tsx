@@ -6,6 +6,7 @@ import { MockupSection } from "@/components/landing/mockup-section"
 import { ReflectionsSection } from "@/components/landing/reflections-section"
 import { TrustSection } from "@/components/landing/trust-section"
 import { TestimonialsSection } from "@/components/landing/testimonials-section"
+import { LandingFaq } from "@/components/landing/landing-faq"
 import { LaunchSection } from "@/components/landing/launch-section"
 import { SupportSection } from "@/components/landing/support-section"
 import { SmoothScroll } from "@/components/shared/smooth-scroll"
@@ -18,11 +19,12 @@ export function HomePage() {
         <Hero />
         <ProblemSection />
         <PathsSection />
-        <HowItWorks />
-        <MockupSection />
+        {/*<HowItWorks />*/}
+        {/*<MockupSection />*/}
         <ReflectionsSection />
         <TrustSection />
         <TestimonialsSection />
+        <LandingFaq />
         <LaunchSection />
         <SupportSection />
       </main>
