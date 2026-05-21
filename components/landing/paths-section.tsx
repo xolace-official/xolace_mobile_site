@@ -73,7 +73,7 @@ function PathRow({ number, Icon, tag, headline, body, index }: PathRowProps) {
 
 export function PathsSection() {
   return (
-    <section id="paths" className="section-spacing">
+    <section id="paths" className="section-spacing bg-muted">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

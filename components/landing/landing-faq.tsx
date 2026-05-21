@@ -18,7 +18,7 @@ function FaqRow({
   onToggle: () => void
 }) {
   return (
-    <div className="border-b">
+    <div className="border-b border-muted">
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
@@ -75,7 +75,7 @@ export function LandingFaq() {
   const toggle = (key: string) => setOpenKey(openKey === key ? null : key)
 
   return (
-    <section className="section-spacing">
+    <section className="section-spacing bg-xo-outline-variant">
       <div className="section-container">
 
         {/* Heading */}
