@@ -27,23 +27,6 @@ export function LaunchSection() {
       <div className="relative z-10 w-full pb-20 md:pb-28">
         <div className="section-container-narrow text-center space-y-8">
 
-          {/* Flux — triumphant, arms out, celebratory download moment */}
-          <motion.div
-            initial={{ opacity: 0, y: 32, scale: 0.88 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="flex justify-center"
-          >
-            <Image
-              src="/flux-images/ChatGPT Image Oct 20, 2025, 10_36_47 PM.png"
-              alt="Flux"
-              width={200}
-              height={240}
-              className="w-32 md:w-44 h-auto rounded-2xl"
-            />
-          </motion.div>
-
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
