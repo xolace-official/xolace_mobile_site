@@ -19,8 +19,6 @@ export function HomePage() {
         <Hero />
         <ProblemSection />
         <PathsSection />
-        {/*<HowItWorks />*/}
-        {/*<MockupSection />*/}
         <ReflectionsSection />
         <TrustSection />
         <TestimonialsSection />
