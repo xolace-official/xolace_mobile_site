@@ -5,7 +5,7 @@ import { PressContact } from "@/components/about/press-contact"
 
 export function AboutPage() {
   return (
-    <main className="pt-32 pb-28">
+    <main className="pt-32">
       <AboutHero />
       <FounderLetter />
       <TeamSection />
