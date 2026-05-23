@@ -5,7 +5,7 @@ import { PressContact } from "@/components/press/press-contact"
 
 export function PressPage() {
   return (
-    <main className="pt-32 pb-28">
+    <main className="pt-32">
       <PressHero />
       <PressBoilerplate />
       <PressAssets />
