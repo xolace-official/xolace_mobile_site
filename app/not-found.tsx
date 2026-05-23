@@ -1,100 +1,100 @@
 "use client"
 
-import { AlertTriangle } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useRouter } from "next/navigation"
+import Image from "next/image"
+import Link from "next/link"
+import { motion } from "motion/react"
+import { ArrowLeft } from "lucide-react"
 
-type Props = {
-  reset: () => void
-}
-
-export default function Error({ reset }: Props) {
-  const router = useRouter();
-
+export default function NotFound() {
   return (
-    <div className="relative mt-20 flex h-screen items-center justify-center overflow-hidden px-4">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16 px-6">
+
+      {/* Atmosphere */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none">
+        <div className="absolute w-175 h-175 rounded-full bg-primary/[0.07] blur-[160px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-gentle-pulse" />
+        <div className="absolute w-87.5 h-87.5 rounded-full bg-accent/4 blur-[110px] top-1/4 right-1/4 animate-gentle-pulse [animation-delay:3s]" />
+      </div>
+
+      {/* Ghost backdrop — all caps, bleeds outside page */}
       <span
-        className="pointer-events-none absolute font-black text-destructive italic select-none"
+        aria-hidden
+        className="pointer-events-none select-none absolute font-serif italic text-foreground/15"
         style={{
-          fontFamily: "'Georgia', 'Times New Roman', serif",
-          fontSize: "clamp(80px, 22vw, 260px)",
-          opacity: 0.06,
+          fontSize: "clamp(48px, 12vw, 170px)",
+          opacity: 0.18,
           top: "50%",
           left: "50%",
-          transform: "translate(-50%,-50%)",
+          transform: "translate(-50%, -50%)",
           lineHeight: 1,
           whiteSpace: "nowrap",
+          letterSpacing: "-0.02em",
         }}
       >
-        ERROR
+        NOT FOUND
       </span>
 
-      <div
-        className="pointer-events-none absolute h-125 w-125 rounded-full bg-destructive opacity-10 blur-[120px]"
-        style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-      />
+      {/* Mascot + circle floating as one unit */}
+      <motion.div
+        initial={{ opacity: 0, y: 32 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 flex flex-col items-center not-found-float"
+      >
 
-      <div className="relative z-10 flex w-full max-w-md flex-col items-center gap-6 rounded-3xl border border-destructive/20 bg-secondary/30 p-8 text-center backdrop-blur-sm">
-        <div
-          className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-destructive/30 bg-destructive/15"
-          style={{ animation: "float 3s ease-in-out infinite" }}
-        >
-          <div style={{ animation: "spin 8s linear infinite" }}>
-            <AlertTriangle
-              size={32}
-              className="text-destructive"
-              strokeWidth={1.5}
-            />
+        {/* Mascot sits on top edge of circle */}
+        <div className="relative z-20 -mb-14">
+          <Image
+            src="/flux-images/ChatGPT_Image_Oct_20__2025__10_36_52_PM-removebg-preview.png"
+            alt=""
+            width={280}
+            height={280}
+            className="w-36 md:w-44 h-auto object-contain drop-shadow-2xl"
+            priority
+            aria-hidden
+          />
+        </div>
+
+        {/* Circle card */}
+        <div className="size-85 md:size-100 rounded-full border-2 border-foreground/1 bg-xo-surface-bright/60 flex flex-col items-center justify-center text-center px-12 pt-12 pb-8 relative">
+          <div aria-hidden className="absolute inset-0 pointer-events-none">
+            <div className="absolute w-48 h-48 rounded-full bg-primary/6 blur-[50px] -top-8 left-1/2 -translate-x-1/2" />
+          </div>
+
+          <div className="relative z-10 flex flex-col items-center gap-4">
+            <p className="text-[10px] font-mono uppercase tracking-[0.28em] text-muted-foreground/30">
+              Not found
+            </p>
+
+            <h1 className="font-serif italic font-light text-2xl md:text-3xl text-foreground leading-[1.15]">
+              Lost in<br />the quiet.
+            </h1>
+
+            <div className="w-6 h-px bg-border/30" />
+
+            <Link
+              href="/"
+              className="group inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-6 py-2.5 text-xs font-light text-foreground/80 transition-all duration-300 hover:border-primary/50 hover:bg-primary/15 hover:text-foreground"
+            >
+              <ArrowLeft
+                className="size-3 transition-transform duration-300 group-hover:-translate-x-1"
+                strokeWidth={1.5}
+              />
+              Back home
+            </Link>
           </div>
         </div>
 
-        <span className="rounded-full border border-destructive/25 bg-destructive/15 px-4 py-1.5 text-[10px] font-black tracking-[0.18em] text-destructive uppercase">
-          Something went wrong
-        </span>
-
-        <h1
-          className="text-5xl leading-[0.9] font-black text-primary uppercase italic md:text-7xl"
-          style={{
-            fontFamily: "'Georgia', 'Times New Roman', serif",
-          }}
-        >
-          Our <span className="text-destructive">bad.</span>
-        </h1>
-
-        <div className="h-0.5 w-10 rounded-full bg-destructive/40" />
-
-        <p className="max-w-xs text-sm leading-relaxed text-secondary-foreground/50">
-          An unexpected error occurred. Please try again or head back home.
-        </p>
-
-        <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row">
-          <Button
-            onClick={reset}
-            variant={"destructive"}
-            className="w-full rounded-full px-10 py-4 text-[11px] font-black tracking-[0.14em] uppercase transition-all duration-300 ease-in-out hover:scale-105 hover:opacity-85 sm:w-auto"
-          >
-            Try again
-          </Button>
-          <Button
-            onClick={() => router.push("/")}
-            variant={"outline"}
-            className="w-full rounded-full px-10 py-4 text-[11px] font-black tracking-[0.14em] uppercase transition-all duration-300 ease-in-out hover:scale-105 hover:opacity-85 sm:w-auto"
-          >
-            Back to home
-          </Button>
-        </div>
-      </div>
+      </motion.div>
 
       <style>{`
-                @keyframes spin {
-                    from { transform: rotate(0deg); }
-                    to   { transform: rotate(360deg); }
-                }
-                @keyframes float {
-                    0%, 100% { transform: translateY(0px); }
-                    50%      { transform: translateY(-10px); }
-                }
-            `}</style>
+        .not-found-float {
+          animation: notFoundFloat 4s ease-in-out infinite;
+        }
+        @keyframes notFoundFloat {
+          0%, 100% { transform: translateY(0px); }
+          50%       { transform: translateY(-14px); }
+        }
+      `}</style>
     </div>
   )
 }
