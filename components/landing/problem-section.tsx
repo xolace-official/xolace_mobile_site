@@ -2,47 +2,50 @@
 
 import type { ReactNode } from "react"
 import { motion } from "motion/react"
-import { Wind, Smartphone, type LucideIcon } from "lucide-react"
+import { Moon, Smartphone } from "lucide-react"
 
-type Vignette = {
-  Icon: LucideIcon
+type Moment = {
+  Icon: typeof Moon
   time: string
-  lineClass: string
-  glowClass: string
-  align: "left" | "right"
-  body: ReactNode
+  orbBg: string
+  orbBorder: string
+  orbGlow: string
+  iconColor: string
+  text: ReactNode
 }
 
-const vignettes: Vignette[] = [
+const moments: Moment[] = [
   {
-    Icon: Wind,
+    Icon: Moon,
     time: "Monday · 11:00 PM",
-    lineClass: "bg-primary/40",
-    glowClass: "bg-primary/[0.08]",
-    align: "left",
-    body: (
+    orbBg: "bg-primary/[0.08]",
+    orbBorder: "border-primary/20",
+    orbGlow: "bg-primary/25",
+    iconColor: "text-primary/80",
+    text: (
       <>
         Chest tight.
         <br />
         Don&apos;t know why.
         <br />
-        Not &lsquo;therapy bad&rsquo; -{" "}
-        <em className="text-primary/50 not-italic font-extralight">just heavy.</em>
+        Not &lsquo;therapy bad&rsquo; —{" "}
+        <span className="text-primary/70 font-extralight italic">just heavy.</span>
       </>
     ),
   },
   {
     Icon: Smartphone,
     time: "Friday · 10:30 PM",
-    lineClass: "bg-accent/40",
-    glowClass: "bg-accent/[0.07]",
-    align: "right",
-    body: (
+    orbBg: "bg-accent/[0.07]",
+    orbBorder: "border-accent/15",
+    orbGlow: "bg-accent/20",
+    iconColor: "text-accent/80",
+    text: (
       <>
         Scrolling.
         <br />
-        Not depressed -{" "}
-        <em className="text-primary/50 not-italic font-extralight">just hollow.</em>
+        Not depressed —{" "}
+        <span className="text-accent/70 font-extralight italic">just hollow.</span>
       </>
     ),
   },
@@ -52,85 +55,84 @@ export function ProblemSection() {
   return (
     <section className="section-spacing bg-xo-surface-lowest overflow-hidden relative">
 
-      {/* Atmospheric background — two offset blooms that breathe */}
       <div aria-hidden className="absolute inset-0 pointer-events-none select-none">
-        <div className="absolute w-[650px] h-[650px] rounded-full bg-primary/[0.06] blur-[130px] -top-40 -left-40 animate-gentle-pulse" />
-        <div className="absolute w-[550px] h-[550px] rounded-full bg-accent/[0.05] blur-[110px] -bottom-20 -right-20 animate-gentle-pulse [animation-delay:2.5s]" />
+        <div className="absolute w-[650px] h-[650px] rounded-full bg-primary/[0.06] blur-[150px] -top-40 -left-20 animate-gentle-pulse" />
+        <div className="absolute w-[550px] h-[550px] rounded-full bg-accent/[0.05] blur-[130px] -bottom-20 -right-10 animate-gentle-pulse [animation-delay:2.5s]" />
       </div>
 
       <div className="section-container relative z-10">
 
-        {/* Vignettes */}
-        <div className="space-y-24">
-          {vignettes.map((v, i) => (
-            <motion.div
-              key={v.time}
-              initial={{ opacity: 0, x: v.align === "left" ? -28 : 28 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.9, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className={`relative max-w-2xl${v.align === "right" ? " md:ml-auto text-left md:text-right" : ""}`}
-            >
-              {/* Per-vignette ambient glow */}
-              <div
-                aria-hidden
-                className={`absolute -inset-10 rounded-3xl ${v.glowClass} blur-3xl opacity-70 pointer-events-none`}
-              />
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center text-[11px] font-mono uppercase tracking-[0.24em] text-muted-foreground/30 mb-16"
+        >
+          You&apos;ve felt this.
+        </motion.p>
 
-              {/* Time label row */}
-              <div className={`relative flex items-center gap-3 mb-8${v.align === "right" ? " md:justify-end" : ""}`}>
-                <div className={`h-px w-8 shrink-0 ${v.lineClass}${v.align === "right" ? " md:order-last" : ""}`} />
-                <p className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/35">
-                  <v.Icon className="size-3 shrink-0" strokeWidth={1.5} />
-                  {v.time}
-                </p>
+        <div className="grid sm:grid-cols-2 gap-14 md:gap-16 mb-16">
+          {moments.map((m, i) => (
+            <motion.div
+              key={m.time}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 1.0, delay: i * 0.14, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col items-center sm:items-start text-center sm:text-left"
+            >
+              <div className="relative mb-6">
+                <div className={`absolute inset-0 ${m.orbGlow} blur-3xl rounded-full scale-[3]`} />
+                <div className={`relative size-16 rounded-full ${m.orbBg} border ${m.orbBorder} flex items-center justify-center`}>
+                  <m.Icon className={`size-7 ${m.iconColor}`} strokeWidth={1.25} />
+                </div>
               </div>
 
-              {/* Vignette copy */}
-              <p className="relative text-3xl md:text-[2.75rem] text-foreground font-light leading-[1.3] tracking-tight">
-                {v.body}
+              <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/30 mb-5">
+                {m.time}
+              </p>
+
+              <p className="text-2xl md:text-[1.875rem] font-serif font-light text-foreground leading-[1.5]">
+                {m.text}
               </p>
             </motion.div>
           ))}
         </div>
 
-        {/* Divider — animated rule with centre dot */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center gap-4 my-20"
+          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+          className="flex items-center gap-4 mb-14"
         >
           <motion.div
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
             className="flex-1 h-px bg-gradient-to-r from-transparent to-border/20 origin-left"
           />
-          <div className="size-1 rounded-full bg-primary/50 shrink-0" />
+          <div className="size-1.5 rounded-full bg-primary/40 shrink-0" />
           <motion.div
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
             className="flex-1 h-px bg-gradient-to-l from-transparent to-border/20 origin-right"
           />
         </motion.div>
 
-        {/* Bridge */}
-        <motion.div
+        <motion.p
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center"
+          className="text-center text-xl md:text-2xl text-muted-foreground/50 font-serif italic font-light"
         >
-          <p className="text-xl md:text-2xl text-muted-foreground/55 font-serif italic font-light leading-relaxed">
-            That space. That&apos;s where Xolace lives.
-          </p>
-        </motion.div>
+          That space. That&apos;s where Xolace lives.
+        </motion.p>
 
       </div>
     </section>

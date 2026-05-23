@@ -30,14 +30,14 @@ export function DownloadButtons({ className, align = "center" }: DownloadButtons
           alt="Download on the App Store"
           width={160}
           height={53}
-          className="h-11 w-auto rounded-lg dark:hidden"
+          className="h-11 w-auto  dark:hidden"
         />
         <Image
           src="/images/app-store-mobile-dark.png"
           alt="Download on the App Store"
           width={160}
           height={53}
-          className="h-11 w-auto rounded-lg hidden dark:block"
+          className="h-11 w-auto hidden dark:block"
         />
       </a>
 

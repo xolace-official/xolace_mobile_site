@@ -6,7 +6,11 @@
       "Bash(git restore *)",
       "Bash(bun add *)",
       "Bash(Select-String \"accordion\")",
-      "Bash(bunx shadcn@latest add accordion --yes)"
+      "Bash(bunx shadcn@latest add accordion --yes)",
+      "Bash(grep *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(npx --yes chromium-cli screenshot http://localhost:3000 --output /tmp/landing-hero.png --wait 3000)",
+      "Bash(curl -s http://localhost:3000)"
     ]
   },
   "enableAllProjectMcpServers": true,
