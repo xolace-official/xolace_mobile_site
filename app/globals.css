@@ -312,6 +312,16 @@
         scrollbar-width: none;
         &::-webkit-scrollbar { display: none; }
     }
+
+    /* Dot grid — use on a positioned overlay div inside a section */
+    .dot-grid {
+        background-image: radial-gradient(
+            circle,
+            color-mix(in oklch, var(--foreground) 22%, transparent) 1.5px,
+            transparent 1.5px
+        );
+        background-size: 24px 24px;
+    }
 }
 
 /* View Transition API — theme toggle animation */
