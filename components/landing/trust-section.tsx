@@ -166,9 +166,12 @@ export function TrustSection() {
           className="mt-14 flex items-center gap-5"
         >
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-border/15" />
-          <p className="font-serif italic text-sm text-muted-foreground/30 text-center whitespace-nowrap">
-            The trust is not a feature. It&apos;s the foundation.
-          </p>
+          <div className="flex items-center gap-2 shrink-0">
+            <ShieldCheck className="size-4 text-emerald-500 shrink-0" strokeWidth={1.5} />
+            <p className="font-serif italic text-sm text-muted-foreground/40 whitespace-nowrap">
+              The trust is not a feature. It&apos;s the foundation.
+            </p>
+          </div>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-border/15" />
         </motion.div>
 
