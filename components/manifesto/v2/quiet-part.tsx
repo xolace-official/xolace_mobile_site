@@ -4,8 +4,15 @@ import { ScrollReveal } from "@/components/manifesto/v2/shared/scroll-reveal"
 
 export function QuietPart() {
   return (
-    <section className="section-spacing mb-32 md:mb-52 relative">
-      <div className="section-container-wide">
+    <section className="section-spacing relative overflow-hidden">
+
+      <div aria-hidden className="absolute inset-0 pointer-events-none">
+        <div className="absolute w-[500px] h-[500px] rounded-full bg-primary/[0.06] blur-[140px] top-0 left-1/2 -translate-x-1/2 animate-gentle-pulse" />
+        <div className="absolute w-[350px] h-[350px] rounded-full bg-accent/[0.04] blur-[120px] bottom-0 right-1/4 animate-gentle-pulse [animation-delay:3s]" />
+      </div>
+
+      <div className="section-container-wide relative z-10">
+
         <ScrollReveal duration={1.0}>
           <div className="max-w-2xl space-y-6">
             <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
@@ -37,21 +44,16 @@ export function QuietPart() {
           </div>
         </ScrollReveal>
 
-        <div className="relative mt-16 md:mt-24">
-          <div className="absolute -top-12 left-0 w-48 h-48 bg-primary/3 blur-[120px] rounded-full pointer-events-none" />
+        <ScrollReveal delay={0.3} duration={1.0} className="mt-20 md:mt-28 max-w-3xl">
+          <div className="h-px w-16 bg-primary/20 mb-10" />
+          <p className="font-serif italic text-2xl md:text-4xl text-foreground font-light leading-[1.2]">
+            We built this because we needed it.
+          </p>
+          <p className="font-serif italic text-2xl md:text-4xl text-foreground/60 font-light leading-[1.2] mt-3">
+            We keep building it because you might need it too.
+          </p>
+        </ScrollReveal>
 
-          <ScrollReveal delay={0.4} duration={1.0}>
-            <div className="relative z-10">
-              <div className="h-px w-16 bg-xo-outline-variant/20 mb-12" />
-              <p className="text-2xl md:text-3xl text-foreground font-light leading-relaxed italic">
-                We built this because we needed it.
-              </p>
-              <p className="text-2xl md:text-3xl text-foreground font-light leading-relaxed italic mt-2">
-                We keep building it because you might need it too.
-              </p>
-            </div>
-          </ScrollReveal>
-        </div>
       </div>
     </section>
   )

@@ -11,7 +11,7 @@ const peerReflections = [
 
 export function WhyAI() {
   return (
-    <section className="mb-32 md:mb-52">
+    <section className="section-spacing">
       <div className="section-container-wide">
         <ScrollReveal>
           <SectionDivider label="Why AI Isn't Enough">

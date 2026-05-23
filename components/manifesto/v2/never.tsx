@@ -56,12 +56,12 @@ export function Never() {
   }
 
   return (
-    <section className="py-20 md:py-32 mb-32 md:mb-32">
+    <section className="section-spacing-y bg-xo-surface-lowest">
       {/* Header with navigation */}
       <div className="section-container-wide mb-4">
         <ScrollReveal>
           <div className="flex items-end justify-between">
-            <h2 className="text-4xl md:text-5xl text-foreground font-light">
+            <h2 className="font-serif italic font-light text-4xl md:text-5xl text-foreground leading-[1.1]">
               What Xolace Will Never Be.
             </h2>
             <div className="hidden md:flex gap-3">

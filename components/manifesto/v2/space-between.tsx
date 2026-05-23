@@ -5,7 +5,7 @@ import { ScrollReveal } from "@/components/manifesto/v2/shared/scroll-reveal"
 
 export function SpaceBetween() {
   return (
-    <section className="mb-32 md:mb-52">
+    <section className="section-spacing">
       <div className="section-container-wide">
         <ScrollReveal>
           <SectionDivider label="The Space Between">
