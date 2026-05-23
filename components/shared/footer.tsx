@@ -48,7 +48,6 @@ const links: Record<"explore" | "legal" | "contact", NavLink[]> = {
   explore: [
     { label: "About", href: "/about" },
     { label: "Manifesto", href: "/manifesto" },
-    { label: "FAQ", href: "/faq" },
     { label: "Ambassadors", href: "https://ambassador.xolaceinc.com", external: true },
     { label: "Press", href: "/press" },
   ],
