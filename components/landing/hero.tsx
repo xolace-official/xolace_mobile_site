@@ -10,7 +10,7 @@ export function Hero() {
     <section className="relative min-h-screen flex flex-col items-center justify-center section-spacing-x pt-24 pb-16 md:py-16 overflow-hidden">
       <Spotlight duration={8} xOffset={80} />
 
-      <div className="relative z-10 w-full max-w-screen-lg mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-10">
+      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-center md:justify-between gap-8 lg:gap-10">
 
         {/* Text + CTAs */}
         <div className="flex-1 text-center lg:text-left">
@@ -22,12 +22,12 @@ export function Hero() {
             className="font-serif italic font-light text-foreground"
           >
             {/* Mobile + tablet: 2 lines */}
-            <span className="block lg:hidden text-[1.375rem] md:text-[1.875rem] leading-[1.2]">
+            <span className="block lg:hidden font-semibold text-[2.5rem] leading-[1.2]">
               <span className="block">For the moments</span>
               <span className="block">that don&apos;t have a name yet.</span>
             </span>
             {/* Desktop: 3 lines */}
-            <span className="hidden lg:block text-[4.5rem] leading-[1.08]">
+            <span className="font-semibold hidden lg:block text-[4.5rem] leading-[1.08]">
               <span className="block whitespace-nowrap">For the moments</span>
               <span className="block whitespace-nowrap">that don&apos;t have</span>
               <span className="block whitespace-nowrap">a name yet.</span>

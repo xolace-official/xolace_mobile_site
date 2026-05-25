@@ -80,22 +80,24 @@ export function ProblemSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 1.0, delay: i * 0.14, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col items-center sm:items-start text-center sm:text-left"
+              className="flex flex-row items-start gap-4 text-left sm:flex-col sm:gap-6"
             >
-              <div className="relative mb-6">
+              <div className="relative shrink-0">
                 <div className={`absolute inset-0 ${m.orbGlow} blur-3xl rounded-full scale-[3]`} />
-                <div className={`relative size-16 rounded-full ${m.orbBg} border ${m.orbBorder} flex items-center justify-center`}>
-                  <m.Icon className={`size-7 ${m.iconColor}`} strokeWidth={1.25} />
+                <div className={`relative size-14 sm:size-16 rounded-full ${m.orbBg} border ${m.orbBorder} flex items-center justify-center`}>
+                  <m.Icon className={`size-6 sm:size-7 ${m.iconColor}`} strokeWidth={1.25} />
                 </div>
               </div>
 
-              <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/30 mb-5">
-                {m.time}
-              </p>
+              <div className="pt-1 sm:pt-0">
+                <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/30 mb-4 sm:mb-5">
+                  {m.time}
+                </p>
 
-              <p className="text-2xl md:text-[1.875rem] font-serif font-light text-foreground leading-[1.5]">
-                {m.text}
-              </p>
+                <p className="text-2xl md:text-[1.875rem] font-serif font-light text-foreground leading-[1.5]">
+                  {m.text}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>

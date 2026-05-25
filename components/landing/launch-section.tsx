@@ -10,13 +10,14 @@ export function LaunchSection() {
       id="download"
       className="relative min-h-screen flex items-end overflow-hidden"
     >
-      {/* Full-screen background video */}
+      {/* Full-screen background video — preload=none defers the 5.7 MB fetch until scroll */}
       <video
         src="/vids/Launch-vid.mp4"
         autoPlay
         muted
         loop
         playsInline
+        preload="none"
         className="absolute inset-0 w-full h-full object-cover"
       />
 

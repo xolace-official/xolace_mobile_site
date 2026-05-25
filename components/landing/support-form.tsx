@@ -65,7 +65,7 @@ export function SupportForm() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onSubmit={handleSubmit(onSubmit)}
-          className="space-y-8 rounded-lg border bg-secondary p-8"
+          className="space-y-8 rounded-lg border bg-secondary p-4 md:p-8"
         >
           {/* Name + Email — side by side on desktop, stacked on mobile */}
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">

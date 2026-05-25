@@ -71,10 +71,10 @@ const pillars: Pillar[] = [
 function TrustSealOverlay() {
   return (
     <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden" aria-hidden>
-      <div className="relative flex items-center justify-center w-[720px] h-[720px] lg:w-[900px] lg:h-[900px]">
+      <div className="relative flex items-center justify-center w-[88vw] h-[88vw] sm:w-[720px] sm:h-[720px] lg:w-[900px] lg:h-[900px]">
 
         {/* Glow atmosphere */}
-        <div className="absolute inset-0 rounded-full bg-primary/[0.07] blur-[100px] scale-[1.1]" />
+        <div className="absolute inset-0 rounded-full bg-primary/[0.07] blur-[60px] sm:blur-[100px] scale-[1.1]" />
 
         {/* Outer rotating dashed ring */}
         <motion.div
@@ -84,13 +84,13 @@ function TrustSealOverlay() {
         />
 
         {/* Second ring */}
-        <div className="absolute inset-16 lg:inset-20 rounded-full border border-foreground/[0.09]" />
+        <div className="absolute inset-8 sm:inset-16 lg:inset-20 rounded-full border border-foreground/[0.09]" />
 
         {/* Third ring */}
-        <div className="absolute inset-32 lg:inset-40 rounded-full border border-foreground/[0.07]" />
+        <div className="absolute inset-16 sm:inset-32 lg:inset-40 rounded-full border border-foreground/[0.07]" />
 
         {/* Innermost ring */}
-        <div className="absolute inset-48 lg:inset-60 rounded-full border border-foreground/[0.05]" />
+        <div className="absolute inset-24 sm:inset-48 lg:inset-60 rounded-full border border-foreground/[0.05]" />
 
         {/* Center shield */}
         <ShieldCheck
