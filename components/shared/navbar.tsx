@@ -6,7 +6,7 @@ import { XolaceLogo } from "@/components/shared/xolace-logo"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { useState, useEffect } from "react"
-import { Grip, X, ArrowUpRight } from "lucide-react"
+import { TextAlignJustify, X, ArrowUpRight } from "lucide-react"
 
 const navLinks = [
   { href: "/about", label: "About" },
@@ -36,29 +36,32 @@ export function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 w-full z-50">
-        <div className={cn(
-          "absolute inset-0 transition-all duration-500",
-          isScrolled
-            ? "bg-background/80 backdrop-blur-2xl backdrop-saturate-150 border-b border-border/20 shadow-sm"
-            : "bg-transparent"
-        )} />
+      <nav className="fixed top-0 z-50 w-full">
+        <div
+          className={cn(
+            "absolute inset-0 transition-all duration-500",
+            isScrolled
+              ? "border-b border-border/20 bg-background/80 shadow-sm backdrop-blur-2xl backdrop-saturate-150"
+              : "bg-transparent"
+          )}
+        />
 
-        <div className="relative flex justify-between items-center px-2 md:px-12 py-4 max-w-screen-2xl mx-auto">
-
+        <div className="relative mx-auto flex max-w-screen-2xl items-center justify-between px-2 py-4 md:px-12">
           <Link href="/" className="group shrink-0">
             <XolaceLogo
               size="sm"
               priority
-              className="transition-opacity duration-300 opacity-80 group-hover:opacity-100"
+              className="opacity-80 transition-opacity duration-300 group-hover:opacity-100"
             />
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-7">
+          <div className="hidden items-center gap-7 md:flex">
             <div className="flex items-center gap-5 text-sm">
               {navLinks.map(({ href, label, external }) => {
-                const isActive = !external && (href === "/" ? pathname === "/" : pathname.startsWith(href))
+                const isActive =
+                  !external &&
+                  (href === "/" ? pathname === "/" : pathname.startsWith(href))
                 return (
                   <Link
                     key={href}
@@ -66,7 +69,7 @@ export function Navbar() {
                     target={external ? "_blank" : undefined}
                     rel={external ? "noopener noreferrer" : undefined}
                     className={cn(
-                      "relative py-0.5 transition-colors duration-300 font-light tracking-wide",
+                      "relative py-0.5 font-light tracking-wide transition-colors duration-300",
                       isActive
                         ? "text-foreground"
                         : external
@@ -76,7 +79,7 @@ export function Navbar() {
                   >
                     {label}
                     {isActive && (
-                      <span className="absolute -bottom-0.5 inset-x-0 h-px rounded-full bg-primary" />
+                      <span className="absolute inset-x-0 -bottom-0.5 h-px rounded-full bg-primary" />
                     )}
                   </Link>
                 )
@@ -95,14 +98,18 @@ export function Navbar() {
           </div>
 
           {/* Mobile: theme + hamburger */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex items-center gap-2 md:hidden">
             <AnimatedThemeToggler />
             <button
               onClick={() => setMenuOpen((v) => !v)}
               aria-label="Toggle navigation"
-              className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-all duration-200"
+              className="rounded-lg p-2 text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground"
             >
-              {menuOpen ? <X className="size-5" /> : <Grip className="size-5" />}
+              {menuOpen ? (
+                <X className="size-5" />
+              ) : (
+                <TextAlignJustify className="size-5" />
+              )}
             </button>
           </div>
         </div>
@@ -113,14 +120,18 @@ export function Navbar() {
         className={cn(
           "fixed inset-x-0 bottom-0 z-40 md:hidden",
           "top-15",
-          "bg-background/80 backdrop-blur-2xl backdrop-saturate-150 border-t border-border/20",
+          "border-t border-border/20 bg-background/80 backdrop-blur-2xl backdrop-saturate-150",
           "transition-opacity duration-200",
-          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          menuOpen
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0"
         )}
       >
         <nav className="px-6 pt-3 pb-10">
           {navLinks.map(({ href, label, external }) => {
-            const isActive = !external && (href === "/" ? pathname === "/" : pathname.startsWith(href))
+            const isActive =
+              !external &&
+              (href === "/" ? pathname === "/" : pathname.startsWith(href))
             return (
               <Link
                 key={href}
@@ -128,13 +139,19 @@ export function Navbar() {
                 target={external ? "_blank" : undefined}
                 rel={external ? "noopener noreferrer" : undefined}
                 className={cn(
-                  "flex items-center justify-between py-4 text-xl font-light tracking-wide border-b border-border/10 last:border-0 transition-colors duration-200",
-                  isActive ? "text-foreground" : "text-muted-foreground/50 hover:text-foreground"
+                  "flex items-center justify-between border-b border-border/10 py-4 text-xl font-light tracking-wide transition-colors duration-200 last:border-0",
+                  isActive
+                    ? "text-foreground"
+                    : "text-muted-foreground/50 hover:text-foreground"
                 )}
               >
                 <span>{label}</span>
-                {isActive && <span className="size-1.5 rounded-full bg-primary shrink-0" />}
-                {external && <ArrowUpRight className="size-4 text-muted-foreground/30 shrink-0" />}
+                {isActive && (
+                  <span className="size-1.5 shrink-0 rounded-full bg-primary" />
+                )}
+                {external && (
+                  <ArrowUpRight className="size-4 shrink-0 text-muted-foreground/30" />
+                )}
               </Link>
             )
           })}
