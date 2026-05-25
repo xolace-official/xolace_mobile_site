@@ -1,5 +1,5 @@
-import Image from "next/image"
 import Link from "next/link"
+import { XolaceLogo } from "@/components/shared/xolace-logo"
 import { FaLinkedinIn, FaInstagram, FaYoutube, FaWhatsapp, FaSnapchatGhost } from "react-icons/fa"
 import { FaTiktok } from "react-icons/fa6"
 
@@ -9,37 +9,37 @@ const socials = [
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/company/xolace-inc/",
-    icon: <FaLinkedinIn size={16} />,
+    icon: <FaLinkedinIn size={20} />,
     color: "#0A66C2",
   },
   {
     label: "Instagram",
     href: "https://www.instagram.com/xolaceinc?utm_source=qr&igsh=anB2bTA4ZTJiM2tu",
-    icon: <FaInstagram size={16} />,
+    icon: <FaInstagram size={20} />,
     color: "#E1306C",
   },
   {
     label: "TikTok",
     href: "https://www.tiktok.com/@talk.with.xolace?_r=1&_t=ZS-93PtIXpzJAr",
-    icon: <FaTiktok size={16} />,
+    icon: <FaTiktok size={20} />,
     color: "currentColor",
   },
   {
     label: "YouTube",
     href: "https://youtube.com/@xolace",
-    icon: <FaYoutube size={16} />,
+    icon: <FaYoutube size={20} />,
     color: "#FF0000",
   },
   {
     label: "WhatsApp",
     href: "https://whatsapp.com/channel/0029Vb68RgXGpLHPmY1pL73s",
-    icon: <FaWhatsapp size={16} />,
+    icon: <FaWhatsapp size={20} />,
     color: "#25D366",
   },
   {
     label: "Snapchat",
     href: "https://snapchat.com/add/xolace",
-    icon: <FaSnapchatGhost size={16} />,
+    icon: <FaSnapchatGhost size={20} />,
     color: "#FFFC00",
   },
 ]
@@ -74,22 +74,16 @@ export function Footer() {
     <footer className="relative overflow-hidden border-t border-border/20 bg-xo-surface-lowest">
 
       {/* Main columns */}
-      <div className="relative mx-auto flex max-w-screen-2xl flex-col px-8 pt-16 pb-4 md:px-12 md:pt-20 md:pb-8 lg:px-16 gap-16">
+      <div className="relative mx-auto flex max-w-screen-2xl flex-col px-4 pt-16 pb-4 md:px-12 md:pt-20 md:pb-8 lg:px-16 gap-16">
         <div className="flex flex-col gap-12 md:flex-row md:justify-between md:gap-16">
 
           {/* Brand column */}
           <div className="shrink-0 space-y-6 md:max-w-xs">
-            <Link href="/" className="group flex w-fit items-center gap-2.5">
-              <Image
-                src="/images/use-x-remove-bg.png"
-                alt="Xolace"
-                width={26}
-                height={26}
-                className="size-6 object-contain"
+            <Link href="/" className="group flex w-fit">
+              <XolaceLogo
+                size="sm"
+                className="opacity-70 group-hover:opacity-100 transition-opacity duration-300"
               />
-              <span className="font-serif text-base italic text-foreground/80 group-hover:text-foreground transition-colors duration-300">
-                Xolace
-              </span>
             </Link>
 
             <p className="text-sm leading-relaxed font-light text-muted-foreground">
@@ -107,7 +101,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   aria-label={s.label}
                   style={{ color: s.color }}
-                  className="border bg-secondary flex size-9 items-center justify-center rounded-lg hover:bg-xo-surface-bright transition-colors duration-300"
+                  className="border bg-secondary flex size-11 items-center justify-center rounded-lg hover:bg-xo-surface-bright transition-colors duration-300"
                 >
                   {s.icon}
                 </Link>
@@ -140,7 +134,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-t border-border/15 pt-6 pb-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-t border-border/15 pb-10 md:pb-0">
           <p className="font-serif text-[12px] text-muted-foreground/55 leading-relaxed italic max-w-xl">
             Xolace is not designed for crisis. If you feel unsafe, contact your local emergency services
             or call/text{" "}
