@@ -20,7 +20,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: "Is Xolace free?",
         answer:
-          "Yes. Free to download on iOS and Android. The core experience — Mirror, Vent, and Glimpses — is free. We believe the thing that helps people should be available to everyone.",
+          "Yes. Free to download on iOS and Android. The core experience — Mirror and peer reflections — is free. We believe the thing that helps people should be available to everyone.",
       },
       {
         question: "Who is this for?",
@@ -43,19 +43,19 @@ export const faqCategories: FaqCategory[] = [
           "You describe what you're feeling — fragments, words, whatever you have. Mirror reflects it back with more precision than you found on your own. 1–3 sentences. The goal: you read it and think, yes — that's exactly it.",
       },
       {
-        question: "What is Vent?",
+        question: "What happens after the mirror?",
         answer:
-          "For when you need to release, not understand. You open the mic and speak. Something listens — without advising, without judging. When you're done, it's gone. \"Gone.\" appears on screen. Nothing is stored.",
+          "Once the mirror lands, you choose what comes next. Sit with a short breathing exercise. See an anonymous reflection from someone who felt something similar. Or simply close — knowing you were heard is sometimes enough.",
       },
       {
-        question: "What are Glimpses?",
+        question: "Can I speak instead of type?",
         answer:
-          "Short videos from real people describing an emotion like yours. Not advice. Not diagnosis. Just: I felt this. I'm still here. Human recognition without clinical framing.",
+          "Yes. Voice input is built in. Speak what's on your mind and it becomes text — then Mirror works exactly the same. Some things are easier to say than to write.",
       },
       {
         question: "Do I need an account?",
         answer:
-          "No. Mirror and Vent work without one. An account is only needed to contribute your own Glimpses or save notes across devices. We ask for as little as possible.",
+          "Yes. You sign in to save your session history and access your reflections across sessions. We keep the process quick and ask for as little as possible.",
       },
     ],
   },
@@ -65,12 +65,12 @@ export const faqCategories: FaqCategory[] = [
       {
         question: "What happens to what I share?",
         answer:
-          "Your words are encrypted. Your name is never attached to what you write. No one at Xolace reads your Mirror sessions. Vent sessions are deleted immediately when they end — nothing is stored.",
+          "Your words are encrypted. Your name is never attached to what you write. No one at Xolace reads your sessions. We built this for ourselves — we know what it feels like to need a space that won't sell you out.",
       },
       {
-        question: "Are my vent sessions recorded?",
+        question: "What happens to my voice if I speak instead of type?",
         answer:
-          "No. Voice sessions are processed in real time to generate a response, then deleted. There's no recording, no transcript, no storage of any kind after the session ends.",
+          "Your voice is transcribed in real time and treated as text input — it goes into Mirror exactly as typed input would. The audio itself is not stored. What you said is yours.",
       },
       {
         question: "Is my data sold?",
@@ -85,7 +85,12 @@ export const faqCategories: FaqCategory[] = [
       {
         question: "What if I'm in crisis?",
         answer:
-          "Xolace is not designed for crisis. If you or someone you know is in immediate danger, contact your local emergency services. In the US, call or text 988 (Suicide & Crisis Lifeline) any time, day or night.",
+          "Xolace is not designed for crisis. If you or someone you know is in immediate danger, contact your local emergency services. The app has a quiet \"Help\" button — always accessible — with emergency numbers and crisis lines for Ghana, the US, UK, Australia, and Canada.",
+      },
+      {
+        question: "What if what I'm feeling gets heavier?",
+        answer:
+          "At the end of a session, you can mark how you feel — lighter, same, heavier, or unsure. If you mark heavier, a gentle check-in appears. Xolace won't leave you alone in the harder moments.",
       },
     ],
   },

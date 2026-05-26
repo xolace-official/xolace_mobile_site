@@ -47,20 +47,16 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 const reflections = [
-  { quote: "Thinking about how much of my life I spend waiting for the 'real' part to start.", time: "11:24 PM" },
-  { quote: "Today felt like a performance I wasn't prepared for.", time: "4:12 PM" },
-  { quote: "The silence in my apartment used to feel lonely. Tonight, it just feels like space.", time: "2:05 AM" },
-  { quote: "I don't even know what I'm sad about. That's the worst part.", time: "6:41 PM" },
-  { quote: "Nobody asks how I'm doing anymore. I think they assume I'm fine.", time: "1:17 AM" },
-  { quote: "Deleted the whole message before sending. Some things are safer left unsaid.", time: "9:33 PM" },
-  { quote: "I keep replaying that conversation. The version in my head always goes differently.", time: "3:48 AM" },
-  { quote: "Felt something today for the first time in weeks. I don't even know what it was.", time: "7:22 PM" },
-  { quote: "Everyone's moving forward and I'm just… here.", time: "12:09 AM" },
-  { quote: "The hardest part isn't being sad. It's pretending you're not.", time: "10:55 PM" },
-  { quote: "Woke up at 3am and couldn't explain why to anyone, including myself.", time: "3:02 AM" },
-  { quote: "I've been okay for weeks. Sometimes that scares me more.", time: "8:14 PM" },
-  { quote: "Told someone I was tired. Meant something completely different.", time: "6:05 PM" },
-  { quote: "Some days the hardest thing is just starting.", time: "9:00 AM" },
+  { quote: "I'm happy for my best friend, I really am, but there's this pin poking feeling that I'm falling behind, and I can't shake it even though I tell myself I have no right to feel this way.", time: "11:38 PM" },
+  { quote: "it really hurts when someone you trust disappoints you, like I had high hopes and now I don't know what they're doing, and I end up wondering if maybe my expectations were just too high.", time: "10:29 PM" },
+  { quote: "I've poured everything into this dream, and it's the only thing that matters—either this succeeds or nothing else. But doing it all myself while my co-founders are here fills me with so much anger sometimes.", time: "8:44 PM" },
+  { quote: "something feels off today. a remark from my supervisor hit different, made the whole day go blank, and now i'm sitting with the fact that i know i can do more and i got myself into this.", time: "5:51 PM" },
+  { quote: "I'm supposed to be the example. My younger siblings look up to me, so how can I tell them I'm lost? I have to stay strong even when I feel like breaking.", time: "1:22 AM" },
+  { quote: "I keep thinking I'll wake up and this nightmare will be over. But every morning I open my eyes and it's the same world without you.", time: "6:03 AM" },
+  { quote: "My chest aches when I walk past the empty playground where we used to be. I wish I had the courage to tell you how much I miss you, but I'm too afraid of the silence that would follow.", time: "3:47 PM" },
+  { quote: "I told myself I'd deal with it tomorrow and tomorrow has been going on for about three months now.", time: "9:04 PM" },
+  { quote: "People who have no idea what's actually going on behind the scenes love to tell me what I should be doing, and it's so annoying.", time: "2:33 PM" },
+  { quote: "Been sick and it's like I can't carry what I'm supposed to be carrying, and that hit home—knowing everything falls apart if I can't get back to it.", time: "7:15 AM" },
 ]
 
 function ReflectionCard({ quote, time, color }: { quote: string; time: string; color: ColorConfig }) {
@@ -126,7 +122,7 @@ export function ReflectionsSection() {
             You&apos;re not the only one<br className="hidden md:block" /> carrying this.
           </h2>
           <p className="text-muted-foreground/50 font-light text-base max-w-sm mx-auto leading-relaxed">
-            Real moments, shared anonymously. No names. No context. Just truth.
+            From real Xolace sessions. Shared anonymously, with permission.
           </p>
         </motion.div>
 

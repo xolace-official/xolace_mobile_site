@@ -44,8 +44,8 @@ const pillars: Pillar[] = [
   },
   {
     Icon: UserX,
-    label: "No sign-up required",
-    text: "Mirror and Vent work the moment you open the app. No barriers, no friction.",
+    label: "No social layer",
+    text: "No feed, no followers, no public identity. Your account saves your history — not to perform it.",
     orbBg: "bg-chart-2/[0.10]",
     orbBorder: "border-chart-2/15",
     orbGlow: "bg-chart-2/15",

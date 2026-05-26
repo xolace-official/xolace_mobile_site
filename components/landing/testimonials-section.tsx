@@ -15,18 +15,16 @@ type Review = {
 }
 
 const reviews: Review[] = [
-  { name: "Abena K.",  quote: "I didn't have words for what I was carrying. Xolace gave them to me.",             platform: "App Store",   rating: 5   },
-  { name: "Marcus O.", quote: "It's not therapy. It's the thing I needed before therapy.",                       platform: "Google Play", rating: 5   },
-  { name: "Priya R.",  quote: "I've never felt understood by an app before. This was different.",                 platform: "App Store",   rating: 4.5 },
-  { name: "Kwame B.",  quote: "Finally something that doesn't try to fix me. It just helps me hear myself.",     platform: "Google Play", rating: 5   },
-  { name: "Leila S.",  quote: "I opened it at 2am not knowing what I needed. It knew.",                          platform: "App Store",   rating: 5   },
-  { name: "Tomás V.",  quote: "I used to scroll for an hour just to feel something. Now I actually do.",         platform: "Google Play", rating: 4.5 },
-  { name: "Nadia F.",  quote: "It doesn't feel like an app. It feels like a pause.",                             platform: "App Store",   rating: 5   },
-  { name: "James M.",  quote: "The anonymity changes everything. I said things I couldn't say out loud.",        platform: "Google Play", rating: 4.5 },
-  { name: "Esi A.",    quote: "The gentlest thing I've found for the moments that have no name.",                platform: "App Store",   rating: 5   },
-  { name: "Riku T.",   quote: "It validated something I'd been carrying quietly for months.",                    platform: "Google Play", rating: 4   },
-  { name: "Sara M.",   quote: "No sign-up, no judgment, no agenda. Just space. That's rare.",                   platform: "App Store",   rating: 5   },
-  { name: "David O.",  quote: "I showed up hollow and left feeling like something had shifted.",                 platform: "Google Play", rating: 4.5 },
+  { name: "Rosiee",      quote: "Just a few days on Xolace and I've realized that I don't really need a lot of words to express myself.",                                                                platform: "App Store",   rating: 5 },
+  { name: "s-kvng",      quote: "Sometimes I'm blown away by how easy it is to gain clarity on how I'm feeling without needing to have a conversation.",                                               platform: "App Store",   rating: 5 },
+  { name: "Aromah",      quote: "Actually the app is a masterpiece. Haven't seen an app work so fast like this wow.",                                                                                   platform: "App Store",   rating: 5 },
+  { name: "Quame",       quote: "This app really understands me…wow",                                                                                                                                   platform: "App Store",   rating: 5 },
+  { name: "scriptkid",   quote: "This app is doing so well, helping me a lot.",                                                                                                                        platform: "App Store",   rating: 5 },
+  { name: "Erica",       quote: "I love how Xolace created a safe and comfortable space for me to express myself and feel understood.",                                                                platform: "Google Play", rating: 5 },
+  { name: "Christopher", quote: "Xolace gave me a space to express myself freely and reflect on my emotions without pressure. I like how calm, simple, and peaceful the experience feels.",           platform: "Google Play", rating: 5 },
+  { name: "Tormeti",     quote: "Great concept with a meaningful purpose. I like how the app encourages self reflection in a simple and thoughtful way. Looking forward to seeing it grow.",           platform: "Google Play", rating: 5 },
+  { name: "Terry",       quote: "Xolace is friend. It's you shows you what other are going through and you are not alone that's after listening to your situation. Reliable. Private.",              platform: "Google Play", rating: 4 },
+  { name: "Ernest",      quote: "Emotional Clarity emotions instead of just feeling 'off.' Mindfulness Exercises.",                                                                                    platform: "Google Play", rating: 5 },
 ]
 
 const avatarColors = [

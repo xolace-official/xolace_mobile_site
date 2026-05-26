@@ -14,7 +14,7 @@ The existing responses to this gap have structural failures:
 
 - **Therapy** is scarce, expensive, stigmatized, and inaccessible at the moment someone actually needs it.
 - **AI companions** solve for availability and low friction but engineer dependency and can never do the one thing that matters most — choose someone back.
-- **Social media** creates performance pressure, not emotional safety.
+- **Social media** creates performance pressure, not emotional safety but we want to create the good kind of performative structure.
 - **Wellness apps** assume users already know what they feel and are ready to engage with a solution. Most people are stuck one layer earlier.
 
 That earlier layer is the real problem. **People cannot get help they cannot yet articulate.** A person who cannot name what they are carrying cannot meaningfully communicate it to a therapist, a friend, or themselves. Without that clarity — or without a release — they either avoid support entirely or engage with it inefficiently.
@@ -136,7 +136,7 @@ These are not positioning statements. They are hard design constraints.
 
 **Not a companion.** The AI is not a friend, coach, or relationship. There is memory of the user between sessions that creates a sense of naturally personalized feel from mirrors but not to create a sense of ongoing connection to the AI. Longitudinal data serves the user's self-understanding, not the AI's simulated relationship.
 
-**Not an addiction engine.** Sessions are complete. Users leave with something named or released. The goal is to make users feel understood faster, not to keep them longer than neccessary; okay to stay longer if they want to or give them value. Return happens because the product delivers real value, not because it leaves people unresolved.
+**Not a bad addiction engine.** Sessions are complete. Users leave with something named or released. We provide an infrastructure that births good addiction patterns. Return happens because the product delivers real value, not because it leaves people unresolved.
 
 ---
 
