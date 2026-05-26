@@ -24,7 +24,7 @@ export function HomePage() {
         <TestimonialsSection />
         <LandingFaq />
         <LaunchSection />
-        <SupportSection />
+        {/* <SupportSection /> */}
       </main>
       <MobileDownloadBar />
     </SmoothScroll>

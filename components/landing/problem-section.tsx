@@ -28,7 +28,7 @@ const moments: Moment[] = [
         <br />
         Don&apos;t know why.
         <br />
-        Not &lsquo;therapy bad&rsquo; —{" "}
+        Not &lsquo;therapy bad&rsquo; -{" "}
         <span className="text-primary/70 font-extralight italic">just heavy.</span>
       </>
     ),
@@ -44,7 +44,7 @@ const moments: Moment[] = [
       <>
         Scrolling.
         <br />
-        Not depressed —{" "}
+        Not depressed -{" "}
         <span className="text-accent/70 font-extralight italic">just hollow.</span>
       </>
     ),

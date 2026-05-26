@@ -14,10 +14,19 @@ export function AboutHero() {
 
       <div className="section-container relative z-10 text-center">
 
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-[11px] font-mono uppercase tracking-[0.24em] text-muted-foreground/50 mb-8"
+        >
+          End-to-end emotional processing infrastructure
+        </motion.p>
+
         <motion.h1
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.0, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="font-serif italic text-4xl md:text-5xl lg:text-[4.5rem] font-light text-foreground leading-[1.1] mb-6"
         >
           We built the room<br />we couldn&apos;t find.
@@ -27,9 +36,9 @@ export function AboutHero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-base md:text-lg text-muted-foreground/60 font-light leading-relaxed max-w-md mx-auto"
+          className="text-base md:text-lg text-muted-foreground/60 font-light leading-relaxed max-w-lg mx-auto"
         >
-          Four people who felt the weight first — and built the place they needed.
+          From when you can&apos;t name what you&apos;re feeling, to finding the right help. Not simulated help.
         </motion.p>
 
         <motion.div

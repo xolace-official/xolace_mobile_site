@@ -6,9 +6,9 @@ const letter = [
   { type: "pull" as const, text: "We almost didn't call it Xolace." },
   { type: "body" as const, text: "For a long time we kept describing what we were building in terms of what it wasn't. Not therapy. Not journaling. Not a chatbot. We'd list all the things it wasn't and hope people understood." },
   { type: "body" as const, text: "Eventually Andrew said something I've thought about since: We're building the room that doesn't have a name yet. That's when everything clicked." },
-  { type: "body" as const, text: "There's a moment most people know but never talk about. You're lying in bed. Something is sitting on your chest — not a crisis, just a weight. You don't know what to call it. You don't have anyone to call about it. You definitely don't think it's bad enough for therapy." },
+  { type: "body" as const, text: "There's a moment most people know but never talk about. You're lying in bed. Something is sitting on your chest, not a crisis, just a weight. You don't know what to call it. You don't have anyone to call about it. You definitely don't think it's bad enough for therapy." },
   { type: "body" as const, text: "So you scroll. Or you push it down. Or you tell yourself you'll deal with it tomorrow." },
-  { type: "body" as const, text: "We've all been there. The four of us. We kept asking why nothing was built for that moment — the moment before you know what you need. Then we stopped asking and started building." },
+  { type: "body" as const, text: "We've all been there. The four of us. We kept asking why nothing was built for that moment, the moment before you know what you need. Then we stopped asking and started building." },
   { type: "body" as const, text: "Xolace is the room we couldn't find. We're glad you're here." },
 ]
 

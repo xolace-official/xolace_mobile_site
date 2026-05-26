@@ -15,22 +15,22 @@ export const faqCategories: FaqCategory[] = [
       {
         question: "What is Xolace?",
         answer:
-          "Xolace is emotional processing infrastructure — built for the moments when you feel something you can't name. Heavy, anxious, numb, but not in crisis. Not therapy. Not a chatbot. The quiet space between fine and needing help.",
+          "Xolace is emotional processing infrastructure, built for the moments when you feel something you can't name. Heavy, anxious, numb, but not in crisis. Not therapy. Not a chatbot. The quiet space between fine and needing help.",
       },
       {
         question: "Is Xolace free?",
         answer:
-          "Yes. Free to download on iOS and Android. The core experience — Mirror and peer reflections — is free. We believe the thing that helps people should be available to everyone.",
+          "Yes. Free to download on iOS and Android. The core experience, Mirror and peer reflections is free. We believe the thing that helps people should be available to everyone.",
       },
       {
         question: "Who is this for?",
         answer:
-          "Anyone who feels something they can't name. If you've ever had a weight on your chest that you couldn't explain — and didn't think it was 'bad enough' to bring up — Xolace was built for that moment.",
+          "Anyone who feels something they can't name. If you've ever had a weight on your chest that you couldn't explain and didn't think it was 'bad enough' to bring up. Xolace was built for that moment.",
       },
       {
         question: "Is this therapy?",
         answer:
-          "No. Xolace sits in the space before therapy. It doesn't diagnose. It doesn't advise. It helps you hear yourself more clearly — so that when you do reach out for help, you know what you're reaching out about.",
+          "No. Xolace sits in the space before therapy. It doesn't diagnose. It doesn't advise. It helps you hear yourself more clearly, so that when you do reach out for help, you know what you're reaching out about.",
       },
     ],
   },
@@ -40,17 +40,17 @@ export const faqCategories: FaqCategory[] = [
       {
         question: "What is Mirror?",
         answer:
-          "You describe what you're feeling — fragments, words, whatever you have. Mirror reflects it back with more precision than you found on your own. 1–3 sentences. The goal: you read it and think, yes — that's exactly it.",
+          "You describe what you're feeling, fragments, words, whatever you have. Mirror reflects it back with more precision than you found on your own. 1-3 sentences. The goal: you read it and think, yes, that's exactly it.",
       },
       {
         question: "What happens after the mirror?",
         answer:
-          "Once the mirror lands, you choose what comes next. Sit with a short breathing exercise. See an anonymous reflection from someone who felt something similar. Or simply close — knowing you were heard is sometimes enough.",
+          "Once the mirror lands, you choose what comes next. Sit with a short breathing exercise. See an anonymous reflection from someone who felt something similar. Or simply close, knowing you were heard is sometimes enough.",
       },
       {
         question: "Can I speak instead of type?",
         answer:
-          "Yes. Voice input is built in. Speak what's on your mind and it becomes text — then Mirror works exactly the same. Some things are easier to say than to write.",
+          "Yes. Voice input is built in. Speak what's on your mind and it becomes text then Mirror works exactly the same. Some things are easier to say than to write.",
       },
       {
         question: "Do I need an account?",
@@ -90,7 +90,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: "What if what I'm feeling gets heavier?",
         answer:
-          "At the end of a session, you can mark how you feel — lighter, same, heavier, or unsure. If you mark heavier, a gentle check-in appears. Xolace won't leave you alone in the harder moments.",
+          "At the end of a session, you can mark how you feel; lighter, same, heavier, or unsure. If you mark heavier, a gentle check-in appears. Xolace won't leave you alone in the harder moments.",
       },
     ],
   },

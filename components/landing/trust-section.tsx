@@ -4,175 +4,156 @@ import { motion } from "motion/react"
 import { Lock, EyeOff, UserX, Ban, ShieldCheck } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
-type Pillar = {
+type Promise = {
   Icon: LucideIcon
   label: string
   text: string
-  orbBg: string
-  orbBorder: string
-  orbGlow: string
-  iconColor: string
-  cardBorder: string
-  cardBg: string
-  hoverBorder: string
 }
 
-const pillars: Pillar[] = [
+const promises: Promise[] = [
   {
     Icon: Lock,
-    label: "Encrypted end-to-end",
-    text: "Your words are yours alone. No one at Xolace reads them — not even us.",
-    orbBg: "bg-primary/[0.12]",
-    orbBorder: "border-primary/20",
-    orbGlow: "bg-primary/20",
-    iconColor: "text-primary/80",
-    cardBorder: "border-primary/15",
-    cardBg: "bg-primary/[0.05]",
-    hoverBorder: "hover:border-primary/35",
+    label: "Private by design",
+    text: "Encrypted in transit and at rest. No human at Xolace reviews what you write.",
   },
   {
     Icon: EyeOff,
-    label: "Fully anonymous",
-    text: "Your name is never attached to what you write. You are not a profile.",
-    orbBg: "bg-accent/[0.10]",
-    orbBorder: "border-accent/15",
-    orbGlow: "bg-accent/15",
-    iconColor: "text-accent/80",
-    cardBorder: "border-accent/15",
-    cardBg: "bg-accent/[0.04]",
-    hoverBorder: "hover:border-accent/35",
+    label: "Anonymous, always",
+    text: "Your name is never attached to anything. You are not a profile.",
   },
   {
     Icon: UserX,
-    label: "No social layer",
-    text: "No feed, no followers, no public identity. Your account saves your history — not to perform it.",
-    orbBg: "bg-chart-2/[0.10]",
-    orbBorder: "border-chart-2/15",
-    orbGlow: "bg-chart-2/15",
-    iconColor: "text-chart-2/80",
-    cardBorder: "border-chart-2/15",
-    cardBg: "bg-chart-2/[0.04]",
-    hoverBorder: "hover:border-chart-2/35",
+    label: "No followers, no feed",
+    text: "There is nothing to perform here.",
   },
   {
     Icon: Ban,
-    label: "No ads. No selling.",
-    text: "We don't run ads. We don't sell your data. The trust is the product.",
-    orbBg: "bg-chart-3/[0.10]",
-    orbBorder: "border-chart-3/15",
-    orbGlow: "bg-chart-3/15",
-    iconColor: "text-chart-3/80",
-    cardBorder: "border-chart-3/15",
-    cardBg: "bg-chart-3/[0.04]",
-    hoverBorder: "hover:border-chart-3/35",
+    label: "No ads, no data sold",
+    text: "Ever. The trust is the product.",
   },
 ]
-
-function TrustSealOverlay() {
-  return (
-    <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden" aria-hidden>
-      <div className="relative flex items-center justify-center w-[88vw] h-[88vw] sm:w-[720px] sm:h-[720px] lg:w-[900px] lg:h-[900px]">
-
-        {/* Glow atmosphere */}
-        <div className="absolute inset-0 rounded-full bg-primary/[0.07] blur-[60px] sm:blur-[100px] scale-[1.1]" />
-
-        {/* Outer rotating dashed ring */}
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 rounded-full border border-dashed border-foreground/[0.14]"
-        />
-
-        {/* Second ring */}
-        <div className="absolute inset-8 sm:inset-16 lg:inset-20 rounded-full border border-foreground/[0.09]" />
-
-        {/* Third ring */}
-        <div className="absolute inset-16 sm:inset-32 lg:inset-40 rounded-full border border-foreground/[0.07]" />
-
-        {/* Innermost ring */}
-        <div className="absolute inset-24 sm:inset-48 lg:inset-60 rounded-full border border-foreground/[0.05]" />
-
-        {/* Center shield */}
-        <ShieldCheck
-          className="relative z-10 text-foreground/[0.10]"
-          style={{ width: "6rem", height: "6rem" }}
-          strokeWidth={0.7}
-        />
-      </div>
-    </div>
-  )
-}
 
 export function TrustSection() {
   return (
     <section className="section-spacing bg-muted overflow-hidden relative">
 
-      <div aria-hidden className="absolute inset-0 pointer-events-none select-none">
-        <div className="absolute w-[650px] h-[650px] rounded-full bg-primary/[0.05] blur-[150px] -top-40 -left-20 animate-gentle-pulse" />
-        <div className="absolute w-[500px] h-[500px] rounded-full bg-accent/[0.04] blur-[130px] -bottom-20 -right-10 animate-gentle-pulse [animation-delay:2.5s]" />
-        <div className="absolute w-[400px] h-[400px] rounded-full bg-chart-2/[0.04] blur-[120px] bottom-1/3 left-1/2 -translate-x-1/2 animate-gentle-pulse [animation-delay:5s]" />
+      {/* single quiet atmospheric wash — replaces the busy concentric rings + multi-orb backdrop */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none">
+        <div className="absolute w-[700px] h-[700px] rounded-full bg-primary/[0.04] blur-[140px] -top-40 -right-20 animate-gentle-pulse" />
+        <div className="absolute w-[500px] h-[500px] rounded-full bg-accent/[0.03] blur-[120px] -bottom-20 -left-20 animate-gentle-pulse [animation-delay:3s]" />
       </div>
 
-      <TrustSealOverlay />
-
       <div className="section-container relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-16 gap-y-12 items-start">
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 space-y-5"
-        >
-          <p className="text-[11px] font-mono uppercase tracking-[0.24em] text-muted-foreground/30">
-            Built on trust
-          </p>
-          <h2 className="font-serif italic font-light text-foreground text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] max-w-2xl">
-            When you&apos;re at your most honest,<br className="hidden md:block" /> you deserve to feel safe.
-          </h2>
-          <p className="text-base text-muted-foreground/50 font-light leading-relaxed max-w-md">
-            We built Xolace for ourselves first. We know what it feels like to need a space that won&apos;t sell you out.
-          </p>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 lg:sticky lg:top-32"
+          >
+            <p className="text-[11px] font-mono uppercase tracking-[0.24em] text-muted-foreground/60 mb-7 flex items-center gap-2.5">
+              <span className="inline-block size-1 rounded-full bg-primary" />
+              Built on trust
+            </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {pillars.map(({ Icon, label, text, orbBg, orbBorder, orbGlow, iconColor, cardBorder, cardBg, hoverBorder }, i) => (
-              <motion.div
-                key={label}
-                initial={{ opacity: 0, y: 32 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className={`relative rounded-2xl border p-7 transition-all duration-500 ${cardBorder} ${cardBg} ${hoverBorder}`}
-              >
-                <div className="relative mb-7">
-                  <div className={`absolute inset-0 ${orbGlow} blur-2xl rounded-full scale-[3]`} />
-                  <div className={`relative size-12 rounded-full ${orbBg} border ${orbBorder} flex items-center justify-center`}>
-                    <Icon className={`size-5 ${iconColor}`} strokeWidth={1.5} />
-                  </div>
-                </div>
+            <h2 className="font-serif italic font-light text-foreground text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.12] mb-7">
+              When you&apos;re at your most honest,<br className="hidden md:block" /> you deserve to feel safe.
+            </h2>
 
-                <p className="text-sm font-medium text-foreground/85 mb-2 leading-snug">{label}</p>
-                <p className="text-sm text-muted-foreground/50 font-light leading-relaxed">{text}</p>
-              </motion.div>
-            ))}
+            <p className="text-base text-muted-foreground/80 font-light leading-relaxed max-w-md mb-10">
+              We built Xolace for ourselves first. We know what it feels like to need a space that won&apos;t sell you out.
+            </p>
+
+            <div className="flex items-center gap-3">
+              <div className="h-px w-10 bg-foreground/25" />
+              <span className="font-serif italic text-sm text-muted-foreground/70">
+                The Xolace team
+              </span>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7"
+          >
+            <div className="relative rounded-2xl border border-border/60 bg-background/40 backdrop-blur-sm overflow-hidden">
+
+              {/* corner mark — gives the panel a "stamped" quality */}
+              <div className="absolute top-5 right-6 flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/40">
+                <ShieldCheck className="size-3" strokeWidth={1.5} />
+                Sealed
+              </div>
+
+              <div className="px-7 pt-12 pb-2">
+                <p className="font-serif italic text-sm text-muted-foreground/70 mb-1">
+                  Our promises to you
+                </p>
+              </div>
+
+              <ul>
+                {promises.map(({ Icon, label, text }, i) => (
+                  <motion.li
+                    key={label}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.6, delay: 0.2 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                    className="group relative grid grid-cols-[auto_auto_1fr] items-start gap-x-5 px-7 py-6 border-t border-border/40 transition-colors duration-500 hover:bg-foreground/[0.02]"
+                  >
+                    <span className="font-mono text-[11px] tracking-[0.15em] text-muted-foreground/40 pt-1.5 tabular-nums">
+                      0{i + 1}
+                    </span>
+
+                    <div className="size-9 rounded-full border border-border/60 bg-background/60 flex items-center justify-center mt-0.5 transition-colors duration-500 group-hover:border-foreground/30">
+                      <Icon className="size-[15px] text-foreground/70" strokeWidth={1.5} />
+                    </div>
+
+                    <div className="min-w-0">
+                      <p className="text-[15px] font-medium text-foreground leading-snug mb-1">
+                        {label}
+                      </p>
+                      <p className="text-sm text-muted-foreground/80 font-light leading-relaxed">
+                        {text}
+                      </p>
+                    </div>
+                  </motion.li>
+                ))}
+              </ul>
+
+              <div className="border-t border-border/40 px-7 py-5 flex items-center justify-between">
+                <span className="font-serif italic text-xs text-muted-foreground/60">
+                  Signed, in good faith.
+                </span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/40">
+                  v 1.0
+                </span>
+              </div>
+
+            </div>
+          </motion.div>
+
         </div>
 
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-14 flex items-center gap-5"
+          transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-20 flex items-center gap-5"
         >
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-border/15" />
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-border/30" />
           <div className="flex items-center gap-2 shrink-0">
-            <ShieldCheck className="size-4 text-emerald-500 shrink-0" strokeWidth={1.5} />
-            <p className="font-serif italic text-sm text-muted-foreground/40 whitespace-nowrap">
-              The trust is not a feature. It&apos;s the foundation.
+            <ShieldCheck className="size-4 text-accent shrink-0" strokeWidth={1.5} />
+            <p className="font-serif italic text-sm text-muted-foreground/70 whitespace-nowrap">
+              The foundation, not a feature.
             </p>
           </div>
-          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-border/15" />
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-border/30" />
         </motion.div>
 
       </div>
