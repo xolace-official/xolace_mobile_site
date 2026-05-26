@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"C:\\\\Users\\\\Work\\\\Aims\\\\xolace_mobile_site\\\\public\\\\images\")",
+      "Bash(bun run *)",
+      "Bash(git restore *)",
+      "Bash(bun add *)",
+      "Bash(Select-String \"accordion\")",
+      "Bash(bunx shadcn@latest add accordion --yes)",
+      "Bash(grep *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(npx --yes chromium-cli screenshot http://localhost:3000 --output /tmp/landing-hero.png --wait 3000)",
+      "Bash(curl -s http://localhost:3000)",
+      "PowerShell(Get-ChildItem -Recurse \"C:\\\\Users\\\\Work\\\\Aims\\\\xolace_mobile_site\\\\public\" -ErrorAction SilentlyContinue | Where-Object { !$_.PSIsContainer } | Select-Object FullName, Length | Sort-Object Length -Descending)",
+      "PowerShell(Get-Item *)",
+      "PowerShell(Get-ChildItem *)",
+      "PowerShell(Get-ChildItem -Recurse \"C:\\\\Users\\\\Work\\\\Aims\\\\xolace_mobile_site\\\\public\" | Where-Object { !$_.PSIsContainer } | Select-Object @{N='Path';E={$_.FullName -replace [regex]::Escape\\('C:\\\\Users\\\\Work\\\\Aims\\\\xolace_mobile_site\\\\public\\\\'\\),''}}, @{N='SizeKB';E={[math]::Round\\($_.Length/1KB,1\\)}} | Sort-Object SizeKB -Descending | Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem -Recurse \"C:\\\\Users\\\\Work\\\\Aims\\\\xolace_mobile_site\\\\public\\\\images\" | Where-Object { !$_.PSIsContainer } | Select-Object Name, @{N='SizeKB';E={[math]::Round\\($_.Length/1KB,1\\)}})",
+      "PowerShell(Get-ChildItem -Recurse \"C:\\\\Users\\\\Work\\\\Aims\\\\xolace_mobile_site\\\\public\" | Where-Object { !$_.PSIsContainer } | Select-Object FullName, @{N='SizeKB';E={[math]::Round\\($_.Length/1KB,1\\)}}, LastWriteTime | Sort-Object LastWriteTime -Descending)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "shadcn"
+  ]
+}

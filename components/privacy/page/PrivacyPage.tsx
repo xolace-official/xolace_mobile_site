@@ -22,7 +22,7 @@ const sections: TocSection[] = [
 export function PrivacyPage() {
   return (
     <main className="pt-32 pb-28">
-      <div className="px-8 md:px-12 lg:px-16 max-w-7xl mx-auto">
+      <div className="px-8 md:px-12 lg:px-16 max-w-screen-xl mx-auto">
         <PrivacyHero />
 
         <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-16 xl:gap-24">

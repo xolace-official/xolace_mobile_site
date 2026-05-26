@@ -21,6 +21,7 @@ export function AnimatedThemeToggler({
   const [mounted, setMounted] = useState(false)
   const buttonRef = useRef<HTMLButtonElement>(null)
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), [])
 
   const toggleTheme = useCallback(() => {

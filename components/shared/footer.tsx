@@ -1,165 +1,154 @@
-import Image from "next/image"
 import Link from "next/link"
-import { Instagram } from "@/components/socials/instagram-icon"
-import { LinkedIn } from "@/components/socials/linkedin-icon"
-import { WhatsApp } from "@/components/socials/whatsapp-icon"
-import { TikTokDark } from "@/components/socials/tiktok-icon-dark"
-import { TikTokLight } from "@/components/socials/tiktok-icon-light"
+import { XolaceLogo } from "@/components/shared/xolace-logo"
+import { FaLinkedinIn, FaInstagram, FaYoutube, FaWhatsapp, FaSnapchatGhost } from "react-icons/fa"
+import { FaTiktok } from "react-icons/fa6"
+
+type NavLink = { label: string; href: string; external?: boolean }
 
 const socials = [
   {
-    label: "TikTok",
-    href: "https://www.tiktok.com/@talk.with.xolace?_r=1&_t=ZS-93PtIXpzJAr",
-    icon: (
-      <>
-        <TikTokLight className="size-[16px] block dark:hidden" />
-        <TikTokDark className="size-[16px] hidden dark:block" />
-      </>
-    ),
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/xolace-inc/",
+    icon: <FaLinkedinIn size={20} />,
+    color: "#0A66C2",
   },
   {
     label: "Instagram",
     href: "https://www.instagram.com/xolaceinc?utm_source=qr&igsh=anB2bTA4ZTJiM2tu",
-    icon: <Instagram className="size-[16px]" />,
+    icon: <FaInstagram size={20} />,
+    color: "#E1306C",
   },
   {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/company/xolace-inc/",
-    icon: <LinkedIn className="size-[16px]" />,
+    label: "TikTok",
+    href: "https://www.tiktok.com/@talk.with.xolace?_r=1&_t=ZS-93PtIXpzJAr",
+    icon: <FaTiktok size={20} />,
+    color: "currentColor",
+  },
+  {
+    label: "YouTube",
+    href: "https://youtube.com/@xolace",
+    icon: <FaYoutube size={20} />,
+    color: "#FF0000",
   },
   {
     label: "WhatsApp",
     href: "https://whatsapp.com/channel/0029Vb68RgXGpLHPmY1pL73s",
-    icon: <WhatsApp className="size-[16px]" />,
+    icon: <FaWhatsapp size={20} />,
+    color: "#25D366",
+  },
+  {
+    label: "Snapchat",
+    href: "https://snapchat.com/add/xolace",
+    icon: <FaSnapchatGhost size={20} />,
+    color: "#FFFC00",
   },
 ]
 
-const contactLinks = [
-  { label: "General enquiries", href: "mailto:hello@xolaceinc.com" },
-  { label: "Privacy & data", href: "mailto:privacy@xolaceinc.com" },
-  { label: "Press", href: "mailto:press@xolaceinc.com" },
-]
+const links: Record<"explore" | "legal" | "contact", NavLink[]> = {
+  explore: [
+    { label: "About", href: "/about" },
+    { label: "Manifesto", href: "/manifesto" },
+    { label: "Ambassadors", href: "https://ambassador.xolaceinc.com", external: true },
+    { label: "Press", href: "/press" },
+  ],
+  legal: [
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
+    { label: "Support", href: "/support" },
+  ],
+  contact: [
+    { label: "hello@xolaceinc.com", href: "mailto:hello@xolaceinc.com" },
+    { label: "press@xolaceinc.com", href: "mailto:press@xolaceinc.com" },
+    { label: "support@xolace.com", href: "mailto:support@xolace.com" },
+  ],
+}
 
-const legalLinks = [
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms of Service", href: "/terms" },
-  { label: "Support", href: "/support" },
+const sections = [
+  { key: "explore" as const, label: "Explore" },
+  { key: "legal" as const, label: "Legal" },
+  { key: "contact" as const, label: "Contact" },
 ]
 
 export function Footer() {
   return (
-    <footer className="bg-xo-surface-lowest w-full border-t border-border">
+    <footer className="relative overflow-hidden border-t border-border/20 bg-xo-surface-lowest">
 
-      {/* Top row — brand left, contact right */}
-      <div className="px-8 md:px-12 lg:px-16 max-w-screen-2xl mx-auto pt-16 pb-14">
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-12">
+      {/* Main columns */}
+      <div className="relative mx-auto flex max-w-screen-2xl flex-col px-4 pt-16 pb-4 md:px-12 md:pt-20 md:pb-8 lg:px-16 gap-16">
+        <div className="flex flex-col gap-12 md:flex-row md:justify-between md:gap-16">
 
-          {/* Left — brand + nav + socials */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <Image
-                src="/images/use-x-remove-bg.png"
-                alt="Xolace"
-                width={28}
-                height={28}
-                className="size-7 object-contain"
+          {/* Brand column */}
+          <div className="shrink-0 space-y-6 md:max-w-xs">
+            <Link href="/" className="group flex w-fit">
+              <XolaceLogo
+                size="sm"
+                className="opacity-70 group-hover:opacity-100 transition-opacity duration-300"
               />
-              <span className="text-sm font-medium tracking-tight">Xolace</span>
-            </div>
+            </Link>
 
-            <nav className="flex flex-wrap gap-x-6 gap-y-2">
-              <Link
-                href="/manifesto"
-                className="text-[11px] tracking-[0.08em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
-              >
-                Manifesto
-              </Link>
-              <Link
-                href="/support"
-                className="text-[11px] tracking-[0.08em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
-              >
-                Support
-              </Link>
-            </nav>
+            <p className="text-sm leading-relaxed font-light text-muted-foreground">
+              A quiet place to be human. Not a feed. Not a clinic. The space
+              before, between, and outside therapy.
+            </p>
 
-            <div className="flex items-center gap-1">
-              {socials.map((social) => (
+            {/* Social icons with brand colours */}
+            <div className="flex flex-wrap items-center gap-1">
+              {socials.map((s) => (
                 <Link
-                  key={social.label}
-                  href={social.href}
+                  key={s.label}
+                  href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="flex items-center justify-center p-2 rounded-lg opacity-50 hover:opacity-100 hover:bg-muted transition-all duration-300"
+                  aria-label={s.label}
+                  style={{ color: s.color }}
+                  className="border bg-secondary flex size-11 items-center justify-center rounded-lg hover:bg-xo-surface-bright transition-colors duration-300"
                 >
-                  {social.icon}
+                  {s.icon}
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Right — get in touch */}
-          <div className="space-y-4">
-            <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground">
-              Get in touch
-            </p>
-            <div className="space-y-2">
-              {contactLinks.map((link) => (
-                <div key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
-                  >
-                    {link.href.replace("mailto:", "")}
-                  </Link>
-                  <p className="text-[10px] font-mono uppercase tracking-[0.08em] text-muted-foreground/60 mt-0.5">
-                    {link.label}
-                  </p>
+          {/* Link columns */}
+          <div className="grid grid-cols-2 gap-10 md:grid-cols-3 md:gap-12">
+            {sections.map(({ key, label }) => (
+              <div key={key} className="space-y-4">
+                <p className="section-label">{label}</p>
+                <div className="space-y-2.5">
+                  {links[key].map((l) => (
+                    <div key={l.label}>
+                      <Link
+                        href={l.href}
+                        target={l.external ? "_blank" : undefined}
+                        rel={l.external ? "noopener noreferrer" : undefined}
+                        className="text-sm font-light text-muted-foreground/80 transition-colors duration-300 hover:text-foreground"
+                      >
+                        {l.label}
+                      </Link>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
 
-      {/* Acknowledgment — crisis notice */}
-      <div className="border-t border-border px-8 md:px-12 lg:px-16 max-w-screen-2xl mx-auto py-8">
-        <div className="max-w-2xl">
-          <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground mb-3">
-            Acknowledgment
-          </p>
-          <p className="font-serif text-[13px] text-muted-foreground leading-relaxed">
-            Xolace is not designed to be used in crisis. If you are experiencing a mental health
-            emergency or feel unsafe, please contact your local emergency services or reach out to a
-            crisis line. In the US, you can call or text{" "}
+        {/* Bottom bar */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-t border-border/15 pb-10 md:pb-0">
+          <p className="font-serif text-[12px] text-muted-foreground/55 leading-relaxed italic max-w-xl">
+            Xolace is not designed for crisis. If you feel unsafe, contact your local emergency services
+            or call/text{" "}
             <a
               href="tel:988"
-              className="text-foreground underline underline-offset-4 hover:text-primary transition-colors duration-300"
+              className="underline underline-offset-2 hover:text-muted-foreground transition-colors duration-300"
             >
               988
             </a>{" "}
-            at any time.
+            (US) at any time.
           </p>
-        </div>
-      </div>
-
-      {/* Bottom bar — copyright + legal links */}
-      <div className="border-t border-border px-8 md:px-12 lg:px-16 max-w-screen-2xl mx-auto py-5">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <p className="text-[11px] tracking-[0.05em] text-muted-foreground">
-            &copy; 2026 Xolace. Built by people who needed this to exist.
+          <p className="text-[11px] tracking-[0.04em] text-muted-foreground/55 shrink-0">
+            &copy; 2026 Xolace Inc.
           </p>
-          <div className="flex items-center gap-6">
-            {legalLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-[11px] tracking-[0.05em] text-muted-foreground hover:text-foreground transition-colors duration-300"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
         </div>
       </div>
 

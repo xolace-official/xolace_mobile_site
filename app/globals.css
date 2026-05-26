@@ -223,11 +223,105 @@
     color: var(--primary);
 }
 
-.asymmetric-layout {
-    max-width: 1536px;
-    margin-inline: auto;
-    padding-left: clamp(2rem, 10vw, 8rem);
-    padding-right: clamp(2rem, 15vw, 12rem);
+/* ─────────────────────────────────────────────────────────────────
+   Layout spacing system
+   Edit these tokens — all sections update automatically.
+   ───────────────────────────────────────────────────────────────── */
+
+:root {
+    --section-py:        5rem;   /* 80px  — vertical section padding, mobile  */
+    --section-px:        1rem;   /* 32px  — horizontal padding, guaranteed min */
+    --content-w:        64rem;   /* 1024px — standard content width            */
+    --content-w-wide:   80rem;   /* 1280px — wide two-column layouts           */
+    --content-w-narrow: 48rem;   /* 768px  — focused single-column (download)  */
+}
+
+/* Desktop: more vertical breathing room */
+@media (min-width: 768px) {
+    :root { --section-py: 8rem; }
+}
+
+@layer utilities {
+    /* Vertical padding only — background spans full width */
+    .section-spacing {
+        padding-top:    var(--section-py);
+        padding-bottom: var(--section-py);
+    }
+
+    /* Vertical-only alias — explicit name for full-bleed sections */
+    .section-spacing-y {
+        padding-top:    var(--section-py);
+        padding-bottom: var(--section-py);
+    }
+
+    /* Horizontal padding — used when a container is absent */
+    .section-spacing-x {
+        padding-left:  var(--section-px);
+        padding-right: var(--section-px);
+    }
+
+    /*
+      Containers: max-width + centering + guaranteed horizontal padding.
+      Padding lives here (not on <section>) so every container has
+      the same minimum gap from viewport edge regardless of its max-width.
+    */
+    .section-container {
+        width: 100%;
+        max-width:    var(--content-w);
+        margin-left:  auto;
+        margin-right: auto;
+        padding-left:  var(--section-px);
+        padding-right: var(--section-px);
+    }
+
+    .section-container-wide {
+        width: 100%;
+        max-width:    var(--content-w-wide);
+        margin-left:  auto;
+        margin-right: auto;
+        padding-left:  var(--section-px);
+        padding-right: var(--section-px);
+    }
+
+    .section-container-narrow {
+        width: 100%;
+        max-width:    var(--content-w-narrow);
+        margin-left:  auto;
+        margin-right: auto;
+        padding-left:  var(--section-px);
+        padding-right: var(--section-px);
+    }
+
+    /* Bottom-only padding for page hero sections — main's pt-32 handles the top. */
+    .hero-pb {
+        padding-bottom: var(--section-py);
+    }
+
+    /* Muted monospace label — appears above section headings site-wide. */
+    .section-label {
+        font-size:      0.625rem;
+        font-family:    ui-monospace, monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color:          color-mix(in oklch, var(--muted-foreground) 40%, transparent);
+        display:        block;
+    }
+
+    /* Hide scrollbar across all browsers while keeping scroll behaviour. */
+    .scrollbar-none {
+        scrollbar-width: none;
+        &::-webkit-scrollbar { display: none; }
+    }
+
+    /* Dot grid — use on a positioned overlay div inside a section */
+    .dot-grid {
+        background-image: radial-gradient(
+            circle,
+            color-mix(in oklch, var(--foreground) 22%, transparent) 1.5px,
+            transparent 1.5px
+        );
+        background-size: 24px 24px;
+    }
 }
 
 /* View Transition API — theme toggle animation */

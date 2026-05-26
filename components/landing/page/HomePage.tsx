@@ -1,28 +1,32 @@
+import dynamic from "next/dynamic"
 import { Hero } from "@/components/landing/hero"
 import { ProblemSection } from "@/components/landing/problem-section"
-import { CompanionBridge } from "@/components/landing/companion-bridge"
-import { PhilosophySection } from "@/components/landing/philosophy-section"
-import { HowItWorks } from "@/components/landing/how-it-works"
-import { MockupSection } from "@/components/landing/mockup-section"
-import { ReflectionsSection } from "@/components/landing/reflections-section"
-import { TrustSection } from "@/components/landing/trust-section"
-import { LaunchSection } from "@/components/landing/launch-section"
 import { SmoothScroll } from "@/components/shared/smooth-scroll"
+import { MobileDownloadBar } from "@/components/shared/mobile-download-bar"
+
+const PathsSection = dynamic(() => import("@/components/landing/paths-section").then(m => ({ default: m.PathsSection })))
+const ReflectionsSection = dynamic(() => import("@/components/landing/reflections-section").then(m => ({ default: m.ReflectionsSection })))
+const TrustSection = dynamic(() => import("@/components/landing/trust-section").then(m => ({ default: m.TrustSection })))
+const TestimonialsSection = dynamic(() => import("@/components/landing/testimonials-section").then(m => ({ default: m.TestimonialsSection })))
+const LandingFaq = dynamic(() => import("@/components/landing/landing-faq").then(m => ({ default: m.LandingFaq })))
+const LaunchSection = dynamic(() => import("@/components/landing/launch-section").then(m => ({ default: m.LaunchSection })))
+const SupportSection = dynamic(() => import("@/components/landing/support-section").then(m => ({ default: m.SupportSection })))
 
 export function HomePage() {
   return (
-    <SmoothScroll>  
-    <main className="relative overflow-hidden">
-      <Hero />
-      <ProblemSection />
-      <CompanionBridge />
-      <PhilosophySection />
-      <HowItWorks />
-      <MockupSection />
-      <ReflectionsSection />
-      <TrustSection />
-      <LaunchSection />
-    </main>
+    <SmoothScroll>
+      <main className="relative overflow-hidden">
+        <Hero />
+        <ProblemSection />
+        <PathsSection />
+        <ReflectionsSection />
+        <TrustSection />
+        <TestimonialsSection />
+        <LandingFaq />
+        <LaunchSection />
+        {/* <SupportSection /> */}
+      </main>
+      <MobileDownloadBar />
     </SmoothScroll>
   )
 }

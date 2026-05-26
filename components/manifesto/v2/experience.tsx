@@ -4,10 +4,10 @@ import { ScrollReveal } from "@/components/manifesto/v2/shared/scroll-reveal"
 
 export function Experience() {
   return (
-    <section className="bg-xo-surface-lowest py-32 md:py-48 mb-32 md:mb-52">
-      <div className="asymmetric-layout">
+    <section className="section-spacing bg-xo-surface-lowest">
+      <div className="section-container-wide">
         <ScrollReveal>
-          <h2 className="text-4xl md:text-5xl text-foreground mb-6 font-light">
+          <h2 className="font-serif italic font-light text-4xl md:text-5xl text-foreground mb-6 leading-[1.1]">
             What Happens When You Open Xolace.
           </h2>
         </ScrollReveal>
