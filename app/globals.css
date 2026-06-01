@@ -166,11 +166,9 @@
     0%,
     100% {
         opacity: 0.1;
-        transform: scale(1);
     }
     50% {
         opacity: 0.25;
-        transform: scale(1.08);
     }
 }
 
@@ -192,6 +190,7 @@
 
 .animate-gentle-pulse {
     animation: gentle-pulse 4s ease-in-out infinite;
+    will-change: opacity;
 }
 
 .cta-gradient {

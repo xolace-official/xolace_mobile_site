@@ -60,35 +60,27 @@ export function Hero() {
           className="shrink-0 w-52 md:w-80 lg:w-110 pointer-events-none select-none"
         >
           <div className="relative">
-            <motion.div
+            <div
               aria-hidden
-              animate={{ scale: [1, 1.12, 1], opacity: [0.6, 1, 0.6] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute inset-0 -z-10 blur-[90px] bg-primary/15 rounded-full scale-[1.6]"
+              className="absolute inset-0 -z-10 blur-[90px] bg-primary/15 rounded-full scale-[1.6] animate-gentle-pulse"
             />
-            <motion.div
+            <div
               aria-hidden
-              animate={{ scale: [1, 1.08, 1], opacity: [0.4, 0.7, 0.4] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 -z-10 w-3/4 h-1/2 blur-[70px] bg-accent/10 rounded-full"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 -z-10 w-3/4 h-1/2 blur-[70px] bg-accent/10 rounded-full animate-gentle-pulse [animation-delay:1.5s]"
             />
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
+              style={{ willChange: "transform" }}
             >
-              <motion.div
-                animate={{ scale: [1, 1.015, 1] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-              >
-                <Image
-                  src="/flux-images/ChatGPT_Image_Oct_20__2025__10_36_31_PM-removebg-preview.png"
-                  alt="Flux"
-                  width={300}
-                  height={400}
-                  className="w-full drop-shadow-2xl"
-                  priority
-                />
-              </motion.div>
+              <Image
+                src="/flux-images/ChatGPT_Image_Oct_20__2025__10_36_31_PM-removebg-preview.png"
+                alt="Flux"
+                width={300}
+                height={400}
+                className="w-full drop-shadow-2xl"
+                priority
+              />
             </motion.div>
           </div>
         </motion.div>

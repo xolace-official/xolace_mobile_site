@@ -1,6 +1,12 @@
 {
   "version": 1,
   "skills": {
+    "react-doctor": {
+      "source": "millionco/react-doctor",
+      "sourceType": "github",
+      "skillPath": "skills/react-doctor/SKILL.md",
+      "computedHash": "da508782de483fa70f8108ff28568f9fadb355050d2b9bf59aa51dcf72c65f77"
+    },
     "vercel-react-best-practices": {
       "source": "vercel-labs/agent-skills",
       "sourceType": "github",

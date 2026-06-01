@@ -93,11 +93,7 @@ function PathRow({ p, index }: { p: Path; index: number }) {
         transition={{ duration: 1.3, delay: index * 0.08 + 0.1, ease: [0.16, 1, 0.3, 1] }}
         className="relative w-full lg:w-[44%] shrink-0 flex items-center justify-center"
       >
-        <motion.div
-          animate={{ scale: [1, 1.08, 1], opacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: index * 1.2 }}
-          className={`absolute w-72 h-72 lg:w-96 lg:h-96 rounded-full ${p.glow} blur-[80px]`}
-        />
+        <div className={`absolute w-72 h-72 lg:w-96 lg:h-96 rounded-full ${p.glow} blur-[80px] animate-gentle-pulse`} style={{ animationDelay: `${index * 1.2}s` }} />
         <div className={`relative w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full ${p.orbBg} border ${p.orbBorder} flex items-center justify-center overflow-hidden`}>
           <Image
             src={p.image}
