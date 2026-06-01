@@ -1,7 +1,7 @@
 "use client"
 
 import { Iphone } from "@/components/ui/iphone"
-import { motion } from "motion/react"
+import { m as motion } from "motion/react"
 
 const steps = [
   {

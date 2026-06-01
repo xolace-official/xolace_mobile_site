@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "motion/react"
+import { m as motion } from "motion/react"
 import { Lock, EyeOff, UserX, Ban, ShieldCheck } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 

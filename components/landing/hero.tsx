@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "motion/react"
+import { m as motion } from "motion/react"
 import Image from "next/image"
 import { Spotlight } from "@/components/ui/spotlight"
 import { DownloadButtons } from "@/components/shared/download-buttons"
@@ -71,7 +71,6 @@ export function Hero() {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-              style={{ willChange: "transform" }}
             >
               <Image
                 src="/flux-images/ChatGPT_Image_Oct_20__2025__10_36_31_PM-removebg-preview.png"

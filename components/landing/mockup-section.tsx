@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "motion/react"
+import { m as motion } from "motion/react"
 import { Iphone } from "@/components/ui/iphone"
 
 export function MockupSection() {

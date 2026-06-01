@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useReducedMotion } from "motion/react"
+import { m as motion, useReducedMotion } from "motion/react"
 
 export function AboutHero() {
   const prefersReducedMotion = useReducedMotion()

@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { motion } from "motion/react"
+import { m as motion } from "motion/react"
 import { ArrowLeft } from "lucide-react"
 
 export default function NotFound() {

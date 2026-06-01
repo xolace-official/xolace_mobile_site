@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion } from "motion/react"
+import { m as motion } from "motion/react"
 import { cn } from "@/lib/utils"
 import { Marquee } from "@/components/ui/marquee"
 

@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "motion/react"
+import { m as motion } from "motion/react"
 import Image from "next/image"
 import { Sparkles, ShieldCheck, Users } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
