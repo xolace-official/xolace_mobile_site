@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useCallback, useEffect } from "react"
 import { ArrowLeft, ArrowRight } from "lucide-react"
-import { motion } from "motion/react"
+import { m as motion } from "motion/react"
 import { ScrollReveal } from "@/components/manifesto/v2/shared/scroll-reveal"
 
 const neverStatements = [

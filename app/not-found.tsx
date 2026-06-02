@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { motion } from "motion/react"
+import { m as motion } from "motion/react"
 import { ArrowLeft } from "lucide-react"
 
 export default function NotFound() {
@@ -57,7 +57,7 @@ export default function NotFound() {
         {/* Circle card */}
         <div className="size-85 md:size-100 rounded-full border-2 border-foreground/1 bg-xo-surface-bright/60 flex flex-col items-center justify-center text-center px-12 pt-12 pb-8 relative">
           <div aria-hidden className="absolute inset-0 pointer-events-none">
-            <div className="absolute w-48 h-48 rounded-full bg-primary/6 blur-[50px] -top-8 left-1/2 -translate-x-1/2" />
+            <div className="hidden md:block absolute w-48 h-48 rounded-full bg-primary/6 blur-[50px] -top-8 left-1/2 -translate-x-1/2" />
           </div>
 
           <div className="relative z-10 flex flex-col items-center gap-4">

@@ -166,11 +166,9 @@
     0%,
     100% {
         opacity: 0.1;
-        transform: scale(1);
     }
     50% {
         opacity: 0.25;
-        transform: scale(1.08);
     }
 }
 
@@ -192,6 +190,26 @@
 
 .animate-gentle-pulse {
     animation: gentle-pulse 4s ease-in-out infinite;
+}
+
+/*
+  Mobile gate: the decorative glow orbs use very large blur() filters
+  (blur-[100px]–blur-[160px]) on 400–700px surfaces. Animating/compositing
+  those saturates mobile GPUs and freezes the page. Desktop GPUs cope, so we
+  only drop them below md. Removed will-change too — it permanently promoted
+  every orb to its own layer.
+*/
+@media (max-width: 767px) {
+    .animate-gentle-pulse {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-gentle-pulse {
+        animation: none;
+        opacity: 0.2; /* keyframe rests at 0.1–0.25; pin a subtle resting value so orbs don't snap to full opacity */
+    }
 }
 
 .cta-gradient {

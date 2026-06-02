@@ -1,8 +1,10 @@
 "use client"
 
-import { motion } from "motion/react"
+import { m as motion, useReducedMotion } from "motion/react"
 
 export function AboutHero() {
+  const prefersReducedMotion = useReducedMotion()
+
   return (
     <section className="relative hero-pb overflow-hidden">
 
@@ -42,9 +44,9 @@ export function AboutHero() {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
+          initial={{ opacity: 0, scaleX: prefersReducedMotion ? 1 : 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="flex items-center justify-center gap-4 mt-12 origin-center"
         >
           <div className="w-16 h-px bg-gradient-to-r from-transparent to-border/30" />

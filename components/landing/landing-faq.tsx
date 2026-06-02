@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { motion, AnimatePresence } from "motion/react"
+import { m as motion, AnimatePresence } from "motion/react"
 import { Plus } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { faqCategories, type FaqItem } from "@/lib/faq-data"

@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "motion/react"
+import { m as motion } from "motion/react"
 import { Copy, Check } from "lucide-react"
 import { useState } from "react"
 
