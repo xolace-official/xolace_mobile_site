@@ -208,6 +208,7 @@
 @media (prefers-reduced-motion: reduce) {
     .animate-gentle-pulse {
         animation: none;
+        opacity: 0.2; /* keyframe rests at 0.1–0.25; pin a subtle resting value so orbs don't snap to full opacity */
     }
 }
 
