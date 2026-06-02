@@ -18,8 +18,8 @@ export function Invitation() {
         >
           {/* Inner atmosphere */}
           <div aria-hidden className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl">
-            <div className="absolute w-[500px] h-[500px] rounded-full bg-primary/[0.14] blur-[100px] -top-20 -left-20" />
-            <div className="absolute w-[400px] h-[400px] rounded-full bg-accent/[0.08] blur-[90px] bottom-0 right-1/3" />
+            <div className="hidden md:block absolute w-[500px] h-[500px] rounded-full bg-primary/[0.14] blur-[100px] -top-20 -left-20" />
+            <div className="hidden md:block absolute w-[400px] h-[400px] rounded-full bg-accent/[0.08] blur-[90px] bottom-0 right-1/3" />
           </div>
 
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 p-10 md:p-16 lg:p-20">

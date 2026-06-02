@@ -7,7 +7,7 @@ export function FaqHero() {
     <section className="relative hero-pb overflow-hidden">
 
       <div aria-hidden className="absolute inset-0 pointer-events-none">
-        <div className="absolute w-[600px] h-[600px] rounded-full bg-accent/[0.04] blur-[120px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        <div className="hidden md:block absolute w-[600px] h-[600px] rounded-full bg-accent/[0.04] blur-[120px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
       </div>
 
       <div className="section-container relative z-10 text-center">

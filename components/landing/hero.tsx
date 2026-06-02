@@ -87,8 +87,8 @@ export function Hero() {
       </div>
 
       <div aria-hidden className="absolute inset-0 pointer-events-none">
-        <div className="absolute w-175 h-175 rounded-full bg-primary/4 blur-[140px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute w-87.5 h-87.5 rounded-full bg-accent/4 blur-[100px] bottom-0 right-1/3" />
+        <div className="hidden md:block absolute w-175 h-175 rounded-full bg-primary/4 blur-[140px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        <div className="hidden md:block absolute w-87.5 h-87.5 rounded-full bg-accent/4 blur-[100px] bottom-0 right-1/3" />
       </div>
     </section>
   )
