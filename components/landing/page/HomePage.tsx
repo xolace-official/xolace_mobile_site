@@ -8,6 +8,7 @@ const PathsSection = dynamic(() => import("@/components/landing/paths-section").
 const ReflectionsSection = dynamic(() => import("@/components/landing/reflections-section").then(m => ({ default: m.ReflectionsSection })))
 const TrustSection = dynamic(() => import("@/components/landing/trust-section").then(m => ({ default: m.TrustSection })))
 const TestimonialsSection = dynamic(() => import("@/components/landing/testimonials-section").then(m => ({ default: m.TestimonialsSection })))
+const PricingSection = dynamic(() => import("@/components/landing/pricing-section").then(m => ({ default: m.PricingSection })))
 const LandingFaq = dynamic(() => import("@/components/landing/landing-faq").then(m => ({ default: m.LandingFaq })))
 const LaunchSection = dynamic(() => import("@/components/landing/launch-section").then(m => ({ default: m.LaunchSection })))
 const SupportSection = dynamic(() => import("@/components/landing/support-section").then(m => ({ default: m.SupportSection })))
@@ -22,6 +23,7 @@ export function HomePage() {
         <ReflectionsSection />
         <TrustSection />
         <TestimonialsSection />
+        <PricingSection />
         <LandingFaq />
         <LaunchSection />
         {/* <SupportSection /> */}
