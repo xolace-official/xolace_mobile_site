@@ -2,14 +2,18 @@ import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 const APP_STORE_URL = "https://apps.apple.com/gh/app/xolace/id6761601429"
-const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.xolaceincorg.xolace"
+const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=com.xolaceincorg.xolace"
 
 type DownloadButtonsProps = {
   className?: string
   align?: "start" | "center"
 }
 
-export function DownloadButtons({ className, align = "center" }: DownloadButtonsProps) {
+export function DownloadButtons({
+  className,
+  align = "center",
+}: DownloadButtonsProps) {
   return (
     <div
       className={cn(
@@ -30,14 +34,14 @@ export function DownloadButtons({ className, align = "center" }: DownloadButtons
           alt="Download on the App Store"
           width={160}
           height={53}
-          className="h-11 w-auto  dark:hidden"
+          className="h-11 w-auto dark:hidden"
         />
         <Image
           src="/images/app-store-mobile-dark.png"
           alt="Download on the App Store"
           width={160}
           height={53}
-          className="h-11 w-auto hidden dark:block"
+          className="hidden h-11 w-auto dark:block"
         />
       </a>
 
@@ -60,7 +64,7 @@ export function DownloadButtons({ className, align = "center" }: DownloadButtons
           alt="Get it on Google Play"
           width={160}
           height={53}
-          className="h-11 w-auto hidden dark:block"
+          className="hidden h-11 w-auto dark:block"
         />
       </a>
     </div>

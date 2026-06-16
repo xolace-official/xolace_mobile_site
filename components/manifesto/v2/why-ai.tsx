@@ -15,63 +15,63 @@ export function WhyAI() {
       <div className="section-container-wide">
         <ScrollReveal>
           <SectionDivider label="Why AI Isn't Enough">
-            <p className="text-3xl md:text-4xl text-muted-foreground leading-snug font-light">
+            <p className="text-3xl leading-snug font-light text-muted-foreground md:text-4xl">
               We need to be honest about something.
             </p>
           </SectionDivider>
         </ScrollReveal>
 
-        <div className="max-w-2xl md:ml-auto space-y-6">
+        <div className="max-w-2xl space-y-6 md:ml-auto">
           <ScrollReveal delay={0.1}>
-            <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
+            <p className="font-serif text-base leading-loose text-muted-foreground md:text-lg">
               When an AI says &ldquo;I understand what you&apos;re going
               through,&rdquo; it doesn&apos;t. It&apos;s pattern matching.
-              It&apos;s prediction. It has read millions of words about human pain
-              and it can reflect yours back with startling accuracy, but it has
-              never felt the weight on its own chest at 2am. It has never been that
-              person in the bed.
+              It&apos;s prediction. It has read millions of words about human
+              pain and it can reflect yours back with startling accuracy, but it
+              has never felt the weight on its own chest at 2am. It has never
+              been that person in the bed.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.15}>
-            <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
+            <p className="font-serif text-base leading-loose text-muted-foreground md:text-lg">
               We know that. We built one anyway.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
-              Not because we think AI can replace human empathy. Because it can do
-              something humans can&apos;t always do in the moment:{" "}
+            <p className="font-serif text-base leading-loose text-muted-foreground md:text-lg">
+              Not because we think AI can replace human empathy. Because it can
+              do something humans can&apos;t always do in the moment:{" "}
               <strong className="text-foreground">
                 find the words when you have none.
               </strong>{" "}
               Sit with you at 2am without judgment, without fatigue, without
-              needing you to perform your pain in a way that makes sense. Hold the
-              space while you figure out what you&apos;re carrying.
+              needing you to perform your pain in a way that makes sense. Hold
+              the space while you figure out what you&apos;re carrying.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.25}>
-            <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
+            <p className="font-serif text-base leading-loose text-muted-foreground md:text-lg">
               But the AI is the bridge, not the destination.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.3}>
-            <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
-              Because after it helps you name what you&apos;re feeling, something
-              else happens. You see that other people have carried this too. Not in
-              a chat room. Not in a comments section. Not in a support group where
-              you have to introduce yourself and tell your story. Just quiet,
-              anonymous words from someone who was exactly where you are, who felt
-              the same nameless thing and found their version of the words for
-              it.
+            <p className="font-serif text-base leading-loose text-muted-foreground md:text-lg">
+              Because after it helps you name what you&apos;re feeling,
+              something else happens. You see that other people have carried
+              this too. Not in a chat room. Not in a comments section. Not in a
+              support group where you have to introduce yourself and tell your
+              story. Just quiet, anonymous words from someone who was exactly
+              where you are, who felt the same nameless thing and found their
+              version of the words for it.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.35}>
-            <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
+            <p className="font-serif text-base leading-loose text-muted-foreground md:text-lg">
               No profile. No username. No reply button. Just recognition.
             </p>
           </ScrollReveal>
@@ -82,9 +82,9 @@ export function WhyAI() {
             <ScrollReveal key={i} delay={i * 0.15} duration={0.9} y={16}>
               <div className="py-8 md:py-12">
                 {i > 0 && (
-                  <div className="h-px w-12 bg-primary/15 mx-auto mb-8 md:mb-12" />
+                  <div className="mx-auto mb-8 h-px w-12 bg-primary/15 md:mb-12" />
                 )}
-                <p className="font-serif italic text-lg md:text-xl text-foreground/70 leading-relaxed text-center max-w-lg mx-auto">
+                <p className="mx-auto max-w-lg text-center font-serif text-lg leading-relaxed text-foreground/70 italic md:text-xl">
                   &ldquo;{reflection}&rdquo;
                 </p>
               </div>
@@ -92,26 +92,30 @@ export function WhyAI() {
           ))}
         </div>
 
-        <div className="max-w-2xl md:ml-auto space-y-6">
+        <div className="max-w-2xl space-y-6 md:ml-auto">
           <ScrollReveal delay={0.1}>
-            <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
-              When you read those and something in your chest loosens, that&apos;s
-              not AI. That&apos;s human. One person&apos;s honesty reaching another
-              across the silence. The AI helped you name your feeling. Another
-              person helped you feel less alone in it.{" "}
+            <p className="font-serif text-base leading-loose text-muted-foreground md:text-lg">
+              When you read those and something in your chest loosens,
+              that&apos;s not AI. That&apos;s human. One person&apos;s honesty
+              reaching another across the silence. The AI helped you name your
+              feeling. Another person helped you feel less alone in it.{" "}
               <strong className="text-foreground">
-                That combination of language from the AI and recognition from another human is what nothing else offers.
+                That combination of language from the AI and recognition from
+                another human is what nothing else offers.
               </strong>
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.15}>
-            <p className="font-serif text-base md:text-lg text-muted-foreground leading-loose">
-              We believe in human connection deeply. We just don&apos;t believe it
-              requires conversation. It requires recognition.{" "}
-              <em className="font-serif italic">&ldquo;I&apos;m not the only one&rdquo;</em>{" "}
+            <p className="font-serif text-base leading-loose text-muted-foreground md:text-lg">
+              We believe in human connection deeply. We just don&apos;t believe
+              it requires conversation. It requires recognition.{" "}
+              <em className="font-serif italic">
+                &ldquo;I&apos;m not the only one&rdquo;
+              </em>{" "}
               is quieter than a conversation and more powerful than any chatbot
-              response. Our job is to engineer that moment and protect it fiercely.
+              response. Our job is to engineer that moment and protect it
+              fiercely.
             </p>
           </ScrollReveal>
         </div>

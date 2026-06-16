@@ -82,19 +82,32 @@ function PathRow({ p, index }: { p: Path; index: number }) {
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 1.1, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-      className={`flex flex-col ${p.flip ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-10 lg:gap-20 py-16 lg:py-20 ${index > 0 ? "border-t border-border/10" : ""}`}
+      transition={{
+        duration: 1.1,
+        delay: index * 0.08,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+      className={`flex flex-col ${p.flip ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-10 py-16 lg:gap-20 lg:py-20 ${index > 0 ? "border-t border-border/10" : ""}`}
     >
       {/* Image orb */}
       <motion.div
         initial={{ opacity: 0, scale: 0.88 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 1.3, delay: index * 0.08 + 0.1, ease: [0.16, 1, 0.3, 1] }}
-        className="relative w-full lg:w-[44%] shrink-0 flex items-center justify-center"
+        transition={{
+          duration: 1.3,
+          delay: index * 0.08 + 0.1,
+          ease: [0.16, 1, 0.3, 1],
+        }}
+        className="relative flex w-full shrink-0 items-center justify-center lg:w-[44%]"
       >
-        <div className={`absolute w-72 h-72 lg:w-96 lg:h-96 rounded-full ${p.glow} blur-[80px] animate-gentle-pulse`} style={{ animationDelay: `${index * 1.2}s` }} />
-        <div className={`relative w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full ${p.orbBg} border ${p.orbBorder} flex items-center justify-center overflow-hidden`}>
+        <div
+          className={`absolute h-72 w-72 rounded-full lg:h-96 lg:w-96 ${p.glow} animate-gentle-pulse blur-[80px]`}
+          style={{ animationDelay: `${index * 1.2}s` }}
+        />
+        <div
+          className={`relative h-64 w-64 rounded-full md:h-72 md:w-72 lg:h-80 lg:w-80 ${p.orbBg} border ${p.orbBorder} flex items-center justify-center overflow-hidden`}
+        >
           <Image
             src={p.image}
             alt={p.alt}
@@ -109,24 +122,26 @@ function PathRow({ p, index }: { p: Path; index: number }) {
       <div className="relative flex-1 text-center lg:text-left">
         <span
           aria-hidden
-          className={`absolute -top-2 ${p.flip ? "lg:right-0" : "lg:-left-3"} text-[7rem] md:text-[9rem] lg:text-[11rem] font-light leading-none select-none pointer-events-none tabular-nums ${p.numberColor}`}
+          className={`absolute -top-2 ${p.flip ? "lg:right-0" : "lg:-left-3"} pointer-events-none text-[7rem] leading-none font-light tabular-nums select-none md:text-[9rem] lg:text-[11rem] ${p.numberColor}`}
         >
           {p.number}
         </span>
 
         <div className="relative space-y-4">
-          <div className="flex items-center justify-center lg:justify-start gap-2">
+          <div className="flex items-center justify-center gap-2 lg:justify-start">
             <p.Icon className={`size-4 ${p.tagColor}`} strokeWidth={1.5} />
-            <span className={`text-[11px] font-mono uppercase tracking-[0.2em] ${p.tagColor}`}>
+            <span
+              className={`font-mono text-[11px] tracking-[0.2em] uppercase ${p.tagColor}`}
+            >
               {p.tag}
             </span>
           </div>
 
-          <h3 className="text-2xl md:text-[1.875rem] lg:text-[2.25rem] font-light text-foreground leading-[1.25] tracking-tight">
+          <h3 className="text-2xl leading-[1.25] font-light tracking-tight text-foreground md:text-[1.875rem] lg:text-[2.25rem]">
             {p.headline}
           </h3>
 
-          <p className="text-base text-muted-foreground/55 leading-relaxed font-light max-w-md mx-auto lg:mx-0">
+          <p className="mx-auto max-w-md text-base leading-relaxed font-light text-muted-foreground/55 lg:mx-0">
             {p.body}
           </p>
         </div>
@@ -137,16 +152,20 @@ function PathRow({ p, index }: { p: Path; index: number }) {
 
 export function PathsSection() {
   return (
-    <section id="paths" className="section-spacing bg-muted overflow-hidden relative">
-
-      <div aria-hidden className="absolute inset-0 pointer-events-none select-none">
-        <div className="absolute w-[600px] h-[600px] rounded-full bg-primary/[0.04] blur-[160px] top-1/4 -left-60 animate-gentle-pulse" />
-        <div className="absolute w-[500px] h-[500px] rounded-full bg-accent/[0.03] blur-[140px] top-1/2 -right-40 animate-gentle-pulse [animation-delay:2s]" />
-        <div className="absolute w-[500px] h-[500px] rounded-full bg-chart-2/[0.03] blur-[150px] bottom-1/4 left-1/3 animate-gentle-pulse [animation-delay:4s]" />
+    <section
+      id="paths"
+      className="section-spacing relative overflow-hidden bg-muted"
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 select-none"
+      >
+        <div className="animate-gentle-pulse absolute top-1/4 -left-60 h-[600px] w-[600px] rounded-full bg-primary/[0.04] blur-[160px]" />
+        <div className="animate-gentle-pulse absolute top-1/2 -right-40 h-[500px] w-[500px] rounded-full bg-accent/[0.03] blur-[140px] [animation-delay:2s]" />
+        <div className="animate-gentle-pulse absolute bottom-1/4 left-1/3 h-[500px] w-[500px] rounded-full bg-chart-2/[0.03] blur-[150px] [animation-delay:4s]" />
       </div>
 
       <div className="section-container relative z-10">
-
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -154,13 +173,13 @@ export function PathsSection() {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="mb-6 space-y-4"
         >
-          <p className="text-[11px] font-mono uppercase tracking-[0.24em] text-muted-foreground/30">
+          <p className="font-mono text-[11px] tracking-[0.24em] text-muted-foreground/30 uppercase">
             How it works
           </p>
-          <h2 className="font-serif italic font-light text-foreground leading-[1.1] text-5xl md:text-6xl lg:text-[4.25rem]">
+          <h2 className="font-serif text-5xl leading-[1.1] font-light text-foreground italic md:text-6xl lg:text-[4.25rem]">
             Three quiet things.
           </h2>
-          <p className="text-lg leading-relaxed font-light text-muted-foreground/55 max-w-lg">
+          <p className="max-w-lg text-lg leading-relaxed font-light text-muted-foreground/55">
             You don&apos;t have to know what you&apos;re feeling to begin.
           </p>
         </motion.div>
@@ -176,7 +195,7 @@ export function PathsSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="border-t border-border/10 pt-8 mt-4"
+          className="mt-4 border-t border-border/10 pt-8"
         >
           <p className="font-serif text-sm leading-relaxed text-muted-foreground/35 italic">
             Not therapy. Not a chatbot. Not a social platform.
@@ -184,7 +203,6 @@ export function PathsSection() {
             The space before, between, and outside all of those.
           </p>
         </motion.div>
-
       </div>
     </section>
   )

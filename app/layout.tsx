@@ -6,14 +6,17 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "sonner"
 import { Navbar } from "@/components/shared/navbar"
 import { Footer } from "@/components/shared/footer"
-import { cn } from "@/lib/utils";
-import { MotionProvider } from "@/providers/motion-provider";
+import { cn } from "@/lib/utils"
+import { MotionProvider } from "@/providers/motion-provider"
 
 export const viewport: Viewport = {
   maximumScale: 1,
-};
+}
 
-const spaceGrotesk = Space_Grotesk({subsets:['latin'],variable:'--font-sans'})
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-sans",
+})
 
 const lora = Lora({
   subsets: ["latin"],
@@ -33,7 +36,7 @@ export const metadata: Metadata = {
   },
   description:
     "A digital space for the moments between. Not a feed. Not a clinic. A quiet place to be human.",
-     keywords: [
+  keywords: [
     "Xolace",
     "Social",
     "Platform",
@@ -68,7 +71,13 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, lora.variable, "font-sans", spaceGrotesk.variable)}
+      className={cn(
+        "antialiased",
+        fontMono.variable,
+        lora.variable,
+        "font-sans",
+        spaceGrotesk.variable
+      )}
     >
       <body>
         <ThemeProvider>

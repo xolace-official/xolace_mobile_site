@@ -1,6 +1,12 @@
 import Link from "next/link"
 import { XolaceLogo } from "@/components/shared/xolace-logo"
-import { FaLinkedinIn, FaInstagram, FaYoutube, FaWhatsapp, FaSnapchatGhost } from "react-icons/fa"
+import {
+  FaLinkedinIn,
+  FaInstagram,
+  FaYoutube,
+  FaWhatsapp,
+  FaSnapchatGhost,
+} from "react-icons/fa"
 import { FaTiktok } from "react-icons/fa6"
 
 type NavLink = { label: string; href: string; external?: boolean }
@@ -48,7 +54,11 @@ const links: Record<"explore" | "legal" | "contact", NavLink[]> = {
   explore: [
     { label: "About", href: "/about" },
     { label: "Manifesto", href: "/manifesto" },
-    { label: "Ambassadors", href: "https://ambassador.xolaceinc.com", external: true },
+    {
+      label: "Ambassadors",
+      href: "https://ambassador.xolaceinc.com",
+      external: true,
+    },
     { label: "Press", href: "/press" },
   ],
   legal: [
@@ -72,17 +82,15 @@ const sections = [
 export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-border/20 bg-xo-surface-lowest">
-
       {/* Main columns */}
-      <div className="relative mx-auto flex max-w-screen-2xl flex-col px-4 pt-16 pb-4 md:px-12 md:pt-20 md:pb-8 lg:px-16 gap-16">
+      <div className="relative mx-auto flex max-w-screen-2xl flex-col gap-16 px-4 pt-16 pb-4 md:px-12 md:pt-20 md:pb-8 lg:px-16">
         <div className="flex flex-col gap-12 md:flex-row md:justify-between md:gap-16">
-
           {/* Brand column */}
           <div className="shrink-0 space-y-6 md:max-w-xs">
             <Link href="/" className="group flex w-fit">
               <XolaceLogo
                 size="sm"
-                className="opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                className="opacity-70 transition-opacity duration-300 group-hover:opacity-100"
               />
             </Link>
 
@@ -101,7 +109,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   aria-label={s.label}
                   style={{ color: s.color }}
-                  className="border bg-secondary flex size-11 items-center justify-center rounded-lg hover:bg-xo-surface-bright transition-colors duration-300"
+                  className="flex size-11 items-center justify-center rounded-lg border bg-secondary transition-colors duration-300 hover:bg-xo-surface-bright"
                 >
                   {s.icon}
                 </Link>
@@ -134,24 +142,23 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-t border-border/15 pb-10 md:pb-0">
-          <p className="font-serif text-[12px] text-muted-foreground/55 leading-relaxed italic max-w-xl">
-            Xolace is not designed for crisis. If you feel unsafe, contact your local emergency services
-            or call/text{" "}
+        <div className="flex flex-col items-start justify-between gap-3 border-t border-border/15 pb-10 sm:flex-row sm:items-center md:pb-0">
+          <p className="max-w-xl font-serif text-[12px] leading-relaxed text-muted-foreground/55 italic">
+            Xolace is not designed for crisis. If you feel unsafe, contact your
+            local emergency services or call/text{" "}
             <a
               href="tel:988"
-              className="underline underline-offset-2 hover:text-muted-foreground transition-colors duration-300"
+              className="underline underline-offset-2 transition-colors duration-300 hover:text-muted-foreground"
             >
               988
             </a>{" "}
             (US) at any time.
           </p>
-          <p className="text-[11px] tracking-[0.04em] text-muted-foreground/55 shrink-0">
+          <p className="shrink-0 text-[11px] tracking-[0.04em] text-muted-foreground/55">
             &copy; 2026 Xolace Inc.
           </p>
         </div>
       </div>
-
     </footer>
   )
 }

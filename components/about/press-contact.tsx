@@ -31,15 +31,13 @@ const contacts = [
 
 export function PressContact() {
   return (
-    <section className="section-spacing bg-muted overflow-hidden relative">
-
-      <div aria-hidden className="absolute inset-0 pointer-events-none">
-        <div className="absolute w-[500px] h-[500px] rounded-full bg-primary/[0.06] blur-[140px] -bottom-20 -right-10 animate-gentle-pulse" />
-        <div className="absolute w-[400px] h-[400px] rounded-full bg-accent/[0.04] blur-[120px] top-0 left-1/3 animate-gentle-pulse [animation-delay:3s]" />
+    <section className="section-spacing relative overflow-hidden bg-muted">
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div className="animate-gentle-pulse absolute -right-10 -bottom-20 h-[500px] w-[500px] rounded-full bg-primary/[0.06] blur-[140px]" />
+        <div className="animate-gentle-pulse absolute top-0 left-1/3 h-[400px] w-[400px] rounded-full bg-accent/[0.04] blur-[120px] [animation-delay:3s]" />
       </div>
 
       <div className="section-container relative z-10">
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,53 +45,78 @@ export function PressContact() {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="mb-14"
         >
-          <p className="text-[11px] font-mono uppercase tracking-[0.24em] text-muted-foreground/30 mb-5">
+          <p className="mb-5 font-mono text-[11px] tracking-[0.24em] text-muted-foreground/30 uppercase">
             Press &amp; Media
           </p>
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-            <h2 className="font-serif italic font-light text-foreground text-4xl md:text-5xl leading-[1.1]">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="font-serif text-4xl leading-[1.1] font-light text-foreground italic md:text-5xl">
               Writing about Xolace?
             </h2>
-            <p className="text-sm text-muted-foreground/40 font-light pb-1 max-w-xs sm:text-right">
-              We respond the same day. Assets and boilerplate available on request.
+            <p className="max-w-xs pb-1 text-sm font-light text-muted-foreground/40 sm:text-right">
+              We respond the same day. Assets and boilerplate available on
+              request.
             </p>
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-          {contacts.map(({ label, description, email, accentBorder, accentBg, accentHover, iconBg, iconColor, dotColor }, i) => (
-            <motion.a
-              key={email}
-              href={`mailto:${email}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.7, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className={`group relative flex flex-col gap-6 rounded-2xl border p-8 transition-all duration-500 ${accentBorder} ${accentBg} ${accentHover}`}
-            >
-              <div className="flex items-start justify-between">
-                <div className={`size-11 rounded-xl border flex items-center justify-center shrink-0 ${iconBg}`}>
-                  <Mail className={`size-5 ${iconColor}`} strokeWidth={1.5} />
+        <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {contacts.map(
+            (
+              {
+                label,
+                description,
+                email,
+                accentBorder,
+                accentBg,
+                accentHover,
+                iconBg,
+                iconColor,
+                dotColor,
+              },
+              i
+            ) => (
+              <motion.a
+                key={email}
+                href={`mailto:${email}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{
+                  duration: 0.7,
+                  delay: i * 0.1,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className={`group relative flex flex-col gap-6 rounded-2xl border p-8 transition-all duration-500 ${accentBorder} ${accentBg} ${accentHover}`}
+              >
+                <div className="flex items-start justify-between">
+                  <div
+                    className={`flex size-11 shrink-0 items-center justify-center rounded-xl border ${iconBg}`}
+                  >
+                    <Mail className={`size-5 ${iconColor}`} strokeWidth={1.5} />
+                  </div>
+                  <ArrowRight
+                    className="mt-1 size-4 text-muted-foreground/20 transition-all duration-300 group-hover:translate-x-1 group-hover:text-muted-foreground/50"
+                    strokeWidth={1.5}
+                  />
                 </div>
-                <ArrowRight className="size-4 text-muted-foreground/20 group-hover:text-muted-foreground/50 group-hover:translate-x-1 transition-all duration-300 mt-1" strokeWidth={1.5} />
-              </div>
 
-              <div className="space-y-1.5">
-                <div className="flex items-center gap-2">
-                  <span className={`size-1.5 rounded-full ${dotColor}`} />
-                  <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground/40">
-                    {label}
+                <div className="space-y-1.5">
+                  <div className="flex items-center gap-2">
+                    <span className={`size-1.5 rounded-full ${dotColor}`} />
+                    <p className="font-mono text-[11px] tracking-[0.18em] text-muted-foreground/40 uppercase">
+                      {label}
+                    </p>
+                  </div>
+                  <p className="text-lg font-light text-foreground/85 transition-colors duration-300 group-hover:text-foreground">
+                    {email}
+                  </p>
+                  <p className="text-sm font-light text-muted-foreground/45">
+                    {description}
                   </p>
                 </div>
-                <p className="text-lg font-light text-foreground/85 group-hover:text-foreground transition-colors duration-300">
-                  {email}
-                </p>
-                <p className="text-sm text-muted-foreground/45 font-light">
-                  {description}
-                </p>
-              </div>
-            </motion.a>
-          ))}
+              </motion.a>
+            )
+          )}
         </div>
 
         <motion.div
@@ -103,17 +126,19 @@ export function PressContact() {
           transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="flex items-center gap-4"
         >
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-border/15" />
-          <p className="font-serif italic text-sm text-muted-foreground/30 text-center whitespace-nowrap">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent to-border/15" />
+          <p className="text-center font-serif text-sm whitespace-nowrap text-muted-foreground/30 italic">
             Or visit the{" "}
-            <Link href="/press" className="underline underline-offset-2 hover:text-muted-foreground/60 transition-colors duration-300">
+            <Link
+              href="/press"
+              className="underline underline-offset-2 transition-colors duration-300 hover:text-muted-foreground/60"
+            >
               press page
             </Link>{" "}
             for assets and boilerplate.
           </p>
-          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-border/15" />
+          <div className="h-px flex-1 bg-gradient-to-l from-transparent to-border/15" />
         </motion.div>
-
       </div>
     </section>
   )

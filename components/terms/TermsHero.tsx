@@ -1,18 +1,18 @@
 export function TermsHero() {
   return (
     <div className="mb-16">
-      <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground mb-5">
+      <p className="mb-5 font-mono text-[10px] tracking-[0.15em] text-muted-foreground uppercase">
         Legal
       </p>
-      <h1 className="text-5xl md:text-7xl font-light tracking-tight leading-[1.02] mb-6">
+      <h1 className="mb-6 text-5xl leading-[1.02] font-light tracking-tight md:text-7xl">
         Terms of Service
       </h1>
-      <p className="font-serif text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-        By using Xolace, you enter into an agreement with us. These terms govern that relationship —
-        our commitments to you, and what we ask in return.
+      <p className="max-w-xl font-serif text-base leading-relaxed text-muted-foreground md:text-lg">
+        By using Xolace, you enter into an agreement with us. These terms govern
+        that relationship — our commitments to you, and what we ask in return.
       </p>
-      <div className="flex items-center gap-6 mt-8">
-        <span className="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground">
+      <div className="mt-8 flex items-center gap-6">
+        <span className="font-mono text-[10px] tracking-[0.15em] text-muted-foreground uppercase">
           Last Updated: April 7, 2026
         </span>
       </div>

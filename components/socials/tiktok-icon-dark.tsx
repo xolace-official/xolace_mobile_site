@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from "react"
 
 const TikTokDark = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} id="tiktok_icon_dark-Layer_2" viewBox="0 0 352.28 398.67">
@@ -13,6 +13,6 @@ const TikTokDark = (props: SVGProps<SVGSVGElement>) => (
       />
     </g>
   </svg>
-);
+)
 
-export { TikTokDark };
+export { TikTokDark }

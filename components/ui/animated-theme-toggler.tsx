@@ -7,8 +7,7 @@ import { flushSync } from "react-dom"
 
 import { cn } from "@/lib/utils"
 
-interface AnimatedThemeTogglerProps
-  extends React.ComponentPropsWithoutRef<"button"> {
+interface AnimatedThemeTogglerProps extends React.ComponentPropsWithoutRef<"button"> {
   duration?: number
 }
 
@@ -93,7 +92,7 @@ export function AnimatedThemeToggler({
       onClick={toggleTheme}
       className={cn(
         "flex size-9 items-center justify-center rounded-full transition-colors duration-300",
-        "text-muted-foreground hover:text-foreground hover:bg-foreground/5",
+        "text-muted-foreground hover:bg-foreground/5 hover:text-foreground",
         className
       )}
       {...props}

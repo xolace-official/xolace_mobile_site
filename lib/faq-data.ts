@@ -85,7 +85,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: "What if I'm in crisis?",
         answer:
-          "Xolace is not designed for crisis. If you or someone you know is in immediate danger, contact your local emergency services. The app has a quiet \"Help\" button — always accessible — with emergency numbers and crisis lines for Ghana, the US, UK, Australia, and Canada.",
+          'Xolace is not designed for crisis. If you or someone you know is in immediate danger, contact your local emergency services. The app has a quiet "Help" button — always accessible — with emergency numbers and crisis lines for Ghana, the US, UK, Australia, and Canada.',
       },
       {
         question: "What if what I'm feeling gets heavier?",

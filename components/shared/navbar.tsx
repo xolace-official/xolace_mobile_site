@@ -13,7 +13,11 @@ const navLinks = [
   // { href: "/manifesto", label: "Manifesto" },
   { href: "/press", label: "Press" },
   // { href: "/faq", label: "FAQ" },
-  { href: "https://ambassador.xolaceinc.com", label: "Ambassadors", external: true },
+  {
+    href: "https://ambassador.xolaceinc.com",
+    label: "Ambassadors",
+    external: true,
+  },
 ]
 
 export function Navbar() {
@@ -27,11 +31,15 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  useEffect(() => { setMenuOpen(false) }, [pathname])
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : ""
-    return () => { document.body.style.overflow = "" }
+    return () => {
+      document.body.style.overflow = ""
+    }
   }, [menuOpen])
 
   return (

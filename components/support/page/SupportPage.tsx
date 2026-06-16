@@ -5,8 +5,8 @@ import { SupportContact } from "@/components/support/SupportContact"
 export function SupportPage() {
   return (
     <main className="pt-32 pb-28">
-      <div className="px-8 md:px-12 lg:px-16 max-w-7xl mx-auto">
-        <div className="border-t border-border mb-16 mt-8" />
+      <div className="mx-auto max-w-7xl px-8 md:px-12 lg:px-16">
+        <div className="mt-8 mb-16 border-t border-border" />
 
         <div className="max-w-3xl">
           <SupportHero />

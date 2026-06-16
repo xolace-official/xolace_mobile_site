@@ -1,15 +1,15 @@
 export function SupportHero() {
   return (
     <div className="mb-20 max-w-2xl">
-      <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground mb-5">
+      <p className="mb-5 font-mono text-[10px] tracking-[0.15em] text-muted-foreground uppercase">
         Support
       </p>
-      <h1 className="text-5xl md:text-7xl font-light tracking-tight leading-[1.02] mb-6">
+      <h1 className="mb-6 text-5xl leading-[1.02] font-light tracking-tight md:text-7xl">
         How can we help?
       </h1>
-      <p className="font-serif text-base md:text-lg text-muted-foreground leading-relaxed">
-        We&apos;re a small team building something we believe in. If you have a question, concern, or
-        just want to reach out, we&apos;re here.
+      <p className="font-serif text-base leading-relaxed text-muted-foreground md:text-lg">
+        We&apos;re a small team building something we believe in. If you have a
+        question, concern, or just want to reach out, we&apos;re here.
       </p>
     </div>
   )

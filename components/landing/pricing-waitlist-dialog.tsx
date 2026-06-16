@@ -13,35 +13,16 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog"
 
-export type PricingPlan = "free" | "plus" | "premium"
-
 type Props = {
   open: boolean
   onOpenChange: (open: boolean) => void
-  plan: PricingPlan
 }
 
-const paidCopy = {
-  title: "Save your spot.",
-  description:
-    "Pricing hasn't been set yet. Your interest helps us understand what matters, and you'll hear first.",
-}
-
-const dialogCopy: Record<PricingPlan, { eyebrow: string; title: string; description: string }> = {
-  free: {
-    eyebrow: "Free Plan",
-    title: "You're almost in.",
-    description: "Drop your email and we'll send a quiet note the moment Xolace is ready.",
-  },
-  plus: { eyebrow: "Plus: Early Access", ...paidCopy },
-  premium: { eyebrow: "Premium: Early Access", ...paidCopy },
-}
-
-export function PricingWaitlistDialog({ open, onOpenChange, plan }: Props) {
+// Intent-only: no price, no "Subscribe", no payment surface (strategy §6).
+// This is pure desire signal — "these insights are coming, want to be first?"
+export function PricingWaitlistDialog({ open, onOpenChange }: Props) {
   const [email, setEmail] = useState("")
   const [submitted, setSubmitted] = useState(false)
-
-  const copy = dialogCopy[plan]
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -63,7 +44,7 @@ export function PricingWaitlistDialog({ open, onOpenChange, plan }: Props) {
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent
         showCloseButton
-        className="max-w-md sm:max-w-md rounded-2xl bg-background border-border/60 p-8 gap-0"
+        className="max-w-md gap-0 rounded-2xl border-border/60 bg-background p-8 sm:max-w-md"
       >
         <AnimatePresence mode="wait">
           {submitted ? (
@@ -73,20 +54,28 @@ export function PricingWaitlistDialog({ open, onOpenChange, plan }: Props) {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.92 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col items-center text-center gap-5 py-6"
+              className="flex flex-col items-center gap-5 py-6 text-center"
             >
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
-                className="flex items-center justify-center w-14 h-14 rounded-full bg-primary/15"
+                transition={{
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 15,
+                  delay: 0.1,
+                }}
+                className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/15"
               >
-                <Check className="w-7 h-7 text-primary" />
+                <Check className="h-7 w-7 text-primary" />
               </motion.div>
               <div className="space-y-1.5">
-                <p className="text-lg font-light text-foreground">You&apos;re on the list.</p>
-                <p className="text-sm text-muted-foreground/60 font-light leading-relaxed">
-                  We&apos;ll reach out when it&apos;s time. Quietly.
+                <p className="text-lg font-light text-foreground">
+                  You&apos;re first in line.
+                </p>
+                <p className="text-sm leading-relaxed font-light text-muted-foreground/60">
+                  When the insight layer opens, you&apos;ll hear before anyone
+                  else. Quietly.
                 </p>
               </div>
             </motion.div>
@@ -99,14 +88,16 @@ export function PricingWaitlistDialog({ open, onOpenChange, plan }: Props) {
               transition={{ duration: 0.2 }}
             >
               <DialogHeader className="mb-7">
-                <p className="text-[10px] font-mono uppercase tracking-[0.22em] text-muted-foreground/35 mb-3">
-                  {copy.eyebrow}
+                <p className="mb-3 font-mono text-[10px] tracking-[0.22em] text-muted-foreground/35 uppercase">
+                  Xolace+ — Early Access
                 </p>
-                <DialogTitle className="font-serif italic font-light text-foreground text-2xl leading-snug">
-                  {copy.title}
+                <DialogTitle className="font-serif text-2xl leading-snug font-light text-foreground italic">
+                  Want to see the full map?
                 </DialogTitle>
-                <DialogDescription className="text-sm text-muted-foreground/60 font-light leading-relaxed mt-2">
-                  {copy.description}
+                <DialogDescription className="mt-2 text-sm leading-relaxed font-light text-muted-foreground/60">
+                  These insights are coming. There&apos;s no price yet — your
+                  interest is what helps us shape it. Leave your email and
+                  you&apos;ll be first to read what&apos;s been showing up.
                 </DialogDescription>
               </DialogHeader>
 
@@ -120,14 +111,17 @@ export function PricingWaitlistDialog({ open, onOpenChange, plan }: Props) {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your email"
                   required
-                  className="h-auto border-none bg-input ring-1 ring-xo-outline-variant/15 focus-visible:ring-primary/50 rounded-lg px-5 py-3.5 text-sm text-foreground transition-all duration-300"
+                  className="h-auto rounded-lg border-none bg-input px-5 py-3.5 text-sm text-foreground ring-1 ring-xo-outline-variant/15 transition-all duration-300 focus-visible:ring-primary/50"
                 />
-                <Button type="submit" className="w-full rounded-lg h-10 text-sm">
-                  Save my spot
+                <Button
+                  type="submit"
+                  className="h-10 w-full rounded-lg text-sm"
+                >
+                  Keep me posted
                 </Button>
               </form>
 
-              <p className="mt-5 text-center text-[11px] text-muted-foreground/35 font-light">
+              <p className="mt-5 text-center text-[11px] font-light text-muted-foreground/35">
                 No spam. No commitments. Just a quiet heads-up.
               </p>
             </motion.div>

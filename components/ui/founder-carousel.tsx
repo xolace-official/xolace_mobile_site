@@ -79,7 +79,8 @@ export function FounderCarousel({
 
   const handleCardClose = (index: number) => {
     if (scrollRef.current) {
-      const cardWidth = typeof window !== "undefined" && window.innerWidth < 768 ? 260 : 320
+      const cardWidth =
+        typeof window !== "undefined" && window.innerWidth < 768 ? 260 : 320
       const gap = 24
       scrollRef.current.scrollTo({
         left: (cardWidth + gap) * index,
@@ -93,14 +94,14 @@ export function FounderCarousel({
     <CarouselCtx.Provider
       value={{ onCardClose: handleCardClose, currentIndex }}
     >
-      <div className="relative w-full max-w-screen-2xl mx-auto">
+      <div className="relative mx-auto w-full max-w-screen-2xl">
         {/* Scroll track */}
         <div
           ref={scrollRef}
           onScroll={checkScrollability}
-          className="flex w-full overflow-x-auto scroll-smooth py-6 md:py-10 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          className="flex w-full overflow-x-auto scroll-smooth py-6 [-ms-overflow-style:none] [scrollbar-width:none] md:py-10 [&::-webkit-scrollbar]:hidden"
         >
-          <div className="flex gap-6 pl-[clamp(2rem,10vw,8rem)] pr-[clamp(2rem,15vw,12rem)]">
+          <div className="flex gap-6 pr-[clamp(2rem,15vw,12rem)] pl-[clamp(2rem,10vw,8rem)]">
             {founders.map((founder, i) => (
               <motion.div
                 key={founder.name}
@@ -123,11 +124,11 @@ export function FounderCarousel({
         </div>
 
         {/* Navigation arrows */}
-        <div className="flex gap-3 pl-[clamp(2rem,10vw,8rem)] mt-2">
+        <div className="mt-2 flex gap-3 pl-[clamp(2rem,10vw,8rem)]">
           <button
             onClick={() => scroll("left")}
             disabled={!canScrollLeft}
-            className="flex size-10 items-center justify-center rounded-full bg-xo-surface-bright/80  ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:opacity-30 disabled:cursor-not-allowed"
+            className="flex size-10 items-center justify-center rounded-full bg-xo-surface-bright/80 ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:cursor-not-allowed disabled:opacity-30"
             aria-label="Scroll left"
           >
             <ArrowLeft className="size-4 text-foreground/70" />
@@ -135,7 +136,7 @@ export function FounderCarousel({
           <button
             onClick={() => scroll("right")}
             disabled={!canScrollRight}
-            className="flex size-10 items-center justify-center rounded-full bg-xo-surface-bright/80 ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:opacity-30 disabled:cursor-not-allowed"
+            className="flex size-10 items-center justify-center rounded-full bg-xo-surface-bright/80 ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:cursor-not-allowed disabled:opacity-30"
             aria-label="Scroll right"
           >
             <ArrowRight className="size-4 text-foreground/70" />
@@ -150,13 +151,7 @@ export function FounderCarousel({
 /*  Card                                                               */
 /* ------------------------------------------------------------------ */
 
-function FounderCard({
-  founder,
-  index,
-}: {
-  founder: Founder
-  index: number
-}) {
+function FounderCard({ founder, index }: { founder: Founder; index: number }) {
   const [open, setOpen] = useState(false)
   const modalRef = useRef<HTMLDivElement>(null)
   const { onCardClose } = useContext(CarouselCtx)
@@ -205,7 +200,7 @@ function FounderCard({
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
               ref={modalRef}
-              className="relative z-[60] mx-auto my-10 max-w-2xl rounded-2xl bg-xo-surface-low ring-1 ring-xo-outline-variant/10 p-6 md:p-10"
+              className="relative z-[60] mx-auto my-10 max-w-2xl rounded-2xl bg-xo-surface-low p-6 ring-1 ring-xo-outline-variant/10 md:p-10"
             >
               {/* Close */}
               <button
@@ -219,7 +214,7 @@ function FounderCard({
               {/* Avatar large */}
               <div
                 className={cn(
-                  "size-36 md:size-44 rounded-2xl flex items-center justify-center mb-8 overflow-hidden",
+                  "mb-8 flex size-36 items-center justify-center overflow-hidden rounded-2xl md:size-44",
                   founder.gradient
                 )}
               >
@@ -232,26 +227,26 @@ function FounderCard({
                     className="size-full object-cover"
                   />
                 ) : (
-                  <span className="text-6xl md:text-7xl text-foreground/20 font-light">
+                  <span className="text-6xl font-light text-foreground/20 md:text-7xl">
                     {founder.initials}
                   </span>
                 )}
               </div>
 
-              <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-2">
+              <p className="mb-2 text-xs tracking-[0.25em] text-muted-foreground uppercase">
                 {founder.role}
               </p>
-              <h3 className="text-3xl md:text-4xl text-foreground font-light mb-6">
+              <h3 className="mb-6 text-3xl font-light text-foreground md:text-4xl">
                 {founder.name}
               </h3>
 
-              <p className="text-muted-foreground leading-relaxed font-serif text-base md:text-lg mb-8">
+              <p className="mb-8 font-serif text-base leading-relaxed text-muted-foreground md:text-lg">
                 {founder.bio}
               </p>
 
               {founder.quote && (
-                <blockquote className="border-l-2 border-primary/30 pl-6 py-2">
-                  <p className="text-muted-foreground/80 italic font-serif leading-relaxed">
+                <blockquote className="border-l-2 border-primary/30 py-2 pl-6">
+                  <p className="font-serif leading-relaxed text-muted-foreground/80 italic">
                     &ldquo;{founder.quote}&rdquo;
                   </p>
                 </blockquote>
@@ -267,9 +262,9 @@ function FounderCard({
         whileHover={{ y: -6 }}
         transition={{ duration: 0.35, ease: "easeOut" }}
         className={cn(
-          "group relative flex h-[22rem] w-[15rem] md:h-[28rem] md:w-[20rem] flex-col justify-end overflow-hidden rounded-2xl text-left",
+          "group relative flex h-[22rem] w-[15rem] flex-col justify-end overflow-hidden rounded-2xl text-left md:h-[28rem] md:w-[20rem]",
           "ring-1 ring-xo-outline-variant/10 transition-shadow duration-500",
-          "hover:ring-primary/20 hover:shadow-[0_0_40px_var(--primary)/0.08]"
+          "hover:shadow-[0_0_40px_var(--primary)/0.08] hover:ring-primary/20"
         )}
       >
         {/* Background — photo or gradient with initials */}
@@ -288,7 +283,7 @@ function FounderCard({
                 founder.gradient
               )}
             />
-            <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[8rem] md:text-[10rem] font-light text-foreground/[0.04] select-none pointer-events-none">
+            <span className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[8rem] font-light text-foreground/[0.04] select-none md:text-[10rem]">
               {founder.initials}
             </span>
           </>
@@ -299,13 +294,13 @@ function FounderCard({
 
         {/* Content overlay */}
         <div className="relative z-10 p-6 md:p-8">
-          <p className="text-[10px] uppercase tracking-[0.25em] text-primary/70 mb-1.5">
+          <p className="mb-1.5 text-[10px] tracking-[0.25em] text-primary/70 uppercase">
             {founder.role}
           </p>
-          <h4 className="text-xl md:text-2xl text-foreground font-light mb-3">
+          <h4 className="mb-3 text-xl font-light text-foreground md:text-2xl">
             {founder.name}
           </h4>
-          <p className="text-muted-foreground text-sm font-serif italic line-clamp-2 leading-relaxed">
+          <p className="line-clamp-2 font-serif text-sm leading-relaxed text-muted-foreground italic">
             {founder.bio}
           </p>
         </div>

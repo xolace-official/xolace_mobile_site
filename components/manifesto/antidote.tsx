@@ -17,16 +17,16 @@ const neverStatements = [
 
 export function Antidote() {
   return (
-    <section className="bg-xo-surface-lowest py-32 md:py-48 mb-32 md:mb-52">
+    <section className="mb-32 bg-xo-surface-lowest py-32 md:mb-52 md:py-48">
       <div className="asymmetric-layout">
-        <h2 className="text-4xl md:text-5xl text-foreground mb-16 font-light">
+        <h2 className="mb-16 text-4xl font-light text-foreground md:text-5xl">
           The Antidote.
         </h2>
-        <div className="flex flex-wrap gap-8 md:gap-x-20 md:gap-y-12 max-w-5xl mb-20">
+        <div className="mb-20 flex max-w-5xl flex-wrap gap-8 md:gap-x-20 md:gap-y-12">
           {antidotes.map((item, i) => (
             <div key={i} className="flex items-center gap-4">
               <X className="size-4 text-primary/40" />
-              <span className="text-2xl text-muted-foreground font-light">
+              <span className="text-2xl font-light text-muted-foreground">
                 {item}
               </span>
             </div>
@@ -36,7 +36,7 @@ export function Antidote() {
           {neverStatements.map((statement, i) => (
             <p
               key={i}
-              className="font-serif text-base text-muted-foreground leading-loose"
+              className="font-serif text-base leading-loose text-muted-foreground"
             >
               {statement}
             </p>
