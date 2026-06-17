@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { m as motion } from "motion/react"
 import { Button } from "@/components/ui/button"
-import { InsightTeasers } from "./pricing/insight-teasers"
+import { InsightShowcase } from "./pricing/insight-showcase"
 import { AccessStatement } from "./pricing/access-statement"
 import { PricingWaitlistDialog } from "./pricing-waitlist-dialog"
 import { InsightDetailDialog } from "./insight-detail-dialog"
@@ -23,7 +23,7 @@ export function PricingSection() {
         id="pricing"
         className="section-spacing overflow-hidden bg-muted"
       >
-        <div className="section-container-wide">
+        <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ export function PricingSection() {
             </p>
           </motion.div>
 
-          <InsightTeasers onSelect={(teaser) => setActiveTeaser(teaser)} />
+          <InsightShowcase onSelect={(teaser) => setActiveTeaser(teaser)} />
 
           <div className="mt-16">
             <AccessStatement />
@@ -63,9 +63,9 @@ export function PricingSection() {
             >
               Join the Xolace+ waitlist
             </Button>
-            <p className="max-w-sm font-serif text-sm text-muted-foreground/30 italic">
-              Pricing hasn&apos;t been decided. Your interest is the data that
-              shapes it.
+            <p className="max-w-sm font-serif text-base text-muted-foreground/30 italic">
+              We&apos;d rather shape Xolace+ around the
+              people curious enough to ask first.
             </p>
           </motion.div>
         </div>
