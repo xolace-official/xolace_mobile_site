@@ -10,6 +10,11 @@ export type Teaser = {
   statLabel: string
   // What the visitor is told they'll be able to read once it unlocks.
   caption: string
+  // Placeholder screenshots — swap for real Xolace+ insight screens before launch.
+  image: string
+  // Whether this specific insight is already live in the app. Drives which CTA
+  // the detail dialog shows — never claim "download to see it" for something unbuilt.
+  ready: boolean
 }
 
 // Representative (not real-user) data — a preview of the in-app insight layer (§6).
@@ -19,18 +24,24 @@ export const teasers: Teaser[] = [
     stat: "60%",
     statLabel: "of your reflections carry anxiety",
     caption: "See the full map of what keeps showing up.",
+    image: "/app-images/say-whats-true.jpeg",
+    ready: true,
   },
   {
     id: "language",
     stat: "trapped · invisible",
     statLabel: "the words that keep finding you",
     caption: "Two of yours. The rest are still forming.",
+    image: "/app-images/see-it-clearly.jpeg",
+    ready: true,
   },
   {
     id: "clarity",
     stat: "7.2",
     statLabel: "average clarity, and climbing",
     caption: "See how far your words have come.",
+    image: "/app-images/choose-whats-next.jpeg",
+    ready: false,
   },
 ]
 

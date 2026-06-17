@@ -6,13 +6,16 @@ import { Button } from "@/components/ui/button"
 import { InsightTeasers } from "./pricing/insight-teasers"
 import { AccessStatement } from "./pricing/access-statement"
 import { PricingWaitlistDialog } from "./pricing-waitlist-dialog"
+import { InsightDetailDialog } from "./insight-detail-dialog"
+import type { Teaser } from "./pricing/pricing-data"
 
 // Not a pricing table. A teaser of the insight layer (strategy §6): real-feeling,
 // blurred previews that lead to an intent-only waitlist — no price, no buy button.
 // The pitch is depth that compounds, never "unlimited sessions" (§12).
 
 export function PricingSection() {
-  const [open, setOpen] = useState(false)
+  const [waitlistOpen, setWaitlistOpen] = useState(false)
+  const [activeTeaser, setActiveTeaser] = useState<Teaser | null>(null)
 
   return (
     <>
@@ -20,7 +23,7 @@ export function PricingSection() {
         id="pricing"
         className="section-spacing overflow-hidden bg-muted"
       >
-        <div className="section-container">
+        <div className="section-container-wide">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +44,7 @@ export function PricingSection() {
             </p>
           </motion.div>
 
-          <InsightTeasers onSelect={() => setOpen(true)} />
+          <InsightTeasers onSelect={(teaser) => setActiveTeaser(teaser)} />
 
           <div className="mt-16">
             <AccessStatement />
@@ -55,7 +58,7 @@ export function PricingSection() {
             className="mt-14 flex flex-col items-center gap-5 text-center"
           >
             <Button
-              onClick={() => setOpen(true)}
+              onClick={() => setWaitlistOpen(true)}
               className="h-11 rounded-lg px-7 text-sm"
             >
               Join the Xolace+ waitlist
@@ -68,7 +71,19 @@ export function PricingSection() {
         </div>
       </section>
 
-      <PricingWaitlistDialog open={open} onOpenChange={setOpen} />
+      <PricingWaitlistDialog
+        open={waitlistOpen}
+        onOpenChange={setWaitlistOpen}
+      />
+      <InsightDetailDialog
+        open={activeTeaser !== null}
+        onOpenChange={(next) => !next && setActiveTeaser(null)}
+        teaser={activeTeaser}
+        onWaitlistInstead={() => {
+          setActiveTeaser(null)
+          setWaitlistOpen(true)
+        }}
+      />
     </>
   )
 }
