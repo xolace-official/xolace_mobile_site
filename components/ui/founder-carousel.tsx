@@ -26,6 +26,10 @@ export type Founder = {
   quote?: string
   gradient: string // tailwind gradient classes for the placeholder bg
   image?: string // path to founder photo
+  expertise?: string // short domain tag, e.g. "Clinical Psychology" — renders as a pill
+  linkedin?: string
+  website?: string
+  x?: string
 }
 
 /* ------------------------------------------------------------------ */
@@ -233,6 +237,11 @@ function FounderCard({ founder, index }: { founder: Founder; index: number }) {
                 )}
               </div>
 
+              {founder.expertise && (
+                <span className="mb-4 inline-block rounded-full border border-accent/40 px-2.5 py-1 font-mono text-[10px] tracking-[0.14em] text-accent uppercase dark:border-accent/25 dark:text-accent/70">
+                  {founder.expertise}
+                </span>
+              )}
               <p className="mb-2 text-xs tracking-[0.25em] text-muted-foreground uppercase">
                 {founder.role}
               </p>
@@ -294,6 +303,11 @@ function FounderCard({ founder, index }: { founder: Founder; index: number }) {
 
         {/* Content overlay */}
         <div className="relative z-10 p-6 md:p-8">
+          {founder.expertise && (
+            <span className="mb-2.5 inline-block rounded-full border border-accent/40 bg-background/40 px-2 py-0.5 font-mono text-[9px] tracking-[0.14em] text-accent uppercase backdrop-blur-sm dark:border-accent/25 dark:text-accent/70">
+              {founder.expertise}
+            </span>
+          )}
           <p className="mb-1.5 text-[10px] tracking-[0.25em] text-primary/70 uppercase">
             {founder.role}
           </p>
