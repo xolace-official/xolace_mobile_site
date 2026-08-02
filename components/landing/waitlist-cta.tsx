@@ -2,7 +2,10 @@ import { WaitlistForm } from "./waitlist-form"
 
 export function WaitlistCTA() {
   return (
-    <section id="waitlist" className="relative overflow-hidden px-8 py-40">
+    <section
+      id="waitlist"
+      className="section-spacing relative overflow-hidden"
+    >
       <div className="relative z-10 mx-auto max-w-3xl space-y-12 text-center">
         <h2 className="text-5xl leading-tight font-light text-foreground md:text-6xl">
           When it&apos;s ready, <br />
