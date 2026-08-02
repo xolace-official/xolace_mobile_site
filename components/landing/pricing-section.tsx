@@ -21,9 +21,14 @@ export function PricingSection() {
     <>
       <section
         id="pricing"
-        className="section-spacing overflow-hidden bg-muted"
+        className="section-spacing relative overflow-hidden bg-muted"
       >
-        <div className="section-container">
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <div className="animate-gentle-pulse absolute -top-32 -left-20 h-[600px] w-[600px] rounded-full bg-accent/[0.05] blur-[140px]" />
+          <div className="animate-gentle-pulse absolute -right-20 -bottom-20 h-[500px] w-[500px] rounded-full bg-primary/[0.04] blur-[120px] [animation-delay:3s]" />
+        </div>
+
+        <div className="section-container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -64,8 +69,8 @@ export function PricingSection() {
               Join the Xolace+ waitlist
             </Button>
             <p className="max-w-sm font-serif text-base text-muted-foreground/30 italic">
-              We&apos;d rather shape Xolace+ around the
-              people curious enough to ask first.
+              We&apos;d rather shape Xolace+ around the people curious enough to
+              ask first.
             </p>
           </motion.div>
         </div>
