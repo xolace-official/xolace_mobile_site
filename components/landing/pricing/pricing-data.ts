@@ -83,8 +83,9 @@ export type AccessColumn = {
   title: string
   lead: string
   items: string[]
-  // The "and also" cosmetics — additive, never the headline (§4).
-  also?: string
+  // The "and also" cosmetics — additive, never the headline (§4). A list so
+  // new cosmetic perks can be appended without rewriting a sentence.
+  also?: string[]
   highlighted: boolean
 }
 
@@ -108,7 +109,7 @@ export const accessColumns: AccessColumn[] = [
       "Your full insight layer — constellation, language, growth over time",
       "Voice release and a longer emotional memory",
     ],
-    also: "and also — custom themes, app icons, home-screen reflections",
+    also: ["Custom themes", "App icons", "Home-screen reflections"],
     highlighted: true,
   },
 ]
