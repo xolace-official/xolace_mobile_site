@@ -57,23 +57,33 @@ const faqs: FAQItem[] = [
   },
 ]
 
-function FAQItem({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boolean; onToggle: () => void }) {
+function FAQItem({
+  item,
+  isOpen,
+  onToggle,
+}: {
+  item: FAQItem
+  isOpen: boolean
+  onToggle: () => void
+}) {
   return (
     <div className="border-b border-border last:border-0">
       <button
         onClick={onToggle}
-        className="w-full flex items-start justify-between gap-6 py-6 text-left group"
+        className="group flex w-full items-start justify-between gap-6 py-6 text-left"
         aria-expanded={isOpen}
       >
-        <span className={cn(
-          "text-sm md:text-base font-medium leading-snug transition-colors duration-200",
-          isOpen ? "text-primary" : "text-foreground group-hover:text-primary"
-        )}>
+        <span
+          className={cn(
+            "text-sm leading-snug font-medium transition-colors duration-200 md:text-base",
+            isOpen ? "text-primary" : "text-foreground group-hover:text-primary"
+          )}
+        >
           {item.question}
         </span>
         <PlusIcon
           className={cn(
-            "size-4 shrink-0 mt-0.5 text-muted-foreground transition-all duration-300",
+            "mt-0.5 size-4 shrink-0 text-muted-foreground transition-all duration-300",
             isOpen && "rotate-45 text-primary"
           )}
         />
@@ -84,7 +94,7 @@ function FAQItem({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boolean; o
           isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         )}
       >
-        <p className="font-serif text-[15px] text-muted-foreground leading-[1.85] pb-6">
+        <p className="pb-6 font-serif text-[15px] leading-[1.85] text-muted-foreground">
           {item.answer}
         </p>
       </div>
@@ -102,10 +112,10 @@ export function SupportFAQ() {
   return (
     <section className="mb-24">
       <div className="mb-10">
-        <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground mb-3">
+        <p className="mb-3 font-mono text-[10px] tracking-[0.15em] text-muted-foreground uppercase">
           FAQ
         </p>
-        <h2 className="text-2xl md:text-3xl font-light">Common questions</h2>
+        <h2 className="text-2xl font-light md:text-3xl">Common questions</h2>
       </div>
       <div className="border-t border-border">
         {faqs.map((item, i) => (

@@ -7,29 +7,29 @@ import { DownloadButtons } from "@/components/shared/download-buttons"
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center section-spacing-x pt-24 pb-16 md:py-16 overflow-hidden">
+    <section className="section-spacing relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
       <Spotlight duration={8} xOffset={80} />
 
-      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-center md:justify-between gap-8 lg:gap-10">
-
+      <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center justify-center gap-8 md:justify-between lg:flex-row lg:gap-10">
         {/* Text + CTAs */}
         <div className="flex-1 text-center lg:text-left">
-
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-serif italic font-light text-foreground"
+            className="font-serif font-light text-foreground italic"
           >
             {/* Mobile + tablet: 2 lines */}
-            <span className="block lg:hidden font-semibold text-[2.5rem] leading-[1.2]">
+            <span className="block text-[2.5rem] leading-[1.2] font-semibold lg:hidden">
               <span className="block">For the moments</span>
               <span className="block">that don&apos;t have a name yet.</span>
             </span>
             {/* Desktop: 3 lines */}
-            <span className="font-semibold hidden lg:block text-[4.5rem] leading-[1.08]">
+            <span className="hidden text-[4.5rem] leading-[1.08] font-semibold lg:block">
               <span className="block whitespace-nowrap">For the moments</span>
-              <span className="block whitespace-nowrap">that don&apos;t have</span>
+              <span className="block whitespace-nowrap">
+                that don&apos;t have
+              </span>
               <span className="block whitespace-nowrap">a name yet.</span>
             </span>
           </motion.h1>
@@ -38,7 +38,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-7 mx-auto lg:mx-0 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg"
+            className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg lg:mx-0"
           >
             {`A quiet place to say what's true, when you can't find the words for it on your own.`}
           </motion.p>
@@ -57,20 +57,24 @@ export function Hero() {
           initial={{ opacity: 0, y: 56, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1.4, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="shrink-0 w-52 md:w-80 lg:w-110 pointer-events-none select-none"
+          className="pointer-events-none w-52 shrink-0 select-none md:w-80 lg:w-110"
         >
           <div className="relative">
             <div
               aria-hidden
-              className="absolute inset-0 -z-10 blur-[90px] bg-primary/15 rounded-full scale-[1.6] animate-gentle-pulse"
+              className="animate-gentle-pulse absolute inset-0 -z-10 scale-[1.6] rounded-full bg-primary/15 blur-[90px]"
             />
             <div
               aria-hidden
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 -z-10 w-3/4 h-1/2 blur-[70px] bg-accent/10 rounded-full animate-gentle-pulse [animation-delay:1.5s]"
+              className="animate-gentle-pulse absolute bottom-0 left-1/2 -z-10 h-1/2 w-3/4 -translate-x-1/2 rounded-full bg-accent/10 blur-[70px] [animation-delay:1.5s]"
             />
             <motion.div
               animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
+              transition={{
+                duration: 5.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             >
               <Image
                 src="/flux-images/ChatGPT_Image_Oct_20__2025__10_36_31_PM-removebg-preview.png"
@@ -83,12 +87,11 @@ export function Hero() {
             </motion.div>
           </div>
         </motion.div>
-
       </div>
 
-      <div aria-hidden className="absolute inset-0 pointer-events-none">
-        <div className="hidden md:block absolute w-175 h-175 rounded-full bg-primary/4 blur-[140px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-        <div className="hidden md:block absolute w-87.5 h-87.5 rounded-full bg-accent/4 blur-[100px] bottom-0 right-1/3" />
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div className="absolute top-1/2 left-1/2 hidden h-175 w-175 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/4 blur-[140px] md:block" />
+        <div className="absolute right-1/3 bottom-0 hidden h-87.5 w-87.5 rounded-full bg-accent/4 blur-[100px] md:block" />
       </div>
     </section>
   )

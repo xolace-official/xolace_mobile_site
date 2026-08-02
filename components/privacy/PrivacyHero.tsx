@@ -1,19 +1,19 @@
 export function PrivacyHero() {
   return (
     <div className="mb-16">
-      <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground mb-5">
+      <p className="mb-5 font-mono text-[10px] tracking-[0.15em] text-muted-foreground uppercase">
         Legal
       </p>
-      <h1 className="text-5xl md:text-7xl font-light tracking-tight leading-[1.02] mb-6">
+      <h1 className="mb-6 text-5xl leading-[1.02] font-light tracking-tight md:text-7xl">
         Privacy Policy
       </h1>
-      <p className="font-serif text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-        Your privacy is central to how Xolace is designed and operated.
-        This policy explains what we collect, how we use it,
-        and the choices you always have.
+      <p className="max-w-xl font-serif text-base leading-relaxed text-muted-foreground md:text-lg">
+        Your privacy is central to how Xolace is designed and operated. This
+        policy explains what we collect, how we use it, and the choices you
+        always have.
       </p>
-      <div className="flex items-center gap-6 mt-8">
-        <span className="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground">
+      <div className="mt-8 flex items-center gap-6">
+        <span className="font-mono text-[10px] tracking-[0.15em] text-muted-foreground uppercase">
           Last Updated: April 7, 2026
         </span>
       </div>

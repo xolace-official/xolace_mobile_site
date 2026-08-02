@@ -48,7 +48,7 @@ export function WaitlistForm({ className }: { className?: string }) {
   }
 
   return (
-    <div className={cn("w-full max-w-lg mx-auto", className)}>
+    <div className={cn("mx-auto w-full max-w-lg", className)}>
       <AnimatePresence mode="wait">
         {submitted ? (
           <motion.div
@@ -62,16 +62,17 @@ export function WaitlistForm({ className }: { className?: string }) {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 200, damping: 15 }}
-              className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/15"
+              className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary/15"
             >
-              <Check className="w-7 h-7 text-primary" />
+              <Check className="h-7 w-7 text-primary" />
             </motion.div>
-            <div className="text-center space-y-1">
+            <div className="space-y-1 text-center">
               <p className="text-lg font-light text-foreground">
                 You&apos;re on the list.
               </p>
               <p className="text-sm text-muted-foreground">
-                We&apos;ll send regular updates & a quiet note when it&apos;s time.
+                We&apos;ll send regular updates & a quiet note when it&apos;s
+                time.
               </p>
             </div>
           </motion.div>
@@ -87,11 +88,11 @@ export function WaitlistForm({ className }: { className?: string }) {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 200, damping: 15 }}
-              className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-destructive/15"
+              className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-destructive/15"
             >
               <Coolshape type="triangle" index={9} size={32} noise />
             </motion.div>
-            <div className="text-center space-y-1">
+            <div className="space-y-1 text-center">
               <p className="text-lg font-light text-foreground">
                 Something went wrong.
               </p>
@@ -106,7 +107,7 @@ export function WaitlistForm({ className }: { className?: string }) {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onSubmit={handleSubmit}
-            className="flex flex-col md:flex-row items-center justify-center gap-4 w-full"
+            className="flex w-full flex-col items-center justify-center gap-4 md:flex-row"
           >
             <Input
               type="email"
@@ -117,13 +118,13 @@ export function WaitlistForm({ className }: { className?: string }) {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email"
               required
-              className="h-auto w-full md:flex-1 border-none bg-input ring-1 ring-xo-outline-variant/15 focus-visible:ring-primary/50 rounded-lg px-6 py-4 text-sm text-foreground transition-all duration-500"
+              className="h-auto w-full rounded-lg border-none bg-input px-6 py-4 text-sm text-foreground ring-1 ring-xo-outline-variant/15 transition-all duration-500 focus-visible:ring-primary/50 md:flex-1"
             />
             <Button
               type="submit"
               size="lg"
               disabled={isLoading}
-              className="h-auto w-full md:w-auto px-8 py-4 rounded-lg border-none cta-gradient text-primary-foreground font-semibold transition-all duration-500 disabled:opacity-60 disabled:cursor-not-allowed"
+              className="cta-gradient h-auto w-full rounded-lg border-none px-8 py-4 font-semibold text-primary-foreground transition-all duration-500 disabled:cursor-not-allowed disabled:opacity-60 md:w-auto"
             >
               {isLoading ? "Saving..." : "Save my spot"}
             </Button>

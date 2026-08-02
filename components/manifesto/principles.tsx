@@ -22,20 +22,19 @@ const principles = [
 export function Principles() {
   return (
     <section className="asymmetric-layout mb-32 md:mb-52">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
+      <div className="grid grid-cols-1 gap-x-12 gap-y-24 md:grid-cols-2">
         {principles.map((p, i) => (
           <div
             key={i}
-            className={cn(
-              "space-y-6",
-              i % 2 === 0 ? "md:translate-y-12" : ""
-            )}
+            className={cn("space-y-6", i % 2 === 0 ? "md:translate-y-12" : "")}
           >
             <p className="text-xs text-primary/60">
               {String(i + 1).padStart(2, "0")}
             </p>
-            <h3 className="text-3xl text-foreground font-light">{p.title}</h3>
-            <p className="text-muted-foreground max-w-sm font-serif">{p.body}</p>
+            <h3 className="text-3xl font-light text-foreground">{p.title}</h3>
+            <p className="max-w-sm font-serif text-muted-foreground">
+              {p.body}
+            </p>
           </div>
         ))}
       </div>

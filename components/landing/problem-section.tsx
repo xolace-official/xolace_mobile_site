@@ -29,7 +29,9 @@ const moments: Moment[] = [
         Don&apos;t know why.
         <br />
         Not &lsquo;therapy bad&rsquo; -{" "}
-        <span className="text-primary/70 font-extralight italic">just heavy.</span>
+        <span className="font-extralight text-primary/70 italic">
+          just heavy.
+        </span>
       </>
     ),
   },
@@ -45,7 +47,9 @@ const moments: Moment[] = [
         Scrolling.
         <br />
         Not depressed -{" "}
-        <span className="text-accent/70 font-extralight italic">just hollow.</span>
+        <span className="font-extralight text-accent/70 italic">
+          just hollow.
+        </span>
       </>
     ),
   },
@@ -53,48 +57,60 @@ const moments: Moment[] = [
 
 export function ProblemSection() {
   return (
-    <section className="section-spacing bg-xo-surface-lowest overflow-hidden relative">
-
-      <div aria-hidden className="absolute inset-0 pointer-events-none select-none">
-        <div className="absolute w-[650px] h-[650px] rounded-full bg-primary/[0.06] blur-[150px] -top-40 -left-20 animate-gentle-pulse" />
-        <div className="absolute w-[550px] h-[550px] rounded-full bg-accent/[0.05] blur-[130px] -bottom-20 -right-10 animate-gentle-pulse [animation-delay:2.5s]" />
+    <section className="section-spacing relative overflow-hidden bg-xo-surface-lowest">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 select-none"
+      >
+        <div className="animate-gentle-pulse absolute -top-40 -left-20 h-[650px] w-[650px] rounded-full bg-primary/[0.06] blur-[150px]" />
+        <div className="animate-gentle-pulse absolute -right-10 -bottom-20 h-[550px] w-[550px] rounded-full bg-accent/[0.05] blur-[130px] [animation-delay:2.5s]" />
       </div>
 
       <div className="section-container relative z-10">
-
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center text-[11px] font-mono uppercase tracking-[0.24em] text-muted-foreground/30 mb-16"
+          className="mb-16 text-center font-mono text-[11px] tracking-[0.24em] text-muted-foreground/30 uppercase"
         >
           You&apos;ve felt this.
         </motion.p>
 
-        <div className="grid sm:grid-cols-2 gap-14 md:gap-16 mb-16">
+        <div className="mb-16 grid gap-14 sm:grid-cols-2 md:gap-16">
           {moments.map((m, i) => (
             <motion.div
               key={m.time}
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 1.0, delay: i * 0.14, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 1.0,
+                delay: i * 0.14,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               className="flex flex-row items-start gap-4 text-left sm:flex-col sm:gap-6"
             >
               <div className="relative shrink-0">
-                <div className={`absolute inset-0 ${m.orbGlow} blur-3xl rounded-full scale-[3]`} />
-                <div className={`relative size-14 sm:size-16 rounded-full ${m.orbBg} border ${m.orbBorder} flex items-center justify-center`}>
-                  <m.Icon className={`size-6 sm:size-7 ${m.iconColor}`} strokeWidth={1.25} />
+                <div
+                  className={`absolute inset-0 ${m.orbGlow} scale-[3] rounded-full blur-3xl`}
+                />
+                <div
+                  className={`relative size-14 rounded-full sm:size-16 ${m.orbBg} border ${m.orbBorder} flex items-center justify-center`}
+                >
+                  <m.Icon
+                    className={`size-6 sm:size-7 ${m.iconColor}`}
+                    strokeWidth={1.25}
+                  />
                 </div>
               </div>
 
               <div className="pt-1 sm:pt-0">
-                <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/30 mb-4 sm:mb-5">
+                <p className="mb-4 font-mono text-[10px] tracking-[0.2em] text-muted-foreground/30 uppercase sm:mb-5">
                   {m.time}
                 </p>
 
-                <p className="text-2xl md:text-[1.875rem] font-serif font-light text-foreground leading-[1.5]">
+                <p className="font-serif text-2xl leading-[1.5] font-light text-foreground md:text-[1.875rem]">
                   {m.text}
                 </p>
               </div>
@@ -107,22 +123,22 @@ export function ProblemSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center gap-4 mb-14"
+          className="mb-14 flex items-center gap-4"
         >
           <motion.div
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-            className="flex-1 h-px bg-gradient-to-r from-transparent to-border/20 origin-left"
+            className="h-px flex-1 origin-left bg-gradient-to-r from-transparent to-border/20"
           />
-          <div className="size-1.5 rounded-full bg-primary/40 shrink-0" />
+          <div className="size-1.5 shrink-0 rounded-full bg-primary/40" />
           <motion.div
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-            className="flex-1 h-px bg-gradient-to-l from-transparent to-border/20 origin-right"
+            className="h-px flex-1 origin-right bg-gradient-to-l from-transparent to-border/20"
           />
         </motion.div>
 
@@ -131,11 +147,10 @@ export function ProblemSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center text-xl md:text-2xl text-muted-foreground/50 font-serif italic font-light"
+          className="text-center font-serif text-xl font-light text-muted-foreground/50 italic md:text-2xl"
         >
           That space. That&apos;s where Xolace lives.
         </motion.p>
-
       </div>
     </section>
   )

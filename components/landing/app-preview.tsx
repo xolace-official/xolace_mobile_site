@@ -3,12 +3,12 @@ import { Iphone } from "@/components/ui/iphone"
 
 export function AppPreview() {
   return (
-    <FadeIn className="py-20 md:py-32 px-6">
-      <div className="max-w-[680px] mx-auto flex flex-col items-center gap-6">
+    <FadeIn className="section-spacing">
+      <div className="mx-auto flex max-w-[680px] flex-col items-center gap-6">
         <div className="w-[280px] md:w-[320px]">
           <Iphone src="/app-images/say-whats-true.jpeg" />
         </div>
-        <p className="text-sm md:text-base text-muted-foreground italic font-light text-center">
+        <p className="text-center text-sm font-light text-muted-foreground italic md:text-base">
           The entry. Start anywhere — a word, a sentence, your voice.
         </p>
       </div>

@@ -1,6 +1,9 @@
 import { PrivacyHero } from "@/components/privacy/PrivacyHero"
 import { PrivacyContent } from "@/components/privacy/PrivacyContent"
-import { TableOfContents, type TocSection } from "@/components/shared/TableOfContents"
+import {
+  TableOfContents,
+  type TocSection,
+} from "@/components/shared/TableOfContents"
 
 const sections: TocSection[] = [
   { id: "introduction", label: "Introduction" },
@@ -22,10 +25,10 @@ const sections: TocSection[] = [
 export function PrivacyPage() {
   return (
     <main className="pt-32 pb-28">
-      <div className="px-8 md:px-12 lg:px-16 max-w-screen-xl mx-auto">
+      <div className="mx-auto max-w-screen-xl px-8 md:px-12 lg:px-16">
         <PrivacyHero />
 
-        <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-16 xl:gap-24">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-[220px_1fr] xl:gap-24">
           {/* Sticky Sidebar TOC — desktop only */}
           <aside className="hidden lg:block">
             <div className="sticky top-32">

@@ -21,7 +21,7 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>
 
 function RequiredMark() {
-  return <span className="text-destructive ml-0.5">*</span>
+  return <span className="ml-0.5 text-destructive">*</span>
 }
 
 export function SupportForm() {

@@ -13,22 +13,38 @@ function Section({ id, index, title, children, className }: SectionProps) {
   return (
     <section
       id={id}
-      className={cn("scroll-mt-32 pb-14 border-b border-border last:border-0 last:pb-0", className)}
+      className={cn(
+        "scroll-mt-32 border-b border-border pb-14 last:border-0 last:pb-0",
+        className
+      )}
     >
-      <div className="flex items-baseline gap-4 mb-6">
-        <span className="text-[10px] font-mono text-muted-foreground tracking-[0.15em] shrink-0 tabular-nums">
+      <div className="mb-6 flex items-baseline gap-4">
+        <span className="shrink-0 font-mono text-[10px] tracking-[0.15em] text-muted-foreground tabular-nums">
           {index}
         </span>
-        <h2 className="text-xl md:text-2xl font-medium leading-snug">{title}</h2>
+        <h2 className="text-xl leading-snug font-medium md:text-2xl">
+          {title}
+        </h2>
       </div>
-      <div className="pl-10 space-y-4">{children}</div>
+      <div className="space-y-4 pl-10">{children}</div>
     </section>
   )
 }
 
-function Body({ children, className }: { children: ReactNode; className?: string }) {
+function Body({
+  children,
+  className,
+}: {
+  children: ReactNode
+  className?: string
+}) {
   return (
-    <p className={cn("font-serif text-[15px] md:text-base text-muted-foreground leading-[1.85]", className)}>
+    <p
+      className={cn(
+        "font-serif text-[15px] leading-[1.85] text-muted-foreground md:text-base",
+        className
+      )}
+    >
       {children}
     </p>
   )
@@ -36,21 +52,31 @@ function Body({ children, className }: { children: ReactNode; className?: string
 
 function SubHeading({ children }: { children: ReactNode }) {
   return (
-    <h3 className="text-[11px] font-mono uppercase tracking-[0.12em] text-foreground pt-4 pb-1">
+    <h3 className="pt-4 pb-1 font-mono text-[11px] tracking-[0.12em] text-foreground uppercase">
       {children}
     </h3>
   )
 }
 
-function Notice({ children, variant = "primary" }: { children: ReactNode; variant?: "primary" | "warning" }) {
+function Notice({
+  children,
+  variant = "primary",
+}: {
+  children: ReactNode
+  variant?: "primary" | "warning"
+}) {
   return (
-    <div className={cn(
-      "border-l-4 rounded-r-lg px-5 py-4 my-2",
-      variant === "warning"
-        ? "border-destructive bg-destructive/5"
-        : "border-primary bg-primary/5"
-    )}>
-      <p className="font-serif text-[14px] leading-relaxed text-foreground/80">{children}</p>
+    <div
+      className={cn(
+        "my-2 rounded-r-lg border-l-4 px-5 py-4",
+        variant === "warning"
+          ? "border-destructive bg-destructive/5"
+          : "border-primary bg-primary/5"
+      )}
+    >
+      <p className="font-serif text-[14px] leading-relaxed text-foreground/80">
+        {children}
+      </p>
     </div>
   )
 }
@@ -60,8 +86,8 @@ function List({ items }: { items: string[] }) {
     <ul className="space-y-2">
       {items.map((item, i) => (
         <li key={i} className="flex items-start gap-3">
-          <span className="mt-[7px] size-1 rounded-full bg-primary shrink-0" />
-          <span className="font-serif text-[15px] md:text-base text-muted-foreground leading-[1.85]">
+          <span className="mt-[7px] size-1 shrink-0 rounded-full bg-primary" />
+          <span className="font-serif text-[15px] leading-[1.85] text-muted-foreground md:text-base">
             {item}
           </span>
         </li>
@@ -74,14 +100,15 @@ export function TermsContent() {
   return (
     <div className="space-y-14">
       {/* Crisis Notice — always first */}
-      <div className="border-l-4 border-destructive bg-destructive/5 rounded-r-lg px-5 py-5 -mt-2 mb-2">
-        <p className="text-[10px] font-mono uppercase tracking-[0.12em] text-destructive mb-2">
+      <div className="-mt-2 mb-2 rounded-r-lg border-l-4 border-destructive bg-destructive/5 px-5 py-5">
+        <p className="mb-2 font-mono text-[10px] tracking-[0.12em] text-destructive uppercase">
           Important Notice
         </p>
         <p className="font-serif text-[14px] leading-relaxed text-foreground/80">
-          Xolace does not provide medical, mental health, or crisis services. If you are experiencing
-          a crisis, feel unsafe, or need immediate support, contact your local emergency services or a
-          licensed professional immediately. Xolace is designed for self-reflection and emotional
+          Xolace does not provide medical, mental health, or crisis services. If
+          you are experiencing a crisis, feel unsafe, or need immediate support,
+          contact your local emergency services or a licensed professional
+          immediately. Xolace is designed for self-reflection and emotional
           processing, not diagnosis, treatment, or intervention.
         </p>
       </div>
@@ -89,20 +116,27 @@ export function TermsContent() {
       {/* 1. Acceptance of Terms */}
       <Section id="acceptance" index="01" title="Acceptance of Terms">
         <Body>
-          These Terms of Service (&ldquo;Terms&rdquo;) govern your access to and use of the Xolace
-          application, website, and related services (collectively, the &ldquo;Service&rdquo;), operated
-          by Xolace (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;).
+          These Terms of Service (&ldquo;Terms&rdquo;) govern your access to and
+          use of the Xolace application, website, and related services
+          (collectively, the &ldquo;Service&rdquo;), operated by Xolace
+          (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;).
         </Body>
         <Body>
-          By accessing or using Xolace, you agree to these Terms. If you do not agree, do not use
-          the Service.
+          By accessing or using Xolace, you agree to these Terms. If you do not
+          agree, do not use the Service.
         </Body>
       </Section>
 
       {/* 2. What Xolace Is */}
-      <Section id="what-xolace-is" index="02" title="What Xolace Is (and Is Not)">
+      <Section
+        id="what-xolace-is"
+        index="02"
+        title="What Xolace Is (and Is Not)"
+      >
         <SubHeading>What Xolace Is</SubHeading>
-        <Body>Xolace is a personal emotional processing tool that helps you:</Body>
+        <Body>
+          Xolace is a personal emotional processing tool that helps you:
+        </Body>
         <List
           items={[
             "Express what you're feeling",
@@ -123,7 +157,8 @@ export function TermsContent() {
           ]}
         />
         <Notice>
-          Use of Xolace does not create a doctor-patient or therapist-client relationship.
+          Use of Xolace does not create a doctor-patient or therapist-client
+          relationship.
         </Notice>
       </Section>
 
@@ -137,13 +172,17 @@ export function TermsContent() {
           ]}
         />
         <Body>
-          If you are under the age of majority in your jurisdiction, you must have parental or
-          guardian consent to use Xolace.
+          If you are under the age of majority in your jurisdiction, you must
+          have parental or guardian consent to use Xolace.
         </Body>
       </Section>
 
       {/* 4. User Responsibilities */}
-      <Section id="user-responsibilities" index="04" title="User Responsibilities">
+      <Section
+        id="user-responsibilities"
+        index="04"
+        title="User Responsibilities"
+      >
         <Body>You agree to:</Body>
         <List
           items={[
@@ -158,7 +197,11 @@ export function TermsContent() {
       </Section>
 
       {/* 5. Emotional Safety */}
-      <Section id="emotional-safety" index="05" title="Emotional Safety & Acknowledgement">
+      <Section
+        id="emotional-safety"
+        index="05"
+        title="Emotional Safety & Acknowledgement"
+      >
         <Body>By using Xolace, you acknowledge:</Body>
         <List
           items={[
@@ -178,8 +221,14 @@ export function TermsContent() {
       </Section>
 
       {/* 6. AI-Generated Content */}
-      <Section id="ai-content" index="06" title="AI-Generated Content Disclaimer">
-        <Body>Xolace uses artificial intelligence to generate reflections.</Body>
+      <Section
+        id="ai-content"
+        index="06"
+        title="AI-Generated Content Disclaimer"
+      >
+        <Body>
+          Xolace uses artificial intelligence to generate reflections.
+        </Body>
         <Body>You understand and agree that:</Body>
         <List
           items={[
@@ -194,7 +243,10 @@ export function TermsContent() {
       <Section id="privacy-data" index="07" title="Privacy & User Data">
         <Body>
           Your use of Xolace is also governed by our{" "}
-          <a href="/privacy" className="text-primary underline-offset-4 hover:underline">
+          <a
+            href="/privacy"
+            className="text-primary underline-offset-4 hover:underline"
+          >
             Privacy Policy
           </a>
           , which is incorporated into these Terms by reference.
@@ -221,8 +273,8 @@ export function TermsContent() {
       {/* 8. License */}
       <Section id="license" index="08" title="License to Use the Service">
         <Body>
-          We grant you a limited, non-exclusive, non-transferable license to use Xolace for personal,
-          non-commercial use.
+          We grant you a limited, non-exclusive, non-transferable license to use
+          Xolace for personal, non-commercial use.
         </Body>
         <Body>You may not:</Body>
         <List
@@ -238,8 +290,8 @@ export function TermsContent() {
       {/* 9. User Content */}
       <Section id="user-content" index="09" title="User Content">
         <Body>
-          You retain ownership of what you write (&ldquo;User Content&rdquo;). By using Xolace, you
-          grant us a limited license to:
+          You retain ownership of what you write (&ldquo;User Content&rdquo;).
+          By using Xolace, you grant us a limited license to:
         </Body>
         <List
           items={[
@@ -249,7 +301,8 @@ export function TermsContent() {
           ]}
         />
         <Notice>
-          We do not treat your entries as public content. Your reflections are private by default.
+          We do not treat your entries as public content. Your reflections are
+          private by default.
         </Notice>
       </Section>
 
@@ -286,7 +339,8 @@ export function TermsContent() {
       {/* 12. Disclaimer of Warranties */}
       <Section id="disclaimers" index="12" title="Disclaimer of Warranties">
         <Body>
-          The Service is provided &ldquo;as is&rdquo; and &ldquo;as available.&rdquo; We do not guarantee that:
+          The Service is provided &ldquo;as is&rdquo; and &ldquo;as
+          available.&rdquo; We do not guarantee that:
         </Body>
         <List
           items={[
@@ -296,14 +350,18 @@ export function TermsContent() {
           ]}
         />
         <Body>
-          To the fullest extent permitted by law, we disclaim all warranties, express or implied,
-          including implied warranties of merchantability and fitness for a particular purpose.
+          To the fullest extent permitted by law, we disclaim all warranties,
+          express or implied, including implied warranties of merchantability
+          and fitness for a particular purpose.
         </Body>
       </Section>
 
       {/* 13. Limitation of Liability */}
       <Section id="liability" index="13" title="Limitation of Liability">
-        <Body>To the maximum extent permitted by law, Xolace shall not be liable for:</Body>
+        <Body>
+          To the maximum extent permitted by law, Xolace shall not be liable
+          for:
+        </Body>
         <List
           items={[
             "Emotional distress arising from use of the Service",
@@ -312,16 +370,16 @@ export function TermsContent() {
           ]}
         />
         <Body>
-          Our total liability will not exceed the amount you paid (if any) in the twelve months
-          preceding the claim.
+          Our total liability will not exceed the amount you paid (if any) in
+          the twelve months preceding the claim.
         </Body>
       </Section>
 
       {/* 14. Indemnification */}
       <Section id="indemnification" index="14" title="Indemnification">
         <Body>
-          You agree to indemnify and hold Xolace harmless from any claims, damages, or expenses
-          arising from:
+          You agree to indemnify and hold Xolace harmless from any claims,
+          damages, or expenses arising from:
         </Body>
         <List
           items={[
@@ -335,16 +393,17 @@ export function TermsContent() {
       {/* 15. Governing Law */}
       <Section id="governing-law" index="15" title="Governing Law">
         <Body>
-          These Terms are governed by applicable law, without regard to conflict of law principles.
-          We will specify the governing jurisdiction as Xolace establishes its legal entity.
+          These Terms are governed by applicable law, without regard to conflict
+          of law principles. We will specify the governing jurisdiction as
+          Xolace establishes its legal entity.
         </Body>
       </Section>
 
       {/* 16. Dispute Resolution */}
       <Section id="disputes" index="16" title="Dispute Resolution">
         <Body>
-          Any disputes will be resolved through binding arbitration on an individual basis, unless
-          prohibited by law.
+          Any disputes will be resolved through binding arbitration on an
+          individual basis, unless prohibited by law.
         </Body>
         <Body>By agreeing to these Terms, you waive the right to:</Body>
         <List items={["Jury trials", "Class action lawsuits"]} />
@@ -353,26 +412,29 @@ export function TermsContent() {
       {/* 17. Changes */}
       <Section id="changes" index="17" title="Changes to These Terms">
         <Body>
-          We may update these Terms at any time. If we do, we will update the &ldquo;Last Updated&rdquo; date
-          at the top of this page. Continued use of Xolace after changes take effect constitutes
-          your acceptance of the updated Terms.
+          We may update these Terms at any time. If we do, we will update the
+          &ldquo;Last Updated&rdquo; date at the top of this page. Continued use
+          of Xolace after changes take effect constitutes your acceptance of the
+          updated Terms.
         </Body>
       </Section>
 
       {/* 18. Contact */}
       <Section id="contact" index="18" title="Contact">
-        <Body>If you have questions about these Terms, we&apos;re here to help.</Body>
-        <div className="mt-2 p-5 border border-border rounded-xl space-y-2 bg-card">
-          <p className="text-[10px] font-mono uppercase tracking-[0.12em] text-muted-foreground">
+        <Body>
+          If you have questions about these Terms, we&apos;re here to help.
+        </Body>
+        <div className="mt-2 space-y-2 rounded-xl border border-border bg-card p-5">
+          <p className="font-mono text-[10px] tracking-[0.12em] text-muted-foreground uppercase">
             Get in touch
           </p>
           <a
             href="mailto:legal@xolaceinc.com"
-            className="block text-sm font-medium text-primary hover:underline underline-offset-4 transition-colors"
+            className="block text-sm font-medium text-primary underline-offset-4 transition-colors hover:underline"
           >
             legal@xolaceinc.com
           </a>
-          <p className="text-xs text-muted-foreground font-serif">
+          <p className="font-serif text-xs text-muted-foreground">
             Xolace, a tool for seeing what you&apos;re carrying more clearly.
           </p>
         </div>

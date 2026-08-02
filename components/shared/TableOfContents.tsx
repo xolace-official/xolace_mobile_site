@@ -53,7 +53,7 @@ export function TableOfContents({ sections }: TableOfContentsProps) {
 
   return (
     <nav aria-label="Table of contents">
-      <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground mb-5">
+      <p className="mb-5 font-mono text-[10px] tracking-[0.15em] text-muted-foreground uppercase">
         Contents
       </p>
       <ul className="space-y-0.5">
@@ -62,10 +62,10 @@ export function TableOfContents({ sections }: TableOfContentsProps) {
             <button
               onClick={() => handleClick(section.id)}
               className={cn(
-                "text-left text-xs pl-3 py-1.5 border-l-2 transition-all duration-300 w-full leading-snug",
+                "w-full border-l-2 py-1.5 pl-3 text-left text-xs leading-snug transition-all duration-300",
                 activeId === section.id
-                  ? "border-primary text-foreground font-medium"
-                  : "border-transparent text-muted-foreground hover:text-foreground hover:border-border"
+                  ? "border-primary font-medium text-foreground"
+                  : "border-transparent text-muted-foreground hover:border-border hover:text-foreground"
               )}
             >
               {section.label}

@@ -16,24 +16,35 @@ function StoreBadge({ href, ariaLabel, lightSrc, darkSrc, alt }: BadgeProps) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={ariaLabel}
-      className="group transition-all duration-300 hover:opacity-85 hover:scale-[1.03] active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
+      className="group transition-all duration-300 hover:scale-[1.03] hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary active:scale-[0.97]"
     >
-      <Image src={lightSrc} alt={alt} width={180} height={60} className="h-14 w-auto dark:hidden" />
-      <Image src={darkSrc} alt={alt} width={180} height={60} className="h-14 w-auto hidden dark:block" />
+      <Image
+        src={lightSrc}
+        alt={alt}
+        width={180}
+        height={60}
+        className="h-14 w-auto dark:hidden"
+      />
+      <Image
+        src={darkSrc}
+        alt={alt}
+        width={180}
+        height={60}
+        className="hidden h-14 w-auto dark:block"
+      />
     </a>
   )
 }
 
 export function DownloadSection() {
   return (
-    <FadeIn id="download" className="py-24 md:py-40 px-6">
-      <div className="max-w-[680px] mx-auto text-center space-y-10">
-
-        <h2 className="font-serif font-normal text-[1.625rem] md:text-[2.25rem] text-foreground leading-[1.25]">
+    <FadeIn id="download" className="section-spacing">
+      <div className="mx-auto max-w-[680px] space-y-10 text-center">
+        <h2 className="font-serif text-[1.625rem] leading-[1.25] font-normal text-foreground md:text-[2.25rem]">
           When you&apos;re ready, it&apos;s here.
         </h2>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+        <div className="flex flex-col items-center justify-center gap-5 sm:flex-row">
           <StoreBadge
             href="https://apps.apple.com/gh/app/xolace/id6761601429"
             ariaLabel="Download Xolace on the App Store"
@@ -50,10 +61,9 @@ export function DownloadSection() {
           />
         </div>
 
-        <p className="text-sm text-muted-foreground/50 font-light italic">
+        <p className="text-sm font-light text-muted-foreground/50 italic">
           Free to download &middot; iOS &amp; Android
         </p>
-
       </div>
     </FadeIn>
   )

@@ -30,7 +30,7 @@ export function MobileDownloadBar() {
   if (!visible || atDownload) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-background/80 backdrop-blur-xl border-t border-border/40 px-6 py-3 flex items-center justify-center">
+    <div className="fixed right-0 bottom-0 left-0 z-50 flex items-center justify-center border-t border-border/40 bg-background/80 px-6 py-3 backdrop-blur-xl md:hidden">
       <DownloadButtons align="center" />
     </div>
   )

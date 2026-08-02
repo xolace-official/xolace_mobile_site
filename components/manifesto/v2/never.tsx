@@ -61,14 +61,14 @@ export function Never() {
       <div className="section-container-wide mb-4">
         <ScrollReveal>
           <div className="flex items-end justify-between">
-            <h2 className="font-serif italic font-light text-4xl md:text-5xl text-foreground leading-[1.1]">
+            <h2 className="font-serif text-4xl leading-[1.1] font-light text-foreground italic md:text-5xl">
               What Xolace Will Never Be.
             </h2>
-            <div className="hidden md:flex gap-3">
+            <div className="hidden gap-3 md:flex">
               <button
                 onClick={() => scroll("left")}
                 disabled={!canScrollLeft}
-                className="flex size-10 items-center justify-center rounded-full bg-xo-surface-low ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:opacity-30 disabled:cursor-not-allowed"
+                className="flex size-10 items-center justify-center rounded-full bg-xo-surface-low ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:cursor-not-allowed disabled:opacity-30"
                 aria-label="Scroll left"
               >
                 <ArrowLeft className="size-4 text-foreground/70" />
@@ -76,7 +76,7 @@ export function Never() {
               <button
                 onClick={() => scroll("right")}
                 disabled={!canScrollRight}
-                className="flex size-10 items-center justify-center rounded-full bg-xo-surface-low ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:opacity-30 disabled:cursor-not-allowed"
+                className="flex size-10 items-center justify-center rounded-full bg-xo-surface-low ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:cursor-not-allowed disabled:opacity-30"
                 aria-label="Scroll right"
               >
                 <ArrowRight className="size-4 text-foreground/70" />
@@ -90,9 +90,9 @@ export function Never() {
       <div
         ref={scrollRef}
         onScroll={checkScrollability}
-        className="flex w-full overflow-x-auto scroll-smooth py-6 md:py-10 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        className="flex w-full overflow-x-auto scroll-smooth py-6 [-ms-overflow-style:none] [scrollbar-width:none] md:py-10 [&::-webkit-scrollbar]:hidden"
       >
-        <div className="flex gap-5 pl-[clamp(2rem,10vw,8rem)] pr-[clamp(2rem,15vw,12rem)]">
+        <div className="flex gap-5 pr-[clamp(2rem,15vw,12rem)] pl-[clamp(2rem,10vw,8rem)]">
           {neverStatements.map((statement, i) => (
             <motion.div
               key={i}
@@ -113,11 +113,11 @@ export function Never() {
       </div>
 
       {/* Mobile navigation arrows */}
-      <div className="flex gap-3 pl-[clamp(2rem,10vw,8rem)] mt-2 md:hidden">
+      <div className="mt-2 flex gap-3 pl-[clamp(2rem,10vw,8rem)] md:hidden">
         <button
           onClick={() => scroll("left")}
           disabled={!canScrollLeft}
-          className="flex size-10 items-center justify-center rounded-full bg-xo-surface-low ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:opacity-30 disabled:cursor-not-allowed"
+          className="flex size-10 items-center justify-center rounded-full bg-xo-surface-low ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:cursor-not-allowed disabled:opacity-30"
           aria-label="Scroll left"
         >
           <ArrowLeft className="size-4 text-foreground/70" />
@@ -125,7 +125,7 @@ export function Never() {
         <button
           onClick={() => scroll("right")}
           disabled={!canScrollRight}
-          className="flex size-10 items-center justify-center rounded-full bg-xo-surface-low ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:opacity-30 disabled:cursor-not-allowed"
+          className="flex size-10 items-center justify-center rounded-full bg-xo-surface-low ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:cursor-not-allowed disabled:opacity-30"
           aria-label="Scroll right"
         >
           <ArrowRight className="size-4 text-foreground/70" />
@@ -146,27 +146,27 @@ function NeverCard({
     <motion.div
       whileHover={{ y: -4 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="group relative w-88 md:w-md h-64 md:h-72 rounded-2xl bg-xo-surface-lowest ring-1 ring-xo-outline-variant/10 overflow-hidden transition-shadow duration-500 hover:ring-primary/15 hover:shadow-[0_0_40px_var(--primary)/0.05]"
+      className="group relative h-64 w-88 overflow-hidden rounded-2xl bg-xo-surface-lowest ring-1 ring-xo-outline-variant/10 transition-shadow duration-500 hover:shadow-[0_0_40px_var(--primary)/0.05] hover:ring-primary/15 md:h-72 md:w-md"
     >
       {/* Large faded number in background */}
-      <span className="absolute -bottom-6 -right-2 text-[10rem] md:text-[12rem] font-light leading-none text-foreground/3 select-none pointer-events-none tabular-nums">
+      <span className="pointer-events-none absolute -right-2 -bottom-6 text-[10rem] leading-none font-light text-foreground/3 tabular-nums select-none md:text-[12rem]">
         {String(index + 1).padStart(2, "0")}
       </span>
 
       {/* Thin accent bar at top */}
-      <div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-primary/30 via-primary/10 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-primary/30 via-primary/10 to-transparent" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-between h-full p-7 md:p-9">
+      <div className="relative z-10 flex h-full flex-col justify-between p-7 md:p-9">
         <div>
-          <p className="text-xs text-primary/50 tracking-widest uppercase mb-4">
+          <p className="mb-4 text-xs tracking-widest text-primary/50 uppercase">
             Never
           </p>
-          <h3 className="text-xl md:text-2xl text-foreground font-light leading-snug">
+          <h3 className="text-xl leading-snug font-light text-foreground md:text-2xl">
             {statement.headline}
           </h3>
         </div>
-        <p className="font-serif text-sm md:text-[15px] text-muted-foreground leading-relaxed line-clamp-4">
+        <p className="line-clamp-4 font-serif text-sm leading-relaxed text-muted-foreground md:text-[15px]">
           {statement.body}
         </p>
       </div>

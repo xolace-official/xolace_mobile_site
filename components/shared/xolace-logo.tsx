@@ -14,7 +14,11 @@ interface XolaceLogoProps {
   priority?: boolean
 }
 
-export function XolaceLogo({ size = "lg", className, priority = false }: XolaceLogoProps) {
+export function XolaceLogo({
+  size = "lg",
+  className,
+  priority = false,
+}: XolaceLogoProps) {
   const px = sizes[size]
   return (
     <Image

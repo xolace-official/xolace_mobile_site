@@ -40,40 +40,40 @@ export function Beliefs() {
   return (
     <section className="section-spacing">
       <div className="section-container-wide">
-
         <ScrollReveal>
-          <h2 className="font-serif italic font-light text-4xl md:text-5xl text-foreground mb-16 md:mb-24 leading-[1.1]">
+          <h2 className="mb-16 font-serif text-4xl leading-[1.1] font-light text-foreground italic md:mb-24 md:text-5xl">
             What We Believe.
           </h2>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16 md:gap-y-24">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-3 md:gap-y-24">
           {beliefs.map((belief, i) => (
             <ScrollReveal key={i} delay={i * 0.1}>
               <div
                 className={cn(
-                  "rounded-2xl border p-7 space-y-4 h-full",
+                  "h-full space-y-4 rounded-2xl border p-7",
                   belief.accent,
                   i % 2 === 0 ? "md:translate-y-12" : ""
                 )}
               >
                 <div className="flex items-center gap-2">
-                  <span className={`size-1.5 rounded-full shrink-0 ${belief.dot}`} />
-                  <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/30">
+                  <span
+                    className={`size-1.5 shrink-0 rounded-full ${belief.dot}`}
+                  />
+                  <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground/30 uppercase">
                     {String(i + 1).padStart(2, "0")}
                   </p>
                 </div>
-                <h3 className="font-serif italic text-xl md:text-2xl text-foreground font-light leading-snug">
+                <h3 className="font-serif text-xl leading-snug font-light text-foreground italic md:text-2xl">
                   {belief.title}
                 </h3>
-                <p className="font-serif text-sm md:text-[15px] text-muted-foreground/70 leading-relaxed">
+                <p className="font-serif text-sm leading-relaxed text-muted-foreground/70 md:text-[15px]">
                   {belief.body}
                 </p>
               </div>
             </ScrollReveal>
           ))}
         </div>
-
       </div>
     </section>
   )
