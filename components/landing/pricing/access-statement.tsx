@@ -4,6 +4,16 @@ import { m as motion } from "motion/react"
 import { Check } from "lucide-react"
 import { accessColumns, type AccessColumn } from "./pricing-data"
 
+// Tailwind needs literal class names to see at build time — a template string
+// like `md:grid-cols-${n}` would be purged. This keeps the grid honest if a
+// tier is ever added (monetization strategy §3: architect for a 2nd tier).
+const GRID_COLS_BY_COUNT: Record<number, string> = {
+  1: "md:grid-cols-1",
+  2: "md:grid-cols-2",
+  3: "md:grid-cols-3",
+  4: "md:grid-cols-4",
+}
+
 function AccessPanel({
   column,
   index,
@@ -57,18 +67,27 @@ function AccessPanel({
         ))}
       </ul>
 
-      {column.also && (
-        <p className="mt-auto border-t border-border/30 pt-4 text-xs leading-relaxed font-light text-muted-foreground/40">
-          {column.also}
-        </p>
+      {column.also && column.also.length > 0 && (
+        <div className="mt-auto flex flex-wrap gap-1.5 border-t border-border/30 pt-4">
+          {column.also.map((item) => (
+            <span
+              key={item}
+              className="rounded-full border border-border/40 px-2.5 py-1 font-mono text-[10px] tracking-[0.04em] text-muted-foreground/45"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
       )}
     </motion.div>
   )
 }
 
 export function AccessStatement() {
+  const gridClass = GRID_COLS_BY_COUNT[accessColumns.length] ?? "md:grid-cols-2"
+
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div className={`grid grid-cols-1 gap-4 ${gridClass}`}>
       {accessColumns.map((c, i) => (
         <AccessPanel key={c.eyebrow} column={c} index={i} />
       ))}
