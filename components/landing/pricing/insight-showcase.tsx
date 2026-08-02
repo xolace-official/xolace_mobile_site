@@ -14,10 +14,12 @@ import { teasers, type Teaser } from "./pricing-data"
 
 function TeaserRow({
   teaser,
+  index,
   isActive,
   onSelect,
 }: {
   teaser: Teaser
+  index: number
   isActive: boolean
   onSelect: () => void
 }) {
@@ -33,6 +35,9 @@ function TeaserRow({
       )}
     >
       <span className="flex items-center gap-2.5">
+        <span className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground/25 tabular-nums">
+          0{index + 1}
+        </span>
         <span
           className={cn(
             "size-1.5 shrink-0 rounded-full transition-colors duration-300",
@@ -82,6 +87,9 @@ export function InsightShowcase({
         <span className="mb-3 flex items-center gap-1.5 self-start font-mono text-[10px] tracking-[0.18em] text-muted-foreground/50 uppercase dark:text-accent/70">
           <Sparkles className="size-2.5" strokeWidth={2} />
           Xolace+ insight layer
+          <span className="text-muted-foreground/25 dark:text-accent/30">
+            · {teasers.length} preview{teasers.length === 1 ? "" : "s"}
+          </span>
         </span>
 
         <div className="flex flex-col gap-1">
@@ -89,6 +97,7 @@ export function InsightShowcase({
             <TeaserRow
               key={t.id}
               teaser={t}
+              index={i}
               isActive={activeIdx === i}
               onSelect={() => setActiveIdx(i)}
             />
