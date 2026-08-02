@@ -42,12 +42,12 @@ const socials = [
     icon: <FaWhatsapp size={20} />,
     color: "#25D366",
   },
-  {
-    label: "Snapchat",
-    href: "https://snapchat.com/add/xolace",
-    icon: <FaSnapchatGhost size={20} />,
-    color: "#FFFC00",
-  },
+  // {
+  //   label: "Snapchat",
+  //   href: "https://snapchat.com/add/xolace",
+  //   icon: <FaSnapchatGhost size={20} />,
+  //   color: "#FFFC00",
+  // },
 ]
 
 const links: Record<"explore" | "legal" | "contact", NavLink[]> = {
