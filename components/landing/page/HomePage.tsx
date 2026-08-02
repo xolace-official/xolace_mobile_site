@@ -19,6 +19,11 @@ const TrustSection = dynamic(() =>
     default: m.TrustSection,
   }))
 )
+const AdvisorsSection = dynamic(() =>
+  import("@/components/landing/advisors-section").then((m) => ({
+    default: m.AdvisorsSection,
+  }))
+)
 const TestimonialsSection = dynamic(() =>
   import("@/components/landing/testimonials-section").then((m) => ({
     default: m.TestimonialsSection,
@@ -54,6 +59,7 @@ export function HomePage() {
         <PathsSection />
         <ReflectionsSection />
         <TrustSection />
+        <AdvisorsSection />
         <TestimonialsSection />
         <PricingSection />
         <LandingFaq />
