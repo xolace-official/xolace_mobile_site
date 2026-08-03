@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -92,8 +92,6 @@ function AdvisorPortraitCard({ advisor }: { advisor: Founder }) {
 const navButton =
   "flex size-10 shrink-0 items-center justify-center rounded-full border border-xo-outline-variant/15 bg-xo-surface-low transition-all duration-300 hover:bg-xo-surface-bright disabled:cursor-not-allowed disabled:opacity-30"
 
-const MAX_DOTS = 4
-
 export function AdvisorVideoGrid({ advisors }: { advisors: Founder[] }) {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
@@ -117,23 +115,43 @@ export function AdvisorVideoGrid({ advisors }: { advisors: Founder[] }) {
     setActiveIndex(clamped)
   }
 
-  // Windowed dots — capped at MAX_DOTS, sliding so the active card's dot
-  // stays inside the window instead of rendering one dot per advisor.
-  const numDots = Math.min(total, MAX_DOTS)
-  const windowStart = Math.min(
-    Math.max(0, activeIndex - Math.floor((numDots - 1) / 2)),
-    Math.max(0, total - numDots)
-  )
-  const dotIndices = Array.from({ length: numDots }, (_, i) => windowStart + i)
+  // Keep activeIndex synced with native drag/swipe scrolling — without this,
+  // the dots, the disabled prev/next state, and clicks after a manual swipe
+  // all act on a stale index instead of whatever card is actually in view.
+  // Only 5 cards, so recomputing on every scroll event is cheap — no need
+  // to throttle through requestAnimationFrame.
+  useEffect(() => {
+    const track = scrollRef.current
+    if (!track) return
+
+    const handleScroll = () => {
+      const trackRect = track.getBoundingClientRect()
+      const trackCenter = trackRect.left + trackRect.width / 2
+      let closest = 0
+      let closestDistance = Infinity
+      Array.from(track.children).forEach((child, i) => {
+        const rect = (child as HTMLElement).getBoundingClientRect()
+        const distance = Math.abs(rect.left + rect.width / 2 - trackCenter)
+        if (distance < closestDistance) {
+          closestDistance = distance
+          closest = i
+        }
+      })
+      setActiveIndex(closest)
+    }
+
+    track.addEventListener("scroll", handleScroll, { passive: true })
+    return () => track.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <div className="section-container-wide">
       <div className="mb-8 flex items-center justify-between">
-        {/* Dot pagination — mirrors the reference layout */}
+        {/* Dot pagination — one dot per advisor, matches the small total */}
         <div className="flex gap-2">
-          {dotIndices.map((i) => (
+          {advisors.map((advisor, i) => (
             <button
-              key={advisors[i].name}
+              key={advisor.name}
               type="button"
               onClick={() => scrollToIndex(i)}
               className={cn(
@@ -142,7 +160,7 @@ export function AdvisorVideoGrid({ advisors }: { advisors: Founder[] }) {
                   ? "w-6 bg-foreground"
                   : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
               )}
-              aria-label={`Go to ${advisors[i].name}`}
+              aria-label={`Go to ${advisor.name}`}
             />
           ))}
         </div>
