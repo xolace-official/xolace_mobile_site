@@ -136,7 +136,7 @@ function ReviewCard({ review, index }: { review: Review; index: number }) {
   const avatarColor = avatarColors[index % avatarColors.length]
 
   return (
-    <figure className="relative flex w-72 flex-col justify-between gap-5 rounded-2xl border border-border/20 bg-card px-7 py-8 md:w-80">
+    <figure className="relative flex w-72 flex-col justify-between gap-5 rounded-2xl border border-border/20 bg-card p-8 shadow-sm md:w-80">
       <blockquote>
         <p className="font-serif text-[0.9rem] leading-[1.85] text-foreground/75 italic">
           &ldquo;{review.quote}&rdquo;
@@ -188,14 +188,14 @@ export function TestimonialsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="section-container space-y-4"
         >
           <p className="font-mono text-[11px] tracking-[0.24em] text-muted-foreground/30 uppercase">
             Real voices
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="font-serif text-4xl leading-[1.1] font-light text-foreground italic md:text-5xl">
+            <h2 className="font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
               What they found.
             </h2>
             <div className="flex shrink-0 items-center gap-3 pb-1">
