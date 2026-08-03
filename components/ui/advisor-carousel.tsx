@@ -61,7 +61,7 @@ function AdvisorCard({
         "border-t border-l border-t-xo-outline-variant/35 border-l-xo-outline-variant/35",
         isActive
           ? "border-r-4 border-b-4 border-r-primary border-b-primary"
-          : "border-r-4 border-b-4 border-r-primary border-b-primary "
+          : "border-r-4 border-b-4 border-r-primary border-b-primary"
       )}
     >
       {advisor.expertise && (
