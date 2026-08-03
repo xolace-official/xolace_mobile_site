@@ -29,22 +29,20 @@ const sections: TocSection[] = [
 export function TermsPage() {
   return (
     <main className="pt-32 pb-28">
-      <div className="mx-auto max-w-screen-xl px-8 md:px-12 lg:px-16">
-        <TermsHero />
+      <TermsHero />
 
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-[220px_1fr] xl:gap-24">
-          {/* Sticky Sidebar TOC — desktop only */}
-          <aside className="hidden lg:block">
-            <div className="sticky top-32">
-              <TableOfContents sections={sections} />
-            </div>
-          </aside>
+      <div className="section-container-wide grid grid-cols-1 gap-16 lg:grid-cols-[220px_1fr] xl:gap-24">
+        {/* Sticky Sidebar TOC — desktop only */}
+        <aside className="hidden lg:block">
+          <div className="sticky top-32">
+            <TableOfContents sections={sections} />
+          </div>
+        </aside>
 
-          {/* Main Content */}
-          <article className="min-w-0">
-            <TermsContent />
-          </article>
-        </div>
+        {/* Main Content */}
+        <article className="min-w-0">
+          <TermsContent />
+        </article>
       </div>
     </main>
   )
