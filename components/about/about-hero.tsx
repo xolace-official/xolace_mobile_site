@@ -1,12 +1,15 @@
 "use client"
 
 import { m as motion, useReducedMotion } from "motion/react"
+import { Spotlight } from "@/components/ui/spotlight"
 
 export function AboutHero() {
   const prefersReducedMotion = useReducedMotion()
 
   return (
     <section className="hero-pb relative overflow-hidden">
+      <Spotlight duration={8} xOffset={80} />
+
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="animate-gentle-pulse absolute top-1/2 left-1/2 h-[650px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.07] blur-[140px]" />
         <div className="animate-gentle-pulse absolute top-1/4 right-1/4 h-[400px] w-[400px] rounded-full bg-accent/[0.05] blur-[110px] [animation-delay:2.5s]" />
@@ -27,18 +30,50 @@ export function AboutHero() {
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.0, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-6 font-serif text-4xl leading-[1.1] font-light text-foreground italic md:text-5xl lg:text-[4.5rem]"
+          className="font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]"
         >
           We built the room
           <br />
           we couldn&apos;t find.
         </motion.h1>
 
+        {/* Signature-style flourish — matches the mark under the trust/advisors headings */}
+        <motion.svg
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          aria-hidden
+          width="140"
+          height="16"
+          viewBox="0 0 140 16"
+          fill="none"
+          className="mx-auto mt-5"
+        >
+          <path
+            d="M2 10c10-8 20-8 28 0s18 8 28 0 18-8 28 0 18 8 28 0 14-6 24-2"
+            stroke="url(#about-signature-gradient)"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <defs>
+            <linearGradient
+              id="about-signature-gradient"
+              x1="0"
+              y1="0"
+              x2="140"
+              y2="0"
+            >
+              <stop offset="0%" stopColor="var(--primary)" />
+              <stop offset="100%" stopColor="var(--accent)" />
+            </linearGradient>
+          </defs>
+        </motion.svg>
+
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mx-auto max-w-lg text-base leading-relaxed font-light text-muted-foreground/60 md:text-lg"
+          className="mx-auto mt-6 max-w-lg text-base leading-relaxed font-light text-muted-foreground/60 md:text-lg"
         >
           From when you can&apos;t name what you&apos;re feeling, to finding the
           right help. Not simulated help.
@@ -47,7 +82,7 @@ export function AboutHero() {
         <motion.div
           initial={{ opacity: 0, scaleX: prefersReducedMotion ? 1 : 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.9, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
           className="mt-12 flex origin-center items-center justify-center gap-4"
         >
           <div className="h-px w-16 bg-gradient-to-r from-transparent to-border/30" />
