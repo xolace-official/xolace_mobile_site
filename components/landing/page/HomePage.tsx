@@ -61,7 +61,7 @@ export function HomePage() {
         <TrustSection />
         <AdvisorsSection />
         <TestimonialsSection />
-        <PricingSection />
+        {/*<PricingSection />*/}
         <LandingFaq />
         <LaunchSection />
         {/* <SupportSection /> */}
