@@ -7,7 +7,7 @@
 @theme inline {
     --font-heading: var(--font-sans);
     --font-sans: var(--font-sans);
-    --font-serif: var(--font-serif);
+    --font-serif: var(--font-sans);
 
     /* Marquee animations */
     --animate-marquee: marquee var(--duration) infinite linear;
