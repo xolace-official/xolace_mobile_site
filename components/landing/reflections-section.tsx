@@ -231,7 +231,7 @@ function ReflectionCard({
   return (
     <figure
       className={cn(
-        "relative w-72 cursor-default overflow-hidden rounded-2xl px-7 py-9 md:w-80",
+        "relative w-72 cursor-default overflow-hidden rounded-2xl p-8 shadow-sm md:w-80",
         "border-l-2 ring-1 ring-xo-outline-variant/[0.08]",
         "transition-all duration-500",
         color.border,
@@ -283,13 +283,13 @@ export function ReflectionsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="section-container space-y-4 text-center"
         >
           <p className="font-mono text-[11px] tracking-[0.24em] text-muted-foreground/30 uppercase">
             Anonymous · Collective
           </p>
-          <h2 className="font-serif text-4xl leading-[1.1] font-light text-foreground italic md:text-5xl">
+          <h2 className="font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
             You&apos;re not the only one
             <br className="hidden md:block" /> carrying this.
           </h2>
@@ -323,10 +323,10 @@ export function ReflectionsSection() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="section-container flex flex-col items-center gap-5"
         >
           <div className="flex w-full max-w-xs items-center gap-4">
