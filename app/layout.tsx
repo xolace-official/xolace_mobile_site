@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next"
-import { Geist_Mono, Lora, Space_Grotesk } from "next/font/google"
+import { DM_Sans, Geist_Mono } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -13,15 +13,11 @@ export const viewport: Viewport = {
   maximumScale: 1,
 }
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-sans",
-})
-
-const lora = Lora({
+const dmSans = DM_Sans({
   subsets: ["latin"],
   style: ["normal", "italic"],
-  variable: "--font-serif",
+  weight: "variable",
+  variable: "--font-sans",
 })
 
 const fontMono = Geist_Mono({
@@ -74,9 +70,8 @@ export default function RootLayout({
       className={cn(
         "antialiased",
         fontMono.variable,
-        lora.variable,
         "font-sans",
-        spaceGrotesk.variable
+        dmSans.variable
       )}
     >
       <body>
