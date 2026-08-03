@@ -45,10 +45,10 @@ export function TrustSection() {
       <div className="section-container relative z-10">
         <div className="grid grid-cols-1 items-start gap-x-16 gap-y-12 lg:grid-cols-12">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="lg:sticky lg:top-32 lg:col-span-5"
           >
             <p className="mb-7 flex items-center gap-2.5 font-mono text-[11px] tracking-[0.24em] text-muted-foreground/60 uppercase">
@@ -56,9 +56,10 @@ export function TrustSection() {
               Built on trust
             </p>
 
-            <h2 className="mb-7 font-serif text-4xl leading-[1.12] font-light text-foreground italic md:text-5xl lg:text-[3.25rem]">
-              When you&apos;re at your most honest,
-              <br className="hidden md:block" /> you deserve to feel safe.
+            <h2 className="mb-7 font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
+              When you&apos;re
+              <br /> at your most honest,
+              <br /> you deserve to feel safe.
             </h2>
 
             <p className="mb-10 max-w-md text-base leading-relaxed font-light text-muted-foreground/80">
@@ -75,10 +76,10 @@ export function TrustSection() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 32 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="lg:col-span-7"
           >
             <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-background/40 backdrop-blur-sm">
@@ -98,13 +99,13 @@ export function TrustSection() {
                 {promises.map(({ Icon, label, text }, i) => (
                   <motion.li
                     key={label}
-                    initial={{ opacity: 0, y: 12 }}
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-40px" }}
                     transition={{
-                      duration: 0.6,
+                      duration: 0.5,
                       delay: 0.2 + i * 0.08,
-                      ease: [0.16, 1, 0.3, 1],
+                      ease: "easeOut",
                     }}
                     className="group relative grid grid-cols-[auto_auto_1fr] items-start gap-x-5 border-t border-border/40 px-7 py-6 transition-colors duration-500 hover:bg-foreground/[0.02]"
                   >
