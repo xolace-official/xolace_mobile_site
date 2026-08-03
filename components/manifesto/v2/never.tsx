@@ -1,34 +1,54 @@
 "use client"
 
 import React, { useRef, useState, useCallback, useEffect } from "react"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+import {
+  ArrowLeft,
+  ArrowRight,
+  MessageCircleOff,
+  Rss,
+  Megaphone,
+  Stethoscope,
+  ShieldOff,
+  BellOff,
+} from "lucide-react"
+import type { LucideIcon } from "lucide-react"
 import { m as motion } from "motion/react"
 import { ScrollReveal } from "@/components/manifesto/v2/shared/scroll-reveal"
 
-const neverStatements = [
+const neverStatements: {
+  headline: string
+  body: string
+  Icon: LucideIcon
+}[] = [
   {
     headline: "Never a chatbot therapist.",
     body: "We don't give advice. We don't diagnose. We don't pretend an algorithm understands your pain. The AI mirrors then connects you to the humans who actually do.",
+    Icon: MessageCircleOff,
   },
   {
     headline: "Never a social feed.",
     body: "No profiles, no followers, no likes, no content to perform for. What you share is yours. If it reaches someone else, it's anonymously, and only with your explicit permission.",
+    Icon: Rss,
   },
   {
     headline: "Never showing you ads.",
     body: "Not now. Not ever. Showing an ad to someone who just typed something honest would break everything this is supposed to be.",
+    Icon: Megaphone,
   },
   {
     headline: "Never replacing a therapist.",
     body: "If you need professional care, we\u2019ll help you find it; not with a cold hotline number, but with warmth and context. We know what we are. We know what we\u2019re not.",
+    Icon: Stethoscope,
   },
   {
     headline: "Never selling your data.",
     body: "Your emotional life is not a product. Your late-night honesty is not a data point for someone else\u2019s ad targeting model. We\u2019d rather shut down than cross that line.",
+    Icon: ShieldOff,
   },
   {
     headline: "Never trying to keep you.",
     body: "No streaks. No guilt notifications. No 'you haven't visited in 3 days.' The app is designed for 3-8 minutes. It encourages you to leave. Respecting your time earns something no engagement hack can manufacture: trust.",
+    Icon: BellOff,
   },
 ]
 
@@ -61,7 +81,7 @@ export function Never() {
       <div className="section-container-wide mb-4">
         <ScrollReveal>
           <div className="flex items-end justify-between">
-            <h2 className="font-serif text-4xl leading-[1.1] font-light text-foreground italic md:text-5xl">
+            <h2 className="font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
               What Xolace Will Never Be.
             </h2>
             <div className="hidden gap-3 md:flex">
@@ -139,9 +159,10 @@ function NeverCard({
   statement,
   index,
 }: {
-  statement: { headline: string; body: string }
+  statement: { headline: string; body: string; Icon: LucideIcon }
   index: number
 }) {
+  const { Icon } = statement
   return (
     <motion.div
       whileHover={{ y: -4 }}
@@ -159,9 +180,14 @@ function NeverCard({
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col justify-between p-7 md:p-9">
         <div>
-          <p className="mb-4 text-xs tracking-widest text-primary/50 uppercase">
-            Never
-          </p>
+          <div className="mb-4 flex items-center justify-between">
+            <p className="text-xs tracking-widest text-primary/50 uppercase">
+              Never
+            </p>
+            <div className="flex size-9 items-center justify-center rounded-full border border-border/60 bg-background/60">
+              <Icon className="size-[15px] text-primary/60" strokeWidth={1.5} />
+            </div>
+          </div>
           <h3 className="text-xl leading-snug font-light text-foreground md:text-2xl">
             {statement.headline}
           </h3>

@@ -36,7 +36,7 @@ export function Invitation() {
                   delay: 0.1,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="mb-5 font-serif text-4xl leading-[1.1] font-light text-foreground italic md:text-5xl lg:text-[3.25rem]"
+                className="mb-5 font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]"
               >
                 Come home.
               </motion.h2>

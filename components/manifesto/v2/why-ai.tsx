@@ -1,7 +1,48 @@
 "use client"
 
+import { m as motion } from "motion/react"
+import { Sparkles, Users } from "lucide-react"
 import { SectionDivider } from "@/components/manifesto/v2/shared/section-divider"
 import { ScrollReveal } from "@/components/manifesto/v2/shared/scroll-reveal"
+
+function BridgeDiagram() {
+  return (
+    <div className="flex max-w-sm items-center gap-4 py-2">
+      <div className="flex shrink-0 flex-col items-center gap-2">
+        <div className="flex size-12 items-center justify-center rounded-full border border-primary/20 bg-primary/[0.05]">
+          <Sparkles className="size-4 text-primary/70" strokeWidth={1.5} />
+        </div>
+        <p className="font-mono text-[9px] tracking-[0.18em] text-muted-foreground/40 uppercase">
+          AI
+        </p>
+      </div>
+
+      <div className="relative h-px flex-1 border-t border-dashed border-border/40">
+        <motion.span
+          animate={{ left: ["0%", "100%", "0%"] }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/70"
+        />
+        <p className="absolute -top-6 left-1/2 -translate-x-1/2 text-center font-mono text-[9px] tracking-[0.16em] whitespace-nowrap text-muted-foreground/40 uppercase">
+          the bridge
+        </p>
+      </div>
+
+      <div className="flex shrink-0 flex-col items-center gap-2">
+        <div className="flex size-12 items-center justify-center rounded-full border border-accent/20 bg-accent/[0.05]">
+          <Users className="size-4 text-accent/70" strokeWidth={1.5} />
+        </div>
+        <p className="font-mono text-[9px] tracking-[0.18em] text-muted-foreground/40 uppercase">
+          Human
+        </p>
+      </div>
+    </div>
+  )
+}
 
 const peerReflections = [
   "Some days I feel like I’m performing being okay and no one can tell.",
@@ -15,7 +56,7 @@ export function WhyAI() {
       <div className="section-container-wide">
         <ScrollReveal>
           <SectionDivider label="Why AI Isn't Enough">
-            <p className="text-3xl leading-snug font-light text-muted-foreground md:text-4xl">
+            <p className="font-serif text-3xl leading-snug font-medium text-foreground md:text-4xl">
               We need to be honest about something.
             </p>
           </SectionDivider>
@@ -57,7 +98,16 @@ export function WhyAI() {
               But the AI is the bridge, not the destination.
             </p>
           </ScrollReveal>
+        </div>
 
+        <ScrollReveal
+          delay={0.28}
+          className="my-14 max-w-2xl md:my-20 md:ml-auto"
+        >
+          <BridgeDiagram />
+        </ScrollReveal>
+
+        <div className="max-w-2xl space-y-6 md:ml-auto">
           <ScrollReveal delay={0.3}>
             <p className="font-serif text-base leading-loose text-muted-foreground md:text-lg">
               Because after it helps you name what you&apos;re feeling,

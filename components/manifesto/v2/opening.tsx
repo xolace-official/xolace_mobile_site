@@ -12,9 +12,43 @@ export function OpeningV2() {
 
       <div className="section-container-wide relative z-10">
         <ScrollReveal>
-          <h1 className="mb-12 max-w-4xl font-serif text-5xl leading-[1.1] font-light text-foreground italic md:text-7xl lg:text-8xl">
+          <p className="mb-6 font-mono text-[11px] tracking-[0.24em] text-muted-foreground/50 uppercase">
+            The Manifesto
+          </p>
+          <h1 className="max-w-4xl font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-7xl lg:text-[5.5rem]">
             Why Xolace exists.
           </h1>
+        </ScrollReveal>
+
+        {/* Signature-style flourish — matches the mark under the trust/advisors/about headings */}
+        <ScrollReveal delay={0.1}>
+          <svg
+            aria-hidden
+            width="140"
+            height="16"
+            viewBox="0 0 140 16"
+            fill="none"
+            className="mt-6 mb-6"
+          >
+            <path
+              d="M2 10c10-8 20-8 28 0s18 8 28 0 18-8 28 0 18 8 28 0 14-6 24-2"
+              stroke="url(#manifesto-signature-gradient)"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+            <defs>
+              <linearGradient
+                id="manifesto-signature-gradient"
+                x1="0"
+                y1="0"
+                x2="140"
+                y2="0"
+              >
+                <stop offset="0%" stopColor="var(--primary)" />
+                <stop offset="100%" stopColor="var(--accent)" />
+              </linearGradient>
+            </defs>
+          </svg>
         </ScrollReveal>
 
         <ScrollReveal delay={0.15}>

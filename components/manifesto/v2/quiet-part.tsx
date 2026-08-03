@@ -48,10 +48,10 @@ export function QuietPart() {
           className="mt-20 max-w-3xl md:mt-28"
         >
           <div className="mb-10 h-px w-16 bg-primary/20" />
-          <p className="font-serif text-2xl leading-[1.2] font-light text-foreground italic md:text-4xl">
+          <p className="font-serif text-4xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
             We built this because we needed it.
           </p>
-          <p className="mt-3 font-serif text-2xl leading-[1.2] font-light text-foreground/60 italic md:text-4xl">
+          <p className="mt-3 font-serif text-4xl leading-[1.1] font-semibold text-foreground/50 md:text-6xl lg:text-[4.25rem]">
             We keep building it because you might need it too.
           </p>
         </ScrollReveal>
