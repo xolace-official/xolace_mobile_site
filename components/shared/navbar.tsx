@@ -6,18 +6,11 @@ import { XolaceLogo } from "@/components/shared/xolace-logo"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { useState, useEffect } from "react"
-import { TextAlignJustify, X, ArrowUpRight } from "lucide-react"
+import { TextAlignJustify, X } from "lucide-react"
 
 const navLinks = [
   { href: "/about", label: "About" },
-  // { href: "/manifesto", label: "Manifesto" },
-  { href: "/press", label: "Press" },
-  // { href: "/faq", label: "FAQ" },
-  {
-    href: "https://ambassador.xolaceinc.com",
-    label: "Ambassadors",
-    external: true,
-  },
+  { href: "/manifesto", label: "Manifesto" },
 ]
 
 export function Navbar() {
@@ -66,23 +59,18 @@ export function Navbar() {
           {/* Desktop nav */}
           <div className="hidden items-center gap-7 md:flex">
             <div className="flex items-center gap-5 text-sm">
-              {navLinks.map(({ href, label, external }) => {
+              {navLinks.map(({ href, label }) => {
                 const isActive =
-                  !external &&
-                  (href === "/" ? pathname === "/" : pathname.startsWith(href))
+                  href === "/" ? pathname === "/" : pathname.startsWith(href)
                 return (
                   <Link
                     key={href}
                     href={href}
-                    target={external ? "_blank" : undefined}
-                    rel={external ? "noopener noreferrer" : undefined}
                     className={cn(
                       "relative py-0.5 font-light tracking-wide transition-colors duration-300",
                       isActive
                         ? "text-foreground"
-                        : external
-                          ? "text-muted-foreground/50 hover:text-muted-foreground"
-                          : "text-muted-foreground/70 hover:text-foreground"
+                        : "text-muted-foreground/70 hover:text-foreground"
                     )}
                   >
                     {label}
@@ -95,12 +83,12 @@ export function Navbar() {
             </div>
 
             <div className="flex items-center gap-3">
-              {/*<Link*/}
-              {/*  href="/#download"*/}
-              {/*  className="bg-secondary-foreground text-primary-foreground text-xs font-medium px-4 py-2 rounded-full hover:bg-primary/85 hover:scale-105 transition-all duration-300"*/}
-              {/*>*/}
-              {/* Begin*/}
-              {/*</Link>*/}
+              <Link
+                href="/#download"
+                className="rounded-full bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary/85"
+              >
+                Get the app
+              </Link>
               <AnimatedThemeToggler />
             </div>
           </div>
@@ -136,16 +124,13 @@ export function Navbar() {
         )}
       >
         <nav className="px-6 pt-3 pb-10">
-          {navLinks.map(({ href, label, external }) => {
+          {navLinks.map(({ href, label }) => {
             const isActive =
-              !external &&
-              (href === "/" ? pathname === "/" : pathname.startsWith(href))
+              href === "/" ? pathname === "/" : pathname.startsWith(href)
             return (
               <Link
                 key={href}
                 href={href}
-                target={external ? "_blank" : undefined}
-                rel={external ? "noopener noreferrer" : undefined}
                 className={cn(
                   "flex items-center justify-between border-b border-border/10 py-4 text-xl font-light tracking-wide transition-colors duration-200 last:border-0",
                   isActive
@@ -157,12 +142,16 @@ export function Navbar() {
                 {isActive && (
                   <span className="size-1.5 shrink-0 rounded-full bg-primary" />
                 )}
-                {external && (
-                  <ArrowUpRight className="size-4 shrink-0 text-muted-foreground/30" />
-                )}
               </Link>
             )
           })}
+
+          <Link
+            href="/#download"
+            className="mt-6 flex items-center justify-center rounded-full bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary/85"
+          >
+            Get the app
+          </Link>
         </nav>
       </div>
     </>
