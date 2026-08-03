@@ -24,7 +24,7 @@ export function AdvisorsSection() {
         <p className="mb-5 font-mono text-[11px] tracking-[0.24em] text-muted-foreground/30 uppercase">
           Who we listen to
         </p>
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="flex flex-col items-start justify-between gap-4">
           <div>
             <h2 className="font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
               Guided by people
@@ -59,7 +59,7 @@ export function AdvisorsSection() {
               </defs>
             </svg>
           </div>
-          <p className="max-w-xs pb-1 text-sm font-light text-muted-foreground/40 sm:text-right">
+          <p className="max-w-xs self-end pb-1 text-right text-sm font-light text-muted-foreground/40">
             Xolace is shaped in conversation with experts across mental health,
             safety, and product.
           </p>
