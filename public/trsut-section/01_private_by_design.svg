@@ -1,0 +1,57 @@
+<svg width="800" height="600" viewBox="0 0 680 510" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialGradient id="glow1" cx="50%" cy="55%" r="60%"><stop offset="0%" stop-color="#e8c9a3"/><stop offset="100%" stop-color="#c99a6f"/></radialGradient>
+<linearGradient id="page1" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#f4e4cc"/><stop offset="100%" stop-color="#e0c9a8"/></linearGradient>
+</defs>
+<rect width="680" height="510" fill="url(#glow1)"/>
+<ellipse cx="340" cy="470" rx="380" ry="90" fill="#a67a5b" opacity="0.35"/>
+<ellipse cx="340" cy="440" rx="340" ry="70" fill="#8b6142" opacity="0.25"/>
+<g transform="translate(120,180)">
+<path d="M0,80 Q10,20 220,10 Q430,20 440,80 L435,240 Q220,255 5,240 Z" fill="#8b6142" opacity="0.6"/>
+<path d="M10,75 Q20,25 220,18 L220,235 Q30,240 15,230 Z" fill="url(#page1)"/>
+<path d="M220,18 Q420,25 430,75 L425,230 Q225,240 220,235 Z" fill="url(#page1)"/>
+<path d="M220,18 L220,235" stroke="#a67a5b" stroke-width="1" opacity="0.5"/>
+<g opacity="0.35" fill="#7a5233">
+<rect x="35" y="55" width="150" height="4" rx="2"/>
+<rect x="35" y="72" width="170" height="4" rx="2"/>
+<rect x="35" y="89" width="130" height="4" rx="2"/>
+<rect x="35" y="106" width="160" height="4" rx="2"/>
+<rect x="35" y="123" width="145" height="4" rx="2"/>
+<rect x="35" y="140" width="165" height="4" rx="2"/>
+<rect x="35" y="157" width="120" height="4" rx="2"/>
+<rect x="240" y="55" width="155" height="4" rx="2"/>
+<rect x="240" y="72" width="140" height="4" rx="2"/>
+<rect x="240" y="89" width="165" height="4" rx="2"/>
+<rect x="240" y="106" width="130" height="4" rx="2"/>
+<rect x="240" y="123" width="150" height="4" rx="2"/>
+</g>
+</g>
+<g transform="translate(380,200)">
+<path d="M0,120 Q20,60 90,40 Q140,30 180,50 Q210,70 200,100 L195,140 Q190,180 150,200 Q100,220 50,210 Q10,200 0,170 Z" fill="#c99775"/>
+<path d="M60,55 Q80,40 110,45 Q130,50 135,70 Q135,90 120,95 Q100,100 85,90 Q65,80 60,65 Z" fill="#d9a785"/>
+<path d="M110,55 Q130,45 155,55 Q170,65 165,85 Q160,100 145,105 Q130,110 118,95 Q110,80 110,65 Z" fill="#d9a785"/>
+<g transform="translate(75,20) rotate(35)">
+<rect x="0" y="0" width="8" height="90" rx="3" fill="#3d2618"/>
+<rect x="1" y="0" width="6" height="15" rx="2" fill="#8b6142"/>
+<polygon points="0,90 8,90 4,102" fill="#2a1a10"/>
+</g>
+<path d="M20,140 Q40,180 90,195 Q100,200 95,210" stroke="#a67a5b" stroke-width="2" fill="none" opacity="0.5"/>
+</g>
+<g transform="translate(90,120)">
+<path d="M0,180 Q30,80 100,60 Q160,50 180,80 Q195,110 185,140 Q170,180 130,195 Q80,205 40,195 Q10,185 0,170 Z" fill="#b8896b"/>
+<path d="M40,80 Q60,60 90,65 Q115,70 118,90 Q115,110 95,115 Q75,118 55,105 Q40,92 40,80 Z" fill="#c99a7d"/>
+</g>
+<rect x="180" y="90" width="320" height="360" rx="42" fill="none" stroke="#f4e4cc" stroke-width="3" opacity="0.85"/>
+<rect x="180" y="90" width="320" height="360" rx="42" fill="none" stroke="#f4e4cc" stroke-width="1" opacity="0.5" transform="translate(3,3)"/>
+<circle cx="340" cy="112" r="4" fill="#f4e4cc" opacity="0.7"/>
+<rect x="315" y="108" width="50" height="4" rx="2" fill="#f4e4cc" opacity="0.6"/>
+<g transform="translate(560,60)">
+<circle cx="0" cy="0" r="42" fill="#f4e4cc" opacity="0.25"/>
+<circle cx="0" cy="0" r="32" fill="#f4e4cc"/>
+<path d="M-22,-8 Q-22,-28 0,-28 Q22,-28 22,-8 L22,18 Q22,22 18,22 L-18,22 Q-22,22 -22,18 Z" fill="#a04628"/>
+<rect x="-14" y="-4" width="28" height="22" rx="3" fill="#c25a35"/>
+<path d="M-10,-4 L-10,-14 Q-10,-22 0,-22 Q10,-22 10,-14 L10,-4" stroke="#a04628" stroke-width="3" fill="none"/>
+<circle cx="0" cy="7" r="3" fill="#f4e4cc"/>
+<rect x="-1.5" y="7" width="3" height="7" rx="1" fill="#f4e4cc"/>
+</g>
+</svg>
