@@ -23,7 +23,7 @@ function primaryLink(advisor: Founder) {
 function AdvisorPortraitCard({ advisor }: { advisor: Founder }) {
   const href = primaryLink(advisor)
   return (
-    <div className="relative h-[380px] w-[240px] shrink-0 snap-center overflow-hidden rounded-2xl border border-xo-outline-variant/15 md:h-[420px] md:w-[260px] lg:w-[calc((100%-3.75rem)/4)]">
+    <div className="relative h-[380px] w-[240px] shrink-0 overflow-hidden rounded-2xl border border-xo-outline-variant/15 md:h-[420px] md:w-[260px] lg:w-[calc((100%-3.75rem)/4)]">
       {/* Background — photo or gradient with large centered initials */}
       {advisor.image ? (
         <Image
@@ -98,6 +98,17 @@ export function AdvisorVideoGrid({ advisors }: { advisors: Founder[] }) {
   const total = advisors.length
   const lastIndex = total - 1
 
+  // Index <-> scrollLeft is mapped proportionally across the track's actual
+  // scrollable range (scrollWidth - clientWidth), not by literal card
+  // position. This matters because several cards are visible at once on
+  // wide screens, so the browser physically can't scroll as far as
+  // "card index * card width" would suggest — index 0 and lastIndex always
+  // land exactly on the real start/end of the scrollable range, and every
+  // index in between divides it evenly. scrollToIndex and the scroll
+  // listener below both use this same mapping, so they can't disagree.
+  const maxScrollOf = (track: HTMLDivElement) =>
+    Math.max(0, track.scrollWidth - track.clientWidth)
+
   // Scrolls only the track itself (via its own scrollLeft), never the page —
   // scrollIntoView was bubbling up to the window because the card wasn't
   // fully visible vertically, so it dragged the whole section into view too.
@@ -105,44 +116,31 @@ export function AdvisorVideoGrid({ advisors }: { advisors: Founder[] }) {
     const track = scrollRef.current
     if (!track) return
     const clamped = Math.max(0, Math.min(index, lastIndex))
-    const card = track.children[clamped] as HTMLElement | undefined
-    if (card) {
-      const trackRect = track.getBoundingClientRect()
-      const cardRect = card.getBoundingClientRect()
-      const target = cardRect.left - trackRect.left + track.scrollLeft
-      track.scrollTo({ left: target, behavior: "smooth" })
-    }
+    const maxScroll = maxScrollOf(track)
+    const target = lastIndex > 0 ? (clamped / lastIndex) * maxScroll : 0
+    track.scrollTo({ left: target, behavior: "smooth" })
     setActiveIndex(clamped)
   }
 
   // Keep activeIndex synced with native drag/swipe scrolling — without this,
   // the dots, the disabled prev/next state, and clicks after a manual swipe
   // all act on a stale index instead of whatever card is actually in view.
-  // Only 5 cards, so recomputing on every scroll event is cheap — no need
-  // to throttle through requestAnimationFrame.
   useEffect(() => {
     const track = scrollRef.current
     if (!track) return
 
     const handleScroll = () => {
-      const trackRect = track.getBoundingClientRect()
-      const trackCenter = trackRect.left + trackRect.width / 2
-      let closest = 0
-      let closestDistance = Infinity
-      Array.from(track.children).forEach((child, i) => {
-        const rect = (child as HTMLElement).getBoundingClientRect()
-        const distance = Math.abs(rect.left + rect.width / 2 - trackCenter)
-        if (distance < closestDistance) {
-          closestDistance = distance
-          closest = i
-        }
-      })
-      setActiveIndex(closest)
+      const maxScroll = maxScrollOf(track)
+      const index =
+        maxScroll > 0
+          ? Math.round((track.scrollLeft / maxScroll) * lastIndex)
+          : 0
+      setActiveIndex(Math.max(0, Math.min(index, lastIndex)))
     }
 
     track.addEventListener("scroll", handleScroll, { passive: true })
     return () => track.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [lastIndex])
 
   return (
     <div className="section-container-wide">
@@ -191,7 +189,7 @@ export function AdvisorVideoGrid({ advisors }: { advisors: Founder[] }) {
       <div className="relative">
         <div
           ref={scrollRef}
-          className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex gap-5 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {advisors.map((advisor) => (
             <AdvisorPortraitCard key={advisor.name} advisor={advisor} />
