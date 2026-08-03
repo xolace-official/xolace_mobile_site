@@ -27,25 +27,32 @@ function AccessPanel({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{
-        duration: 0.8,
+        duration: 0.5,
         delay: index * 0.12,
-        ease: [0.16, 1, 0.3, 1],
+        ease: "easeOut",
       }}
-      className={`relative flex flex-col gap-4 rounded-2xl border p-7 ${
+      className={`relative flex flex-col gap-4 rounded-2xl border p-8 shadow-sm ${
         column.highlighted
-          ? "border-primary/20 bg-gradient-to-b from-primary/[0.07] to-transparent"
+          ? "border-primary/25 bg-gradient-to-b from-primary/[0.08] to-transparent ring-1 ring-primary/15"
           : "border-xo-outline-variant/15 bg-gradient-to-b from-muted-foreground/[0.03] to-transparent"
       }`}
     >
-      <p
-        className={`font-mono text-[11px] tracking-[0.2em] uppercase ${
-          column.highlighted ? "text-primary/70" : "text-muted-foreground/45"
-        }`}
-      >
-        {column.eyebrow}
-      </p>
+      <div className="flex items-center justify-between gap-3">
+        <p
+          className={`font-mono text-[11px] tracking-[0.2em] uppercase ${
+            column.highlighted ? "text-primary/70" : "text-muted-foreground/45"
+          }`}
+        >
+          {column.eyebrow}
+        </p>
+        {column.highlighted && (
+          <span className="rounded-full bg-primary px-2.5 py-1 font-mono text-[9px] tracking-[0.12em] text-primary-foreground uppercase">
+            Recommended
+          </span>
+        )}
+      </div>
 
-      <h3 className="font-serif text-2xl leading-snug font-light text-foreground">
+      <h3 className="font-serif text-2xl leading-snug font-semibold text-foreground">
         {column.title}
       </h3>
 
