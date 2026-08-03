@@ -10,9 +10,10 @@ import type { Founder } from "@/components/ui/founder-carousel"
 /*  Row of full-bleed portrait cards with a tag overlay and a          */
 /*  name/avatar overlay — matches the verilyme.com video-row reference. */
 /*  Advisors have no video, so the photo (or gradient+initials) fills   */
-/*  the frame the same way a video thumbnail would. Sized so exactly    */
-/*  four cards are visible on large screens. The row scrolls natively    */
-/*  (drag/swipe) and Prev/Next buttons are also available.              */
+/*  the frame the same way a video thumbnail would. On mobile exactly   */
+/*  one card is visible, centered; on wider screens several show at     */
+/*  once. The row scrolls natively (drag/swipe) and Prev/Next step      */
+/*  exactly one card at a time, always in sync with the dots.           */
 /* ------------------------------------------------------------------ */
 
 // One link per advisor — whichever of these is set first wins.
@@ -92,32 +93,86 @@ function AdvisorPortraitCard({ advisor }: { advisor: Founder }) {
 const navButton =
   "flex size-10 shrink-0 items-center justify-center rounded-full border border-xo-outline-variant/15 bg-xo-surface-low transition-all duration-300 hover:bg-xo-surface-bright disabled:cursor-not-allowed disabled:opacity-30"
 
+type Layout = {
+  step: number // one card's width + the gap after it, in px
+  visibleCount: number // how many full cards actually fit in the track
+  centerPadding: number // track's left/right padding, in px (0 unless one card is visible)
+}
+
 export function AdvisorVideoGrid({ advisors }: { advisors: Founder[] }) {
   const scrollRef = useRef<HTMLDivElement>(null)
+  const [layout, setLayout] = useState<Layout>({
+    step: 0,
+    visibleCount: 1,
+    centerPadding: 0,
+  })
   const [activeIndex, setActiveIndex] = useState(0)
   const total = advisors.length
-  const lastIndex = total - 1
 
-  // Index <-> scrollLeft is mapped proportionally across the track's actual
-  // scrollable range (scrollWidth - clientWidth), not by literal card
-  // position. This matters because several cards are visible at once on
-  // wide screens, so the browser physically can't scroll as far as
-  // "card index * card width" would suggest — index 0 and lastIndex always
-  // land exactly on the real start/end of the scrollable range, and every
-  // index in between divides it evenly. scrollToIndex and the scroll
-  // listener below both use this same mapping, so they can't disagree.
-  const maxScrollOf = (track: HTMLDivElement) =>
-    Math.max(0, track.scrollWidth - track.clientWidth)
+  // Number of distinct scroll positions ("stops"). When several cards are
+  // already visible at once (desktop), there are fewer meaningful stops
+  // than advisors — e.g. 5 advisors with 4 visible only has 2 stops (the
+  // start, and the one step that reveals the 5th card). One dot per
+  // advisor would be misleading there, so dots track stops, not advisors.
+  const numStops = Math.max(1, total - layout.visibleCount + 1)
+  const lastStop = numStops - 1
+  // Derived at render time, not stored — if a resize shrinks numStops
+  // (e.g. rotating from mobile's 5 stops to desktop's 2), the stale
+  // activeIndex is clamped here on the next render rather than corrected
+  // via a state-setting effect, which would cost an extra render pass.
+  const clampedActiveIndex = Math.max(0, Math.min(activeIndex, lastStop))
+
+  // Measure the real card width, gap, and how many cards fit in the track.
+  // When only one card fits (mobile), add matching left/right padding so
+  // that card can sit centered instead of flush against the left edge —
+  // symmetric padding means scrollLeft 0 centers the first card and
+  // maxScroll centers the last one, so stop*step (below) needs no special
+  // case for the centered vs. edge-aligned cases; the padding does that
+  // work by shifting the coordinate system, not the index math.
+  useEffect(() => {
+    const track = scrollRef.current
+    if (!track) return
+
+    const measure = () => {
+      const first = track.children[0] as HTMLElement | undefined
+      if (!first) return
+      const cardWidth = first.getBoundingClientRect().width
+      const gap =
+        parseFloat(getComputedStyle(track).columnGap || "0") || 0
+      const step = cardWidth + gap
+      if (step <= 0) return
+      const clientWidth = track.clientWidth
+      // +0.5px epsilon guards against subpixel rounding (e.g. a card
+      // measuring 289.0005px instead of exactly 289px) pushing an exact
+      // fit like 4.0 cards just under the line to 3.9998, which floor()
+      // would otherwise under-count as 3.
+      const visibleCount = Math.max(
+        1,
+        Math.floor((clientWidth + gap) / step + 0.005)
+      )
+      const centerPadding =
+        visibleCount <= 1 ? Math.max(0, (clientWidth - cardWidth) / 2) : 0
+      setLayout({ step, visibleCount, centerPadding })
+    }
+
+    measure()
+    const ro = new ResizeObserver(measure)
+    ro.observe(track)
+    return () => ro.disconnect()
+  }, [])
 
   // Scrolls only the track itself (via its own scrollLeft), never the page —
   // scrollIntoView was bubbling up to the window because the card wasn't
   // fully visible vertically, so it dragged the whole section into view too.
   const scrollToIndex = (index: number) => {
     const track = scrollRef.current
-    if (!track) return
-    const clamped = Math.max(0, Math.min(index, lastIndex))
-    const maxScroll = maxScrollOf(track)
-    const target = lastIndex > 0 ? (clamped / lastIndex) * maxScroll : 0
+    if (!track || layout.step <= 0) return
+    const clamped = Math.max(0, Math.min(index, lastStop))
+    const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth)
+    const target = Math.max(
+      0,
+      Math.min(clamped * layout.step, maxScroll)
+    )
     track.scrollTo({ left: target, behavior: "smooth" })
     setActiveIndex(clamped)
   }
@@ -127,38 +182,34 @@ export function AdvisorVideoGrid({ advisors }: { advisors: Founder[] }) {
   // all act on a stale index instead of whatever card is actually in view.
   useEffect(() => {
     const track = scrollRef.current
-    if (!track) return
+    if (!track || layout.step <= 0) return
 
     const handleScroll = () => {
-      const maxScroll = maxScrollOf(track)
-      const index =
-        maxScroll > 0
-          ? Math.round((track.scrollLeft / maxScroll) * lastIndex)
-          : 0
-      setActiveIndex(Math.max(0, Math.min(index, lastIndex)))
+      const index = Math.round(track.scrollLeft / layout.step)
+      setActiveIndex(Math.max(0, Math.min(index, lastStop)))
     }
 
     track.addEventListener("scroll", handleScroll, { passive: true })
     return () => track.removeEventListener("scroll", handleScroll)
-  }, [lastIndex])
+  }, [layout.step, lastStop])
 
   return (
     <div className="section-container-wide">
       <div className="mb-8 flex items-center justify-between">
-        {/* Dot pagination — one dot per advisor, matches the small total */}
+        {/* Dot pagination — one dot per stop, not per advisor */}
         <div className="flex gap-2">
-          {advisors.map((advisor, i) => (
+          {Array.from({ length: numStops }, (_, i) => (
             <button
-              key={advisor.name}
+              key={advisors[i]?.name ?? i}
               type="button"
               onClick={() => scrollToIndex(i)}
               className={cn(
                 "h-2 rounded-full transition-all duration-300",
-                i === activeIndex
+                i === clampedActiveIndex
                   ? "w-6 bg-foreground"
                   : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
               )}
-              aria-label={`Go to ${advisor.name}`}
+              aria-label={`Go to ${advisors[i]?.name ?? `slide ${i + 1}`}`}
             />
           ))}
         </div>
@@ -167,8 +218,8 @@ export function AdvisorVideoGrid({ advisors }: { advisors: Founder[] }) {
         <div className="flex gap-2">
           <button
             type="button"
-            onClick={() => scrollToIndex(activeIndex - 1)}
-            disabled={activeIndex === 0}
+            onClick={() => scrollToIndex(clampedActiveIndex - 1)}
+            disabled={clampedActiveIndex === 0}
             className={navButton}
             aria-label="Previous advisor"
           >
@@ -176,8 +227,8 @@ export function AdvisorVideoGrid({ advisors }: { advisors: Founder[] }) {
           </button>
           <button
             type="button"
-            onClick={() => scrollToIndex(activeIndex + 1)}
-            disabled={activeIndex === lastIndex}
+            onClick={() => scrollToIndex(clampedActiveIndex + 1)}
+            disabled={clampedActiveIndex === lastStop}
             className={navButton}
             aria-label="Next advisor"
           >
@@ -190,6 +241,14 @@ export function AdvisorVideoGrid({ advisors }: { advisors: Founder[] }) {
         <div
           ref={scrollRef}
           className="flex gap-5 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          style={
+            layout.centerPadding > 0
+              ? {
+                  paddingLeft: layout.centerPadding,
+                  paddingRight: layout.centerPadding,
+                }
+              : undefined
+          }
         >
           {advisors.map((advisor) => (
             <AdvisorPortraitCard key={advisor.name} advisor={advisor} />
