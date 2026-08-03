@@ -68,39 +68,6 @@ function BlobTag({ label, className }: { label: string; className: string }) {
   )
 }
 
-// Stylised in-app Mirror moment — not an actual screenshot
-function MomentScreen() {
-  return (
-    <div className="flex size-full flex-col gap-6 bg-background px-5 pt-16 pb-8">
-      <div className="space-y-1.5">
-        <p className="text-[9px] tracking-[0.18em] text-muted-foreground/40 uppercase">
-          You said
-        </p>
-        <p className="font-serif text-sm leading-relaxed text-foreground/70 italic">
-          &ldquo;Chest tight. Don&apos;t know why.&rdquo;
-        </p>
-      </div>
-
-      <div className="flex-1 space-y-2 border-l-2 border-primary/25 pl-4">
-        <p className="text-[9px] tracking-[0.18em] text-primary/50 uppercase">
-          The Mirror
-        </p>
-        <p className="font-serif text-base leading-relaxed text-foreground/90 italic">
-          &ldquo;Not therapy-bad. Just heavy tonight.&rdquo;
-        </p>
-      </div>
-
-      <div className="mt-auto flex justify-center">
-        <div className="relative flex items-center justify-center">
-          <div className="animate-gentle-pulse absolute size-14 rounded-full bg-primary/5" />
-          <div className="animate-gentle-pulse absolute size-8 rounded-full bg-primary/8 [animation-delay:0.5s]" />
-          <div className="size-3 rounded-full bg-primary/20" />
-        </div>
-      </div>
-    </div>
-  )
-}
-
 // Layered visual — two tilted colour blobs behind an overlapping phone mockup
 function MomentComposition() {
   return (
@@ -135,9 +102,7 @@ function MomentComposition() {
 
       {/* Phone mockup — overlaps both blobs */}
       <div className="absolute top-1/2 left-1/2 z-10 w-[220px] -translate-x-1/2 -translate-y-1/2 -rotate-3 md:w-[260px]">
-        <Iphone>
-          <MomentScreen />
-        </Iphone>
+        <Iphone src="/app-images/reflection-ui.jpeg" />
       </div>
     </motion.div>
   )
