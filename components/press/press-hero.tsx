@@ -12,22 +12,63 @@ export function PressHero() {
       </div>
 
       <div className="section-container relative z-10 text-center">
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-8 font-mono text-[11px] tracking-[0.24em] text-muted-foreground/50 uppercase"
+        >
+          Press &amp; Media
+        </motion.p>
+
         <motion.h1
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-6 font-serif text-4xl leading-[1.1] font-light text-foreground italic md:text-5xl lg:text-[4.5rem]"
+          transition={{ duration: 1.0, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]"
         >
           Everything you need
           <br />
           to tell our story.
         </motion.h1>
 
+        {/* Signature-style flourish — matches the mark under the about/trust headings */}
+        <motion.svg
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          aria-hidden
+          width="140"
+          height="16"
+          viewBox="0 0 140 16"
+          fill="none"
+          className="mx-auto mt-5"
+        >
+          <path
+            d="M2 10c10-8 20-8 28 0s18 8 28 0 18-8 28 0 18 8 28 0 14-6 24-2"
+            stroke="url(#press-signature-gradient)"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <defs>
+            <linearGradient
+              id="press-signature-gradient"
+              x1="0"
+              y1="0"
+              x2="140"
+              y2="0"
+            >
+              <stop offset="0%" stopColor="var(--primary)" />
+              <stop offset="100%" stopColor="var(--accent)" />
+            </linearGradient>
+          </defs>
+        </motion.svg>
+
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mx-auto max-w-md text-base leading-relaxed font-light text-muted-foreground/60 md:text-lg"
+          className="mx-auto mt-6 max-w-lg text-base leading-relaxed font-light text-muted-foreground/60 md:text-lg"
         >
           Boilerplate copy, brand assets, and press contact — ready to use
           without emailing us first.
