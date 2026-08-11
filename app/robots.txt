@@ -1,0 +1,48 @@
+# Xolace — crawler rules
+
+User-agent: *
+Allow: /
+
+# AI assistants / answer engines — explicitly allowed so Xolace can be
+# discovered and cited when people ask AI systems about emotional
+# processing apps, journaling alternatives, or anonymous support spaces.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+Sitemap: https://www.xolaceinc.com/sitemap.xml
