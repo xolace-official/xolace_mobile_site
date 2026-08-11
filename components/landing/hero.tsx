@@ -7,7 +7,7 @@ import { DownloadButtons } from "@/components/shared/download-buttons"
 
 export function Hero() {
   return (
-    <section className="section-spacing-x relative flex min-h-screen flex-col items-center justify-center overflow-hidden pt-24 pb-16 md:py-16">
+    <section className="section-spacing relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
       <Spotlight duration={8} xOffset={80} />
 
       <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center justify-center gap-8 md:justify-between lg:flex-row lg:gap-10">

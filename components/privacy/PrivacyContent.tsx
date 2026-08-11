@@ -179,7 +179,6 @@ export function PrivacyContent() {
           items={[
             "Device type and operating system",
             "App version",
-            "IP address (used to estimate general location)",
           ]}
         />
 
@@ -191,6 +190,24 @@ export function PrivacyContent() {
             "Direct identifiers are removed or reduced before inclusion",
           ]}
         />
+
+        <SubHeading>G. Crash & Error Telemetry</SubHeading>
+        <Body>
+          We use Sentry to capture crashes and errors so we can diagnose and fix
+          them. Sentry collects:
+        </Body>
+        <List
+          items={[
+            "Stack traces and error details",
+            "Device type, OS version, and app version",
+            "Interaction breadcrumbs leading up to a crash",
+            "Session replays on production builds — all text and images are masked before transmission",
+          ]}
+        />
+        <Body>
+          Sentry&apos;s default IP address collection is disabled; your IP is
+          not stored. This data is never used for advertising.
+        </Body>
       </Section>
 
       {/* 4. How We Use Your Information */}
@@ -239,10 +256,13 @@ export function PrivacyContent() {
       {/* 5. AI Processing */}
       <Section id="ai-processing" index="05" title="AI Processing">
         <Body>
-          Your input is processed using artificial intelligence systems to
-          generate reflections and insights. This may involve automated analysis
-          of text, classification of emotional themes, and generation of short
-          reflective responses.
+          Your text input is processed by{" "}
+          <strong className="text-foreground">Anthropic (Claude)</strong> to
+          generate reflections and insights, including automated analysis of
+          text, classification of emotional themes, and generation of short
+          reflective responses. Voice features use{" "}
+          <strong className="text-foreground">ElevenLabs</strong> for audio
+          generation. Your data is not used to train third-party AI models.
         </Body>
         <Notice>
           We do not use your data to make decisions that produce legal or
@@ -257,13 +277,23 @@ export function PrivacyContent() {
           We may share information only in the following limited cases:
         </Body>
 
-        <SubHeading>A. Service Providers</SubHeading>
+        <SubHeading>A. Service Providers (Sub-processors)</SubHeading>
         <Body>
-          We work with trusted third parties to operate Xolace — such as cloud
-          hosting providers, AI processing providers, and analytics tools. These
-          providers are contractually required to protect your data and may not
-          use it for their own purposes.
+          We work with the following trusted third parties to operate Xolace.
+          Each processes only the data necessary for their function and is
+          contractually required to protect your data:
         </Body>
+        <List
+          items={[
+            "Anthropic — AI reflection generation",
+            "Convex — database and backend infrastructure",
+            "Clerk — authentication",
+            "ElevenLabs — voice audio generation",
+            "PostHog — product analytics",
+            "Sentry — crash and error monitoring",
+            "Apple / Google — sign-in",
+          ]}
+        />
 
         <SubHeading>B. Anonymized or Aggregated Data</SubHeading>
         <Body>
@@ -290,11 +320,19 @@ export function PrivacyContent() {
           items={[
             "Session data may be retained according to your account settings",
             "Some anonymized data may be retained for research and system improvement",
-            "Safety-related records may be retained to improve platform integrity",
           ]}
         />
+        <Notice>
+          <strong>Safety event exception:</strong> If the app detected a
+          potential safety concern during a session, a fully anonymised record
+          of that event is retained indefinitely for safety auditing purposes.
+          This record contains no text you wrote, no name, and no account
+          reference — it cannot be linked back to you. It is the only data that
+          survives account deletion.
+        </Notice>
         <Body>
-          You may request deletion of your data at any time (see Section 10).
+          You may request deletion of your account and all other associated data
+          at any time (see Section 10).
         </Body>
       </Section>
 
@@ -349,11 +387,10 @@ export function PrivacyContent() {
         <Body>Depending on your location, you may have the right to:</Body>
         <List
           items={[
-            "Access your personal data",
-            "Correct inaccurate data",
-            "Request deletion of your data",
+            "Access or correct your personal data",
+            "Delete your account and all associated data",
+            "Withdraw optional consent (anonymous sharing, notifications) at any time from Settings",
             "Restrict or object to certain processing",
-            "Request data portability",
           ]}
         />
         <Body>

@@ -2,7 +2,7 @@ import { FadeIn } from "@/components/shared/fade-in"
 
 export function CorePromise() {
   return (
-    <FadeIn className="px-6 py-20 md:py-32">
+    <FadeIn className="section-spacing">
       <div className="mx-auto max-w-[680px]">
         <h2 className="font-serif text-[1.625rem] leading-[1.25] font-normal text-foreground md:text-[2.25rem]">
           You don&apos;t have to know what you&apos;re feeling.

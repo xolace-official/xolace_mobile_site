@@ -38,7 +38,7 @@ function StoreBadge({ href, ariaLabel, lightSrc, darkSrc, alt }: BadgeProps) {
 
 export function DownloadSection() {
   return (
-    <FadeIn id="download" className="px-6 py-24 md:py-40">
+    <FadeIn id="download" className="section-spacing">
       <div className="mx-auto max-w-[680px] space-y-10 text-center">
         <h2 className="font-serif text-[1.625rem] leading-[1.25] font-normal text-foreground md:text-[2.25rem]">
           When you&apos;re ready, it&apos;s here.

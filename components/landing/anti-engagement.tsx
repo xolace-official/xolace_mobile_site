@@ -2,7 +2,7 @@ import { FadeIn } from "@/components/shared/fade-in"
 
 export function AntiEngagement() {
   return (
-    <FadeIn className="px-6 py-20 md:py-32">
+    <FadeIn className="section-spacing">
       <div className="mx-auto max-w-[680px]">
         {/* Slightly larger h2 — this moment distinguishes Xolace from every other app */}
         <h2 className="font-serif text-[1.875rem] leading-[1.25] font-normal text-foreground md:text-[2.5rem]">

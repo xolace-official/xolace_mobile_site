@@ -48,7 +48,7 @@ function ScreenPlaceholder({ label }: { label: string }) {
 
 export function ThreeLayers() {
   return (
-    <FadeIn className="px-6 py-20 md:py-32">
+    <FadeIn className="section-spacing">
       <div className="mx-auto max-w-[680px]">
         <h2 className="font-serif text-[1.625rem] leading-[1.25] font-normal text-foreground md:text-[2.25rem]">
           Three things, each its own quiet moment.

@@ -16,7 +16,7 @@ export function CompanionBridge() {
   return (
     <section
       ref={ref}
-      className="relative flex items-center justify-center gap-5 overflow-hidden py-24 md:py-40"
+      className="section-spacing-y relative flex items-center justify-center gap-5 overflow-hidden"
     >
       {/* Ambient glow — echoes the blue in the image */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
