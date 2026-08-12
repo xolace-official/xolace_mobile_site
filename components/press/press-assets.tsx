@@ -101,7 +101,7 @@ function AssetThumbnail({
               ? "object-contain p-4"
               : "object-cover transition-transform duration-500 group-hover/thumb:scale-105"
           }
-          sizes="(min-width: 768px) 33vw, 50vw"
+          sizes="(min-width: 768px) 16vw, 50vw"
         />
         <div className="absolute inset-0 flex items-center justify-center bg-background/0 opacity-0 backdrop-blur-[1px] transition-all duration-300 group-hover/thumb:bg-background/40 group-hover/thumb:opacity-100">
           <div className="flex size-9 items-center justify-center rounded-full border border-border/30 bg-background/80">
