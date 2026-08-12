@@ -59,7 +59,7 @@ export function HomePage() {
         <PathsSection />
         <ReflectionsSection />
         <TrustSection />
-        <AdvisorsSection />
+        {/*<AdvisorsSection />*/}
         <TestimonialsSection />
         {/*<PricingSection />*/}
         <LandingFaq />
