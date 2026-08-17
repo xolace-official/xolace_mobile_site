@@ -79,13 +79,13 @@ const paths: Path[] = [
 function PathRow({ p, index }: { p: Path; index: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{
-        duration: 1.1,
+        duration: 0.5,
         delay: index * 0.08,
-        ease: [0.16, 1, 0.3, 1],
+        ease: "easeOut",
       }}
       className={`flex flex-col ${p.flip ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-10 py-16 lg:gap-20 lg:py-20 ${index > 0 ? "border-t border-border/10" : ""}`}
     >
@@ -106,7 +106,7 @@ function PathRow({ p, index }: { p: Path; index: number }) {
           style={{ animationDelay: `${index * 1.2}s` }}
         />
         <div
-          className={`relative h-64 w-64 rounded-full md:h-72 md:w-72 lg:h-80 lg:w-80 ${p.orbBg} border ${p.orbBorder} flex items-center justify-center overflow-hidden`}
+          className={`relative h-64 w-64 rounded-full md:h-72 md:w-72 lg:h-80 lg:w-80 ${p.orbBg} border ${p.orbBorder} flex items-center justify-center overflow-hidden transition-transform duration-500 ease-out hover:scale-[1.04]`}
         >
           <Image
             src={p.image}
@@ -137,7 +137,7 @@ function PathRow({ p, index }: { p: Path; index: number }) {
             </span>
           </div>
 
-          <h3 className="text-2xl leading-[1.25] font-light tracking-tight text-foreground md:text-[1.875rem] lg:text-[2.25rem]">
+          <h3 className="text-2xl leading-[1.25] font-semibold tracking-tight text-foreground md:text-[1.875rem] lg:text-[2.25rem]">
             {p.headline}
           </h3>
 
@@ -167,16 +167,16 @@ export function PathsSection() {
 
       <div className="section-container relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-6 space-y-4"
         >
           <p className="font-mono text-[11px] tracking-[0.24em] text-muted-foreground/30 uppercase">
             How it works
           </p>
-          <h2 className="font-serif text-5xl leading-[1.1] font-light text-foreground italic md:text-6xl lg:text-[4.25rem]">
+          <h2 className="font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
             Three quiet things.
           </h2>
           <p className="max-w-lg text-lg leading-relaxed font-light text-muted-foreground/55">

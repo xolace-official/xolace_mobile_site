@@ -40,7 +40,7 @@ export function Hero() {
             transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg lg:mx-0"
           >
-            {`A quiet place to say what's true, when you can't find the words for it on your own.`}
+            {`A quiet place to say what's true, even without the words for it.`}
           </motion.p>
 
           <motion.div

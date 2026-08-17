@@ -1,14 +1,19 @@
 "use client"
 
+import Image from "next/image"
 import { m as motion } from "motion/react"
 import { Download, ImageIcon, Smartphone, Users } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
+import { founders } from "@/lib/team"
+
+type AssetFile = { name: string; href: string }
 
 type Asset = {
   label: string
   description: string
   Icon: LucideIcon
-  files: { name: string; href: string }[]
+  files: AssetFile[]
+  fit: "contain" | "cover"
   accentBorder: string
   accentBg: string
   iconBg: string
@@ -19,15 +24,12 @@ type Asset = {
 const assets: Asset[] = [
   {
     label: "Logo",
-    description: "Wordmark and icon — light and dark variants.",
+    description: "Wordmark and icon mark, on a transparent background.",
     Icon: ImageIcon,
+    fit: "contain",
     files: [
-      {
-        name: "Logo — Light (PNG)",
-        href: "/press/assets/xolace-logo-light.png",
-      },
-      { name: "Logo — Dark (PNG)", href: "/press/assets/xolace-logo-dark.png" },
-      { name: "Icon only (PNG)", href: "/press/assets/xolace-icon.png" },
+      { name: "Wordmark (PNG)", href: "/logo/main-logo.png" },
+      { name: "Icon mark (PNG)", href: "/logo/favicon.png" },
     ],
     accentBorder: "border-primary/20",
     accentBg: "bg-primary/[0.05]",
@@ -36,16 +38,17 @@ const assets: Asset[] = [
     dotColor: "bg-primary/50",
   },
   {
-    label: "App Screenshots",
-    description: "Key screens from the iOS and Android app.",
+    label: "App Screens",
+    description: "Real screens from the three-step Mirror flow.",
     Icon: Smartphone,
+    fit: "cover",
     files: [
+      { name: "Say what's true (JPG)", href: "/app-images/say-whats-true.jpeg" },
+      { name: "See it clearly (JPG)", href: "/app-images/see-it-clearly.jpeg" },
       {
-        name: "Mirror screen (PNG)",
-        href: "/press/assets/screenshot-mirror.png",
+        name: "Choose what's next (JPG)",
+        href: "/app-images/choose-whats-next.jpeg",
       },
-      { name: "Vent screen (PNG)", href: "/press/assets/screenshot-vent.png" },
-      { name: "Home screen (PNG)", href: "/press/assets/screenshot-home.png" },
     ],
     accentBorder: "border-accent/20",
     accentBg: "bg-accent/[0.04]",
@@ -55,26 +58,15 @@ const assets: Asset[] = [
   },
   {
     label: "Founder Photos",
-    description: "High-resolution headshots for all four co-founders.",
+    description: "Headshots for on-record co-founders.",
     Icon: Users,
-    files: [
-      {
-        name: "Nathaniel Edem Adama (JPG)",
-        href: "/press/assets/headshot-nathaniel.jpg",
-      },
-      {
-        name: "Andrew Nana Beniako (JPG)",
-        href: "/press/assets/headshot-andrew.jpg",
-      },
-      {
-        name: "Emmanuel Acquah (JPG)",
-        href: "/press/assets/headshot-emmanuel-acquah.jpg",
-      },
-      {
-        name: "Emmanuel Somuah (JPG)",
-        href: "/press/assets/headshot-emmanuel-somuah.jpg",
-      },
-    ],
+    fit: "cover",
+    files: founders
+      .filter((founder) => founder.image)
+      .map((founder) => ({
+        name: `${founder.name} (JPG)`,
+        href: founder.image as string,
+      })),
     accentBorder: "border-chart-2/20",
     accentBg: "bg-chart-2/[0.04]",
     iconBg: "bg-chart-2/[0.12] border-chart-2/20",
@@ -82,6 +74,47 @@ const assets: Asset[] = [
     dotColor: "bg-chart-2/50",
   },
 ]
+
+function AssetThumbnail({
+  file,
+  fit,
+  iconColor,
+}: {
+  file: AssetFile
+  fit: "contain" | "cover"
+  iconColor: string
+}) {
+  return (
+    <a
+      href={file.href}
+      download
+      className="group/thumb block space-y-2"
+      aria-label={`Download ${file.name}`}
+    >
+      <div className="relative aspect-square overflow-hidden rounded-xl border border-border/15 bg-xo-surface-low">
+        <Image
+          src={file.href}
+          alt=""
+          fill
+          className={
+            fit === "contain"
+              ? "object-contain p-4"
+              : "object-cover transition-transform duration-500 group-hover/thumb:scale-105"
+          }
+          sizes="(min-width: 768px) 16vw, 50vw"
+        />
+        <div className="absolute inset-0 flex items-center justify-center bg-background/0 opacity-0 backdrop-blur-[1px] transition-all duration-300 group-hover/thumb:bg-background/40 group-hover/thumb:opacity-100">
+          <div className="flex size-9 items-center justify-center rounded-full border border-border/30 bg-background/80">
+            <Download className={`size-4 ${iconColor}`} strokeWidth={1.5} />
+          </div>
+        </div>
+      </div>
+      <p className="truncate text-xs text-muted-foreground/55 transition-colors duration-200 group-hover/thumb:text-foreground/80">
+        {file.name}
+      </p>
+    </a>
+  )
+}
 
 export function PressAssets() {
   return (
@@ -103,7 +136,7 @@ export function PressAssets() {
             Brand assets
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="font-serif text-4xl leading-[1.1] font-light text-foreground italic md:text-5xl">
+            <h2 className="font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
               Download everything.
             </h2>
             <p className="max-w-xs pb-1 text-sm font-light text-muted-foreground/40 sm:text-right">
@@ -121,6 +154,7 @@ export function PressAssets() {
                 description,
                 Icon,
                 files,
+                fit,
                 accentBorder,
                 accentBg,
                 iconBg,
@@ -162,22 +196,14 @@ export function PressAssets() {
 
                 <div className="h-px bg-border/15" />
 
-                <div className="space-y-1">
-                  {files.map(({ name, href }) => (
-                    <a
-                      key={name}
-                      href={href}
-                      download
-                      className="group flex items-center justify-between gap-3 rounded-xl px-3 py-2.5 transition-colors duration-200 hover:bg-background/50"
-                    >
-                      <span className="truncate text-xs text-muted-foreground/55 transition-colors duration-200 group-hover:text-foreground/80">
-                        {name}
-                      </span>
-                      <Download
-                        className={`size-3.5 text-muted-foreground/20 group-hover:${iconColor} shrink-0 transition-colors duration-200`}
-                        strokeWidth={1.5}
-                      />
-                    </a>
+                <div className="grid grid-cols-2 gap-3">
+                  {files.map((file) => (
+                    <AssetThumbnail
+                      key={file.href}
+                      file={file}
+                      fit={fit}
+                      iconColor={iconColor}
+                    />
                   ))}
                 </div>
               </motion.div>

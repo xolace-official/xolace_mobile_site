@@ -1,0 +1,45 @@
+<svg width="800" height="600" viewBox="0 0 680 510" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialGradient id="tealbg" cx="50%" cy="50%" r="70%"><stop offset="0%" stop-color="#3a5a52"/><stop offset="100%" stop-color="#243b36"/></radialGradient>
+<linearGradient id="bubble" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#f5ebdc" stop-opacity="0.92"/><stop offset="100%" stop-color="#e6d9c4" stop-opacity="0.82"/></linearGradient>
+</defs>
+<rect width="680" height="510" fill="url(#tealbg)"/>
+<circle cx="120" cy="90" r="140" fill="#4a6b62" opacity="0.25"/>
+<circle cx="580" cy="440" r="160" fill="#1e332e" opacity="0.35"/>
+<circle cx="500" cy="120" r="80" fill="#5a7d72" opacity="0.2"/>
+<g transform="translate(340,255)">
+<ellipse cx="8" cy="12" rx="230" ry="118" fill="#000" opacity="0.2"/>
+<path d="M-215,-95 Q-225,-105 -210,-108 L200,-108 Q225,-108 225,-85 L225,55 Q225,80 200,80 L-100,80 L-130,110 L-125,80 L-210,80 Q-225,80 -225,60 L-225,-85 Q-225,-100 -215,-95 Z" fill="url(#bubble)"/>
+<g opacity="0.35" fill="#8b7355">
+<rect x="-190" y="-75" width="220" height="7" rx="3"/>
+<rect x="-190" y="-58" width="380" height="7" rx="3"/>
+<rect x="-190" y="-41" width="340" height="7" rx="3"/>
+<rect x="-190" y="-24" width="290" height="7" rx="3"/>
+<rect x="-190" y="-7" width="370" height="7" rx="3"/>
+<rect x="-190" y="10" width="250" height="7" rx="3"/>
+<rect x="-190" y="27" width="320" height="7" rx="3"/>
+</g>
+<g opacity="0.15" fill="#8b7355">
+<rect x="-192" y="-77" width="224" height="11" rx="5"/>
+<rect x="-192" y="-60" width="384" height="11" rx="5"/>
+<rect x="-192" y="-43" width="344" height="11" rx="5"/>
+<rect x="-192" y="-26" width="294" height="11" rx="5"/>
+<rect x="-192" y="-9" width="374" height="11" rx="5"/>
+<rect x="-192" y="8" width="254" height="11" rx="5"/>
+<rect x="-192" y="25" width="324" height="11" rx="5"/>
+</g>
+<g transform="translate(0,58)">
+<rect x="-70" y="0" width="140" height="30" rx="15" fill="#4a5750" opacity="0.75"/>
+<rect x="-66" y="4" width="132" height="22" rx="11" fill="#6b7a72" opacity="0.4"/>
+<g opacity="0.5" fill="#2a3530">
+<rect x="-58" y="12" width="20" height="6" rx="2"/>
+<rect x="-32" y="12" width="28" height="6" rx="2"/>
+<rect x="2" y="12" width="22" height="6" rx="2"/>
+<rect x="30" y="12" width="26" height="6" rx="2"/>
+</g>
+</g>
+</g>
+<circle cx="150" cy="380" r="6" fill="#f5ebdc" opacity="0.3"/>
+<circle cx="580" cy="200" r="4" fill="#f5ebdc" opacity="0.25"/>
+<circle cx="90" cy="240" r="3" fill="#f5ebdc" opacity="0.4"/>
+</svg>

@@ -28,15 +28,15 @@ export function LaunchSection() {
       <div className="relative z-10 w-full pb-20 md:pb-28">
         <div className="section-container-narrow space-y-8 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="space-y-4"
           >
-            <h2 className="text-5xl leading-tight font-light text-foreground md:text-6xl">
+            <h2 className="text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
               Carry it{" "}
-              <span className="font-serif font-light italic opacity-80">
+              <span className="font-serif font-semibold opacity-80">
                 with you.
               </span>
             </h2>
@@ -46,10 +46,10 @@ export function LaunchSection() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
           >
             <DownloadButtons align="center" />
           </motion.div>

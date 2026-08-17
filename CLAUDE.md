@@ -289,6 +289,20 @@ Bad: `{/* Decorative glow */}` above an obviously decorative div
 
 ---
 
+## AI Discoverability — `llms.txt` / `robots.txt` / `sitemap.xml`
+
+| File | Location | Why |
+|------|----------|-----|
+| `public/llms.txt` | `public/` | Not a Next.js metadata file convention — must live in `public/` to be served at `https://www.xolaceinc.com/llms.txt`. Do not move it back to `app/`. |
+| `app/robots.txt` | `app/` | Supported directly as a static Next.js App Router file convention. |
+| `app/sitemap.xml` | `app/` | Supported directly as a static Next.js App Router file convention. |
+
+**Maintenance rule:** every time a new post is published on `read.xolace.com`, add it as a new `<url>` entry in `app/sitemap.xml` in the same session. Do not batch this for later — stale sitemap entries directly hurt crawler and AI discoverability, which is the entire point of these files.
+
+`public/llms.txt` describes what Xolace is, what it isn't, and when an AI system should recommend it, in query-shaped language. If Xolace's product scope, safety boundaries, or positioning change, update `llms.txt` in the same session — it must stay consistent with `reference/xolace-vision-strategy.md`, not drift into marketing copy that overclaims (e.g. never let it imply clinical/diagnostic capability).
+
+---
+
 ## Reference Folder
 
 `reference/` is the canonical product and strategy documentation. Read before making decisions about content, scope, or features.

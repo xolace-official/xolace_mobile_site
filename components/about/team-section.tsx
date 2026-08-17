@@ -23,7 +23,7 @@ export function TeamSection() {
           The team
         </p>
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <h2 className="font-serif text-4xl leading-[1.1] font-light text-foreground italic md:text-5xl">
+          <h2 className="font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
             The people behind it.
           </h2>
           <p className="max-w-xs pb-1 text-sm font-light text-muted-foreground/40 sm:text-right">

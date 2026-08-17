@@ -48,7 +48,7 @@ export function PressContact() {
             <p className="mb-5 font-mono text-[11px] tracking-[0.24em] text-muted-foreground/30 uppercase">
               Get in touch
             </p>
-            <h2 className="mb-6 font-serif text-4xl leading-[1.1] font-light text-foreground italic md:text-5xl">
+            <h2 className="mb-6 font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
               Still have
               <br className="hidden sm:block" /> questions?
             </h2>

@@ -21,20 +21,25 @@ export function PricingSection() {
     <>
       <section
         id="pricing"
-        className="section-spacing overflow-hidden bg-muted"
+        className="section-spacing relative overflow-hidden bg-muted"
       >
-        <div className="section-container">
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <div className="animate-gentle-pulse absolute -top-32 -left-20 h-[600px] w-[600px] rounded-full bg-accent/[0.05] blur-[140px]" />
+          <div className="animate-gentle-pulse absolute -right-20 -bottom-20 h-[500px] w-[500px] rounded-full bg-primary/[0.04] blur-[120px] [animation-delay:3s]" />
+        </div>
+
+        <div className="section-container relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="mb-14 space-y-3 text-center"
           >
             <p className="font-mono text-[11px] tracking-[0.24em] text-muted-foreground/30 uppercase">
-              What&apos;s coming
+              Free &amp; Xolace+
             </p>
-            <h2 className="font-serif text-4xl leading-[1.1] font-light text-foreground italic md:text-5xl lg:text-6xl">
+            <h2 className="font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
               Deeper self-knowledge,
               <br className="hidden sm:block" /> that compounds.
             </h2>
@@ -51,21 +56,21 @@ export function PricingSection() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="mt-14 flex flex-col items-center gap-5 text-center"
           >
             <Button
               onClick={() => setWaitlistOpen(true)}
               className="h-11 rounded-lg px-7 text-sm"
             >
-              Join the Xolace+ waitlist
+              Get Xolace+
             </Button>
             <p className="max-w-sm font-serif text-base text-muted-foreground/30 italic">
-              We&apos;d rather shape Xolace+ around the
-              people curious enough to ask first.
+              Tell us you&apos;re in — we&apos;ll notify you the moment your
+              full insight layer unlocks.
             </p>
           </motion.div>
         </div>
