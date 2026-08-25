@@ -125,10 +125,10 @@ export function TrustSection() {
             We built Xolace for ourselves first — we know what it feels like to
             need a space that won&apos;t sell you out.
           </p>
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
             <Link
               href="/privacy"
-              className="inline-flex items-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary/85"
+              className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary/85 sm:w-auto"
             >
               Our privacy promise
             </Link>
@@ -136,7 +136,7 @@ export function TrustSection() {
               href={WHITEPAPER_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-accent/40 bg-accent/[0.08] px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:border-accent/60 hover:bg-accent/[0.14]"
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-accent/40 bg-accent/[0.08] px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:border-accent/60 hover:bg-accent/[0.14] sm:w-auto"
             >
               <FileText className="size-4 text-accent" strokeWidth={1.5} />
               Read the Xolace whitepaper
