@@ -3,8 +3,10 @@
 import Link from "next/link"
 import Image from "next/image"
 import { m as motion } from "motion/react"
-import { Lock, EyeOff, UserX, Ban } from "lucide-react"
+import { Lock, EyeOff, UserX, Ban, FileText } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
+
+const WHITEPAPER_URL = "https://xolace-official.github.io/wp.pdf"
 
 type Promise = {
   title: string
@@ -123,12 +125,23 @@ export function TrustSection() {
             We built Xolace for ourselves first — we know what it feels like to
             need a space that won&apos;t sell you out.
           </p>
-          <Link
-            href="/privacy"
-            className="inline-flex items-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary/85"
-          >
-            Our privacy promise
-          </Link>
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              href="/privacy"
+              className="inline-flex items-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary/85"
+            >
+              Our privacy promise
+            </Link>
+            <a
+              href={WHITEPAPER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-accent/40 bg-accent/[0.08] px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:border-accent/60 hover:bg-accent/[0.14]"
+            >
+              <FileText className="size-4 text-accent" strokeWidth={1.5} />
+              Read the Xolace whitepaper
+            </a>
+          </div>
         </motion.div>
 
         {/* 2x2 grid reads more balanced for four items than 3+1 */}
