@@ -7,9 +7,11 @@ export function AboutHero() {
   const prefersReducedMotion = useReducedMotion()
 
   return (
-    <section className="hero-pb relative overflow-hidden">
+    <section className="hero-pb relative -mt-32 overflow-hidden pt-32">
       <Spotlight duration={8} xOffset={80} />
 
+      {/* Glow layer spans the full section, including the area under the fixed
+          transparent navbar — otherwise that strip reads as flat, seamed-off background. */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="animate-gentle-pulse absolute top-1/2 left-1/2 h-[650px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.07] blur-[140px]" />
         <div className="animate-gentle-pulse absolute top-1/4 right-1/4 h-[400px] w-[400px] rounded-full bg-accent/[0.05] blur-[110px] [animation-delay:2.5s]" />
