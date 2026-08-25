@@ -89,9 +89,8 @@ export function TrustSection() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-16"
         >
-          <h2 className="mb-2 font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
-            When you&apos;re at your most honest,
-            <br /> you deserve to feel safe.
+          <h2 className="text-balance mb-2 font-serif text-3xl leading-[1.15] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
+            When you&apos;re at your most honest, you deserve to feel safe.
           </h2>
           {/* Signature-style flourish — echoes the mark under the advisors heading */}
           <svg
