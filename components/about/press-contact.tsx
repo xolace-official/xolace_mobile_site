@@ -2,7 +2,9 @@
 
 import { m as motion } from "motion/react"
 import Link from "next/link"
-import { Mail, ArrowRight } from "lucide-react"
+import { Mail, ArrowRight, FileText } from "lucide-react"
+
+const WHITEPAPER_URL = "https://xolace-official.github.io/wp.pdf"
 
 const contacts = [
   {
@@ -57,6 +59,20 @@ export function PressContact() {
               request.
             </p>
           </div>
+
+          <a
+            href={WHITEPAPER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mt-8 inline-flex items-center gap-3 rounded-full border border-accent/20 bg-accent/[0.06] py-2.5 pr-3 pl-5 text-sm font-medium text-foreground/80 transition-all duration-300 hover:border-accent/40 hover:bg-accent/[0.1] hover:text-foreground"
+          >
+            <FileText className="size-4 text-accent/80" strokeWidth={1.5} />
+            Read the Xolace whitepaper
+            <ArrowRight
+              className="size-4 text-muted-foreground/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-foreground/60"
+              strokeWidth={1.5}
+            />
+          </a>
         </motion.div>
 
         <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2">

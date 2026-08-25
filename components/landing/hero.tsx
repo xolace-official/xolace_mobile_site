@@ -17,21 +17,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-serif font-light text-foreground italic"
+            className="text-balance font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]"
           >
-            {/* Mobile + tablet: 2 lines */}
-            <span className="block text-[2.5rem] leading-[1.2] font-semibold lg:hidden">
-              <span className="block">For the moments</span>
-              <span className="block">that don&apos;t have a name yet.</span>
-            </span>
-            {/* Desktop: 3 lines */}
-            <span className="hidden text-[4.5rem] leading-[1.08] font-semibold lg:block">
-              <span className="block whitespace-nowrap">For the moments</span>
-              <span className="block whitespace-nowrap">
-                that don&apos;t have
-              </span>
-              <span className="block whitespace-nowrap">a name yet.</span>
-            </span>
+            For the moments that don&apos;t have a name yet.
           </motion.h1>
 
           <motion.p

@@ -34,11 +34,8 @@ export function LaunchSection() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="space-y-4"
           >
-            <h2 className="text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
-              Carry it{" "}
-              <span className="font-serif font-semibold opacity-80">
-                with you.
-              </span>
+            <h2 className="font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
+              Carry it with you.
             </h2>
             <p className="mx-auto max-w-md text-lg leading-relaxed text-muted-foreground">
               Xolace is free to download. Your first session takes 3 minutes.
