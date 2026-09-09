@@ -1,14 +1,11 @@
 import Link from "next/link"
 import { XolaceLogo } from "@/components/shared/xolace-logo"
 import { ElevenLabsGrantsBadge } from "@/components/shared/elevenlabs-grants-badge"
-import {
-  FaLinkedinIn,
-  FaInstagram,
-  FaYoutube,
-  FaWhatsapp,
-  FaSnapchatGhost,
-} from "react-icons/fa"
-import { FaTiktok } from "react-icons/fa6"
+import { LinkedIn } from "@/components/socials/linkedin-icon"
+import { Instagram } from "@/components/socials/instagram-icon"
+import { YouTube } from "@/components/socials/youtube-icon"
+import { WhatsApp } from "@/components/socials/whatsapp-icon"
+import { TikTokLight } from "@/components/socials/tiktok-icon-light"
 
 type NavLink = { label: string; href: string; external?: boolean }
 
@@ -16,39 +13,33 @@ const socials = [
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/company/xolace-inc/",
-    icon: <FaLinkedinIn size={20} />,
-    color: "#0A66C2",
+    icon: <LinkedIn className="size-5" />,
+    color: undefined,
   },
   {
     label: "Instagram",
     href: "https://www.instagram.com/xolaceinc?utm_source=qr&igsh=anB2bTA4ZTJiM2tu",
-    icon: <FaInstagram size={20} />,
-    color: "#E1306C",
+    icon: <Instagram className="size-5" />,
+    color: undefined,
   },
   {
     label: "TikTok",
     href: "https://www.tiktok.com/@talk.with.xolace?_r=1&_t=ZS-93PtIXpzJAr",
-    icon: <FaTiktok size={20} />,
+    icon: <TikTokLight className="size-5" fill="currentColor" />,
     color: "currentColor",
   },
   {
     label: "YouTube",
     href: "https://youtube.com/@xolace",
-    icon: <FaYoutube size={20} />,
+    icon: <YouTube className="size-5" />,
     color: "#FF0000",
   },
   {
     label: "WhatsApp",
     href: "https://whatsapp.com/channel/0029Vb68RgXGpLHPmY1pL73s",
-    icon: <FaWhatsapp size={20} />,
-    color: "#25D366",
+    icon: <WhatsApp className="size-5" />,
+    color: undefined,
   },
-  // {
-  //   label: "Snapchat",
-  //   href: "https://snapchat.com/add/xolace",
-  //   icon: <FaSnapchatGhost size={20} />,
-  //   color: "#FFFC00",
-  // },
 ]
 
 const links: Record<"explore" | "legal" | "contact", NavLink[]> = {
