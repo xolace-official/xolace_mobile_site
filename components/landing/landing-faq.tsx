@@ -19,28 +19,28 @@ const catConfigs: CatConfig[] = [
     dot: "bg-primary/35",
     activeDot: "bg-primary",
     activeBg: "bg-primary/[0.07]",
-    activeText: "text-primary/80",
+    activeText: "text-primary",
     pillBorder: "border-primary/30",
   },
   {
     dot: "bg-accent/35",
     activeDot: "bg-accent",
     activeBg: "bg-accent/[0.06]",
-    activeText: "text-accent/80",
+    activeText: "text-accent",
     pillBorder: "border-accent/30",
   },
   {
     dot: "bg-chart-2/35",
     activeDot: "bg-chart-2",
     activeBg: "bg-chart-2/[0.06]",
-    activeText: "text-chart-2/80",
+    activeText: "text-chart-2",
     pillBorder: "border-chart-2/30",
   },
   {
     dot: "bg-destructive/35",
     activeDot: "bg-destructive",
     activeBg: "bg-destructive/[0.06]",
-    activeText: "text-destructive/80",
+    activeText: "text-destructive",
     pillBorder: "border-destructive/30",
   },
 ]
@@ -144,7 +144,7 @@ export function LandingFaq() {
             <h2 className="font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
               Frequently asked questions.
             </h2>
-            <p className="max-w-xs pb-1 text-sm font-light text-muted-foreground/40 sm:text-right">
+            <p className="max-w-xs pb-1 text-sm font-light text-muted-foreground/70 sm:text-right">
               Everything you&apos;d want to know before you trust a space like
               this.
             </p>
@@ -164,7 +164,7 @@ export function LandingFaq() {
                   "flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-[11px] tracking-[0.15em] uppercase transition-all duration-300",
                   isActive
                     ? `${cfg.activeBg} ${cfg.activeText} ${cfg.pillBorder}`
-                    : "border-border/30 text-muted-foreground/40 hover:border-border/50 hover:text-muted-foreground/60"
+                    : "border-border/30 text-muted-foreground/70 hover:border-border/50 hover:text-muted-foreground/90"
                 )}
               >
                 <span
@@ -195,7 +195,7 @@ export function LandingFaq() {
                       "flex items-center gap-3 rounded-xl px-4 py-3 text-left transition-all duration-300",
                       isActive
                         ? `${cfg.activeBg} ${cfg.activeText}`
-                        : "text-muted-foreground/40 hover:bg-muted/50 hover:text-foreground/60"
+                        : "text-muted-foreground/70 hover:bg-muted/50 hover:text-foreground/90"
                     )}
                   >
                     <span

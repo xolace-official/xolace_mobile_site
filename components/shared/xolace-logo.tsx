@@ -8,6 +8,10 @@ const sizes = {
   xl: 96,
 }
 
+// The source file (public/logo/main-logo.png) is 818x305 — keep this in
+// sync with its real aspect ratio so next/image doesn't over-request.
+const LOGO_ASPECT_RATIO = 818 / 305
+
 interface XolaceLogoProps {
   size?: keyof typeof sizes
   className?: string
@@ -25,7 +29,7 @@ export function XolaceLogo({
       src="/logo/main-logo.png"
       alt="Xolace"
       height={px}
-      width={px * 6}
+      width={Math.round(px * LOGO_ASPECT_RATIO)}
       style={{ height: px, width: "auto" }}
       className={cn("object-contain", className)}
       priority={priority}

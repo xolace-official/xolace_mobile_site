@@ -99,6 +99,7 @@ const avatarColors = [
 function StarRating({ rating }: { rating: number }) {
   return (
     <div
+      role="img"
       className="flex items-center gap-0.5"
       aria-label={`${rating} out of 5 stars`}
     >
