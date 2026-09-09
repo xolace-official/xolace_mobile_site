@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { XolaceLogo } from "@/components/shared/xolace-logo"
+import { ElevenLabsGrantsBadge } from "@/components/shared/elevenlabs-grants-badge"
 import {
   FaLinkedinIn,
   FaInstagram,
@@ -154,9 +155,12 @@ export function Footer() {
             </a>{" "}
             (US) at any time.
           </p>
-          <p className="shrink-0 text-[11px] tracking-[0.04em] text-muted-foreground/55">
-            &copy; 2026 Xolace Inc.
-          </p>
+          <div className="flex shrink-0 flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
+            <ElevenLabsGrantsBadge />
+            <p className="text-sm tracking-[0.04em] text-muted-foreground/55 sm:text-[11px]">
+              &copy; 2026 Xolace Inc.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
