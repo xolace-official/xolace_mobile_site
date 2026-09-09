@@ -1,25 +1,50 @@
 "use client"
 
+import { useEffect, useRef, useState } from "react"
 import { m as motion } from "motion/react"
-import Image from "next/image"
 import { DownloadButtons } from "@/components/shared/download-buttons"
 
 export function LaunchSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const [showVideo, setShowVideo] = useState(false)
+
+  useEffect(() => {
+    const el = sectionRef.current
+    if (!el) return
+
+    // autoPlay forces browsers to fetch the video regardless of the
+    // preload hint, so the 5.7 MB file must not be in the DOM at all
+    // until the section is actually about to be scrolled into view.
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowVideo(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: "600px" }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <section
+      ref={sectionRef}
       id="download"
       className="relative flex min-h-screen items-end overflow-hidden"
     >
-      {/* Full-screen background video — preload=none defers the 5.7 MB fetch until scroll */}
-      <video
-        src="/vids/Launch-vid.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="none"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+      {/* Full-screen background video — mounted only once the section nears the viewport */}
+      {showVideo && (
+        <video
+          src="/vids/Launch-vid.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      )}
 
       {/* Gradient overlay — heavier at bottom so text stays readable */}
       <div className="absolute inset-0 bg-linear-to-t from-background via-background/60 to-background/10" />
