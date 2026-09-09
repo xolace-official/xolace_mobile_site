@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next"
+import type { Metadata } from "next"
 import { DM_Sans, Geist_Mono } from "next/font/google"
 
 import "./globals.css"
@@ -8,10 +8,6 @@ import { Navbar } from "@/components/shared/navbar"
 import { Footer } from "@/components/shared/footer"
 import { cn } from "@/lib/utils"
 import { MotionProvider } from "@/providers/motion-provider"
-
-export const viewport: Viewport = {
-  maximumScale: 1,
-}
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
