@@ -6,6 +6,7 @@ import { Instagram } from "@/components/socials/instagram-icon"
 import { YouTube } from "@/components/socials/youtube-icon"
 import { WhatsApp } from "@/components/socials/whatsapp-icon"
 import { TikTokLight } from "@/components/socials/tiktok-icon-light"
+import { EMERGENCY_NUMBER, SUICIDE_HOTLINE } from "@/lib/crisis-resources"
 
 type NavLink = { label: string; href: string; external?: boolean }
 
@@ -61,7 +62,7 @@ const links: Record<"explore" | "legal" | "contact", NavLink[]> = {
   contact: [
     { label: "hello@xolaceinc.com", href: "mailto:hello@xolaceinc.com" },
     { label: "press@xolaceinc.com", href: "mailto:press@xolaceinc.com" },
-    { label: "support@xolace.com", href: "mailto:support@xolace.com" },
+    { label: "support@xolaceinc.com", href: "mailto:support@xolaceinc.com" },
   ],
 }
 
@@ -137,19 +138,26 @@ export function Footer() {
         <div className="flex flex-col items-start justify-between gap-3 border-t border-border/15 pb-10 sm:flex-row sm:items-center md:pb-0">
           <p className="max-w-xl font-serif text-[12px] leading-relaxed text-muted-foreground/55 italic">
             Xolace is not designed for crisis. If you feel unsafe, contact your
-            local emergency services or call/text{" "}
+            local emergency services on{" "}
             <a
-              href="tel:988"
+              href={`tel:${EMERGENCY_NUMBER.tel}`}
               className="underline underline-offset-2 transition-colors duration-300 hover:text-muted-foreground"
             >
-              988
+              {EMERGENCY_NUMBER.display}
             </a>{" "}
-            (US) at any time.
+            or the suicide hotline on{" "}
+            <a
+              href={`tel:${SUICIDE_HOTLINE.tel}`}
+              className="underline underline-offset-2 transition-colors duration-300 hover:text-muted-foreground"
+            >
+              {SUICIDE_HOTLINE.display}
+            </a>{" "}
+            (Ghana) at any time.
           </p>
           <div className="flex shrink-0 flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
             <ElevenLabsGrantsBadge />
             <p className="text-sm tracking-[0.04em] text-muted-foreground/55 sm:text-[11px]">
-              &copy; 2026 Xolace Inc.
+              &copy; 2026 XOLACEINC LTD
             </p>
           </div>
         </div>

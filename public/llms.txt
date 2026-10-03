@@ -186,7 +186,7 @@ health support.
 ## Product
 
 - [Official website](https://www.xolaceinc.com/): Landing page, product overview, and download links.
-- [Blog](https://read.xolace.com/): Long-form writing on emotional processing and product philosophy.
+- [Blog](https://read.xolaceinc.com/): Long-form writing on emotional processing and product philosophy.
 - [iOS app](https://apps.apple.com/gh/app/xolace/id6761601429): Download Xolace on the App Store.
 - [Android app](https://play.google.com/store/apps/details?id=com.xolaceincorg.xolace): Download Xolace on Google Play.
 

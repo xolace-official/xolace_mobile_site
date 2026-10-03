@@ -89,9 +89,10 @@ export function PrivacyContent() {
       {/* 1. Introduction */}
       <Section id="introduction" index="01" title="Introduction">
         <Body>
-          Xolace (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;)
-          provides a digital platform designed to help individuals process and
-          better understand their emotions.
+          Xolace is operated by XOLACEINC LTD, a company registered in
+          Koforidua, Ghana (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or
+          &ldquo;us&rdquo;), which provides a digital platform designed to help
+          individuals process and better understand their emotions.
         </Body>
         <Body>
           Your privacy is central to how Xolace is designed and operated. This
@@ -175,12 +176,7 @@ export function PrivacyContent() {
         />
 
         <SubHeading>E. Device & Technical Information</SubHeading>
-        <List
-          items={[
-            "Device type and operating system",
-            "App version",
-          ]}
-        />
+        <List items={["Device type and operating system", "App version"]} />
 
         <SubHeading>F. Optional Contributions (Peer Reflections)</SubHeading>
         <Body>If you choose to contribute content anonymously:</Body>
@@ -396,10 +392,10 @@ export function PrivacyContent() {
         <Body>
           To exercise your rights, contact us at{" "}
           <a
-            href="mailto:privacy@xolace.app"
+            href="mailto:privacy@xolaceinc.com"
             className="text-primary underline-offset-4 hover:underline"
           >
-            privacy@xolace.app
+            privacy@xolaceinc.com
           </a>
           . We will respond within the timeframe required by applicable law.
         </Body>
@@ -455,10 +451,10 @@ export function PrivacyContent() {
             Get in touch
           </p>
           <a
-            href="mailto:privacy@xolace.app"
+            href="mailto:privacy@xolaceinc.com"
             className="block text-sm font-medium text-primary underline-offset-4 transition-colors hover:underline"
           >
-            privacy@xolace.app
+            privacy@xolaceinc.com
           </a>
           <p className="font-serif text-xs text-muted-foreground">
             We aim to respond to all privacy inquiries within 5 business days.

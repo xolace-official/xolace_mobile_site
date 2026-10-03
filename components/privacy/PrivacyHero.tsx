@@ -41,7 +41,7 @@ export function PrivacyHero() {
 
         <div className="mt-8 flex items-center gap-6">
           <span className="font-mono text-[10px] tracking-[0.15em] text-muted-foreground/50 uppercase">
-            Last Updated: April 7, 2026
+            Last Updated: October 3, 2026
           </span>
         </div>
 

@@ -45,8 +45,8 @@ export const metadata: Metadata = {
     "Mental healthcare",
     "Professional Support",
   ],
-  creator: "Xolace Inc.",
-  publisher: "Xolace Inc.",
+  creator: "XOLACEINC LTD",
+  publisher: "XOLACEINC LTD",
   formatDetection: {
     email: false,
     address: false,

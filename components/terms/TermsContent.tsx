@@ -118,8 +118,9 @@ export function TermsContent() {
         <Body>
           These Terms of Service (&ldquo;Terms&rdquo;) govern your access to and
           use of the Xolace application, website, and related services
-          (collectively, the &ldquo;Service&rdquo;), operated by Xolace
-          (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;).
+          (collectively, the &ldquo;Service&rdquo;), operated by XOLACEINC LTD,
+          a company registered in Koforidua, Ghana (&ldquo;Xolace,&rdquo;
+          &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;).
         </Body>
         <Body>
           By accessing or using Xolace, you agree to these Terms. If you do not
@@ -393,20 +394,23 @@ export function TermsContent() {
       {/* 15. Governing Law */}
       <Section id="governing-law" index="15" title="Governing Law">
         <Body>
-          These Terms are governed by applicable law, without regard to conflict
-          of law principles. We will specify the governing jurisdiction as
-          Xolace establishes its legal entity.
+          These Terms are governed by the laws of the Republic of Ghana, without
+          regard to conflict of law principles.
         </Body>
       </Section>
 
       {/* 16. Dispute Resolution */}
       <Section id="disputes" index="16" title="Dispute Resolution">
         <Body>
-          Any disputes will be resolved through binding arbitration on an
-          individual basis, unless prohibited by law.
+          If you have a concern about the Service, please contact us at
+          legal@xolaceinc.com first so we can try to resolve it informally.
         </Body>
-        <Body>By agreeing to these Terms, you waive the right to:</Body>
-        <List items={["Jury trials", "Class action lawsuits"]} />
+        <Body>
+          If we cannot resolve it, any dispute arising from these Terms or your
+          use of the Service will be subject to the jurisdiction of the courts
+          of Ghana. Nothing in these Terms limits any consumer rights you have
+          under the law of your country of residence.
+        </Body>
       </Section>
 
       {/* 17. Changes */}
@@ -435,7 +439,7 @@ export function TermsContent() {
             legal@xolaceinc.com
           </a>
           <p className="font-serif text-xs text-muted-foreground">
-            Xolace, a tool for seeing what you&apos;re carrying more clearly.
+            XOLACEINC LTD, Koforidua, Ghana.
           </p>
         </div>
       </Section>

@@ -49,12 +49,7 @@ const faqs: FAQItem[] = [
   {
     question: "What if I'm in a crisis?",
     answer:
-      "Xolace is not a crisis tool. If you are feeling unsafe or in distress, please reach out to your local emergency services or a crisis helpline immediately. In the US, you can call or text 988 (Suicide & Crisis Lifeline). You matter — please seek real support when you need it.",
-  },
-  {
-    question: "How do I join the waitlist?",
-    answer:
-      "You can join the waitlist directly from our homepage. We're rolling out access gradually and will notify you as soon as a spot opens up. Thank you for your patience — we're building something worth waiting for.",
+      "Xolace is not a crisis tool. If you are feeling unsafe or in distress, please reach out to your local emergency services or a crisis helpline immediately. In Ghana, you can call 112 for emergency services or the suicide hotline on 0244 471 279. You matter — please seek real support when you need it.",
   },
 ]
 

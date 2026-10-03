@@ -4,6 +4,7 @@ import Link from "next/link"
 import { m as motion } from "motion/react"
 import { Mail, FileText, Shield, ArrowRight } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
+import { CRISIS_RESOURCES } from "@/lib/crisis-resources"
 
 type QuickLink = {
   Icon: LucideIcon
@@ -159,15 +160,26 @@ export function SupportContact() {
           <p className="font-serif text-sm leading-relaxed text-foreground/80">
             Xolace is not a crisis service. If you or someone you know is in
             immediate danger, please contact your local emergency services. In
-            the US, you can call or text{" "}
-            <a
-              href="tel:988"
-              className="font-medium text-foreground underline underline-offset-4"
-            >
-              988
-            </a>{" "}
-            (Suicide &amp; Crisis Lifeline) at any time.
+            Ghana, these lines are available:
           </p>
+          <ul className="mt-3 space-y-1.5 font-serif text-sm leading-relaxed text-foreground/80">
+            {CRISIS_RESOURCES.map((resource) => (
+              <li key={resource.label}>
+                {resource.label}:{" "}
+                {resource.numbers.map((number, i) => (
+                  <span key={number.tel}>
+                    {i > 0 && ", "}
+                    <a
+                      href={`tel:${number.tel}`}
+                      className="font-medium text-foreground underline underline-offset-4"
+                    >
+                      {number.display}
+                    </a>
+                  </span>
+                ))}
+              </li>
+            ))}
+          </ul>
         </motion.div>
       </div>
     </section>
