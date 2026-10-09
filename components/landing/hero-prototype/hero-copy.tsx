@@ -5,15 +5,28 @@ import { m as motion } from "motion/react"
 import { cn } from "@/lib/utils"
 import { DownloadButtons } from "@/components/shared/download-buttons"
 
-export function HeroCopy({ align }: { align: "start" | "center" }) {
+type HeroCopyProps = {
+  align: "start" | "center"
+  // Rendered between the subline and the store buttons on desktop, after the buttons on phones
+  slot?: React.ReactNode
+  // Smaller desktop headline for variants that give the pipeline more width
+  compact?: boolean
+}
+
+export function HeroCopy({ align, slot, compact }: HeroCopyProps) {
   const centered = align === "center"
   return (
-    <div className={cn("text-center", !centered && "lg:text-left")}>
+    <div
+      className={cn("flex flex-col text-center", !centered && "lg:text-left")}
+    >
       <motion.h1
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-        className="font-serif text-5xl leading-[1.1] font-semibold text-balance text-foreground md:text-6xl lg:text-[4.25rem]"
+        className={cn(
+          "font-serif text-5xl leading-[1.1] font-semibold text-balance text-foreground md:text-6xl",
+          compact ? "lg:text-[3.5rem]" : "lg:text-[4.25rem]"
+        )}
       >
         For the moments that don&apos;t have a name yet.
       </motion.h1>
@@ -28,6 +41,7 @@ export function HeroCopy({ align }: { align: "start" | "center" }) {
       >
         {`A quiet place to say what's true, even without the words for it.`}
       </motion.p>
+      {slot && <div className="order-last lg:order-none">{slot}</div>}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}

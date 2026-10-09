@@ -1,8 +1,9 @@
 "use client"
 
 // PROTOTYPE (ticket #23): eight hero pipeline variants on the real home page, switchable via
-// ?hero=A–H. Also ?tempo=slow|normal|fast and ?still=1 (the reduced-motion frame).
+// ?hero=A–I. Also ?tempo=slow|normal|fast and ?still=1 (the reduced-motion frame).
 import { useSearchParams } from "next/navigation"
+import { cn } from "@/lib/utils"
 import { Spotlight } from "@/components/ui/spotlight"
 import {
   PrototypeSwitcher,
@@ -22,6 +23,7 @@ import { VariantEmber } from "./variant-ember"
 import { VariantSticks } from "./variant-sticks"
 import { VariantSentence } from "./variant-sentence"
 import { VariantTry } from "./variant-try"
+import { VariantBeams } from "./variant-beams"
 import { scenarioFor } from "./scenarios"
 
 // E–H draw their words and Kindlings from scenarios.ts; A–D use the random set
@@ -54,6 +56,13 @@ const VARIANTS = [
     scenario: true,
   },
   { key: "H", name: "Try it", Component: VariantTry, scenario: true },
+  {
+    key: "I",
+    name: "Beams",
+    Component: VariantBeams,
+    scenario: true,
+    wide: true,
+  },
 ]
 
 export function HeroPrototype() {
@@ -72,7 +81,12 @@ export function HeroPrototype() {
     <>
       <section className="section-spacing section-spacing-x relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
         <Spotlight duration={8} xOffset={80} />
-        <div className="relative z-10 mx-auto w-full max-w-5xl">
+        <div
+          className={cn(
+            "relative z-10 mx-auto w-full",
+            "wide" in variant ? "max-w-6xl" : "max-w-5xl"
+          )}
+        >
           <Component state={state} />
         </div>
         <div aria-hidden className="pointer-events-none absolute inset-0">
