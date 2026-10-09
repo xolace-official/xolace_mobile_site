@@ -67,7 +67,7 @@ export function VariantPromise({ wording, region }: { wording: Wording; region: 
                 <h2 className="text-2xl font-semibold text-foreground">Xolace Plus</h2>
                 <PriceLine billing={billing} region={region} />
               </div>
-              <BillingToggle billing={billing} onChange={setBilling} className="self-start md:self-end" />
+              <BillingToggle billing={billing} onChange={setBilling} region={region} className="self-start md:self-end" />
             </div>
             <ul className="grid gap-5 md:grid-cols-2">
               {planRows.map((row) => (

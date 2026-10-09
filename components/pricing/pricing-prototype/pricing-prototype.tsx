@@ -1,6 +1,6 @@
 "use client"
 
-// PROTOTYPE (ticket #26): three /pricing variants, switchable via ?variant=A–C.
+// PROTOTYPE (ticket #26): three /pricing variants, switchable via ?variant=A–D.
 // ?words=plain|numbers flips how limits are written; ?region=global|gh|us shows what the region swap changes.
 import { useSearchParams } from "next/navigation"
 import type { Region } from "@/lib/pricing"
@@ -11,11 +11,13 @@ import type { Wording } from "./plan-data"
 import { VariantPromise } from "./variant-promise"
 import { VariantLedger } from "./variant-ledger"
 import { VariantSession } from "./variant-session"
+import { VariantSplit } from "./variant-split"
 
 const VARIANTS = [
   { key: "A", name: "The promise", Component: VariantPromise },
   { key: "B", name: "The table", Component: VariantLedger },
   { key: "C", name: "One session", Component: VariantSession },
+  { key: "D", name: "Promise / Table", Component: VariantSplit },
 ]
 
 const WORDINGS: Wording[] = ["plain", "numbers"]

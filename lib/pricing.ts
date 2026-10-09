@@ -8,6 +8,11 @@ export type PlusPrice = {
   annual: string
   // Written out so the "about $5 a month" line never drifts from the annual price.
   annualPerMonth: string
+  // Twelve months on the monthly plan, shown struck through next to the yearly price.
+  monthlyForYear: string
+  // Plain numbers so the saving is computed, never typed by hand.
+  monthlyAmount: number
+  annualAmount: number
   trialDays: number
 }
 
@@ -20,10 +25,18 @@ export const plusPrices: Record<"global", PlusPrice> &
     monthly: "$9.99",
     annual: "$59.99",
     annualPerMonth: "$5",
+    monthlyForYear: "$119.88",
+    monthlyAmount: 9.99,
+    annualAmount: 59.99,
     trialDays: 7,
   },
 }
 
 export function getPlusPrice(region: Region): PlusPrice {
   return plusPrices[region] ?? plusPrices.global
+}
+
+// Rounded down so the page never claims more saving than there is ($59.99 vs $119.88 is 49.96%).
+export function annualSavingPercent(price: PlusPrice) {
+  return Math.floor((1 - price.annualAmount / (price.monthlyAmount * 12)) * 100)
 }

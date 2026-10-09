@@ -31,7 +31,7 @@ export function VariantLedger({ wording, region }: { wording: Wording; region: R
               exactly what each one includes.
             </p>
           </div>
-          <BillingToggle billing={billing} onChange={setBilling} className="self-start" />
+          <BillingToggle billing={billing} onChange={setBilling} region={region} className="self-start" />
         </div>
 
         <div className="overflow-hidden rounded-2xl border border-xo-outline-variant/50">
@@ -42,7 +42,7 @@ export function VariantLedger({ wording, region }: { wording: Wording; region: R
               <p className="text-3xl font-semibold text-foreground">Nothing to pay</p>
               <p className="text-sm text-muted-foreground">No card, no trial clock.</p>
             </div>
-            <div className="flex flex-col gap-2 bg-xo-surface-low p-6">
+            <div className="flex flex-col gap-2 border-l-2 border-primary/40 bg-primary/8 p-6">
               <h2 className="text-xl font-semibold text-primary">Xolace Plus</h2>
               <PriceLine billing={billing} region={region} size="sm" />
             </div>
@@ -66,10 +66,12 @@ export function VariantLedger({ wording, region }: { wording: Wording; region: R
                     </span>
                     <span className="text-muted-foreground">{row.about}</span>
                   </th>
-                  <td className="px-6 py-4 text-muted-foreground md:py-5">
+                  <td className="flex flex-col gap-1 px-6 py-4 text-muted-foreground md:py-5">
+                    <span className="text-xs font-medium text-muted-foreground md:hidden">Free</span>
                     {row.free ? rowCopy(row.free, wording) : <span className="text-muted-foreground/60">Not included</span>}
                   </td>
-                  <td className="bg-xo-surface-low px-6 py-4 text-foreground md:py-5">
+                  <td className="flex flex-col gap-1 border-l-2 border-primary/40 bg-primary/8 px-6 py-4 text-foreground md:py-5">
+                    <span className="text-xs font-medium text-primary md:hidden">Plus</span>
                     {rowCopy(row.plus, wording)}
                   </td>
                 </tr>

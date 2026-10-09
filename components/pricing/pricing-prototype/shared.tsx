@@ -3,7 +3,7 @@
 // PROTOTYPE (ticket #26): small pieces every pricing variant uses. Layouts stay in each variant.
 import { useState } from "react"
 import { LifeBuoy } from "lucide-react"
-import { getPlusPrice, type Region } from "@/lib/pricing"
+import { annualSavingPercent, getPlusPrice, type Region } from "@/lib/pricing"
 import { cn } from "@/lib/utils"
 import { alwaysFree, crisisLine } from "./plan-data"
 
@@ -16,12 +16,15 @@ export function useBilling() {
 export function BillingToggle({
   billing,
   onChange,
+  region = "global",
   className,
 }: {
   billing: Billing
   onChange: (b: Billing) => void
+  region?: Region
   className?: string
 }) {
+  const saving = annualSavingPercent(getPlusPrice(region))
   // Build note: swap for shadcn ToggleGroup when this ships.
   return (
     <div
@@ -46,7 +49,21 @@ export function BillingToggle({
               : "text-muted-foreground hover:text-foreground"
           )}
         >
-          {b === "annual" ? "Yearly" : "Monthly"}
+          {b === "annual" ? (
+            <span className="flex items-center gap-2">
+              Yearly
+              <span
+                className={cn(
+                  "rounded-full px-1.5 text-xs font-medium",
+                  billing === b ? "bg-primary text-primary-foreground" : "bg-primary/15 text-primary"
+                )}
+              >
+                Save {saving}%
+              </span>
+            </span>
+          ) : (
+            "Monthly"
+          )}
         </button>
       ))}
     </div>
@@ -68,7 +85,12 @@ export function PriceLine({
 
   return (
     <div className="flex flex-col gap-1">
-      <p className="flex items-baseline gap-2">
+      <p className="flex flex-wrap items-baseline gap-x-2">
+        {billing === "annual" && (
+          <s className={cn("text-muted-foreground/70 tabular-nums", size === "lg" ? "text-2xl" : "text-lg")}>
+            {price.monthlyForYear}
+          </s>
+        )}
         <span
           className={cn(
             "font-semibold tracking-tight text-foreground tabular-nums",
@@ -81,7 +103,7 @@ export function PriceLine({
       </p>
       <p className="text-sm text-muted-foreground">
         {billing === "annual"
-          ? `About ${price.annualPerMonth} a month. Starts with a ${price.trialDays}-day free trial.`
+          ? `About ${price.annualPerMonth} a month, ${annualSavingPercent(price)}% less than paying monthly. Starts with a ${price.trialDays}-day free trial.`
           : `The ${price.trialDays}-day free trial comes with the yearly plan.`}
       </p>
     </div>
