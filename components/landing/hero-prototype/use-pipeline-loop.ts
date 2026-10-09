@@ -1,7 +1,7 @@
 "use client"
 
 // PROTOTYPE (ticket #23): one shared clock so every variant runs the same loop.
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { useReducedMotion } from "motion/react"
 import { KINDLINGS } from "./kindlings"
 
@@ -55,7 +55,14 @@ export function usePipelineLoop(tempo: Tempo, forceStill: boolean) {
     return () => clearTimeout(id)
   }, [stage, still, tempo])
 
+  // Lets an interactive variant start a fresh pass on demand
+  const restart = useCallback(() => {
+    setStage(0)
+    setPass((p) => p + 1)
+  }, [])
+
   return {
+    restart,
     stage: still ? STILL_STAGE : stage,
     set: setIds.map((id) => KINDLINGS.find((k) => k.id === id)!),
     pass,

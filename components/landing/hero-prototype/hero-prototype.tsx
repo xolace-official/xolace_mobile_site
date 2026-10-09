@@ -1,7 +1,7 @@
 "use client"
 
-// PROTOTYPE (ticket #23): four hero pipeline variants on the real home page, switchable via
-// ?hero=A|B|C|D. Also ?tempo=slow|normal|fast and ?still=1 (the reduced-motion frame).
+// PROTOTYPE (ticket #23): eight hero pipeline variants on the real home page, switchable via
+// ?hero=A–H. Also ?tempo=slow|normal|fast and ?still=1 (the reduced-motion frame).
 import { useSearchParams } from "next/navigation"
 import { Spotlight } from "@/components/ui/spotlight"
 import {
@@ -18,12 +18,42 @@ import { VariantColumn } from "./variant-column"
 import { VariantStrip } from "./variant-strip"
 import { VariantOrbit } from "./variant-orbit"
 import { VariantStory } from "./variant-story"
+import { VariantEmber } from "./variant-ember"
+import { VariantSticks } from "./variant-sticks"
+import { VariantSentence } from "./variant-sentence"
+import { VariantTry } from "./variant-try"
+import { scenarioFor } from "./scenarios"
 
+// E–H draw their words and Kindlings from scenarios.ts; A–D use the random set
 const VARIANTS = [
-  { key: "A", name: "Column beside", Component: VariantColumn },
-  { key: "B", name: "Strip below", Component: VariantStrip },
-  { key: "C", name: "Campfire orbit", Component: VariantOrbit },
-  { key: "D", name: "Narrated card", Component: VariantStory },
+  {
+    key: "A",
+    name: "Column beside",
+    Component: VariantColumn,
+    scenario: false,
+  },
+  { key: "B", name: "Strip below", Component: VariantStrip, scenario: false },
+  {
+    key: "C",
+    name: "Campfire orbit",
+    Component: VariantOrbit,
+    scenario: false,
+  },
+  { key: "D", name: "Narrated card", Component: VariantStory, scenario: false },
+  { key: "E", name: "Ember", Component: VariantEmber, scenario: true },
+  {
+    key: "F",
+    name: "Laying the fire",
+    Component: VariantSticks,
+    scenario: true,
+  },
+  {
+    key: "G",
+    name: "One sentence",
+    Component: VariantSentence,
+    scenario: true,
+  },
+  { key: "H", name: "Try it", Component: VariantTry, scenario: true },
 ]
 
 export function HeroPrototype() {
@@ -40,7 +70,7 @@ export function HeroPrototype() {
 
   return (
     <>
-      <section className="section-spacing relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
+      <section className="section-spacing section-spacing-x relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
         <Spotlight duration={8} xOffset={80} />
         <div className="relative z-10 mx-auto w-full max-w-5xl">
           <Component state={state} />
@@ -81,7 +111,9 @@ export function HeroPrototype() {
         </div>
         <p className="text-center text-[11px] opacity-70">
           pass {state.pass} · {STAGES[state.stage]} ·{" "}
-          {state.set.map((k) => k.name).join(", ")}
+          {variant.scenario
+            ? `“${scenarioFor(state.pass).feeling}” scenario (H follows your pick)`
+            : state.set.map((k) => k.name).join(", ")}
         </p>
       </PrototypeSwitcher>
     </>
