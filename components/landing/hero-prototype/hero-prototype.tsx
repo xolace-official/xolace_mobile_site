@@ -95,7 +95,12 @@ export function HeroPrototype() {
         </div>
       </section>
 
-      <PrototypeSwitcher param="hero" variants={VARIANTS} current={variant.key}>
+      <PrototypeSwitcher
+        param="hero"
+        variants={VARIANTS}
+        current={variant.key}
+        arrowKeys={false}
+      >
         <div className="flex flex-wrap items-center justify-center gap-1 text-[11px]">
           {(Object.keys(TEMPOS) as Tempo[]).map((t) => (
             <button

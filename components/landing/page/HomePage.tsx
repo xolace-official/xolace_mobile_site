@@ -2,6 +2,7 @@ import { Suspense } from "react"
 import dynamic from "next/dynamic"
 import { Hero } from "@/components/landing/hero"
 import { HeroPrototype } from "@/components/landing/hero-prototype/hero-prototype"
+import { HowItWorksPrototype } from "@/components/landing/how-it-works-prototype/how-it-works-prototype"
 import { ProblemSection } from "@/components/landing/problem-section"
 import { SmoothScroll } from "@/components/shared/smooth-scroll"
 import { MobileDownloadBar } from "@/components/shared/mobile-download-bar"
@@ -45,13 +46,17 @@ const SupportSection = dynamic(() =>
 export function HomePage() {
   return (
     <SmoothScroll>
-      <main className="relative overflow-hidden">
+      {/* PROTOTYPE (ticket #24): clip, not hidden, so How it works variant A can use position: sticky */}
+      <main className="relative overflow-clip">
         {/* PROTOTYPE (ticket #23): falls back to the current hero while search params resolve */}
         <Suspense fallback={<Hero />}>
           <HeroPrototype />
         </Suspense>
         <ProblemSection />
-        <PathsSection />
+        {/* PROTOTYPE (ticket #24): falls back to the current section while search params resolve */}
+        <Suspense fallback={<PathsSection />}>
+          <HowItWorksPrototype />
+        </Suspense>
         <ReflectionsSection />
         <TrustSection />
         <TestimonialsSection />
