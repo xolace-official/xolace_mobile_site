@@ -1,5 +1,7 @@
+import { Suspense } from "react"
 import dynamic from "next/dynamic"
 import { Hero } from "@/components/landing/hero"
+import { HeroPrototype } from "@/components/landing/hero-prototype/hero-prototype"
 import { ProblemSection } from "@/components/landing/problem-section"
 import { SmoothScroll } from "@/components/shared/smooth-scroll"
 import { MobileDownloadBar } from "@/components/shared/mobile-download-bar"
@@ -44,7 +46,10 @@ export function HomePage() {
   return (
     <SmoothScroll>
       <main className="relative overflow-hidden">
-        <Hero />
+        {/* PROTOTYPE (ticket #23): falls back to the current hero while search params resolve */}
+        <Suspense fallback={<Hero />}>
+          <HeroPrototype />
+        </Suspense>
         <ProblemSection />
         <PathsSection />
         <ReflectionsSection />
