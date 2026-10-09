@@ -16,12 +16,15 @@ export function useBilling() {
 export function BillingToggle({
   billing,
   onChange,
+  region,
   className,
 }: {
   billing: Billing
   onChange: (b: Billing) => void
+  region: Region
   className?: string
 }) {
+  const saving = annualSavingPercent(getPlusPrice(region))
   // Build note: swap for shadcn ToggleGroup when this ships.
   return (
     <div
@@ -46,7 +49,22 @@ export function BillingToggle({
               : "text-muted-foreground hover:text-foreground"
           )}
         >
-          {b === "annual" ? "Yearly" : "Monthly"}
+          {b === "annual" ? (
+            <span className="flex items-center gap-2">
+              Yearly
+              {/* Phones carry the saving here; from lg up it sits beside the price instead. */}
+              <span
+                className={cn(
+                  "rounded-full px-2 py-0.5 text-xs font-medium whitespace-nowrap lg:hidden",
+                  billing === b ? "bg-primary text-primary-foreground" : "bg-primary/15 text-primary"
+                )}
+              >
+                Save {saving}%
+              </span>
+            </span>
+          ) : (
+            "Monthly"
+          )}
         </button>
       ))}
     </div>
@@ -85,7 +103,7 @@ export function PriceLine({
         </span>
         <span className="text-muted-foreground">{per}</span>
         {billing === "annual" && (
-          <span className="self-center rounded-full bg-primary/15 px-2.5 py-0.5 text-sm font-medium whitespace-nowrap text-primary">
+          <span className="hidden self-center rounded-full bg-primary/15 px-2.5 py-0.5 text-sm font-medium whitespace-nowrap text-primary lg:inline">
             Save {saving}%
           </span>
         )}

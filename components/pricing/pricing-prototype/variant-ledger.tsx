@@ -31,7 +31,7 @@ export function VariantLedger({ wording, region }: { wording: Wording; region: R
               exactly what each one includes.
             </p>
           </div>
-          <BillingToggle billing={billing} onChange={setBilling} className="self-start" />
+          <BillingToggle billing={billing} onChange={setBilling} region={region} className="self-start" />
         </div>
 
         <div className="overflow-hidden rounded-2xl border border-xo-outline-variant/50">

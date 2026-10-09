@@ -65,7 +65,7 @@ export function VariantPromise({ wording, region }: { wording: Wording; region: 
             <div className="flex flex-col gap-4">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <h2 className="text-2xl font-semibold text-foreground">Xolace Plus</h2>
-                <BillingToggle billing={billing} onChange={setBilling} />
+                <BillingToggle billing={billing} onChange={setBilling} region={region} />
               </div>
               <PriceLine billing={billing} region={region} />
             </div>
