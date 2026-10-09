@@ -16,15 +16,12 @@ export function useBilling() {
 export function BillingToggle({
   billing,
   onChange,
-  region = "global",
   className,
 }: {
   billing: Billing
   onChange: (b: Billing) => void
-  region?: Region
   className?: string
 }) {
-  const saving = annualSavingPercent(getPlusPrice(region))
   // Build note: swap for shadcn ToggleGroup when this ships.
   return (
     <div
@@ -43,27 +40,13 @@ export function BillingToggle({
           aria-checked={billing === b}
           onClick={() => onChange(b)}
           className={cn(
-            "rounded-full px-4 py-1.5 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
+            "rounded-full px-4 py-1.5 whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
             billing === b
               ? "bg-foreground text-background"
               : "text-muted-foreground hover:text-foreground"
           )}
         >
-          {b === "annual" ? (
-            <span className="flex items-center gap-2">
-              Yearly
-              <span
-                className={cn(
-                  "rounded-full px-1.5 text-xs font-medium",
-                  billing === b ? "bg-primary text-primary-foreground" : "bg-primary/15 text-primary"
-                )}
-              >
-                Save {saving}%
-              </span>
-            </span>
-          ) : (
-            "Monthly"
-          )}
+          {b === "annual" ? "Yearly" : "Monthly"}
         </button>
       ))}
     </div>
@@ -82,6 +65,7 @@ export function PriceLine({
   const price = getPlusPrice(region)
   const amount = billing === "annual" ? price.annual : price.monthly
   const per = billing === "annual" ? "a year" : "a month"
+  const saving = annualSavingPercent(price)
 
   return (
     <div className="flex flex-col gap-1">
@@ -100,11 +84,16 @@ export function PriceLine({
           {amount}
         </span>
         <span className="text-muted-foreground">{per}</span>
+        {billing === "annual" && (
+          <span className="self-center rounded-full bg-primary/15 px-2.5 py-0.5 text-sm font-medium whitespace-nowrap text-primary">
+            Save {saving}%
+          </span>
+        )}
       </p>
       <p className="text-sm text-muted-foreground">
         {billing === "annual"
-          ? `About ${price.annualPerMonth} a month, ${annualSavingPercent(price)}% less than paying monthly. Starts with a ${price.trialDays}-day free trial.`
-          : `The ${price.trialDays}-day free trial comes with the yearly plan.`}
+          ? `About ${price.annualPerMonth} a month. Starts with a ${price.trialDays}-day free trial.`
+          : `Paying yearly saves ${saving}% and comes with a ${price.trialDays}-day free trial.`}
       </p>
     </div>
   )

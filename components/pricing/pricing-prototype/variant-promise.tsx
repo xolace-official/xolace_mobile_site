@@ -62,12 +62,12 @@ export function VariantPromise({ wording, region }: { wording: Wording; region: 
           </div>
 
           <div className="flex flex-col gap-8 rounded-3xl bg-xo-surface-low p-8 ring-1 ring-primary/30 md:p-10">
-            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-              <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-wrap items-center justify-between gap-4">
                 <h2 className="text-2xl font-semibold text-foreground">Xolace Plus</h2>
-                <PriceLine billing={billing} region={region} />
+                <BillingToggle billing={billing} onChange={setBilling} />
               </div>
-              <BillingToggle billing={billing} onChange={setBilling} region={region} className="self-start md:self-end" />
+              <PriceLine billing={billing} region={region} />
             </div>
             <ul className="grid gap-5 md:grid-cols-2">
               {planRows.map((row) => (

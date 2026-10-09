@@ -114,7 +114,7 @@ export function VariantSession({ wording, region }: { wording: Wording; region: 
               <h2 className="text-2xl font-semibold text-foreground">Xolace Plus</h2>
               <PriceLine billing={billing} region={region} />
             </div>
-            <BillingToggle billing={billing} onChange={setBilling} region={region} className="self-start" />
+            <BillingToggle billing={billing} onChange={setBilling} className="self-start" />
           </div>
           <DownloadButtons align="start" />
           <PriceSmallPrint region={region} />
