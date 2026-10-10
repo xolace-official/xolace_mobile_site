@@ -201,7 +201,7 @@ export function KindlingNode({ ref, lit }: { ref: NodeRef; lit: boolean }) {
             Plus
           </span>
         </p>
-        <p className="mt-1 text-[11px] text-muted-foreground">4 for today</p>
+        <p className="mt-1 text-[11px] text-muted-foreground">3–4 for today</p>
       </div>
     </div>
   )

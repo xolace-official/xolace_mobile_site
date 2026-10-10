@@ -137,9 +137,9 @@ export function Hero() {
           <p className="sr-only">
             How Xolace works: you say what&apos;s true in your own words. The
             Fire reflects back what it hears underneath. If you need support
-            right now, Kindling builds four supports for today from a shelf of{" "}
-            {KINDLINGS.length}: {shelfNames}. Kindling is part of Xolace Plus,
-            one set a day.
+            right now, Kindling builds three or four supports for today from a
+            shelf of {KINDLINGS.length}: {shelfNames}. Kindling is part of
+            Xolace Plus, one set a day.
           </p>
 
           <div

@@ -32,7 +32,7 @@ export const STEPS: Step[] = [
   {
     key: "support",
     title: "Get support that fits.",
-    body: "When a session suggests you could use more, Kindling builds a set of up to four for your day from the supports inside the app, and tells you why each one is there.",
+    body: "When a session suggests you could use more, Kindling builds a set of three or four for your day from the supports inside the app, and tells you why each one is there.",
     screen: "/app-images/kindling.jpeg",
     alt: "Your kindling: a path of four supports for the day, one already tended, with a line on why breathing for a minute might help",
   },
