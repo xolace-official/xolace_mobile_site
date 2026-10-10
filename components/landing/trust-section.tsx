@@ -14,18 +14,19 @@ type Promise = {
   Icon: LucideIcon
 }
 
+// Only what docs/xolace.md §9 and §11 say is true today. Deletion and AI training stay off until §9 gaps 7–10 close.
 const promises: Promise[] = [
   {
-    title: "Private by design",
+    title: "Private by default",
     description:
-      "Encrypted in transit and at rest. No human at Xolace reviews what you write.",
+      "No one else sees your reflections unless you choose to share one.",
     image: "/trust-section/01_private_by_design.svg",
     Icon: Lock,
   },
   {
-    title: "Anonymous, always",
+    title: "Shared only if you choose",
     description:
-      "Your name is never attached to anything. You are not a profile.",
+      "Nothing with your words in it reaches anyone else unless you agree to it.",
     image: "/trust-section/02_anonymous_always.svg",
     Icon: EyeOff,
   },
@@ -79,7 +80,7 @@ function PromiseCard({ promise, index }: { promise: Promise; index: number }) {
 
 export function TrustSection() {
   return (
-    <section className="section-spacing relative overflow-hidden bg-muted">
+    <section className="section-spacing relative overflow-hidden bg-background">
       <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

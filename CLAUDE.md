@@ -165,7 +165,7 @@ components/
   ui/             # shadcn primitives + custom UI (Iphone, Marquee, Spotlight…)
   socials/        # Brand SVG icons (TikTok, Instagram, LinkedIn, WhatsApp) — no lucide equivalent
 providers/        # MotionProvider (and future PostHogProvider)
-lib/              # utils.ts (cn helper). team.ts is the single source for founder data — import from here, not from component files.
+lib/              # utils.ts (cn helper). kindlings.ts is the shelf of five named Kindlings. team.ts is the single source for founder data — import from here, not from component files.
                   # links.ts (store + whitepaper URLs), site.ts (default description), region.ts, crisis-resources.ts, pricing.ts, plans.ts (Free vs Plus rows), safety.ts (every /safety claim and the "Not built yet" gaps, each with its source) — single sources, never inline these values.
 hooks/            # use-region.ts — the browser half of the region swap; use-active-section.ts — scroll-spy for sticky menus
 utils/supabase/   # Browser client factory — getSupabaseBrowserClient()
@@ -182,20 +182,19 @@ Reference: `waitlist-form.tsx` + `waitlist-cta.tsx`. Every new form (supporters,
 ### Landing Page Section Order
 
 ```
-HomePage.tsx
-  ├── Hero              — emotional hook + download badges (direct)
+HomePage.tsx            — <main> is overflow-clip, never overflow-hidden (hidden breaks the pinned phone)
+  ├── Hero              — hero/: H1, subline, and the Beams pipeline (typed words → the Fire → Kindling → shelf of five)
   ├── ProblemSection    — raw vignettes ("Monday 11pm, chest tight")
-  ├── PathsSection      — Mirror / Vent / Glimpses explained
-  ├── HowItWorks        — 3-step flow with real app screenshots
-  ├── MockupSection     — Mirror conversation demo
-  ├── ReflectionsSection — anonymous quotes marquee
-  ├── TrustSection      — privacy signals
-  ├── TestimonialsSection — real user reviews
-  ├── LaunchSection     — video + download badges (id="download")
-  └── SupportSection    — early supporter email form
+  ├── HowItWorks        — how-it-works/: four steps, pinned phone on lg, stories player below; id="paths"
+  ├── TrustSection      — privacy promises, only what docs/xolace.md §9/§11 say is true today
+  ├── TestimonialsSection — real store reviews; no rating figure (too few ratings, never average the two stores)
+  ├── LandingFaq
+  └── LaunchSection     — video + download badges (id="download")
 ```
 
-`CompanionBridge` and `PhilosophySection` are NOT in the page. Their key ideas live in `PathsSection` now. Do not re-add them without discussing first.
+The hero's typed lines and reflections (`hero/scenarios.ts`) are illustrative; consecutive scenarios must light different sets of four. Kindling names, icons and colours come from `lib/kindlings.ts`. Public copy says Kindling "builds" a set, never "picks"/"chooses" (CONTEXT.md). Reduced motion freezes the hero on its fully lit frame; read the media query with `useSyncExternalStore` (server snapshot `false`), not `useReducedMotion`, or hydration mismatches.
+
+Retired from the home page: `PathsSection`, the old `how-it-works.tsx`, `ReflectionsSection` (session quotes without marketing consent), the Flux hero image and the 4.9 rating. `CompanionBridge` and `PhilosophySection` are not in the page either. Do not re-add any of them without discussing first.
 
 `MobileDownloadBar` is rendered outside `<main>` inside `SmoothScroll` — it's not part of the scroll flow.
 

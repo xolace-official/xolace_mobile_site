@@ -195,24 +195,10 @@ export function TestimonialsSection() {
           <p className="font-mono text-[11px] tracking-[0.24em] text-muted-foreground/30 uppercase">
             Real voices
           </p>
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
-              What they found.
-            </h2>
-            <div className="flex shrink-0 items-center gap-3 pb-1">
-              <div className="flex items-center gap-0.5">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="size-4 fill-primary text-primary" />
-                ))}
-              </div>
-              <span className="text-sm font-medium text-foreground/65">
-                4.9
-              </span>
-              <span className="text-sm text-muted-foreground/30">
-                · App Store & Google Play
-              </span>
-            </div>
-          </div>
+          {/* No store rating here: too few ratings to quote, and the two stores must not be averaged */}
+          <h2 className="font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
+            What they found.
+          </h2>
         </motion.div>
 
         <div className="relative">
