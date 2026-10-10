@@ -166,7 +166,7 @@ components/
   socials/        # Brand SVG icons (TikTok, Instagram, LinkedIn, WhatsApp) — no lucide equivalent
 providers/        # MotionProvider (and future PostHogProvider)
 lib/              # utils.ts (cn helper). kindlings.ts is the shelf of five named Kindlings. team.ts is the single source for founder data — import from here, not from component files.
-                  # links.ts (store + whitepaper URLs), site.ts (default description), region.ts, crisis-resources.ts, pricing.ts, plans.ts (Free vs Plus rows), safety.ts (every /safety claim and the "Not built yet" gaps, each with its source) — single sources, never inline these values.
+                  # links.ts (store + whitepaper URLs), site.ts (default description), region.ts, crisis-resources.ts, pricing.ts, plans.ts (Free vs Plus rows), safety.ts (every /safety claim and the "Not built yet" gaps, each with its source), faq-data.ts (the 22 FAQ answers as segments; /faq, the landing FAQ and the FAQPage JSON-LD all read it, prices come from pricing.ts, the crisis answer swaps region in the browser) — single sources, never inline these values.
 hooks/            # use-region.ts — the browser half of the region swap; use-active-section.ts — scroll-spy for sticky menus
 utils/supabase/   # Browser client factory — getSupabaseBrowserClient()
 ```

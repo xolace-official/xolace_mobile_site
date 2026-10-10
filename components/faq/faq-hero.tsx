@@ -27,14 +27,8 @@ export function FaqHero() {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto max-w-md text-base leading-relaxed font-light text-muted-foreground md:text-lg"
         >
-          Honest answers. If something&apos;s still unclear, email{" "}
-          <a
-            href="mailto:hello@xolaceinc.com"
-            className="text-foreground/80 underline underline-offset-4 transition-colors duration-200 hover:text-foreground"
-          >
-            hello@xolaceinc.com
-          </a>
-          . We actually respond.
+          Short, honest answers. Where there&apos;s more to say, we link to the
+          page that says it.
         </motion.p>
       </div>
     </section>

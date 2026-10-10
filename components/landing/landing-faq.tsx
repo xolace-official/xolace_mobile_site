@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { m as motion, AnimatePresence } from "motion/react"
 import { Plus } from "lucide-react"
+import { FaqAnswer } from "@/components/faq/faq-answer"
 import { cn } from "@/lib/utils"
 import { faqCategories, type FaqItem } from "@/lib/faq-data"
 
@@ -42,6 +43,13 @@ const catConfigs: CatConfig[] = [
     activeBg: "bg-destructive/[0.06]",
     activeText: "text-destructive",
     pillBorder: "border-destructive/30",
+  },
+  {
+    dot: "bg-chart-3/35",
+    activeDot: "bg-chart-3",
+    activeBg: "bg-chart-3/[0.06]",
+    activeText: "text-chart-3",
+    pillBorder: "border-chart-3/30",
   },
 ]
 
@@ -98,9 +106,10 @@ function FaqRow({
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             style={{ overflow: "hidden" }}
           >
-            <p className="max-w-2xl pr-8 pb-7 font-serif text-sm leading-relaxed text-muted-foreground md:text-base">
-              {item.answer}
-            </p>
+            <FaqAnswer
+              item={item}
+              className="max-w-2xl pr-8 pb-7 font-serif text-sm leading-relaxed text-muted-foreground md:text-base"
+            />
           </motion.div>
         )}
       </AnimatePresence>
@@ -158,7 +167,7 @@ export function LandingFaq() {
             const isActive = activeIdx === i
             return (
               <button
-                key={cat.label}
+                key={cat.id}
                 onClick={() => switchCategory(i)}
                 className={cn(
                   "flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-[11px] tracking-[0.15em] uppercase transition-all duration-300",
@@ -189,7 +198,7 @@ export function LandingFaq() {
                 const isActive = activeIdx === i
                 return (
                   <button
-                    key={cat.label}
+                    key={cat.id}
                     onClick={() => switchCategory(i)}
                     className={cn(
                       "flex items-center gap-3 rounded-xl px-4 py-3 text-left transition-all duration-300",
@@ -254,8 +263,8 @@ export function LandingFaq() {
                 </p>
 
                 <div className="border-t border-border">
-                  {activeCat.items.map((item, i) => {
-                    const key = `${activeCat.label}-${i}`
+                  {activeCat.items.map((item) => {
+                    const key = `${activeCat.id}-${item.id}`
                     return (
                       <FaqRow
                         key={key}
