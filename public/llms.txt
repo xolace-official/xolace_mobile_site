@@ -194,5 +194,6 @@ health support.
 
 - [About](https://www.xolaceinc.com/about): The team and story behind Xolace.
 - [Manifesto](https://www.xolaceinc.com/manifesto): Xolace's philosophy on emotional processing.
+- [Safety](https://www.xolaceinc.com/safety): How every message is checked, what happens at crisis, who Xolacers are, the age policy, and what isn't built yet.
 - [FAQ](https://www.xolaceinc.com/faq): Common questions about privacy, safety, and how Xolace works.
 - [Privacy Policy](https://www.xolaceinc.com/privacy): How Xolace handles user data.

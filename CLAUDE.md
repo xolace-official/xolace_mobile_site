@@ -139,6 +139,7 @@ app/about/page.tsx        →  components/about/page/AboutPage.tsx
 app/faq/page.tsx          →  components/faq/page/FaqPage.tsx
 app/press/page.tsx        →  components/press/page/PressPage.tsx
 app/pricing/page.tsx      →  components/pricing/page/PricingPage.tsx
+app/safety/page.tsx       →  components/safety/page/SafetyPage.tsx
 app/privacy/page.tsx      →  components/privacy/page/PrivacyPage.tsx
 app/terms/page.tsx        →  components/terms/page/TermsPage.tsx
 app/support/page.tsx      →  components/support/page/SupportPage.tsx
@@ -165,8 +166,8 @@ components/
   socials/        # Brand SVG icons (TikTok, Instagram, LinkedIn, WhatsApp) — no lucide equivalent
 providers/        # MotionProvider (and future PostHogProvider)
 lib/              # utils.ts (cn helper). team.ts is the single source for founder data — import from here, not from component files.
-                  # links.ts (store + whitepaper URLs), site.ts (default description), region.ts, crisis-resources.ts, pricing.ts, plans.ts (Free vs Plus rows) — single sources, never inline these values.
-hooks/            # use-region.ts — the browser half of the region swap
+                  # links.ts (store + whitepaper URLs), site.ts (default description), region.ts, crisis-resources.ts, pricing.ts, plans.ts (Free vs Plus rows), safety.ts (every /safety claim and the "Not built yet" gaps, each with its source) — single sources, never inline these values.
+hooks/            # use-region.ts — the browser half of the region swap; use-active-section.ts — scroll-spy for sticky menus
 utils/supabase/   # Browser client factory — getSupabaseBrowserClient()
 ```
 

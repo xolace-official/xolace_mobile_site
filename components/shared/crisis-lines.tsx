@@ -4,12 +4,14 @@ import { useRegion } from "@/hooks/use-region"
 import { getCrisisTier, type CrisisLine } from "@/lib/crisis-resources"
 import { cn } from "@/lib/utils"
 
-function CrisisLink({
+export function CrisisLink({
   line,
   className,
+  children,
 }: {
   line: CrisisLine
   className?: string
+  children?: React.ReactNode
 }) {
   const external = line.href.startsWith("http")
   return (
@@ -19,7 +21,7 @@ function CrisisLink({
       rel={external ? "noopener noreferrer" : undefined}
       className={className}
     >
-      {line.display}
+      {children ?? line.display}
     </a>
   )
 }
