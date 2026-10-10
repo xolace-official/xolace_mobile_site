@@ -2,7 +2,8 @@
 
 import { useEffect, useState, type RefObject } from "react"
 import { m as motion } from "motion/react"
-import { Flame, Sparkles, User } from "lucide-react"
+import Image from "next/image"
+import { Sparkles, User } from "lucide-react"
 import { cn } from "@/lib/utils"
 import type { Kindling } from "@/lib/kindlings"
 import { INK, inkVar } from "./ink"
@@ -81,22 +82,31 @@ export function FireNode({
         transition={{ duration: 1.4, ease }}
         className="pointer-events-none absolute top-10 left-1/2 -z-10 size-[30rem] -translate-1/2 rounded-full bg-primary/12 blur-[110px]"
       />
-      <div className="relative flex size-18 items-center justify-center lg:size-20">
+      <div className="relative size-24 lg:size-28">
+        {/* Lights up as the beam arrives */}
         <motion.div
           initial={false}
-          animate={{ opacity: lit ? 1 : 0 }}
+          animate={{ opacity: lit ? 1 : 0, scale: lit ? 1.15 : 0.9 }}
           transition={{ duration: 0.9, ease }}
-          className="animate-gentle-pulse absolute inset-0 rounded-full bg-primary/25 blur-md"
+          className="animate-gentle-pulse absolute inset-0 rounded-full bg-primary/40 blur-xl"
         />
         <div
           className={cn(
-            "relative flex size-full items-center justify-center rounded-full border transition-colors duration-700",
-            lit
-              ? "border-primary/60 bg-xo-surface-low text-primary"
-              : "border-xo-outline-variant bg-xo-surface-low text-muted-foreground"
+            "relative size-full overflow-hidden rounded-full border-2 transition-colors duration-700",
+            lit ? "border-primary/70" : "border-xo-outline-variant"
           )}
         >
-          <Flame className="size-7" strokeWidth={1.5} />
+          <Image
+            src="/hero/the-fire.jpeg"
+            alt=""
+            fill
+            priority
+            sizes="112px"
+            className={cn(
+              "object-cover transition-[filter,opacity] duration-700",
+              lit ? "opacity-100" : "opacity-60 saturate-50"
+            )}
+          />
         </div>
       </div>
       <p className="mt-3 text-xs font-medium text-foreground">The Fire</p>
