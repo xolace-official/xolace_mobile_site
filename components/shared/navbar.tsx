@@ -13,7 +13,6 @@ const navLinks = [
   { href: "/manifesto", label: "Manifesto" },
   { href: "/pricing", label: "Pricing" },
   { href: "/safety", label: "Safety" },
-  { href: "/faq", label: "FAQ" },
 ]
 
 export function Navbar() {
