@@ -35,7 +35,7 @@ const steps: Step[] = [
   },
 ]
 
-const between = ["vent", "timeline", "quotes", "vessa", "look"].map(row)
+const between = ["vent", "timeline", "quotes", "vessa", "lantern", "xolacers", "look"].map(row)
 
 export function VariantSession({ wording, region }: { wording: Wording; region: Region }) {
   const [billing, setBilling] = useBilling()

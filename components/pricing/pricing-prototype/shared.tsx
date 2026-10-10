@@ -5,7 +5,7 @@ import { useState } from "react"
 import { LifeBuoy } from "lucide-react"
 import { annualSavingPercent, getPlusPrice, type Region } from "@/lib/pricing"
 import { cn } from "@/lib/utils"
-import { alwaysFree, crisisLine } from "./plan-data"
+import { crisisLine } from "./plan-data"
 
 export type Billing = "annual" | "monthly"
 
@@ -135,18 +135,13 @@ export function AlwaysFree({
   className?: string
 }) {
   return (
-    <div className={cn("flex flex-col gap-4", className)}>
+    <div className={cn("flex flex-col gap-3", className)}>
       <p className="text-lg font-medium text-foreground">
-        Some things are never behind Plus.
+        Crisis support is never behind Plus.
       </p>
-      <ul className="flex flex-col gap-3">
-        {alwaysFree.map((item) => (
-          <li key={item.name} className="text-sm text-muted-foreground">
-            <span className="text-foreground">{item.name}</span>
-            {item.confirm && <ConfirmFlag note={item.confirm} />}. {item.detail}
-          </li>
-        ))}
-      </ul>
+      <p className="text-sm text-muted-foreground">
+        When a session needs it, Xolace shows crisis resources, on Free and on Plus.
+      </p>
       <p className="flex items-start gap-2 text-sm text-foreground">
         <LifeBuoy className="mt-0.5 size-4 shrink-0 text-accent" />
         {/* Region block: the server renders the global line, the browser swaps in the local one. */}

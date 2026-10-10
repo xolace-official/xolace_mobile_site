@@ -67,7 +67,20 @@ export const planRows: PlanRow[] = [
     about: "Audio and music for what you're carrying.",
     free: { plain: "Previews." },
     plus: { plain: "Full audio, with transcripts." },
-    confirm: "Technical §9 says Vessa isn't shown in the app yet.",
+  },
+  {
+    id: "lantern",
+    name: "Lantern",
+    about: "The library of writing on what people carry.",
+    free: { plain: "Read every entry." },
+    plus: { plain: "Listen to the podcast version of every entry." },
+  },
+  {
+    id: "xolacers",
+    name: "Xolacers",
+    about: "Chat with a trained peer listener.",
+    free: { plain: "A couple of chats open at a time.", numbers: "Up to 2 chats open at a time." },
+    plus: { plain: "More chats open at a time." },
   },
   {
     id: "timeline",
@@ -89,17 +102,6 @@ export const planRows: PlanRow[] = [
     about: "Themes and avatars.",
     free: { plain: "Core themes and avatars." },
     plus: { plain: "Premium themes and avatars." },
-  },
-]
-
-// Never behind Plus. Shown on every variant.
-export const alwaysFree: { name: string; detail: string; confirm?: string }[] = [
-  { name: "Crisis resources", detail: "Shown whenever a session needs them." },
-  { name: "Lantern", detail: "The library." },
-  {
-    name: "Xolacers",
-    detail: "Chat with a trained peer listener.",
-    confirm: "Docs §11: Lantern and Xolacer chat aren't Plus-gated in code. Confirm that's intended.",
   },
 ]
 
