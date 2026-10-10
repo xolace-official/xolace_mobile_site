@@ -4,6 +4,7 @@ import { useState } from "react"
 import { m as motion, AnimatePresence } from "motion/react"
 import { Plus } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { DANGER_LINE } from "@/lib/crisis-resources"
 
 interface FAQItem {
   question: string
@@ -48,8 +49,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: "What if I'm in a crisis?",
-    answer:
-      "Xolace is not a crisis tool. If you are feeling unsafe or in distress, please reach out to your local emergency services or a crisis helpline immediately. In Ghana, you can call 112 for emergency services or the suicide hotline on 0244 471 279. You matter — please seek real support when you need it.",
+    answer: `Xolace is not a crisis service. ${DANGER_LINE} The crisis line for where you are is listed further down this page. You matter, so please reach out to real support when you need it.`,
   },
 ]
 

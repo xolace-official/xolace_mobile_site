@@ -1,10 +1,10 @@
 import type { Metadata } from "next"
 import { HomePage } from "@/components/landing/page/HomePage"
+import { SITE_DESCRIPTION } from "@/lib/site"
 
 export const metadata: Metadata = {
-  title: "Emotional Infrastructure",
-  description:
-    "Not everything needs fixing. Some things just need to be said. Xolace is a quiet place to be human.",
+  title: { absolute: "Xolace: for the moments that don't have a name yet" },
+  description: SITE_DESCRIPTION,
 }
 
 export default function Home() {

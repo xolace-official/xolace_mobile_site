@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { FadeIn } from "@/components/shared/fade-in"
+import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/links"
 
 type BadgeProps = {
   href: string
@@ -46,14 +47,14 @@ export function DownloadSection() {
 
         <div className="flex flex-col items-center justify-center gap-5 sm:flex-row">
           <StoreBadge
-            href="https://apps.apple.com/gh/app/xolace/id6761601429"
+            href={APP_STORE_URL}
             ariaLabel="Download Xolace on the App Store"
             lightSrc="/images/app-store-mobile.png"
             darkSrc="/images/app-store-mobile-dark.png"
             alt="Download on the App Store"
           />
           <StoreBadge
-            href="https://play.google.com/store/apps/details?id=com.xolaceincorg.xolace"
+            href={PLAY_STORE_URL}
             ariaLabel="Get Xolace on Google Play"
             lightSrc="/images/play-store-light.png"
             darkSrc="/images/play-store-dark.png"

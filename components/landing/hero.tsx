@@ -17,7 +17,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-balance font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]"
+            className="font-serif text-5xl leading-[1.1] font-semibold text-balance text-foreground md:text-6xl lg:text-[4.25rem]"
           >
             For the moments that don&apos;t have a name yet.
           </motion.h1>
@@ -65,7 +65,7 @@ export function Hero() {
               }}
             >
               <Image
-                src="/flux-images/ChatGPT_Image_Oct_20__2025__10_36_31_PM-removebg-preview.png"
+                src="/flux-images/flux-arms-crossed.png"
                 alt="Flux"
                 width={300}
                 height={400}

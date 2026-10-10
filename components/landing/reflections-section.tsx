@@ -258,6 +258,8 @@ export function ReflectionsSection() {
   const [colors, setColors] = useState<ColorConfig[]>(colorPool)
 
   useEffect(() => {
+    // Shuffling during render would make the server and client markup differ
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setColors(shuffle(colorPool))
   }, [])
 

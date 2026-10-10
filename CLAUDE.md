@@ -35,6 +35,7 @@ bun run build        # Production build
 bun run lint         # ESLint
 bun run format       # Prettier — formats all .ts/.tsx
 bun run typecheck    # TypeScript check (no emit)
+bun run test         # Unit tests for lib/ (bun:test; *.test.ts are excluded from tsc)
 ```
 
 Adding shadcn/ui components:
@@ -161,6 +162,8 @@ components/
   socials/        # Brand SVG icons (TikTok, Instagram, LinkedIn, WhatsApp) — no lucide equivalent
 providers/        # MotionProvider (and future PostHogProvider)
 lib/              # utils.ts (cn helper). team.ts is the single source for founder data — import from here, not from component files.
+                  # links.ts (store + whitepaper URLs), site.ts (default description), region.ts, crisis-resources.ts, pricing.ts — single sources, never inline these values.
+hooks/            # use-region.ts — the browser half of the region swap
 utils/supabase/   # Browser client factory — getSupabaseBrowserClient()
 ```
 
@@ -191,6 +194,13 @@ HomePage.tsx
 `CompanionBridge` and `PhilosophySection` are NOT in the page. Their key ideas live in `PathsSection` now. Do not re-add them without discussing first.
 
 `MobileDownloadBar` is rendered outside `<main>` inside `SmoothScroll` — it's not part of the scroll flow.
+
+### Region swap
+
+Pages render the `global` region on the server and stay static. In the browser, `useRegion()` (`hooks/use-region.ts`) asks `GET /api/region` once per page load (it maps Vercel's `x-vercel-ip-country` header: GH → `gh`, US → `us`, anything else → `global`) and swaps regional blocks in. `?region=gh|us|global` forces a region for checking.
+
+- Crisis lines come only from `lib/crisis-resources.ts` (verified tiers; 0244 471 279, 112, 18555 and other unverified numbers must not be added back). Render them with `CrisisLineList` / `CrisisLineInline` from `components/shared/crisis-lines.tsx`.
+- Prices come only from `lib/pricing.ts` via `getPlusPrice(region)`; the yearly saving is `annualSavingPercent()`, never typed by hand.
 
 ### Supabase
 

@@ -29,8 +29,7 @@ const paths: Path[] = [
     tag: "Mirror",
     headline: "Words for what you couldn't say.",
     body: "You arrive with a feeling that has no shape. Tap a word, type a fragment, or just speak. Mirror gives it back to you, named.",
-    image:
-      "/flux-images/ChatGPT_Image_Oct_20__2025__10_36_52_PM-removebg-preview.png",
+    image: "/flux-images/flux-question-mark.png",
     alt: "Flux holding a question mark — the feeling before it has a name",
     imageClass: "w-[85%] h-[85%] object-contain",
     orbBg: "bg-primary/[0.12]",
@@ -46,8 +45,7 @@ const paths: Path[] = [
     tag: "Echo",
     headline: "Someone else carried this too.",
     body: "After your session, an anonymous moment surfaces — shared by someone who felt the same shape. Not advice. Just: you're not alone in it tonight.",
-    image:
-      "/flux-images/ChatGPT_Image_Oct_20__2025__10_36_42_PM-removebg-preview.png",
+    image: "/flux-images/flux-paper-plane.png",
     alt: "Flux holding a paper plane",
     imageClass: "w-[78%] h-[78%] object-contain drop-shadow-xl",
     orbBg: "bg-accent/[0.10]",
@@ -63,8 +61,7 @@ const paths: Path[] = [
     tag: "Safety",
     headline: "Held, even when it's heavier.",
     body: "If what you write suggests real danger, Mirror responds differently — gently, with real help nearby. A safe place doesn't leave you alone.",
-    image:
-      "/flux-images/ChatGPT_Image_Oct_20__2025__10_39_59_PM-removebg-preview.png",
+    image: "/flux-images/flux-heart.png",
     alt: "Flux cradling a pink heart",
     imageClass: "w-[90%] h-[90%] object-contain",
     orbBg: "bg-chart-2/[0.10]",

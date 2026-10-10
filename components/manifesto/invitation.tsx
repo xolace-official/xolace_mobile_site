@@ -83,7 +83,7 @@ export function Invitation() {
               className="flex shrink-0 justify-center lg:justify-end"
             >
               <Image
-                src="/flux-images/ChatGPT_Image_Oct_20__2025__10_39_59_PM-removebg-preview.png"
+                src="/flux-images/flux-heart.png"
                 alt=""
                 width={260}
                 height={260}

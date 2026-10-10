@@ -11,22 +11,23 @@ import { TextAlignJustify, X } from "lucide-react"
 const navLinks = [
   { href: "/about", label: "About" },
   { href: "/manifesto", label: "Manifesto" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/safety", label: "Safety" },
+  { href: "/faq", label: "FAQ" },
 ]
 
 export function Navbar() {
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  // Remembers which page the menu was opened on, so navigating closes it without an effect
+  const [menuOpenOn, setMenuOpenOn] = useState<string | null>(null)
+  const menuOpen = menuOpenOn === pathname
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 24)
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
-
-  useEffect(() => {
-    setMenuOpen(false)
-  }, [pathname])
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : ""
@@ -97,7 +98,7 @@ export function Navbar() {
           <div className="flex items-center gap-2 md:hidden">
             <AnimatedThemeToggler />
             <button
-              onClick={() => setMenuOpen((v) => !v)}
+              onClick={() => setMenuOpenOn(menuOpen ? null : pathname)}
               aria-label="Toggle navigation"
               className="rounded-lg p-2 text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground"
             >

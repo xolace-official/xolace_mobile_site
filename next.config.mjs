@@ -2,6 +2,15 @@
 const nextConfig = {
   compress: true,
   poweredByHeader: false,
+  // Keeps the whitepaper link on xolaceinc.com while the PDF is still published on GitHub Pages.
+  async rewrites() {
+    return [
+      {
+        source: "/whitepaper.pdf",
+        destination: "https://xolace-official.github.io/wp.pdf",
+      },
+    ]
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 31536000,

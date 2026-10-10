@@ -6,7 +6,8 @@ import { Instagram } from "@/components/socials/instagram-icon"
 import { YouTube } from "@/components/socials/youtube-icon"
 import { WhatsApp } from "@/components/socials/whatsapp-icon"
 import { TikTokLight } from "@/components/socials/tiktok-icon-light"
-import { EMERGENCY_NUMBER, SUICIDE_HOTLINE } from "@/lib/crisis-resources"
+import { CrisisLineInline } from "@/components/shared/crisis-lines"
+import { DANGER_LINE } from "@/lib/crisis-resources"
 
 type NavLink = { label: string; href: string; external?: boolean }
 
@@ -19,13 +20,13 @@ const socials = [
   },
   {
     label: "Instagram",
-    href: "https://www.instagram.com/xolaceinc?utm_source=qr&igsh=anB2bTA4ZTJiM2tu",
+    href: "https://www.instagram.com/xolaceinc/",
     icon: <Instagram className="size-5" />,
     color: undefined,
   },
   {
     label: "TikTok",
-    href: "https://www.tiktok.com/@talk.with.xolace?_r=1&_t=ZS-93PtIXpzJAr",
+    href: "https://www.tiktok.com/@talk.with.xolace",
     icon: <TikTokLight className="size-5" fill="currentColor" />,
     color: "currentColor",
   },
@@ -47,6 +48,9 @@ const links: Record<"explore" | "legal" | "contact", NavLink[]> = {
   explore: [
     { label: "About", href: "/about" },
     { label: "Manifesto", href: "/manifesto" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "Safety", href: "/safety" },
+    { label: "FAQ", href: "/faq" },
     {
       label: "Ambassadors",
       href: "https://ambassador.xolaceinc.com",
@@ -137,22 +141,10 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col items-start justify-between gap-3 border-t border-border/15 pb-10 sm:flex-row sm:items-center md:pb-0">
           <p className="max-w-xl font-serif text-[12px] leading-relaxed text-muted-foreground/55 italic">
-            Xolace is not designed for crisis. If you feel unsafe, contact your
-            local emergency services on{" "}
-            <a
-              href={`tel:${EMERGENCY_NUMBER.tel}`}
-              className="underline underline-offset-2 transition-colors duration-300 hover:text-muted-foreground"
-            >
-              {EMERGENCY_NUMBER.display}
-            </a>{" "}
-            or the suicide hotline on{" "}
-            <a
-              href={`tel:${SUICIDE_HOTLINE.tel}`}
-              className="underline underline-offset-2 transition-colors duration-300 hover:text-muted-foreground"
-            >
-              {SUICIDE_HOTLINE.display}
-            </a>{" "}
-            (Ghana) at any time.
+            Xolace is not a crisis service. {DANGER_LINE} To talk to someone
+            now:{" "}
+            <CrisisLineInline linkClassName="transition-colors duration-300 hover:text-muted-foreground" />
+            .
           </p>
           <div className="flex shrink-0 flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
             <ElevenLabsGrantsBadge />

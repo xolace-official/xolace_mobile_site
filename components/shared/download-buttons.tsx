@@ -1,9 +1,6 @@
 import Image from "next/image"
 import { cn } from "@/lib/utils"
-
-const APP_STORE_URL = "https://apps.apple.com/gh/app/xolace/id6761601429"
-const PLAY_STORE_URL =
-  "https://play.google.com/store/apps/details?id=com.xolaceincorg.xolace"
+import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/links"
 
 type DownloadButtonsProps = {
   className?: string
