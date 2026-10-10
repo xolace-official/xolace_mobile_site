@@ -43,6 +43,8 @@ Adding shadcn/ui components:
 bunx shadcn@latest add <component>
 ```
 
+After adding, check `package.json` and the new files: shadcn has resolved `cn` to an unrelated npm package called `cn` (added as a dependency, imported as `from "cn"`). Revert that and import `cn` from `@/lib/utils`.
+
 ---
 
 ## Installed Packages — Know What You Have
@@ -136,6 +138,7 @@ app/manifesto/page.tsx    →  components/manifesto/page/ManifestoPageV2.tsx
 app/about/page.tsx        →  components/about/page/AboutPage.tsx
 app/faq/page.tsx          →  components/faq/page/FaqPage.tsx
 app/press/page.tsx        →  components/press/page/PressPage.tsx
+app/pricing/page.tsx      →  components/pricing/page/PricingPage.tsx
 app/privacy/page.tsx      →  components/privacy/page/PrivacyPage.tsx
 app/terms/page.tsx        →  components/terms/page/TermsPage.tsx
 app/support/page.tsx      →  components/support/page/SupportPage.tsx
@@ -162,7 +165,7 @@ components/
   socials/        # Brand SVG icons (TikTok, Instagram, LinkedIn, WhatsApp) — no lucide equivalent
 providers/        # MotionProvider (and future PostHogProvider)
 lib/              # utils.ts (cn helper). team.ts is the single source for founder data — import from here, not from component files.
-                  # links.ts (store + whitepaper URLs), site.ts (default description), region.ts, crisis-resources.ts, pricing.ts — single sources, never inline these values.
+                  # links.ts (store + whitepaper URLs), site.ts (default description), region.ts, crisis-resources.ts, pricing.ts, plans.ts (Free vs Plus rows) — single sources, never inline these values.
 hooks/            # use-region.ts — the browser half of the region swap
 utils/supabase/   # Browser client factory — getSupabaseBrowserClient()
 ```
@@ -200,7 +203,7 @@ HomePage.tsx
 Pages render the `global` region on the server and stay static. In the browser, `useRegion()` (`hooks/use-region.ts`) asks `GET /api/region` once per page load (it maps Vercel's `x-vercel-ip-country` header: GH → `gh`, US → `us`, anything else → `global`) and swaps regional blocks in. `?region=gh|us|global` forces a region for checking.
 
 - Crisis lines come only from `lib/crisis-resources.ts` (verified tiers; 0244 471 279, 112, 18555 and other unverified numbers must not be added back). Render them with `CrisisLineList` / `CrisisLineInline` from `components/shared/crisis-lines.tsx`.
-- Prices come only from `lib/pricing.ts` via `getPlusPrice(region)`; the yearly saving is `annualSavingPercent()`, never typed by hand.
+- Prices come only from `lib/pricing.ts` via `getPlusPrice(region)`. Each region stores only `monthlyAmount` and `annualAmount`; every displayed figure (via `billingSummary()`, `annualSavingPercent()`, `pricingDescription()`) is derived, never typed by hand.
 
 ### Supabase
 
