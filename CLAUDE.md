@@ -196,6 +196,8 @@ The hero's typed lines and reflections (`hero/scenarios.ts`) are illustrative; c
 
 Retired from the home page: `PathsSection`, the old `how-it-works.tsx`, `ReflectionsSection` (session quotes without marketing consent), the Flux hero image and the 4.9 rating. `CompanionBridge` and `PhilosophySection` are not in the page either. Do not re-add any of them without discussing first.
 
+`LandingFaq` uses the shadcn `Accordion` (`components/ui/accordion.tsx`). `/faq` deliberately does not: Radix renders no children for a closed item, so its answers would be missing from the server HTML. Keep `/faq` on native `<details>`.
+
 `MobileDownloadBar` is rendered outside `<main>` inside `SmoothScroll` — it's not part of the scroll flow.
 
 ### Region swap
