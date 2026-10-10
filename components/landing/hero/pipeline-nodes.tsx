@@ -227,20 +227,20 @@ export function KindlingChip({
       transition={{ duration: 0.7, delay: lit ? delay : 0, ease }}
       style={inkVar(kindling.color)}
       className={cn(
-        "flex flex-col items-center gap-1.5 lg:flex-row lg:gap-2.5 lg:rounded-full lg:border lg:bg-xo-surface-low/60 lg:py-1 lg:pr-4 lg:pl-1",
+        "flex flex-col items-center gap-1.5 lg:flex-row lg:gap-3 lg:rounded-full lg:border lg:bg-xo-surface-low/60 lg:py-1.5 lg:pr-5 lg:pl-1.5",
         // Border colour is harmless below lg, where the chip has no border width
         lit ? INK.border : "border-xo-outline-variant/60"
       )}
     >
       <span
         className={cn(
-          "flex size-9 items-center justify-center rounded-full lg:size-7",
+          "flex size-9 items-center justify-center rounded-full lg:size-9",
           INK.bg
         )}
       >
-        <Icon className={cn("size-4 lg:size-3.5", INK.text)} />
+        <Icon className={cn("size-4", INK.text)} />
       </span>
-      <span className="text-center text-[10px] leading-tight text-foreground lg:text-left lg:text-[13px]">
+      <span className="text-center text-[10px] leading-tight text-foreground lg:text-left lg:text-[15px]">
         {kindling.name}
       </span>
     </motion.div>

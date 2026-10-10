@@ -155,7 +155,7 @@ export function Hero() {
               />
               <ForkNode ref={forkRef} noRef={noRef} lit={stage >= 2} />
               <KindlingNode ref={kindlingRef} lit={stage >= 3} />
-              <div className="grid w-full max-w-sm grid-cols-5 gap-1 lg:flex lg:w-auto lg:flex-col lg:gap-2.5">
+              <div className="grid w-full max-w-sm grid-cols-5 gap-1 lg:flex lg:w-auto lg:flex-col lg:gap-4">
                 {KINDLINGS.map((k, i) => (
                   <KindlingChip
                     key={k.id}
