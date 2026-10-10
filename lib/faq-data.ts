@@ -39,7 +39,7 @@ export function buildFaqCategories(
           id: "what",
           question: "What is Xolace?",
           answer: [
-            "An app for when you feel something you can't quite name. You say what's going on, Xolace writes back what it hears underneath, then finds support that fits the moment.",
+            "Xolace helps you reflect on what you're feeling in the moment, so you get clarity on it, understand what's underneath it and catch what's building up. Then it points you to support that fits: the tools we built inside the app, or a trusted person or clinical care when that's what you need.",
           ],
         },
         {
