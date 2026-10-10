@@ -3,7 +3,7 @@
 import { useEffect, useState, type RefObject } from "react"
 import { m as motion } from "motion/react"
 import Image from "next/image"
-import { Sparkles, User } from "lucide-react"
+import { User } from "lucide-react"
 import { cn } from "@/lib/utils"
 import type { Kindling } from "@/lib/kindlings"
 import { INK, inkVar } from "./ink"
@@ -161,15 +161,31 @@ export function ForkNode({
 export function KindlingNode({ ref, lit }: { ref: NodeRef; lit: boolean }) {
   return (
     <div ref={ref} className="relative" style={inkVar("var(--accent)")}>
-      <div
-        className={cn(
-          "flex size-12 items-center justify-center rounded-full border transition-colors duration-700",
-          lit
-            ? cn(INK.border, INK.bg, INK.text)
-            : "border-xo-outline-variant bg-xo-surface-low text-muted-foreground"
-        )}
-      >
-        <Sparkles className="size-5" strokeWidth={1.5} />
+      <div className="relative size-18 lg:size-20">
+        <motion.div
+          initial={false}
+          animate={{ opacity: lit ? 1 : 0, scale: lit ? 1.15 : 0.9 }}
+          transition={{ duration: 0.9, ease }}
+          className="animate-gentle-pulse absolute inset-0 rounded-full bg-accent/35 blur-xl"
+        />
+        <div
+          className={cn(
+            "relative size-full overflow-hidden rounded-full border-2 transition-colors duration-700",
+            lit ? INK.border : "border-xo-outline-variant"
+          )}
+        >
+          <Image
+            src="/hero/kindling.jpeg"
+            alt=""
+            fill
+            priority
+            sizes="80px"
+            className={cn(
+              "object-cover transition-[filter,opacity] duration-700",
+              lit ? "opacity-100" : "opacity-60 saturate-50"
+            )}
+          />
+        </div>
       </div>
       <div className="absolute top-1/2 left-full ml-4 w-max -translate-y-1/2 text-left lg:top-full lg:left-1/2 lg:mt-3 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0 lg:text-center">
         <p className="text-xs font-medium text-foreground">
