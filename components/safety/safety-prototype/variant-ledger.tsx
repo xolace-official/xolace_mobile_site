@@ -1,11 +1,17 @@
 "use client"
 
 // PROTOTYPE (ticket #27) variant C: crisis first, a sticky index, and an open "not built yet" column.
+import { useEffect, useState } from "react"
 import type { Region } from "@/lib/pricing"
+import { cn } from "@/lib/utils"
 import { GAPS, SAFETY_LEVELS, TOPICS, visibleClaims } from "./safety-data"
 import { ClaimList, CrisisCard, LevelsStrip } from "./shared"
 
+const TOPIC_IDS = TOPICS.map((t) => t.id)
+
 export function VariantLedger({ region, showHeld }: { region: Region; showHeld: boolean }) {
+  const active = useActiveSection(TOPIC_IDS)
+
   return (
     <>
       <section className="section-spacing">
@@ -24,16 +30,23 @@ export function VariantLedger({ region, showHeld }: { region: Region; showHeld: 
       <section className="section-spacing-x pb-(--section-py)">
         <div className="section-container-wide grid gap-12 lg:grid-cols-[12rem_1fr_18rem]">
           <nav aria-label="On this page" className="hidden lg:block">
-            <ul className="sticky top-28 flex flex-col gap-3 font-sans text-sm text-muted-foreground">
+            <ul className="sticky top-28 flex flex-col border-l border-xo-outline-variant/50 font-sans text-sm text-muted-foreground">
               {TOPICS.map((t) => (
                 <li key={t.id}>
-                  <a href={`#${t.id}`} className="hover:text-foreground">
+                  <a
+                    href={`#${t.id}`}
+                    aria-current={active === t.id ? "location" : undefined}
+                    className={cn(
+                      "-ml-px block border-l-2 border-transparent py-1.5 pl-4 transition-colors hover:text-foreground",
+                      active === t.id && "border-primary font-medium text-foreground"
+                    )}
+                  >
                     {t.title}
                   </a>
                 </li>
               ))}
               <li>
-                <a href="#gaps" className="hover:text-foreground">
+                <a href="#gaps" className="-ml-px block border-l-2 border-transparent py-1.5 pl-4 hover:text-foreground">
                   Not built yet
                 </a>
               </li>
@@ -70,4 +83,26 @@ export function VariantLedger({ region, showHeld }: { region: Region; showHeld: 
       </section>
     </>
   )
+}
+
+// The section whose top has passed the upper third of the viewport is the one being read.
+function useActiveSection(ids: string[]) {
+  const [active, setActive] = useState<string | null>(null)
+
+  useEffect(() => {
+    const onScroll = () => {
+      const line = window.innerHeight / 3
+      let current: string | null = null
+      for (const id of ids) {
+        const el = document.getElementById(id)
+        if (el && el.getBoundingClientRect().top <= line) current = id
+      }
+      setActive(current)
+    }
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [ids])
+
+  return active
 }
