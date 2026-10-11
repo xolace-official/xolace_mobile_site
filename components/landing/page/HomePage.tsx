@@ -19,6 +19,11 @@ const TestimonialsSection = dynamic(() =>
     default: m.TestimonialsSection,
   }))
 )
+const StartupProgramsSection = dynamic(() =>
+  import("@/components/landing/startup-programs-section").then((m) => ({
+    default: m.StartupProgramsSection,
+  }))
+)
 const LandingFaq = dynamic(() =>
   import("@/components/landing/landing-faq").then((m) => ({
     default: m.LandingFaq,
@@ -45,6 +50,7 @@ export function HomePage() {
         <HowItWorks />
         <TrustSection />
         <TestimonialsSection />
+        <StartupProgramsSection />
         <LandingFaq />
         <LaunchSection />
         {/* <SupportSection /> */}

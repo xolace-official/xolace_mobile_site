@@ -1,9 +1,7 @@
 import Link from "next/link"
 import { XolaceLogo } from "@/components/shared/xolace-logo"
-import { ElevenLabsGrantsBadge } from "@/components/shared/elevenlabs-grants-badge"
 import { LinkedIn } from "@/components/socials/linkedin-icon"
 import { Instagram } from "@/components/socials/instagram-icon"
-import { YouTube } from "@/components/socials/youtube-icon"
 import { WhatsApp } from "@/components/socials/whatsapp-icon"
 import { TikTokLight } from "@/components/socials/tiktok-icon-light"
 import { CrisisLineInline } from "@/components/shared/crisis-lines"
@@ -29,12 +27,6 @@ const socials = [
     href: "https://www.tiktok.com/@talk.with.xolace",
     icon: <TikTokLight className="size-5" fill="currentColor" />,
     color: "currentColor",
-  },
-  {
-    label: "YouTube",
-    href: "https://youtube.com/@xolace",
-    icon: <YouTube className="size-5" />,
-    color: "#FF0000",
   },
   {
     label: "WhatsApp",
@@ -146,12 +138,9 @@ export function Footer() {
             <CrisisLineInline linkClassName="transition-colors duration-300 hover:text-muted-foreground" />
             .
           </p>
-          <div className="flex shrink-0 flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
-            <ElevenLabsGrantsBadge />
-            <p className="text-sm tracking-[0.04em] text-muted-foreground/55 sm:text-[11px]">
-              &copy; 2026 XOLACEINC LTD
-            </p>
-          </div>
+          <p className="shrink-0 text-sm tracking-[0.04em] text-muted-foreground/55 sm:text-[11px]">
+            &copy; 2026 XOLACEINC LTD
+          </p>
         </div>
       </div>
     </footer>

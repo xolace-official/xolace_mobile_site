@@ -35,9 +35,8 @@ export function SupportHero() {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto mt-6 max-w-lg text-base leading-relaxed font-light text-muted-foreground/60 md:text-lg"
         >
-          We&apos;re a small team building something we believe in. If you
-          have a question, concern, or just want to reach out, we&apos;re
-          here.
+          We&apos;re a small team building something we believe in. If you have
+          a question, concern, or just want to reach out, we&apos;re here.
         </motion.p>
 
         <motion.div

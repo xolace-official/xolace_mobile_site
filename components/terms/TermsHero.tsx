@@ -35,8 +35,8 @@ export function TermsHero() {
           className="max-w-xl text-base leading-relaxed font-light text-muted-foreground/70 md:text-lg"
         >
           By using Xolace, you enter into an agreement with us. These terms
-          govern that relationship — our commitments to you, and what we ask
-          in return.
+          govern that relationship — our commitments to you, and what we ask in
+          return.
         </motion.p>
 
         <div className="mt-8 flex items-center gap-6">
