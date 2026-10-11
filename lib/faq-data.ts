@@ -109,7 +109,7 @@ export function buildFaqCategories(
           id: "kindling",
           question: "What is Kindling?",
           answer: [
-            "Kindling builds a set of three or four supports for your day from the supports we made, each with the reason it's there. It's part of ",
+            "Kindling builds a set of three or four supports for your day from our support sandbox, each with the reason it's there. It's part of ",
             { text: "Xolace Plus", href: "/pricing" },
             ".",
           ],
