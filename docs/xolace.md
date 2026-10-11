@@ -205,7 +205,7 @@ Both doors lead to the same items, held to the same standard.
 - **tagged** with the emotional states it is and isn't suitable for
 - **trackable:** it reports whether it was started and finished, so Kindling learns what helps
 
-Sign-off is the founder's for now. We have no clinical reviewer yet (§9).
+Sign-off is the founders' for now. We have no clinical reviewer yet (§9).
 
 ### The catalogue
 
@@ -385,7 +385,7 @@ These are where today's product falls short of the standard above. Each needs an
 |---|---|---|
 | 1 | **Escalation alerts no one.** Crisis events are recorded, but no person is notified. | Someone at real risk depends entirely on the resources screen. |
 | 2 | **Crisis resources are Ghana-only.** | Wrong or useless numbers for anyone outside Ghana, which our target market mostly is. |
-| 3 | **No clinical reviewer.** Kindlings and the mirror's behaviour are reviewed by the founder only. | Our safety claim rests on review, and that review isn't clinical. |
+| 3 | **No clinical reviewer.** Kindlings and the mirror's behaviour are reviewed by the founders only. | Our safety claim rests on review, and that review isn't clinical. |
 | 4 | **Xolacer training isn't recorded in the app.** | "Trained" depends on whoever promotes the account. Nothing checks it. |
 | 5 | **Chat moderation runs after delivery.** | A harmful message is seen before it's flagged. |
 | 6 | **Peer pool can fall back to the raw mirror.** If anonymising fails, the shared text is the person's own mirror. | Identifying details could reach the pool. |
