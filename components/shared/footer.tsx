@@ -4,6 +4,7 @@ import { LinkedIn } from "@/components/socials/linkedin-icon"
 import { Instagram } from "@/components/socials/instagram-icon"
 import { WhatsApp } from "@/components/socials/whatsapp-icon"
 import { TikTokLight } from "@/components/socials/tiktok-icon-light"
+import { Reddit } from "@/components/socials/reddit-icon"
 import { CrisisLineInline } from "@/components/shared/crisis-lines"
 import { DANGER_LINE } from "@/lib/crisis-resources"
 
@@ -27,6 +28,12 @@ const socials = [
     href: "https://www.tiktok.com/@talk.with.xolace",
     icon: <TikTokLight className="size-5" fill="currentColor" />,
     color: "currentColor",
+  },
+  {
+    label: "Reddit",
+    href: "https://www.reddit.com/r/Xolace/",
+    icon: <Reddit className="size-5" />,
+    color: undefined,
   },
   {
     label: "WhatsApp",
