@@ -95,7 +95,7 @@ export function buildFaqCategories(
           id: "mirror",
           question: "What is a Mirror?",
           answer: [
-            'You say what\'s going on, and the Fire writes back a short Mirror of what it hears underneath. If it\'s off, say "Not quite" or "Say more" and it tries again, up to twice.',
+            'You say what\'s going on, and the Fire writes back a short reflection of what it hears underneath. If it\'s off, say "Not quite" or "Say more" and it tries again, up to twice.',
           ],
         },
         {
@@ -125,7 +125,7 @@ export function buildFaqCategories(
           id: "speak",
           question: "Can I speak instead of type?",
           answer: [
-            "Yes. Speak your reflection and it's turned into text, then the Fire answers it just like typed words.",
+            "Yes. Speak your reflection and it's turned into text, and every Mirror can be played aloud if you'd rather listen.",
           ],
         },
       ],
