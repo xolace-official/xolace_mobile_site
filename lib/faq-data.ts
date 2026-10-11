@@ -55,7 +55,9 @@ export function buildFaqCategories(
           id: "who",
           question: "Who is it for?",
           answer: [
-            "Anyone carrying something heavy, anxious or numb that doesn't feel bad enough to bring up. It was built for that moment, before you'd think of asking for help.",
+            "Anyone looking after their mind, on a hard day or an ordinary one, who wants to catch what they're feeling early, before it builds. The one moment it isn't built for is a crisis; if that's you, ",
+            { text: "get help now", href: "/safety#crisis" },
+            ".",
           ],
         },
         {
