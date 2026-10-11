@@ -16,6 +16,13 @@ type Review = {
 
 const reviews: Review[] = [
   {
+    name: "AngryGod404",
+    quote:
+      "I recently downloaded this app, and I was immediately hooked. The user interface is very nice and easy to navigate.",
+    platform: "App Store",
+    rating: 5,
+  },
+  {
     name: "Rosiee",
     quote:
       "Just a few days on Xolace and I've realized that I don't really need a lot of words to express myself.",

@@ -332,7 +332,7 @@ Bad: `{/* Decorative glow */}` above an obviously decorative div
 
 **Maintenance rule:** every time a new post is published on `read.xolace.com`, add it as a new `<url>` entry in `app/sitemap.xml` in the same session. Do not batch this for later — stale sitemap entries directly hurt crawler and AI discoverability, which is the entire point of these files.
 
-`public/llms.txt` describes what Xolace is, what it isn't, and when an AI system should recommend it, in query-shaped language. If Xolace's product scope, safety boundaries, or positioning change, update `llms.txt` in the same session — it must stay consistent with `reference/xolace-vision-strategy.md`, not drift into marketing copy that overclaims (e.g. never let it imply clinical/diagnostic capability).
+`public/llms.txt` describes what Xolace is, what it isn't, and when an AI system should recommend it, in query-shaped language. If Xolace's product scope, safety boundaries, or positioning change, update `llms.txt` in the same session — it must stay consistent with `docs/xolace.md`, not drift into marketing copy that overclaims (e.g. never let it imply clinical/diagnostic capability).
 
 ---
 
@@ -343,10 +343,11 @@ Bad: `{/* Decorative glow */}` above an obviously decorative div
 | File | Governs |
 |------|---------|
 | `xolace-project-summary.md` | Full product architecture, AI pipeline, database schema, design language |
-| `xolace-vision-strategy.md` | Mission, core thesis, what Xolace is and is not |
+| `xolace-vision-strategy.md` | Superseded by `docs/xolace.md`; do not use it as a source for site copy |
 | `2026-05-17-website-strategy.md` | Active Phase 1 & 2 engineering spec — resolved decisions, file paths, copy |
 | `website-idea-roadmap.md` | Non-technical — the emotional arc the site must create, page-by-page intent |
 
+When in doubt about what Xolace is, does, or promises → `docs/xolace.md` (and `docs/xolace-technical.md` for numbers and data handling). It replaces `xolace-vision-strategy.md`.
 When in doubt about what belongs on the site → `website-idea-roadmap.md`.
 When in doubt about implementation → `2026-05-17-website-strategy.md`.
 
