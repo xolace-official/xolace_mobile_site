@@ -1,11 +1,12 @@
 import Link from "next/link"
 import { XolaceLogo } from "@/components/shared/xolace-logo"
-import { ElevenLabsGrantsBadge } from "@/components/shared/elevenlabs-grants-badge"
 import { LinkedIn } from "@/components/socials/linkedin-icon"
 import { Instagram } from "@/components/socials/instagram-icon"
-import { YouTube } from "@/components/socials/youtube-icon"
 import { WhatsApp } from "@/components/socials/whatsapp-icon"
 import { TikTokLight } from "@/components/socials/tiktok-icon-light"
+import { Reddit } from "@/components/socials/reddit-icon"
+import { CrisisLineInline } from "@/components/shared/crisis-lines"
+import { DANGER_LINE } from "@/lib/crisis-resources"
 
 type NavLink = { label: string; href: string; external?: boolean }
 
@@ -18,21 +19,21 @@ const socials = [
   },
   {
     label: "Instagram",
-    href: "https://www.instagram.com/xolaceinc?utm_source=qr&igsh=anB2bTA4ZTJiM2tu",
+    href: "https://www.instagram.com/xolaceinc/",
     icon: <Instagram className="size-5" />,
     color: undefined,
   },
   {
     label: "TikTok",
-    href: "https://www.tiktok.com/@talk.with.xolace?_r=1&_t=ZS-93PtIXpzJAr",
+    href: "https://www.tiktok.com/@talk.with.xolace",
     icon: <TikTokLight className="size-5" fill="currentColor" />,
     color: "currentColor",
   },
   {
-    label: "YouTube",
-    href: "https://youtube.com/@xolace",
-    icon: <YouTube className="size-5" />,
-    color: "#FF0000",
+    label: "Reddit",
+    href: "https://www.reddit.com/r/Xolace/",
+    icon: <Reddit className="size-5" />,
+    color: undefined,
   },
   {
     label: "WhatsApp",
@@ -46,6 +47,9 @@ const links: Record<"explore" | "legal" | "contact", NavLink[]> = {
   explore: [
     { label: "About", href: "/about" },
     { label: "Manifesto", href: "/manifesto" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "Safety", href: "/safety" },
+    { label: "FAQ", href: "/faq" },
     {
       label: "Ambassadors",
       href: "https://ambassador.xolaceinc.com",
@@ -61,7 +65,7 @@ const links: Record<"explore" | "legal" | "contact", NavLink[]> = {
   contact: [
     { label: "hello@xolaceinc.com", href: "mailto:hello@xolaceinc.com" },
     { label: "press@xolaceinc.com", href: "mailto:press@xolaceinc.com" },
-    { label: "support@xolace.com", href: "mailto:support@xolace.com" },
+    { label: "support@xolaceinc.com", href: "mailto:support@xolaceinc.com" },
   ],
 }
 
@@ -136,22 +140,14 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col items-start justify-between gap-3 border-t border-border/15 pb-10 sm:flex-row sm:items-center md:pb-0">
           <p className="max-w-xl font-serif text-[12px] leading-relaxed text-muted-foreground/55 italic">
-            Xolace is not designed for crisis. If you feel unsafe, contact your
-            local emergency services or call/text{" "}
-            <a
-              href="tel:988"
-              className="underline underline-offset-2 transition-colors duration-300 hover:text-muted-foreground"
-            >
-              988
-            </a>{" "}
-            (US) at any time.
+            Xolace is not a crisis service. {DANGER_LINE} To talk to someone
+            now:{" "}
+            <CrisisLineInline linkClassName="transition-colors duration-300 hover:text-muted-foreground" />
+            .
           </p>
-          <div className="flex shrink-0 flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
-            <ElevenLabsGrantsBadge />
-            <p className="text-sm tracking-[0.04em] text-muted-foreground/55 sm:text-[11px]">
-              &copy; 2026 Xolace Inc.
-            </p>
-          </div>
+          <p className="shrink-0 text-sm tracking-[0.04em] text-muted-foreground/55 sm:text-[11px]">
+            &copy; 2026 XOLACEINC LTD
+          </p>
         </div>
       </div>
     </footer>

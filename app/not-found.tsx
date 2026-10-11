@@ -42,7 +42,7 @@ export default function NotFound() {
         {/* Mascot sits on top edge of circle */}
         <div className="relative z-20 -mb-14">
           <Image
-            src="/flux-images/ChatGPT_Image_Oct_20__2025__10_36_52_PM-removebg-preview.png"
+            src="/flux-images/flux-question-mark.png"
             alt=""
             width={280}
             height={280}

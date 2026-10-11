@@ -34,3 +34,6 @@ pnpm-debug.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.gstack/
+.claude/worktrees/agent-a19fba40e5c44dcfa/
+.claude/worktrees/agent-a7408307275ca511a/

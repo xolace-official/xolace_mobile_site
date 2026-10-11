@@ -8,6 +8,7 @@ import { Navbar } from "@/components/shared/navbar"
 import { Footer } from "@/components/shared/footer"
 import { cn } from "@/lib/utils"
 import { MotionProvider } from "@/providers/motion-provider"
+import { SITE_DESCRIPTION } from "@/lib/site"
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -24,29 +25,11 @@ const fontMono = Geist_Mono({
 export const metadata: Metadata = {
   title: {
     default: "Xolace",
-    template: "Xolace | %s",
+    template: "%s | Xolace",
   },
-  description:
-    "A digital space for the moments between. Not a feed. Not a clinic. A quiet place to be human.",
-  keywords: [
-    "Xolace",
-    "Social",
-    "Platform",
-    "Thoughts",
-    "Stories",
-    "Experiences",
-    "Fostering",
-    "Engagement",
-    "Self-Expression",
-    "Unique",
-    "User-Centered",
-    "Space",
-    "Communities",
-    "Mental healthcare",
-    "Professional Support",
-  ],
-  creator: "Xolace Inc.",
-  publisher: "Xolace Inc.",
+  description: SITE_DESCRIPTION,
+  creator: "XOLACEINC LTD",
+  publisher: "XOLACEINC LTD",
   formatDetection: {
     email: false,
     address: false,

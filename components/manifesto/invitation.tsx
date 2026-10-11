@@ -52,8 +52,7 @@ export function Invitation() {
                 }}
                 className="mb-10 font-serif text-base leading-relaxed text-muted-foreground/65 md:text-lg"
               >
-                The room exists now. It&apos;s free. It takes three minutes. No
-                sign-up. No feed. Just space.
+                The fire is lit. The mirror is free, and always will be.
               </motion.p>
 
               <motion.div
@@ -70,7 +69,6 @@ export function Invitation() {
               </motion.div>
             </div>
 
-            {/* Right — mascot */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -82,14 +80,18 @@ export function Invitation() {
               }}
               className="flex shrink-0 justify-center lg:justify-end"
             >
-              <Image
-                src="/flux-images/ChatGPT_Image_Oct_20__2025__10_39_59_PM-removebg-preview.png"
-                alt=""
-                width={260}
-                height={260}
-                className="h-auto w-44 object-contain drop-shadow-2xl md:w-56 lg:w-64"
-                aria-hidden
-              />
+              <div className="relative size-40 md:size-48">
+                <div className="animate-gentle-pulse absolute inset-0 scale-110 rounded-full bg-primary/30 blur-2xl" />
+                <div className="relative size-full overflow-hidden rounded-full border-2 border-primary/50">
+                  <Image
+                    src="/hero/the-fire.jpeg"
+                    alt=""
+                    fill
+                    sizes="192px"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
             </motion.div>
           </div>
         </motion.div>

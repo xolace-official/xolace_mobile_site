@@ -35,12 +35,17 @@ bun run build        # Production build
 bun run lint         # ESLint
 bun run format       # Prettier — formats all .ts/.tsx
 bun run typecheck    # TypeScript check (no emit)
+bun run test         # Unit tests for lib/ (bun:test; *.test.ts are excluded from tsc)
 ```
+
+`lib/site-copy.test.ts` sweeps the whole site (`app/`, `components/`, `lib/`, `public/llms.txt`), live and dead files alike, for retired and banned wording: Echo, Glimpses, "X brain", "clinically reviewed", "built and reviewed by us", "no sign-up", session-length numbers ("3 minutes"; say "a few minutes, most days"), and "the AI chooses/picks" (it routes or builds). If it fails, fix the copy; don't loosen the pattern.
 
 Adding shadcn/ui components:
 ```bash
 bunx shadcn@latest add <component>
 ```
+
+After adding, check `package.json` and the new files: shadcn has resolved `cn` to an unrelated npm package called `cn` (added as a dependency, imported as `from "cn"`). Revert that and import `cn` from `@/lib/utils`.
 
 ---
 
@@ -135,6 +140,8 @@ app/manifesto/page.tsx    →  components/manifesto/page/ManifestoPageV2.tsx
 app/about/page.tsx        →  components/about/page/AboutPage.tsx
 app/faq/page.tsx          →  components/faq/page/FaqPage.tsx
 app/press/page.tsx        →  components/press/page/PressPage.tsx
+app/pricing/page.tsx      →  components/pricing/page/PricingPage.tsx
+app/safety/page.tsx       →  components/safety/page/SafetyPage.tsx
 app/privacy/page.tsx      →  components/privacy/page/PrivacyPage.tsx
 app/terms/page.tsx        →  components/terms/page/TermsPage.tsx
 app/support/page.tsx      →  components/support/page/SupportPage.tsx
@@ -160,7 +167,9 @@ components/
   ui/             # shadcn primitives + custom UI (Iphone, Marquee, Spotlight…)
   socials/        # Brand SVG icons (TikTok, Instagram, LinkedIn, WhatsApp) — no lucide equivalent
 providers/        # MotionProvider (and future PostHogProvider)
-lib/              # utils.ts (cn helper). team.ts is the single source for founder data — import from here, not from component files.
+lib/              # utils.ts (cn helper). kindlings.ts is the shelf of five named Kindlings. team.ts is the single source for founder data — import from here, not from component files.
+                  # links.ts (store + whitepaper URLs), site.ts (default description), region.ts, crisis-resources.ts, pricing.ts, plans.ts (Free vs Plus rows), safety.ts (every /safety claim and the "Not built yet" gaps, each with its source), faq-data.ts (the 22 FAQ answers as segments; /faq, the landing FAQ and the FAQPage JSON-LD all read it, prices come from pricing.ts, the crisis answer swaps region in the browser) — single sources, never inline these values.
+hooks/            # use-region.ts — the browser half of the region swap; use-active-section.ts — scroll-spy for sticky menus
 utils/supabase/   # Browser client factory — getSupabaseBrowserClient()
 ```
 
@@ -175,22 +184,46 @@ Reference: `waitlist-form.tsx` + `waitlist-cta.tsx`. Every new form (supporters,
 ### Landing Page Section Order
 
 ```
-HomePage.tsx
-  ├── Hero              — emotional hook + download badges (direct)
+HomePage.tsx            — <main> is overflow-clip, never overflow-hidden (hidden breaks the pinned phone)
+  ├── Hero              — hero/: H1, subline, and the Beams pipeline (typed words → the Fire → Kindling → shelf of five)
   ├── ProblemSection    — raw vignettes ("Monday 11pm, chest tight")
-  ├── PathsSection      — Mirror / Vent / Glimpses explained
-  ├── HowItWorks        — 3-step flow with real app screenshots
-  ├── MockupSection     — Mirror conversation demo
-  ├── ReflectionsSection — anonymous quotes marquee
-  ├── TrustSection      — privacy signals
-  ├── TestimonialsSection — real user reviews
-  ├── LaunchSection     — video + download badges (id="download")
-  └── SupportSection    — early supporter email form
+  ├── HowItWorks        — how-it-works/: four steps, pinned phone on lg, stories player below; id="paths"
+  ├── TrustSection      — privacy promises, only what docs/xolace.md §9/§11 say is true today
+  ├── TestimonialsSection — real store reviews; no rating figure (too few ratings, never average the two stores)
+  ├── LandingFaq
+  └── LaunchSection     — video + download badges (id="download")
 ```
 
-`CompanionBridge` and `PhilosophySection` are NOT in the page. Their key ideas live in `PathsSection` now. Do not re-add them without discussing first.
+The hero's typed lines and reflections (`hero/scenarios.ts`) are illustrative; consecutive scenarios must light different sets of four. Kindling names, icons and colours come from `lib/kindlings.ts`. Public copy says Kindling "builds" a set, never "picks"/"chooses" (CONTEXT.md). Reduced motion freezes the hero on its fully lit frame; read the media query with `useSyncExternalStore` (server snapshot `false`), not `useReducedMotion`, or hydration mismatches.
+
+Retired from the home page: `PathsSection`, the old `how-it-works.tsx`, `ReflectionsSection` (session quotes without marketing consent), the Flux hero image and the 4.9 rating. `CompanionBridge` and `PhilosophySection` are not in the page either. `three-layers.tsx` (Echo) and `anti-engagement.tsx` ("No streaks") were deleted in #37 for false claims. Do not re-add any of them without discussing first.
+
+`LandingFaq` uses the shadcn `Accordion` (`components/ui/accordion.tsx`). `/faq` deliberately does not: Radix renders no children for a closed item, so its answers would be missing from the server HTML. Keep `/faq` on native `<details>`.
 
 `MobileDownloadBar` is rendered outside `<main>` inside `SmoothScroll` — it's not part of the scroll flow.
+
+### Manifesto Section Order
+
+```
+ManifestoPageV2.tsx — the brief from #28; argues why, mechanics live on How it works, /safety and /pricing
+  ├── OpeningV2       — the night scene; "Tomorrow never comes" sets up compounding
+  ├── SpaceBetween    — the spectrum; ends on "before it has a name"
+  ├── ItStacks        — compounding, and "fewer people reach the queue" framed as a bet
+  ├── WhyAI           — 80/20, the campfire, the Fire and Kindlings; quotes labelled as examples
+  ├── Beliefs         — five cards; the safety card links to /safety
+  ├── Never           — six cards; bodies stay short (the card clamps to four lines)
+  ├── QuietPart       — skincare vision and the two habits
+  └── Invitation      — "Come home." + "The mirror is free, and always will be." No sign-up or time claim
+```
+
+`Experience` was cut (it duplicated How it works). The v1 files at the top of `components/manifesto/` are unused, except `invitation.tsx`.
+
+### Region swap
+
+Pages render the `global` region on the server and stay static. In the browser, `useRegion()` (`hooks/use-region.ts`) asks `GET /api/region` once per page load (it maps Vercel's `x-vercel-ip-country` header: GH → `gh`, US → `us`, anything else → `global`) and swaps regional blocks in. `?region=gh|us|global` forces a region for checking.
+
+- Crisis lines come only from `lib/crisis-resources.ts` (verified tiers; 0244 471 279, 112, 18555 and other unverified numbers must not be added back). Render them with `CrisisLineList` / `CrisisLineInline` from `components/shared/crisis-lines.tsx`.
+- Prices come only from `lib/pricing.ts` via `getPlusPrice(region)`. Each region stores only `monthlyAmount` and `annualAmount`; every displayed figure (via `billingSummary()`, `annualSavingPercent()`, `pricingDescription()`) is derived, never typed by hand.
 
 ### Supabase
 
@@ -299,7 +332,7 @@ Bad: `{/* Decorative glow */}` above an obviously decorative div
 
 **Maintenance rule:** every time a new post is published on `read.xolace.com`, add it as a new `<url>` entry in `app/sitemap.xml` in the same session. Do not batch this for later — stale sitemap entries directly hurt crawler and AI discoverability, which is the entire point of these files.
 
-`public/llms.txt` describes what Xolace is, what it isn't, and when an AI system should recommend it, in query-shaped language. If Xolace's product scope, safety boundaries, or positioning change, update `llms.txt` in the same session — it must stay consistent with `reference/xolace-vision-strategy.md`, not drift into marketing copy that overclaims (e.g. never let it imply clinical/diagnostic capability).
+`public/llms.txt` describes what Xolace is, what it isn't, and when an AI system should recommend it, in query-shaped language. If Xolace's product scope, safety boundaries, or positioning change, update `llms.txt` in the same session — it must stay consistent with `docs/xolace.md`, not drift into marketing copy that overclaims (e.g. never let it imply clinical/diagnostic capability).
 
 ---
 
@@ -310,9 +343,26 @@ Bad: `{/* Decorative glow */}` above an obviously decorative div
 | File | Governs |
 |------|---------|
 | `xolace-project-summary.md` | Full product architecture, AI pipeline, database schema, design language |
-| `xolace-vision-strategy.md` | Mission, core thesis, what Xolace is and is not |
+| `xolace-vision-strategy.md` | Superseded by `docs/xolace.md`; do not use it as a source for site copy |
 | `2026-05-17-website-strategy.md` | Active Phase 1 & 2 engineering spec — resolved decisions, file paths, copy |
 | `website-idea-roadmap.md` | Non-technical — the emotional arc the site must create, page-by-page intent |
 
+When in doubt about what Xolace is, does, or promises → `docs/xolace.md` (and `docs/xolace-technical.md` for numbers and data handling). It replaces `xolace-vision-strategy.md`.
 When in doubt about what belongs on the site → `website-idea-roadmap.md`.
 When in doubt about implementation → `2026-05-17-website-strategy.md`.
+
+---
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues (`xolace-official/xolace_mobile_site`), via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default five-label vocabulary (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: one `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.

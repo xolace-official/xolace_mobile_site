@@ -9,7 +9,7 @@ import {
   Megaphone,
   Stethoscope,
   ShieldOff,
-  BellOff,
+  Hourglass,
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { m as motion } from "motion/react"
@@ -22,12 +22,12 @@ const neverStatements: {
 }[] = [
   {
     headline: "Never a chatbot therapist.",
-    body: "We don't give advice. We don't diagnose. We don't pretend an algorithm understands your pain. The AI mirrors then connects you to the humans who actually do.",
+    body: "We don't diagnose. The mirror reflects; it doesn't prescribe. When you need support, it comes from what we built, not from an algorithm making it up.",
     Icon: MessageCircleOff,
   },
   {
     headline: "Never a social feed.",
-    body: "No profiles, no followers, no likes, no content to perform for. What you share is yours. If it reaches someone else, it's anonymously, and only with your explicit permission.",
+    body: "No followers, no likes, no content to perform for. What you write is yours. Nothing containing your words reaches anyone else unless you choose to share it.",
     Icon: Rss,
   },
   {
@@ -37,7 +37,7 @@ const neverStatements: {
   },
   {
     headline: "Never replacing a therapist.",
-    body: "If you need professional care, we\u2019ll help you find it; not with a cold hotline number, but with warmth and context. We know what we are. We know what we\u2019re not.",
+    body: "When you need more than Xolace, our job is to get you there sooner, not to hold on to you. We know what we are. We know what we\u2019re not.",
     Icon: Stethoscope,
   },
   {
@@ -46,9 +46,9 @@ const neverStatements: {
     Icon: ShieldOff,
   },
   {
-    headline: "Never trying to keep you.",
-    body: "No streaks. No guilt notifications. No 'you haven't visited in 3 days.' The app is designed for 3-8 minutes. It encourages you to leave. Respecting your time earns something no engagement hack can manufacture: trust.",
-    Icon: BellOff,
+    headline: "Never keeping you for the sake of it.",
+    body: "Come back because it helps. Time in the app isn’t a win for us, and heavy late-night use is something we watch, not something we celebrate.",
+    Icon: Hourglass,
   },
 ]
 

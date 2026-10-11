@@ -4,6 +4,8 @@ import Link from "next/link"
 import { m as motion } from "motion/react"
 import { Mail, FileText, Shield, ArrowRight } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
+import { CrisisLineList } from "@/components/shared/crisis-lines"
+import { DANGER_LINE } from "@/lib/crisis-resources"
 
 type QuickLink = {
   Icon: LucideIcon
@@ -157,17 +159,13 @@ export function SupportContact() {
             If you are in crisis
           </p>
           <p className="font-serif text-sm leading-relaxed text-foreground/80">
-            Xolace is not a crisis service. If you or someone you know is in
-            immediate danger, please contact your local emergency services. In
-            the US, you can call or text{" "}
-            <a
-              href="tel:988"
-              className="font-medium text-foreground underline underline-offset-4"
-            >
-              988
-            </a>{" "}
-            (Suicide &amp; Crisis Lifeline) at any time.
+            Xolace is not a crisis service. {DANGER_LINE} To talk to someone
+            now:
           </p>
+          <CrisisLineList
+            className="mt-3 space-y-1.5 font-serif text-sm leading-relaxed text-foreground/80"
+            linkClassName="font-medium text-foreground underline underline-offset-4"
+          />
         </motion.div>
       </div>
     </section>

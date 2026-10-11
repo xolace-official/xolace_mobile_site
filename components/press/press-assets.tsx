@@ -5,8 +5,12 @@ import { m as motion } from "motion/react"
 import { Download, ImageIcon, Smartphone, Users } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { founders } from "@/lib/team"
+import { cn } from "@/lib/utils"
 
-type AssetFile = { name: string; href: string }
+// A file without an href is a co-founder with no photo yet: shown as initials, not downloadable
+type AssetFile =
+  | { name: string; href: string }
+  | { name: string; initials: string; gradient: string }
 
 type Asset = {
   label: string
@@ -43,7 +47,10 @@ const assets: Asset[] = [
     Icon: Smartphone,
     fit: "cover",
     files: [
-      { name: "Say what's true (JPG)", href: "/app-images/say-whats-true.jpeg" },
+      {
+        name: "Say what's true (JPG)",
+        href: "/app-images/say-whats-true.jpeg",
+      },
       { name: "See it clearly (JPG)", href: "/app-images/see-it-clearly.jpeg" },
       {
         name: "Choose what's next (JPG)",
@@ -58,15 +65,19 @@ const assets: Asset[] = [
   },
   {
     label: "Founder Photos",
-    description: "Headshots for on-record co-founders.",
+    description:
+      "All four co-founders. Email us for any headshot not shown here.",
     Icon: Users,
     fit: "cover",
-    files: founders
-      .filter((founder) => founder.image)
-      .map((founder) => ({
-        name: `${founder.name} (JPG)`,
-        href: founder.image as string,
-      })),
+    files: founders.map((founder) =>
+      founder.image
+        ? { name: `${founder.name} (JPG)`, href: founder.image }
+        : {
+            name: `${founder.name} (on request)`,
+            initials: founder.initials,
+            gradient: founder.gradient,
+          }
+    ),
     accentBorder: "border-chart-2/20",
     accentBg: "bg-chart-2/[0.04]",
     iconBg: "bg-chart-2/[0.12] border-chart-2/20",
@@ -84,6 +95,21 @@ function AssetThumbnail({
   fit: "contain" | "cover"
   iconColor: string
 }) {
+  if (!("href" in file))
+    return (
+      <div className="space-y-2">
+        <div
+          className={cn(
+            "flex aspect-square items-center justify-center rounded-xl border border-border/15 font-serif text-4xl text-foreground/40",
+            file.gradient
+          )}
+        >
+          {file.initials}
+        </div>
+        <p className="truncate text-xs text-muted-foreground/55">{file.name}</p>
+      </div>
+    )
+
   return (
     <a
       href={file.href}
@@ -199,7 +225,7 @@ export function PressAssets() {
                 <div className="grid grid-cols-2 gap-3">
                   {files.map((file) => (
                     <AssetThumbnail
-                      key={file.href}
+                      key={file.name}
                       file={file}
                       fit={fit}
                       iconColor={iconColor}

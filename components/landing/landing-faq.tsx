@@ -2,9 +2,15 @@
 
 import { useState } from "react"
 import { m as motion, AnimatePresence } from "motion/react"
-import { Plus } from "lucide-react"
+import { FaqAnswer } from "@/components/faq/faq-answer"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 import { cn } from "@/lib/utils"
-import { faqCategories, type FaqItem } from "@/lib/faq-data"
+import { faqCategories } from "@/lib/faq-data"
 
 type CatConfig = {
   dot: string
@@ -43,81 +49,21 @@ const catConfigs: CatConfig[] = [
     activeText: "text-destructive",
     pillBorder: "border-destructive/30",
   },
+  {
+    dot: "bg-chart-3/35",
+    activeDot: "bg-chart-3",
+    activeBg: "bg-chart-3/[0.06]",
+    activeText: "text-chart-3",
+    pillBorder: "border-chart-3/30",
+  },
 ]
-
-function FaqRow({
-  item,
-  isOpen,
-  onToggle,
-}: {
-  item: FaqItem
-  isOpen: boolean
-  onToggle: () => void
-}) {
-  return (
-    <div className="border-b border-border last:border-0">
-      <button
-        onClick={onToggle}
-        aria-expanded={isOpen}
-        className="group flex w-full items-start justify-between gap-8 py-6 text-left"
-      >
-        <span
-          className={cn(
-            "text-base leading-snug font-light transition-colors duration-300 md:text-lg",
-            isOpen
-              ? "text-foreground"
-              : "text-foreground/70 group-hover:text-foreground"
-          )}
-        >
-          {item.question}
-        </span>
-
-        <motion.span
-          animate={{ rotate: isOpen ? 45 : 0 }}
-          transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-1 shrink-0"
-        >
-          <Plus
-            className={cn(
-              "size-5 transition-colors duration-300",
-              isOpen
-                ? "text-primary"
-                : "text-muted-foreground/40 group-hover:text-muted-foreground/70"
-            )}
-            strokeWidth={1.5}
-          />
-        </motion.span>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            style={{ overflow: "hidden" }}
-          >
-            <p className="max-w-2xl pr-8 pb-7 font-serif text-sm leading-relaxed text-muted-foreground md:text-base">
-              {item.answer}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  )
-}
 
 export function LandingFaq() {
   const [activeIdx, setActiveIdx] = useState(0)
-  const [openKey, setOpenKey] = useState<string | null>(null)
-
   const switchCategory = (idx: number) => {
     setActiveIdx(idx)
-    setOpenKey(null)
   }
 
-  const toggle = (key: string) => setOpenKey(openKey === key ? null : key)
   const activeCat = faqCategories[activeIdx]
   const activeCfg = catConfigs[activeIdx]
 
@@ -158,7 +104,7 @@ export function LandingFaq() {
             const isActive = activeIdx === i
             return (
               <button
-                key={cat.label}
+                key={cat.id}
                 onClick={() => switchCategory(i)}
                 className={cn(
                   "flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-[11px] tracking-[0.15em] uppercase transition-all duration-300",
@@ -189,7 +135,7 @@ export function LandingFaq() {
                 const isActive = activeIdx === i
                 return (
                   <button
-                    key={cat.label}
+                    key={cat.id}
                     onClick={() => switchCategory(i)}
                     className={cn(
                       "flex items-center gap-3 rounded-xl px-4 py-3 text-left transition-all duration-300",
@@ -253,19 +199,30 @@ export function LandingFaq() {
                   {activeCat.label}
                 </p>
 
-                <div className="border-t border-border">
-                  {activeCat.items.map((item, i) => {
-                    const key = `${activeCat.label}-${i}`
-                    return (
-                      <FaqRow
-                        key={key}
-                        item={item}
-                        isOpen={openKey === key}
-                        onToggle={() => toggle(key)}
-                      />
-                    )
-                  })}
-                </div>
+                {/* Remounts with the category above, so the open answer resets on switch. */}
+                <Accordion
+                  type="single"
+                  collapsible
+                  className="border-t border-border"
+                >
+                  {activeCat.items.map((item) => (
+                    <AccordionItem
+                      key={item.id}
+                      value={item.id}
+                      className="border-border"
+                    >
+                      <AccordionTrigger className="gap-8 py-6 text-base leading-snug font-light text-foreground/70 hover:text-foreground hover:no-underline aria-expanded:text-foreground md:text-lg">
+                        {item.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="pb-0">
+                        <FaqAnswer
+                          item={item}
+                          className="max-w-2xl pr-8 pb-7 font-serif text-sm leading-relaxed text-muted-foreground md:text-base"
+                        />
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
               </motion.div>
             </AnimatePresence>
           </div>

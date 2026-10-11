@@ -1,17 +1,12 @@
 import dynamic from "next/dynamic"
-import { Hero } from "@/components/landing/hero"
+import { Hero } from "@/components/landing/hero/hero"
 import { ProblemSection } from "@/components/landing/problem-section"
 import { SmoothScroll } from "@/components/shared/smooth-scroll"
 import { MobileDownloadBar } from "@/components/shared/mobile-download-bar"
 
-const PathsSection = dynamic(() =>
-  import("@/components/landing/paths-section").then((m) => ({
-    default: m.PathsSection,
-  }))
-)
-const ReflectionsSection = dynamic(() =>
-  import("@/components/landing/reflections-section").then((m) => ({
-    default: m.ReflectionsSection,
+const HowItWorks = dynamic(() =>
+  import("@/components/landing/how-it-works/how-it-works").then((m) => ({
+    default: m.HowItWorks,
   }))
 )
 const TrustSection = dynamic(() =>
@@ -22,6 +17,11 @@ const TrustSection = dynamic(() =>
 const TestimonialsSection = dynamic(() =>
   import("@/components/landing/testimonials-section").then((m) => ({
     default: m.TestimonialsSection,
+  }))
+)
+const StartupProgramsSection = dynamic(() =>
+  import("@/components/landing/startup-programs-section").then((m) => ({
+    default: m.StartupProgramsSection,
   }))
 )
 const LandingFaq = dynamic(() =>
@@ -43,13 +43,14 @@ const SupportSection = dynamic(() =>
 export function HomePage() {
   return (
     <SmoothScroll>
-      <main className="relative overflow-hidden">
+      {/* clip, not hidden: hidden makes <main> a scroll container and breaks the pinned phone in How it works */}
+      <main className="relative overflow-clip">
         <Hero />
         <ProblemSection />
-        <PathsSection />
-        <ReflectionsSection />
+        <HowItWorks />
         <TrustSection />
         <TestimonialsSection />
+        <StartupProgramsSection />
         <LandingFaq />
         <LaunchSection />
         {/* <SupportSection /> */}

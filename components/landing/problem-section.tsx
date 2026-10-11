@@ -102,7 +102,7 @@ function MomentComposition() {
 
       {/* Phone mockup — overlaps both blobs */}
       <div className="absolute top-1/2 left-1/2 z-10 w-[220px] -translate-x-1/2 -translate-y-1/2 -rotate-3 md:w-[260px]">
-        <Iphone src="/app-images/reflection-ui.jpeg" />
+        <Iphone src="/app-images/late-night-input.jpeg" />
       </div>
     </motion.div>
   )

@@ -137,8 +137,7 @@ export function AdvisorVideoGrid({ advisors }: { advisors: Founder[] }) {
       const first = track.children[0] as HTMLElement | undefined
       if (!first) return
       const cardWidth = first.getBoundingClientRect().width
-      const gap =
-        parseFloat(getComputedStyle(track).columnGap || "0") || 0
+      const gap = parseFloat(getComputedStyle(track).columnGap || "0") || 0
       const step = cardWidth + gap
       if (step <= 0) return
       const clientWidth = track.clientWidth
@@ -169,10 +168,7 @@ export function AdvisorVideoGrid({ advisors }: { advisors: Founder[] }) {
     if (!track || layout.step <= 0) return
     const clamped = Math.max(0, Math.min(index, lastStop))
     const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth)
-    const target = Math.max(
-      0,
-      Math.min(clamped * layout.step, maxScroll)
-    )
+    const target = Math.max(0, Math.min(clamped * layout.step, maxScroll))
     track.scrollTo({ left: target, behavior: "smooth" })
     setActiveIndex(clamped)
   }

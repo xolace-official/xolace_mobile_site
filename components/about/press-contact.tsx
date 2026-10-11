@@ -3,8 +3,7 @@
 import { m as motion } from "motion/react"
 import Link from "next/link"
 import { Mail, ArrowRight, FileText } from "lucide-react"
-
-const WHITEPAPER_URL = "https://xolace-official.github.io/wp.pdf"
+import { WHITEPAPER_URL } from "@/lib/links"
 
 const contacts = [
   {

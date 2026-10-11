@@ -3,12 +3,33 @@ import type { SVGProps } from "react"
 const Instagram = (props: SVGProps<SVGSVGElement>) => (
   <svg
     {...props}
-    xmlnsXlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 264.583 264.583"
   >
     <defs>
+      {/* Stop lists the radial gradients below inherit via href: a pink-to-violet base, warm glows bottom-left and bottom, violet top-left */}
+      <linearGradient id="instagram_icon-d">
+        <stop offset="0" stopColor="#ff1b90" />
+        <stop offset="0.24" stopColor="#f80261" />
+        <stop offset="0.52" stopColor="#ed00c0" />
+        <stop offset="0.74" stopColor="#c500e9" />
+        <stop offset="1" stopColor="#7017ff" />
+      </linearGradient>
+      <linearGradient id="instagram_icon-a">
+        <stop offset="0" stopColor="#ffd600" />
+        <stop offset="0.5" stopColor="#ff6930" />
+        <stop offset="0.74" stopColor="#fe3b36" />
+        <stop offset="1" stopColor="#fe3b36" stopOpacity="0" />
+      </linearGradient>
+      <linearGradient id="instagram_icon-b">
+        <stop offset="0" stopColor="#ffd600" />
+        <stop offset="1" stopColor="#ffd600" stopOpacity="0" />
+      </linearGradient>
+      <linearGradient id="instagram_icon-c">
+        <stop offset="0" stopColor="#7638fa" />
+        <stop offset="1" stopColor="#7638fa" stopOpacity="0" />
+      </linearGradient>
       <radialGradient
-        xlinkHref="#a"
+        href="#instagram_icon-a"
         id="instagram_icon-f"
         cx="158.429"
         cy="578.088"
@@ -19,7 +40,7 @@ const Instagram = (props: SVGProps<SVGSVGElement>) => (
         gradientUnits="userSpaceOnUse"
       />
       <radialGradient
-        xlinkHref="#b"
+        href="#instagram_icon-b"
         id="instagram_icon-g"
         cx="172.615"
         cy="600.692"
@@ -30,7 +51,7 @@ const Instagram = (props: SVGProps<SVGSVGElement>) => (
         gradientUnits="userSpaceOnUse"
       />
       <radialGradient
-        xlinkHref="#c"
+        href="#instagram_icon-c"
         id="instagram_icon-h"
         cx="144.012"
         cy="51.337"
@@ -41,7 +62,7 @@ const Instagram = (props: SVGProps<SVGSVGElement>) => (
         gradientUnits="userSpaceOnUse"
       />
       <radialGradient
-        xlinkHref="#d"
+        href="#instagram_icon-d"
         id="instagram_icon-e"
         cx="199.788"
         cy="628.438"

@@ -25,7 +25,7 @@ export function AboutHero() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="mb-8 font-mono text-[11px] tracking-[0.24em] text-muted-foreground/50 uppercase"
         >
-          End-to-end emotional processing infrastructure
+          Skincare for your mind
         </motion.p>
 
         <motion.h1
@@ -77,8 +77,8 @@ export function AboutHero() {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto mt-6 max-w-lg text-base leading-relaxed font-light text-muted-foreground/60 md:text-lg"
         >
-          From when you can&apos;t name what you&apos;re feeling, to finding the
-          right help. Not simulated help.
+          From the moment you can&apos;t name what you&apos;re feeling to
+          support that fits, inside Xolace or with the people in your life.
         </motion.p>
 
         <motion.div

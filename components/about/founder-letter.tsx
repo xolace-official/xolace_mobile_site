@@ -5,37 +5,36 @@ import { m as motion } from "motion/react"
 import { founders } from "@/lib/team"
 
 const ceo = founders.find((f) => f.role.startsWith("CEO"))!
-const cmo = founders.find((f) => f.role.startsWith("CMO"))!
 
 // The letter is signed informally — first name only, full record lives in lib/team.ts
 const attribution = (founder: (typeof founders)[number]) =>
   `${founder.name.split(" ")[0]}, ${founder.role}`
 
 const letter = [
-  { type: "pull" as const, text: "We almost didn't call it Xolace." },
+  { type: "pull" as const, text: "Just hear me rant for a bit." },
   {
     type: "body" as const,
-    text: "For a long time we kept describing what we were building in terms of what it wasn't. Not therapy. Not journaling. Not a chatbot. We'd list all the things it wasn't and hope people understood.",
+    text: "We never set out to build anything in health. Anything but that. We were building social products, and Xolace started as a side project: an anonymous social space, one idea among many.",
   },
   {
     type: "body" as const,
-    text: "Eventually Andrew said something I've thought about since: We're building the room that doesn't have a name yet. That's when everything clicked.",
+    text: "We kept looking outward for ideas and ignored what was right in front of us. School and life were weighing on us too, just never badly enough to take seriously, so it was easy to brush off. And health felt off-limits: too hard, especially where we live, where mental health barely gets talked about.",
   },
   {
     type: "body" as const,
-    text: "There's a moment most people know but never talk about. You're lying in bed. Something is sitting on your chest, not a crisis, just a weight. You don't know what to call it. You don't have anyone to call about it. You definitely don't think it's bad enough for therapy.",
+    text: "Then you watch someone you care about go through it. You look for something, anything, to help them, and nothing fits. You feel powerless. That changes you. It changed us.",
   },
   {
     type: "body" as const,
-    text: "So you scroll. Or you push it down. Or you tell yourself you'll deal with it tomorrow.",
+    text: "After that, hard stopped mattering. We weren't going to feel that helpless again, for ourselves or for the people closest to us. So we built it for them first. Our own campfire.",
   },
   {
     type: "body" as const,
-    text: "We've all been there. The four of us. We kept asking why nothing was built for that moment, the moment before you know what you need. Then we stopped asking and started building.",
+    text: "Somewhere along the way we realised this was a different way to look after your mind, and it shouldn't stay ours.",
   },
   {
     type: "body" as const,
-    text: "Xolace is the room we couldn't find. We're glad you're here.",
+    text: "So here it is. We're sharing that campfire with you, and we're glad you're here.",
   },
 ]
 
@@ -112,17 +111,16 @@ export function FounderLetter() {
                 <div className="size-2 rounded-full bg-primary/60" />
               </div>
               <p className="font-serif text-lg leading-relaxed text-foreground/70 italic">
-                &ldquo;We&apos;re building the room that doesn&apos;t have a
-                name yet.&rdquo;
+                &ldquo;So we built it for them first. Our own campfire.&rdquo;
               </p>
               <p className="font-mono text-[11px] tracking-[0.18em] text-muted-foreground/30 uppercase">
-                {attribution(cmo)}
+                {attribution(ceo)}
               </p>
             </div>
 
             <div className="space-y-3 rounded-2xl border border-accent/15 bg-accent/[0.04] p-8">
               <p className="font-serif text-base leading-relaxed text-foreground/55 italic">
-                &ldquo;Xolace is the room we couldn&apos;t find.&rdquo;
+                &ldquo;We&apos;re sharing that campfire with you.&rdquo;
               </p>
               <p className="font-mono text-[11px] tracking-[0.18em] text-muted-foreground/30 uppercase">
                 {attribution(ceo)}

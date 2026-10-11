@@ -5,8 +5,7 @@ import Image from "next/image"
 import { m as motion } from "motion/react"
 import { Lock, EyeOff, UserX, Ban, FileText } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
-
-const WHITEPAPER_URL = "https://xolace-official.github.io/wp.pdf"
+import { WHITEPAPER_URL } from "@/lib/links"
 
 type Promise = {
   title: string
@@ -15,31 +14,32 @@ type Promise = {
   Icon: LucideIcon
 }
 
+// Only what docs/xolace.md §9 and §11 say is true today. Deletion and AI training stay off until §9 gaps 7–10 close.
 const promises: Promise[] = [
   {
-    title: "Private by design",
+    title: "Private by default",
     description:
-      "Encrypted in transit and at rest. No human at Xolace reviews what you write.",
-    image: "/trsut-section/01_private_by_design.svg",
+      "No one else sees your reflections unless you choose to share one.",
+    image: "/trust-section/01_private_by_design.svg",
     Icon: Lock,
   },
   {
-    title: "Anonymous, always",
+    title: "Shared only if you choose",
     description:
-      "Your name is never attached to anything. You are not a profile.",
-    image: "/trsut-section/02_anonymous_always.svg",
+      "Nothing with your words in it reaches anyone else unless you agree to it.",
+    image: "/trust-section/02_anonymous_always.svg",
     Icon: EyeOff,
   },
   {
     title: "No followers, no feed",
     description: "There is nothing to perform here.",
-    image: "/trsut-section/03_no_followers_no_feed.svg",
+    image: "/trust-section/03_no_followers_no_feed.svg",
     Icon: UserX,
   },
   {
     title: "No ads, no data sold",
     description: "Ever. The trust is the product.",
-    image: "/trsut-section/04_no_ads_no_data_sold.svg",
+    image: "/trust-section/04_no_ads_no_data_sold.svg",
     Icon: Ban,
   },
 ]
@@ -80,7 +80,7 @@ function PromiseCard({ promise, index }: { promise: Promise; index: number }) {
 
 export function TrustSection() {
   return (
-    <section className="relative section-spacing overflow-hidden bg-muted">
+    <section className="section-spacing relative overflow-hidden bg-background">
       <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -89,7 +89,7 @@ export function TrustSection() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-16"
         >
-          <h2 className="md:text-balance mb-2 text-5xl md:leading-[1.15] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
+          <h2 className="mb-2 text-5xl font-semibold text-foreground md:text-6xl md:leading-[1.15] md:text-balance lg:text-[4.25rem]">
             When you&apos;re at your most honest, you deserve to feel safe.
           </h2>
           {/* Signature-style flourish — echoes the mark under the advisors heading */}
