@@ -4,61 +4,30 @@ import { useState } from "react"
 import { m as motion, AnimatePresence } from "motion/react"
 import { Plus } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { DANGER_LINE } from "@/lib/crisis-resources"
+import Link from "next/link"
+import { FaqAnswer } from "@/components/faq/faq-answer"
+import { faqCategories, type FaqItem } from "@/lib/faq-data"
 
-interface FAQItem {
-  question: string
-  answer: string
-}
-
-const faqs: FAQItem[] = [
-  {
-    question: "What is Xolace?",
-    answer:
-      "Xolace is a personal emotional processing tool. It gives you a quiet space to express what you're feeling and receive AI-generated reflections designed to help you articulate and understand your emotions — not to diagnose or treat them.",
-  },
-  {
-    question: "Is Xolace a form of therapy?",
-    answer:
-      "No. Xolace is not therapy, counseling, or any form of medical service. It does not create a therapist-client or doctor-patient relationship. If you are going through something serious, we encourage you to seek support from a licensed professional or contact emergency services if you're in crisis.",
-  },
-  {
-    question: "Who can see my reflections?",
-    answer:
-      "Your reflections are private by default. You control whether anything is shared. If you choose to contribute anonymously to the platform's shared pool, your personal identifiers are removed before inclusion. We never make your entries public without your explicit consent.",
-  },
-  {
-    question: "How does the AI work?",
-    answer:
-      "When you share how you're feeling, Xolace uses AI to generate a reflection — a mirror of what you wrote, designed to help you see it more clearly. The AI classifies emotional themes and generates short, non-prescriptive responses. It does not make decisions about you or your wellbeing.",
-  },
-  {
-    question: "Can I delete my data?",
-    answer:
-      "Yes. You can request deletion of your account and all associated data at any time. Depending on your location, you may also have additional rights under applicable privacy law. Contact us at privacy@xolaceinc.com to exercise any of your data rights.",
-  },
-  {
-    question: "Can I delete my account?",
-    answer:
-      "Yes. You can request deletion of your account and all associated data at any time directly within the app settings.",
-  },
-  {
-    question: "Does Xolace sell my data?",
-    answer:
-      "No. We do not sell your personal data. Full stop. We may share limited information with trusted service providers (like hosting and AI processing partners) who are contractually required to protect it and may not use it for their own purposes.",
-  },
-  {
-    question: "What if I'm in a crisis?",
-    answer: `Xolace is not a crisis service. ${DANGER_LINE} The crisis line for where you are is listed further down this page. You matter, so please reach out to real support when you need it.`,
-  },
+// A subset of the FAQ for people who came here with a problem; the answers live in lib/faq-data.ts
+const SUPPORT_FAQ_IDS = [
+  "what",
+  "therapy",
+  "share",
+  "sell-train",
+  "delete",
+  "crisis",
 ]
+
+const faqs: FaqItem[] = faqCategories
+  .flatMap((c) => c.items)
+  .filter((item) => SUPPORT_FAQ_IDS.includes(item.id))
 
 function FaqRow({
   item,
   isOpen,
   onToggle,
 }: {
-  item: FAQItem
+  item: FaqItem
   isOpen: boolean
   onToggle: () => void
 }) {
@@ -106,9 +75,10 @@ function FaqRow({
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             style={{ overflow: "hidden" }}
           >
-            <p className="max-w-2xl pr-8 pb-7 font-serif text-sm leading-relaxed text-muted-foreground md:text-base">
-              {item.answer}
-            </p>
+            <FaqAnswer
+              item={item}
+              className="max-w-2xl pr-8 pb-7 font-serif text-sm leading-relaxed text-muted-foreground md:text-base"
+            />
           </motion.div>
         )}
       </AnimatePresence>
@@ -146,12 +116,12 @@ export function SupportFAQ() {
             </h2>
             <p className="max-w-xs pb-1 text-sm font-light text-muted-foreground/40 sm:text-right">
               Still stuck?{" "}
-              <a
+              <Link
                 href="/faq"
                 className="underline underline-offset-2 transition-colors hover:text-foreground/70"
               >
                 See the full FAQ
-              </a>
+              </Link>
               .
             </p>
           </div>
@@ -160,7 +130,7 @@ export function SupportFAQ() {
         <div className="border-t border-border">
           {faqs.map((item, i) => (
             <FaqRow
-              key={item.question}
+              key={item.id}
               item={item}
               isOpen={openIndex === i}
               onToggle={() => toggle(i)}

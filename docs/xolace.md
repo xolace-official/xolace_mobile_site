@@ -142,10 +142,10 @@ From the outside, Xolace can look like a lot of features: breathing exercises, a
 
 AI isn't deterministic. If we let it invent support for someone in distress, every suggestion is a new, unreviewed piece of advice, and some will be wrong in ways that matter. And when support is just text ("try journaling", "call a friend"), it sends the person out of the app with nothing to actually do.
 
-So we build the support layer ourselves, and the AI chooses from it. That gives us three things:
+So we build the support layer ourselves, and the AI routes people to it. That gives us three things:
 
 1. **Safety.** Every piece of support someone receives is something we built, reviewed and moderated.
-2. **Predictability.** The AI's job narrows from *inventing* support to *choosing* it, which is far easier to test and trust.
+2. **Predictability.** The AI's job narrows from *inventing* support to *routing* to it, which is far easier to test and trust.
 3. **Room to grow.** Every new Kindling makes the whole system more useful. There's always a next support tool to build or improve.
 
 ### How it flows
@@ -328,7 +328,7 @@ When the person says *"Not quite"* or *"Say more"*, their new words go through t
 - **Kindling** runs if the conditions below are met.
 - **A follow-up check-in** is scheduled, sooner after heavier sessions.
 
-### How Kindling chooses
+### How Kindling routes
 
 Kindling runs only when **all** of these are true:
 

@@ -1,54 +1,24 @@
 "use client"
 
-import { m as motion } from "motion/react"
-import { Sparkles, Users } from "lucide-react"
 import { SectionDivider } from "@/components/manifesto/v2/shared/section-divider"
 import { ScrollReveal } from "@/components/manifesto/v2/shared/scroll-reveal"
 
-function BridgeDiagram() {
-  return (
-    <div className="flex max-w-sm items-center gap-4 py-2">
-      <div className="flex shrink-0 flex-col items-center gap-2">
-        <div className="flex size-12 items-center justify-center rounded-full border border-primary/20 bg-primary/[0.05]">
-          <Sparkles className="size-4 text-primary/70" strokeWidth={1.5} />
-        </div>
-        <p className="font-mono text-[9px] tracking-[0.18em] text-muted-foreground/40 uppercase">
-          AI
-        </p>
-      </div>
+// docs/xolace.md §5: the three things only people give
+const onlyPeople = [
+  "Being chosen by someone who had no obligation to choose you.",
+  "Hearing from someone who went through it and came out the other side.",
+  "Proof that you aren’t uniquely, privately broken.",
+]
 
-      <div className="relative h-px flex-1 border-t border-dashed border-border/40">
-        <motion.span
-          animate={{ left: ["0%", "100%", "0%"] }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/70"
-        />
-        <p className="absolute -top-6 left-1/2 -translate-x-1/2 text-center font-mono text-[9px] tracking-[0.16em] whitespace-nowrap text-muted-foreground/40 uppercase">
-          the bridge
-        </p>
-      </div>
-
-      <div className="flex shrink-0 flex-col items-center gap-2">
-        <div className="flex size-12 items-center justify-center rounded-full border border-accent/20 bg-accent/[0.05]">
-          <Users className="size-4 text-accent/70" strokeWidth={1.5} />
-        </div>
-        <p className="font-mono text-[9px] tracking-[0.18em] text-muted-foreground/40 uppercase">
-          Human
-        </p>
-      </div>
-    </div>
-  )
-}
-
-const peerReflections = [
+// Illustrative, not real sessions: the label above them says so
+const exampleReflections = [
   "Some days I feel like I’m performing being okay and no one can tell.",
   "The exhaustion isn’t physical. It’s from pretending.",
   "I've described it to three different people and none of them got it. I'm not even sure I got it.",
 ]
+
+const bodyClass =
+  "font-serif text-base leading-loose text-muted-foreground md:text-lg"
 
 export function WhyAI() {
   return (
@@ -64,7 +34,7 @@ export function WhyAI() {
 
         <div className="max-w-2xl space-y-6 md:ml-auto">
           <ScrollReveal delay={0.1}>
-            <p className="font-serif text-base leading-loose text-muted-foreground md:text-lg">
+            <p className={bodyClass}>
               When an AI says &ldquo;I understand what you&apos;re going
               through,&rdquo; it doesn&apos;t. It&apos;s pattern matching.
               It&apos;s prediction. It has read millions of words about human
@@ -75,97 +45,116 @@ export function WhyAI() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.15}>
-            <p className="font-serif text-base leading-loose text-muted-foreground md:text-lg">
-              We know that. We built one anyway.
+            <p className={bodyClass}>
+              We know that. We built on AI anyway, because we think of it as{" "}
+              <strong className="text-foreground">80/20</strong>.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <p className="font-serif text-base leading-loose text-muted-foreground md:text-lg">
-              Not because we think AI can replace human empathy. Because it can
-              do something humans can&apos;t always do in the moment:{" "}
+            <p className={bodyClass}>
+              The 80% is the AI. It&apos;s there at 3am, never tired, never
+              judging, never making you feel like a burden. It{" "}
               <strong className="text-foreground">
-                find the words when you have none.
-              </strong>{" "}
-              Sit with you at 2am without judgment, without fatigue, without
-              needing you to perform your pain in a way that makes sense. Hold
-              the space while you figure out what you&apos;re carrying.
+                finds the words when you have none
+              </strong>
+              , and it notices patterns across weeks that you can&apos;t see day
+              to day. Finding the words matters more than it sounds.
+              Articulation is a kind of exhale: once the thing has edges, you
+              can look at it.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.25}>
-            <p className="font-serif text-base leading-loose text-muted-foreground md:text-lg">
-              But the AI is the bridge, not the destination.
+            <p className={bodyClass}>
+              The 20% is people. Some things no AI can give, however good it
+              gets:
             </p>
           </ScrollReveal>
         </div>
 
-        <ScrollReveal
-          delay={0.28}
-          className="my-14 max-w-2xl md:my-20 md:ml-auto"
-        >
-          <BridgeDiagram />
-        </ScrollReveal>
-
-        <div className="max-w-2xl space-y-6 md:ml-auto">
-          <ScrollReveal delay={0.3}>
-            <p className="font-serif text-base leading-loose text-muted-foreground md:text-lg">
-              Because after it helps you name what you&apos;re feeling,
-              something else happens. You see that other people have carried
-              this too. Not in a chat room. Not in a comments section. Not in a
-              support group where you have to introduce yourself and tell your
-              story. Just quiet, anonymous words from someone who was exactly
-              where you are, who felt the same nameless thing and found their
-              version of the words for it.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.35}>
-            <p className="font-serif text-base leading-loose text-muted-foreground md:text-lg">
-              No profile. No username. No reply button. Just recognition.
-            </p>
-          </ScrollReveal>
-        </div>
-
-        <div className="my-20 md:my-32">
-          {peerReflections.map((reflection, i) => (
-            <ScrollReveal key={i} delay={i * 0.15} duration={0.9} y={16}>
-              <div className="py-8 md:py-12">
-                {i > 0 && (
-                  <div className="mx-auto mb-8 h-px w-12 bg-primary/15 md:mb-12" />
-                )}
-                <p className="mx-auto max-w-lg text-center font-serif text-lg leading-relaxed text-foreground/70 italic md:text-xl">
-                  &ldquo;{reflection}&rdquo;
-                </p>
-              </div>
+        <div className="my-14 max-w-2xl space-y-5 md:my-20 md:ml-auto">
+          {onlyPeople.map((line, i) => (
+            <ScrollReveal key={line} delay={0.1 + i * 0.08}>
+              <p className="flex gap-5 font-serif text-lg leading-snug text-foreground md:text-xl">
+                <span
+                  aria-hidden
+                  className="mt-3 h-px w-8 shrink-0 bg-primary/40"
+                />
+                {line}
+              </p>
             </ScrollReveal>
           ))}
         </div>
 
         <div className="max-w-2xl space-y-6 md:ml-auto">
           <ScrollReveal delay={0.1}>
-            <p className="font-serif text-base leading-loose text-muted-foreground md:text-lg">
-              When you read those and something in your chest loosens,
-              that&apos;s not AI. That&apos;s human. One person&apos;s honesty
-              reaching another across the silence. The AI helped you name your
-              feeling. Another person helped you feel less alone in it.{" "}
-              <strong className="text-foreground">
-                That combination of language from the AI and recognition from
-                another human is what nothing else offers.
-              </strong>
+            <p className={bodyClass}>
+              That last one sits under a lot of what people carry: not &ldquo;I
+              feel bad,&rdquo; but &ldquo;I feel bad in a way that makes me
+              different from everyone else.&rdquo; Only another person can break
+              that.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.15}>
-            <p className="font-serif text-base leading-loose text-muted-foreground md:text-lg">
-              We believe in human connection deeply. We just don&apos;t believe
-              it requires conversation. It requires recognition.{" "}
-              <em className="font-serif italic">
-                &ldquo;I&apos;m not the only one&rdquo;
-              </em>{" "}
-              is quieter than a conversation and more powerful than any chatbot
-              response. Our job is to engineer that moment and protect it
-              fiercely.
+            <p className={bodyClass}>
+              So we picture Xolace as a campfire. You sit by the fire on your
+              own. Its light helps you see what you&apos;re carrying. Now and
+              then you hear quiet voices from others in the dark, strangers who
+              feel what you feel.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.2}>
+            <p className={bodyClass}>
+              The fire is the AI, and we call it{" "}
+              <strong className="text-foreground">the Fire</strong>. It lights
+              things up and keeps you warm, but it isn&apos;t the one
+              you&apos;re there to meet. The support Xolace routes you to we
+              call <strong className="text-foreground">Kindlings</strong>:
+              things we built for you to do, from a short exercise to a chat
+              with a trained peer listener to help reaching someone in your
+              life.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.25}>
+            <p className={bodyClass}>
+              And the voices in the dark sound like this.
+            </p>
+          </ScrollReveal>
+        </div>
+
+        <figure className="my-16 md:my-24">
+          <ScrollReveal>
+            <figcaption className="text-center font-mono text-[11px] tracking-[0.24em] text-muted-foreground/50 uppercase">
+              Examples of what people share
+            </figcaption>
+          </ScrollReveal>
+          {exampleReflections.map((reflection, i) => (
+            <ScrollReveal key={i} delay={i * 0.15} duration={0.9} y={16}>
+              <div className="py-8 md:py-12">
+                {i > 0 && (
+                  <div className="mx-auto mb-8 h-px w-12 bg-primary/15 md:mb-12" />
+                )}
+                <blockquote className="mx-auto max-w-lg text-center font-serif text-lg leading-relaxed text-foreground/70 italic md:text-xl">
+                  &ldquo;{reflection}&rdquo;
+                </blockquote>
+              </div>
+            </ScrollReveal>
+          ))}
+        </figure>
+
+        <div className="max-w-2xl space-y-6 md:ml-auto">
+          <ScrollReveal delay={0.1}>
+            <p className={bodyClass}>
+              When words like those loosen something in your chest, that&apos;s
+              not the AI. That&apos;s another person. The Fire helped you find
+              the words.{" "}
+              <strong className="text-foreground">
+                Someone else helped you feel less alone in them.
+              </strong>
             </p>
           </ScrollReveal>
         </div>

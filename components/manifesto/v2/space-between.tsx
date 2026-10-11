@@ -13,7 +13,7 @@ function SpectrumDiagram() {
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 1.1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute inset-y-0 left-[28%] right-[28%] origin-left rounded-full bg-gradient-to-r from-primary/70 to-accent/70"
+          className="absolute inset-y-0 right-[28%] left-[28%] origin-left rounded-full bg-gradient-to-r from-primary/70 to-accent/70"
         />
         <span className="absolute top-1/2 left-0 size-2.5 -translate-y-1/2 rounded-full bg-muted-foreground/30" />
         <span className="absolute top-1/2 right-0 size-2.5 -translate-y-1/2 rounded-full bg-muted-foreground/30" />
@@ -28,7 +28,9 @@ function SpectrumDiagram() {
         </motion.span>
       </div>
       <div className="flex w-full items-start justify-between font-mono text-[10px] tracking-[0.16em] text-muted-foreground/40 uppercase">
-        <span className="max-w-24 text-left">&ldquo;Everything is fine&rdquo;</span>
+        <span className="max-w-24 text-left">
+          &ldquo;Everything is fine&rdquo;
+        </span>
         <span className="max-w-24 text-right">&ldquo;I need help&rdquo;</span>
       </div>
     </div>
@@ -110,9 +112,10 @@ export function SpaceBetween() {
 
         <ScrollReveal delay={0.15} className="mt-16 max-w-3xl md:mt-24">
           <p className="font-serif text-2xl leading-snug font-medium text-foreground md:text-3xl">
-            We built Xolace to give people space to express themselves. What we
-            discovered is that expression was never the problem.{" "}
-            <strong className="font-semibold">Language was.</strong>
+            Most of what weighs on people never gets a name.{" "}
+            <strong className="font-semibold">
+              So it never gets dealt with.
+            </strong>
           </p>
           <p className="mt-6 font-serif text-base leading-loose text-muted-foreground md:text-lg">
             Most people don&apos;t avoid processing emotions because they
@@ -125,8 +128,8 @@ export function SpaceBetween() {
 
         <ScrollReveal delay={0.2} className="mt-12">
           <p className="font-serif text-xl font-semibold text-foreground">
-            That&apos;s the problem Xolace exists to solve. Not expression.
-            Articulation.
+            That&apos;s where Xolace meets you: in the daily, early moment,
+            before it has a name.
           </p>
         </ScrollReveal>
       </div>

@@ -88,7 +88,8 @@ export function OpeningV2() {
 
           <ScrollReveal delay={0.4}>
             <p className="font-serif text-base leading-loose text-muted-foreground md:text-lg">
-              Tomorrow never comes.
+              Tomorrow never comes. The weight stays, and the next one lands on
+              top of it.
             </p>
           </ScrollReveal>
 

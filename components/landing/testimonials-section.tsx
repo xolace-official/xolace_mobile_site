@@ -23,13 +23,6 @@ const reviews: Review[] = [
     rating: 5,
   },
   {
-    name: "s-kvng",
-    quote:
-      "Sometimes I'm blown away by how easy it is to gain clarity on how I'm feeling without needing to have a conversation.",
-    platform: "App Store",
-    rating: 5,
-  },
-  {
     name: "Aromah",
     quote:
       "Actually the app is a masterpiece. Haven't seen an app work so fast like this wow.",

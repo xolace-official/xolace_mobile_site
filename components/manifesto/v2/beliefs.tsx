@@ -1,13 +1,22 @@
 "use client"
 
+import Link from "next/link"
 import { cn } from "@/lib/utils"
-import { Sunrise, Layers, Users, Feather, ShieldCheck } from "lucide-react"
+import {
+  ArrowRight,
+  Sunrise,
+  Droplets,
+  Users,
+  Feather,
+  ShieldCheck,
+} from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { ScrollReveal } from "@/components/manifesto/v2/shared/scroll-reveal"
 
 const beliefs: {
   title: string
   body: string
+  link?: { text: string; href: string }
   accent: string
   dot: string
   iconColor: string
@@ -15,23 +24,23 @@ const beliefs: {
 }[] = [
   {
     title: "Healing happens in honest moments.",
-    body: "Not in grand breakthroughs, but in the small act of telling the truth to yourself. The three minutes you spent naming what you feel matter more than you think.",
+    body: "Not in grand breakthroughs, but in the small act of telling the truth to yourself. The moment you spend naming what you feel matters more than you think.",
     accent: "border-primary/20 bg-primary/[0.03]",
     dot: "bg-primary/50",
     iconColor: "text-primary/70",
     Icon: Sunrise,
   },
   {
-    title: "The daily weight deserves daily infrastructure.",
-    body: "Mental wellness shouldn't begin at crisis. You don't wait until you're sick to take care of your body. You shouldn't wait until you're broken to take care of your mind.",
+    title: "Skincare for your mind.",
+    body: "You don't wait for your skin to get bad before you look after it. Your mind deserves the same small, daily care, whether or not anything is wrong.",
     accent: "border-accent/20 bg-accent/[0.03]",
     dot: "bg-accent/50",
     iconColor: "text-accent/70",
-    Icon: Layers,
+    Icon: Droplets,
   },
   {
     title: "AI should make human connection more reachable, not replace it.",
-    body: "The AI finds the words. Humans provide the warmth. One without the other is incomplete. A mirror that only reflects back is useful. A mirror that shows you others have stood here too is transformative.",
+    body: "AI prepares people for each other. What stops us reaching someone is often friction: no words for it, fear of judgment, not knowing who to go to. AI can clear that, so you walk into a conversation already knowing what you want to say.",
     accent: "border-chart-2/20 bg-chart-2/[0.03]",
     dot: "bg-chart-2/50",
     iconColor: "text-chart-2/70",
@@ -47,7 +56,8 @@ const beliefs: {
   },
   {
     title: "Safe spaces need structure, not just intention.",
-    body: "Anyone can say “this is a safe space.” We engineer it through design that prevents hierarchies, through anonymity that prevents performance. Safety is architecture, not a promise.",
+    body: "Anyone can say “this is a safe space.” We build it in: every message is screened before the AI responds, and the AI routes you to support from a sandbox we built. It never invents support. Safety is architecture, not a promise.",
+    link: { text: "How Xolace keeps you safe", href: "/safety" },
     accent: "border-accent/20 bg-accent/[0.03]",
     dot: "bg-accent/50",
     iconColor: "text-accent/70",
@@ -99,6 +109,15 @@ export function Beliefs() {
                   <p className="font-serif text-sm leading-relaxed text-muted-foreground/70 md:text-[15px]">
                     {belief.body}
                   </p>
+                  {belief.link && (
+                    <Link
+                      href={belief.link.href}
+                      className="inline-flex items-center gap-1.5 text-sm text-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
+                    >
+                      {belief.link.text}
+                      <ArrowRight className="size-3.5" strokeWidth={1.5} />
+                    </Link>
+                  )}
                 </div>
               </ScrollReveal>
             )

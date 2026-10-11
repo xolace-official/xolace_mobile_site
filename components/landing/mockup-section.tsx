@@ -19,7 +19,7 @@ export function MockupSection() {
               A reflection of the unspoken.
             </p>
             <p className="max-w-sm text-lg leading-relaxed text-muted-foreground">
-              A glimpse into the quiet dialogue between you and the Mirror. No
+              A look into the quiet dialogue between you and the Mirror. No
               judgments, just clarity.
             </p>
           </div>

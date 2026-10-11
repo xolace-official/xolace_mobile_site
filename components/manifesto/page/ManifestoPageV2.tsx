@@ -1,6 +1,6 @@
 import { OpeningV2 } from "@/components/manifesto/v2/opening"
 import { SpaceBetween } from "@/components/manifesto/v2/space-between"
-import { Experience } from "@/components/manifesto/v2/experience"
+import { ItStacks } from "@/components/manifesto/v2/it-stacks"
 import { WhyAI } from "@/components/manifesto/v2/why-ai"
 import { Beliefs } from "@/components/manifesto/v2/beliefs"
 import { Never } from "@/components/manifesto/v2/never"
@@ -12,7 +12,7 @@ export function ManifestoPageV2() {
     <main className="pt-40">
       <OpeningV2 />
       <SpaceBetween />
-      <Experience />
+      <ItStacks />
       <WhyAI />
       <Beliefs />
       <Never />

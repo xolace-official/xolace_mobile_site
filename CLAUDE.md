@@ -38,6 +38,8 @@ bun run typecheck    # TypeScript check (no emit)
 bun run test         # Unit tests for lib/ (bun:test; *.test.ts are excluded from tsc)
 ```
 
+`lib/site-copy.test.ts` sweeps the whole site (`app/`, `components/`, `lib/`, `public/llms.txt`), live and dead files alike, for retired and banned wording: Echo, Glimpses, "X brain", "clinically reviewed", "built and reviewed by us", "no sign-up", session-length numbers ("3 minutes"; say "a few minutes, most days"), and "the AI chooses/picks" (it routes or builds). If it fails, fix the copy; don't loosen the pattern.
+
 Adding shadcn/ui components:
 ```bash
 bunx shadcn@latest add <component>
@@ -194,11 +196,27 @@ HomePage.tsx            — <main> is overflow-clip, never overflow-hidden (hidd
 
 The hero's typed lines and reflections (`hero/scenarios.ts`) are illustrative; consecutive scenarios must light different sets of four. Kindling names, icons and colours come from `lib/kindlings.ts`. Public copy says Kindling "builds" a set, never "picks"/"chooses" (CONTEXT.md). Reduced motion freezes the hero on its fully lit frame; read the media query with `useSyncExternalStore` (server snapshot `false`), not `useReducedMotion`, or hydration mismatches.
 
-Retired from the home page: `PathsSection`, the old `how-it-works.tsx`, `ReflectionsSection` (session quotes without marketing consent), the Flux hero image and the 4.9 rating. `CompanionBridge` and `PhilosophySection` are not in the page either. Do not re-add any of them without discussing first.
+Retired from the home page: `PathsSection`, the old `how-it-works.tsx`, `ReflectionsSection` (session quotes without marketing consent), the Flux hero image and the 4.9 rating. `CompanionBridge` and `PhilosophySection` are not in the page either. `three-layers.tsx` (Echo) and `anti-engagement.tsx` ("No streaks") were deleted in #37 for false claims. Do not re-add any of them without discussing first.
 
 `LandingFaq` uses the shadcn `Accordion` (`components/ui/accordion.tsx`). `/faq` deliberately does not: Radix renders no children for a closed item, so its answers would be missing from the server HTML. Keep `/faq` on native `<details>`.
 
 `MobileDownloadBar` is rendered outside `<main>` inside `SmoothScroll` — it's not part of the scroll flow.
+
+### Manifesto Section Order
+
+```
+ManifestoPageV2.tsx — the brief from #28; argues why, mechanics live on How it works, /safety and /pricing
+  ├── OpeningV2       — the night scene; "Tomorrow never comes" sets up compounding
+  ├── SpaceBetween    — the spectrum; ends on "before it has a name"
+  ├── ItStacks        — compounding, and "fewer people reach the queue" framed as a bet
+  ├── WhyAI           — 80/20, the campfire, the Fire and Kindlings; quotes labelled as examples
+  ├── Beliefs         — five cards; the safety card links to /safety
+  ├── Never           — six cards; bodies stay short (the card clamps to four lines)
+  ├── QuietPart       — skincare vision and the two habits
+  └── Invitation      — "Come home." + "The mirror is free, and always will be." No sign-up or time claim
+```
+
+`Experience` was cut (it duplicated How it works). The v1 files at the top of `components/manifesto/` are unused, except `invitation.tsx`.
 
 ### Region swap
 

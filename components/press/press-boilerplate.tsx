@@ -9,17 +9,17 @@ const descriptions = [
     key: "short",
     label: "Short description",
     sublabel: "~60 words",
-    text: "Xolace is an emotional processing app for the moments that don't have a name yet - when something is sitting on your chest and you can't explain it, but you know it isn't fine. It offers three paths: Mirror (AI that reflects your emotion back with precision), Vent (ephemeral voice release - nothing stored), and Glimpses (short videos of real people describing a similar feeling). Free to download on iOS and Android.",
+    text: "Xolace is skincare for your mind. It helps people reflect on what they're feeling in the moment, understand what's underneath it and catch what's building up, before it has a name. Its AI, the Fire, writes a short reflection called a Mirror, and Kindling routes people to support the team built, from guided exercises to trained peer listeners. Free to download on iOS and Android.",
   },
   {
     key: "long",
     label: "Full description",
     sublabel: "~120 words",
-    text: `Xolace is emotional processing infrastructure - built for the gap between "everything is fine" and "I need therapy." Most people spend most of their emotional lives in that gap, and almost nothing has been built specifically for it.
+    text: `Xolace is skincare for your mind. It helps people reflect on what they're feeling in the moment, so they get clarity on it, understand what's underneath it and catch what's compounding while it's still small, so that real support can work.
 
-The app offers three paths. Mirror uses AI to reflect the user's emotion back with more precision than they could find on their own - in 1 to 3 sentences that make them think: yes, that's exactly it. Vent is ephemeral voice release: an affirming presence listens without advising, and when the session ends, the recording is gone. Glimpses shows short videos of real people describing similar emotions - not advice, not diagnosis, just human recognition.
+A person types or speaks what's going on, and the Fire, Xolace's AI, writes back a short reflection called a Mirror. When they could use support, Kindling routes them to tools the team built: Sit with this, Vessa audio, the Lantern library, Xolacers (trained volunteer peer listeners) and Trusted Bridge, which helps draft a message to someone in their life. Vent is a place to say it out loud. Xolace doesn't diagnose or treat, and it isn't a crisis service.
 
-Xolace was founded in 2024 and is available free on iOS and Android. For press inquiries: press@xolaceinc.com`,
+The mirror is free, and always will be; Xolace Plus adds Kindling and more. Available on iOS and Android. For press inquiries: press@xolaceinc.com`,
   },
 ]
 

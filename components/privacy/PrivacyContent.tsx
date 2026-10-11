@@ -232,7 +232,7 @@ export function PrivacyContent() {
         <SubHeading>Product Improvement</SubHeading>
         <List
           items={[
-            "Improve AI models and system performance",
+            "Improve how Xolace works and how it performs",
             "Analyze usage trends",
           ]}
         />
@@ -282,8 +282,11 @@ export function PrivacyContent() {
         <List
           items={[
             "Anthropic — AI reflection generation",
+            "OpenAI — safety moderation and search over your past sessions",
             "Convex — database and backend infrastructure",
             "Clerk — authentication",
+            "Stream — chats with Xolacers",
+            "RevenueCat — Xolace Plus subscriptions",
             "ElevenLabs — voice audio generation",
             "PostHog — product analytics",
             "Sentry — crash and error monitoring",
@@ -314,7 +317,7 @@ export function PrivacyContent() {
         </Body>
         <List
           items={[
-            "Session data may be retained according to your account settings",
+            "By default, we keep your sessions so Xolace can remember you. You can set them to delete automatically after 6 months or a year",
             "Some anonymized data may be retained for research and system improvement",
           ]}
         />
@@ -323,12 +326,18 @@ export function PrivacyContent() {
           potential safety concern during a session, a fully anonymised record
           of that event is retained indefinitely for safety auditing purposes.
           This record contains no text you wrote, no name, and no account
-          reference — it cannot be linked back to you. It is the only data that
-          survives account deletion.
+          reference — it cannot be linked back to you.
         </Notice>
         <Body>
-          You may request deletion of your account and all other associated data
-          at any time (see Section 10).
+          Some records also survive account deletion: feedback you sent us,
+          reflections you chose to share anonymously, and counts that combine
+          many people. Records held by our sign-in, subscription and analytics
+          providers are not deleted with your account; contact us to have them
+          removed.
+        </Body>
+        <Body>
+          You may request deletion of your account and associated data at any
+          time (see Section 10).
         </Body>
       </Section>
 
@@ -363,7 +372,8 @@ export function PrivacyContent() {
         <SubHeading>B. Contribution Control</SubHeading>
         <Body>
           You can choose whether your reflections are kept private or shared
-          anonymously. This is entirely in your control.
+          anonymously. A reflection you share is not linked to you, so it
+          can&apos;t be found or withdrawn afterwards.
         </Body>
 
         <SubHeading>C. Notifications</SubHeading>
@@ -384,8 +394,8 @@ export function PrivacyContent() {
         <List
           items={[
             "Access or correct your personal data",
-            "Delete your account and all associated data",
-            "Withdraw optional consent (anonymous sharing, notifications) at any time from Settings",
+            "Delete your account and associated data, except the records described in Section 7",
+            "Withdraw optional consent (anonymous sharing, notifications) at any time from Settings, for anything you share from then on",
             "Restrict or object to certain processing",
           ]}
         />

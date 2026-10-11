@@ -63,7 +63,8 @@ export function LaunchSection() {
               Carry it with you.
             </h2>
             <p className="mx-auto max-w-md text-lg leading-relaxed text-muted-foreground">
-              Xolace is free to download. Your first session takes 3 minutes.
+              Xolace is free to download. The mirror is free, and always will
+              be.
             </p>
           </motion.div>
 

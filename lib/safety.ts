@@ -1,5 +1,5 @@
 // Every statement /safety makes, with where it comes from. Copied from the prototype's claims file (ticket #27);
-// the held claims were settled in ticket #30. Never add a claim without a source, and never write "clinically reviewed".
+// the held claims were settled in ticket #30. Never add a claim without a source, and never claim clinical review (lib/site-copy.test.ts bans the phrase).
 export type Claim = {
   id: string
   text: string
@@ -181,7 +181,7 @@ export const TOPICS: Topic[] = [
       },
       {
         id: "not-invent",
-        text: "The AI does not invent advice. Support comes from a set of tools we built, and the AI chooses from them.",
+        text: "The AI does not invent advice. Support comes from a set of tools we built, and the AI routes you to them.",
         source: "xolace.md §6",
       },
       {
