@@ -5,7 +5,6 @@ import { m as motion } from "motion/react"
 import { founders } from "@/lib/team"
 
 const ceo = founders.find((f) => f.role.startsWith("CEO"))!
-const cmo = founders.find((f) => f.role.startsWith("CMO"))!
 
 // The letter is signed informally — first name only, full record lives in lib/team.ts
 const attribution = (founder: (typeof founders)[number]) =>
@@ -112,17 +111,16 @@ export function FounderLetter() {
                 <div className="size-2 rounded-full bg-primary/60" />
               </div>
               <p className="font-serif text-lg leading-relaxed text-foreground/70 italic">
-                &ldquo;We&apos;re building the room that doesn&apos;t have a
-                name yet.&rdquo;
+                &ldquo;So we built it for them first. Our own campfire.&rdquo;
               </p>
               <p className="font-mono text-[11px] tracking-[0.18em] text-muted-foreground/30 uppercase">
-                {attribution(cmo)}
+                {attribution(ceo)}
               </p>
             </div>
 
             <div className="space-y-3 rounded-2xl border border-accent/15 bg-accent/[0.04] p-8">
               <p className="font-serif text-base leading-relaxed text-foreground/55 italic">
-                &ldquo;Xolace is the room we couldn&apos;t find.&rdquo;
+                &ldquo;We&apos;re sharing that campfire with you.&rdquo;
               </p>
               <p className="font-mono text-[11px] tracking-[0.18em] text-muted-foreground/30 uppercase">
                 {attribution(ceo)}
