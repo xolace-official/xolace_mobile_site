@@ -142,7 +142,7 @@ export function PressContact() {
           className="flex items-center gap-4"
         >
           <div className="h-px flex-1 bg-gradient-to-r from-transparent to-border/15" />
-          <p className="text-center font-serif text-sm whitespace-nowrap text-muted-foreground/30 italic">
+          <p className="text-center font-serif text-sm whitespace-nowrap text-muted-foreground/30">
             Or visit the{" "}
             <Link
               href="/press"

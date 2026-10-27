@@ -75,10 +75,12 @@ export function SupportUsPage() {
               transition={{ duration: 0.7, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
               className="mt-10 flex flex-wrap items-center gap-5"
             >
-              <Button asChild className="rounded-full px-5">
-                <Link href="#ways-to-help">
-                  Find your way in <ArrowRight className="size-4" />
-                </Link>
+              <Button
+                size="lg"
+                className="rounded-full px-6"
+                onClick={() => document.getElementById("ways-to-help")?.scrollIntoView({ behavior: "smooth" })}
+              >
+                Find your way in <ArrowRight className="size-4" />
               </Button>
               <span className="text-sm text-muted-foreground/50">No Plus plan required.</span>
             </motion.div>
