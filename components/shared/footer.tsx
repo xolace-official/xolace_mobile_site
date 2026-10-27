@@ -50,6 +50,7 @@ const links: Record<"explore" | "legal" | "contact", NavLink[]> = {
     { label: "Pricing", href: "/pricing" },
     { label: "Safety", href: "/safety" },
     { label: "FAQ", href: "/faq" },
+    { label: "Support Xolace", href: "/support-us" },
     {
       label: "Ambassadors",
       href: "https://ambassador.xolaceinc.com",

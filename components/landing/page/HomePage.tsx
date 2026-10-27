@@ -53,7 +53,7 @@ export function HomePage() {
         <StartupProgramsSection />
         <LandingFaq />
         <LaunchSection />
-        {/* <SupportSection /> */}
+        <SupportSection />
       </main>
       <MobileDownloadBar />
     </SmoothScroll>
