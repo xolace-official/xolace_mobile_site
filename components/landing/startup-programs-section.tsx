@@ -41,9 +41,22 @@ function ElevenLabsLogo() {
   )
 }
 
+function GoogleForStartupsLogo() {
+  return (
+    <Image
+      src="/images/google-for-startups.png"
+      alt=""
+      width={810}
+      height={101}
+      className="h-6 w-auto"
+    />
+  )
+}
+
 const programs = [
   { name: "Claude Startups", Logo: ClaudeLogo },
   { name: "ElevenLabs Grants", Logo: ElevenLabsLogo },
+  { name: "Google for Startups", Logo: GoogleForStartupsLogo },
 ]
 
 export function StartupProgramsSection() {
@@ -57,7 +70,7 @@ export function StartupProgramsSection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="section-label text-center text-xs! font-semibold md:text-[0.8125rem]!"
         >
-          Members of these startup programs
+          Member of these startup programs
         </motion.p>
 
         <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-16 gap-y-8">
