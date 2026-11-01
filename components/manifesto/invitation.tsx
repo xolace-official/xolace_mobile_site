@@ -1,100 +1,43 @@
 "use client"
 
 import Image from "next/image"
-import { m as motion } from "motion/react"
+import { ScrollReveal } from "@/components/manifesto/v2/shared/scroll-reveal"
 import { DownloadButtons } from "@/components/shared/download-buttons"
+import { Lead } from "@/components/shared/ledger"
 
 export function Invitation() {
   return (
     <section className="section-spacing" id="download">
       <div className="section-container-wide">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="relative overflow-hidden rounded-3xl border border-primary/15 bg-primary/[0.05]"
-        >
-          {/* Inner atmosphere */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl"
-          >
-            <div className="absolute -top-20 -left-20 hidden h-[500px] w-[500px] rounded-full bg-primary/[0.14] blur-[100px] md:block" />
-            <div className="absolute right-1/3 bottom-0 hidden h-[400px] w-[400px] rounded-full bg-accent/[0.08] blur-[90px] md:block" />
-          </div>
-
-          <div className="relative z-10 flex flex-col gap-10 p-10 md:p-16 lg:flex-row lg:items-end lg:justify-between lg:p-20">
-            {/* Left — text and buttons */}
-            <div className="max-w-lg">
-              <motion.h2
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.9,
-                  delay: 0.1,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="mb-5 font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]"
-              >
+        <ScrollReveal>
+          <div className="relative flex flex-col gap-10 overflow-hidden rounded-3xl border border-primary/15 bg-primary/[0.04] p-8 md:p-12 lg:flex-row lg:items-center lg:justify-between lg:p-16">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -top-24 -left-20 size-[28rem] rounded-full bg-primary/[0.12] blur-[110px]"
+            />
+            <div className="relative z-10 max-w-lg">
+              <h2 className="text-5xl leading-[1.03] font-medium tracking-[-0.03em] text-foreground md:text-[4rem]">
                 Come home.
-              </motion.h2>
-
-              <motion.p
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.2,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="mb-10 font-serif text-base leading-relaxed text-muted-foreground/65 md:text-lg"
-              >
+              </h2>
+              <Lead className="mt-5">
                 The fire is lit. The mirror is free, and always will be.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.3,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-              >
+              </Lead>
+              <div className="mt-10">
                 <DownloadButtons align="start" />
-              </motion.div>
+              </div>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 1.0,
-                delay: 0.2,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="flex shrink-0 justify-center lg:justify-end"
-            >
-              <div className="relative size-40 md:size-48">
-                <div className="animate-gentle-pulse absolute inset-0 scale-110 rounded-full bg-primary/30 blur-2xl" />
-                <div className="relative size-full overflow-hidden rounded-full border-2 border-primary/50">
-                  <Image
-                    src="/hero/the-fire.jpeg"
-                    alt=""
-                    fill
-                    sizes="192px"
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </motion.div>
+            <div className="relative z-10 size-40 shrink-0 overflow-hidden rounded-2xl border border-primary/30 md:size-48">
+              <Image
+                src="/hero/the-fire.jpeg"
+                alt=""
+                fill
+                sizes="192px"
+                className="object-cover"
+              />
+            </div>
           </div>
-        </motion.div>
+        </ScrollReveal>
       </div>
     </section>
   )
