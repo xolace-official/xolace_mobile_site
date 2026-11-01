@@ -35,12 +35,17 @@ type SupportContactDialogProps = {
 const supportContactSchema = z.object({
   name: z.string().trim().min(1, "Please enter your name."),
   email: z.string().trim().email("Please enter a valid email address."),
-  message: z.string().trim().min(1, "Please tell us how you would like to help."),
+  message: z
+    .string()
+    .trim()
+    .min(1, "Please tell us how you would like to help."),
 })
 
 type SupportContactValues = z.infer<typeof supportContactSchema>
 
-export function SupportContactDialog({ compact = false }: SupportContactDialogProps) {
+export function SupportContactDialog({
+  compact = false,
+}: SupportContactDialogProps) {
   const [open, setOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const form = useForm<SupportContactValues>({
@@ -90,9 +95,12 @@ export function SupportContactDialog({ compact = false }: SupportContactDialogPr
       </DialogTrigger>
       <DialogContent className="max-w-lg rounded-2xl border-border/60 bg-background p-6 sm:max-w-lg md:p-8">
         <DialogHeader className="pr-8">
-          <DialogTitle className="font-serif text-3xl">Tell us how you want to help.</DialogTitle>
+          <DialogTitle className="font-serif text-3xl">
+            Tell us how you want to help.
+          </DialogTitle>
           <DialogDescription className="pt-2 text-sm leading-relaxed">
-            Fill this in and your email app will open with your message ready to send to our team.
+            Fill this in and your email app will open with your message ready to
+            send to our team.
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
@@ -104,7 +112,13 @@ export function SupportContactDialog({ compact = false }: SupportContactDialogPr
                 <FormItem>
                   <FormLabel htmlFor="support-name">Name</FormLabel>
                   <FormControl>
-                    <Input id="support-name" autoComplete="name" placeholder="Your name" className="rounded-xl px-4 py-3" {...field} />
+                    <Input
+                      id="support-name"
+                      autoComplete="name"
+                      placeholder="Your name"
+                      className="rounded-xl px-4 py-3"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage name="name" />
                 </FormItem>
@@ -117,7 +131,14 @@ export function SupportContactDialog({ compact = false }: SupportContactDialogPr
                 <FormItem>
                   <FormLabel htmlFor="support-email">Email</FormLabel>
                   <FormControl>
-                    <Input id="support-email" type="email" autoComplete="email" placeholder="you@example.com" className="rounded-xl px-4 py-3" {...field} />
+                    <Input
+                      id="support-email"
+                      type="email"
+                      autoComplete="email"
+                      placeholder="you@example.com"
+                      className="rounded-xl px-4 py-3"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage name="email" />
                 </FormItem>
@@ -130,7 +151,13 @@ export function SupportContactDialog({ compact = false }: SupportContactDialogPr
                 <FormItem>
                   <FormLabel htmlFor="support-message">Message</FormLabel>
                   <FormControl>
-                    <Textarea id="support-message" rows={5} placeholder="How would you like to help?" className="rounded-xl px-4 py-3" {...field} />
+                    <Textarea
+                      id="support-message"
+                      rows={5}
+                      placeholder="How would you like to help?"
+                      className="rounded-xl px-4 py-3"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage name="message" />
                 </FormItem>
@@ -138,12 +165,19 @@ export function SupportContactDialog({ compact = false }: SupportContactDialogPr
             />
             <DialogFooter className="pt-3 sm:flex-row sm:justify-end">
               <DialogClose asChild>
-                <Button type="button" variant="ghost" size="lg">Cancel</Button>
-              </DialogClose>
-                <Button type="submit" size="lg" disabled={!form.formState.isValid || isSubmitting} className="rounded-full px-5">
-                  {isSubmitting ? <Loader2 className="animate-spin" /> : null}
-                  {isSubmitting ? "Opening email..." : "Open email"}
+                <Button type="button" variant="ghost" size="lg">
+                  Cancel
                 </Button>
+              </DialogClose>
+              <Button
+                type="submit"
+                size="lg"
+                disabled={!form.formState.isValid || isSubmitting}
+                className="rounded-full px-5"
+              >
+                {isSubmitting ? <Loader2 className="animate-spin" /> : null}
+                {isSubmitting ? "Opening email..." : "Open email"}
+              </Button>
             </DialogFooter>
           </form>
         </Form>
