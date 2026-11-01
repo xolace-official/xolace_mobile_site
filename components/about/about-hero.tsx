@@ -1,95 +1,69 @@
 "use client"
 
-import { m as motion, useReducedMotion } from "motion/react"
-import { Spotlight } from "@/components/ui/spotlight"
+import { ArrowRight, ArrowDown } from "lucide-react"
+import { m as motion } from "motion/react"
+import { useRouter } from "next/navigation"
+import { Button } from "@/components/ui/button"
 
 export function AboutHero() {
-  const prefersReducedMotion = useReducedMotion()
+  const router = useRouter()
 
   return (
-    <section className="hero-pb relative -mt-32 overflow-hidden pt-32">
-      <Spotlight duration={8} xOffset={80} />
-
-      {/* Glow layer spans the full section, including the area under the fixed
-          transparent navbar — otherwise that strip reads as flat, seamed-off background. */}
+    <section className="section-spacing relative overflow-hidden bg-background">
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="animate-gentle-pulse absolute top-1/2 left-1/2 h-[650px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.07] blur-[140px]" />
-        <div className="animate-gentle-pulse absolute top-1/4 right-1/4 h-[400px] w-[400px] rounded-full bg-accent/[0.05] blur-[110px] [animation-delay:2.5s]" />
-        <div className="animate-gentle-pulse absolute bottom-0 left-1/4 h-[350px] w-[350px] rounded-full bg-chart-2/[0.04] blur-[100px] [animation-delay:5s]" />
+        <div className="animate-gentle-pulse absolute top-16 left-1/2 size-[32rem] -translate-x-1/2 rounded-full bg-primary/[0.05] blur-[150px]" />
       </div>
 
       <div className="section-container relative z-10 text-center">
-        <motion.p
+          <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-8 font-mono text-[11px] tracking-[0.24em] text-muted-foreground/50 uppercase"
-        >
-          Skincare for your mind
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="text-sm font-medium tracking-[0.18em] text-primary uppercase md:text-base"
+          >
+            About Xolace
         </motion.p>
-
         <motion.h1
-          initial={{ opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.0, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]"
+          transition={{ duration: 0.9, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+          className="mx-auto mt-6 max-w-4xl font-serif text-5xl leading-[1.04] font-semibold text-balance md:text-7xl lg:text-[6.5rem]"
         >
-          We built the room
-          <br />
-          we couldn&apos;t find.
+          We built the room we couldn&apos;t find.
         </motion.h1>
-
-        {/* Signature-style flourish — matches the mark under the trust/advisors headings */}
-        <motion.svg
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          aria-hidden
-          width="140"
-          height="16"
-          viewBox="0 0 140 16"
-          fill="none"
-          className="mx-auto mt-5"
-        >
-          <path
-            d="M2 10c10-8 20-8 28 0s18 8 28 0 18-8 28 0 18 8 28 0 14-6 24-2"
-            stroke="url(#about-signature-gradient)"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <defs>
-            <linearGradient
-              id="about-signature-gradient"
-              x1="0"
-              y1="0"
-              x2="140"
-              y2="0"
-            >
-              <stop offset="0%" stopColor="var(--primary)" />
-              <stop offset="100%" stopColor="var(--accent)" />
-            </linearGradient>
-          </defs>
-        </motion.svg>
-
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mx-auto mt-6 max-w-lg text-base leading-relaxed font-light text-muted-foreground/60 md:text-lg"
+          className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-xl"
         >
-          From the moment you can&apos;t name what you&apos;re feeling to
-          support that fits, inside Xolace or with the people in your life.
+          Xolace exists for the space between feeling something and knowing
+          what to do with it.
         </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-10 flex flex-wrap items-center justify-center gap-4"
+        >
+          <Button
+            size="lg"
+            className="rounded-full px-6"
+            onClick={() => router.push("/manifesto")}
+          >
+            Read why we are building this <ArrowRight className="size-4" />
+          </Button>
+        </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scaleX: prefersReducedMotion ? 1 : 0 }}
+          initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.9, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-12 flex origin-center items-center justify-center gap-4"
+          transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="mx-auto mt-20 flex max-w-3xl origin-center items-center gap-5 border-t border-border/30 pt-5 text-left md:mt-28"
         >
-          <div className="h-px w-16 bg-gradient-to-r from-transparent to-border/30" />
-          <div className="size-1.5 rounded-full bg-primary/40" />
-          <div className="h-px w-16 bg-gradient-to-l from-transparent to-border/30" />
+          <span className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground/40 uppercase">01 / Origin</span>
+          <div className="h-px flex-1 bg-border/20" />
+          <ArrowDown className="size-4 text-primary/60" />
         </motion.div>
       </div>
     </section>

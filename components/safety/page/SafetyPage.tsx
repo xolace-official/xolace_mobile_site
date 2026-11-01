@@ -3,7 +3,7 @@ import { SafetyLedger } from "@/components/safety/safety-ledger"
 
 export function SafetyPage() {
   return (
-    <main className="pt-20">
+    <main className="pt-16 md:pt-20">
       <SafetyHero />
       <SafetyLedger />
     </main>

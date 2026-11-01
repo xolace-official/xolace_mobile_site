@@ -3,15 +3,15 @@ import { cn } from "@/lib/utils"
 
 export function SafetyLevels() {
   return (
-    <ol className="grid gap-px overflow-hidden rounded-2xl bg-xo-outline-variant/40 sm:grid-cols-2 xl:grid-cols-4">
+    <ol className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 xl:grid-cols-4">
       {SAFETY_LEVELS.map((level, i) => (
         <li key={level.name} className="flex flex-col gap-2 bg-background p-5">
-          <span className="font-sans text-xs tracking-widest text-muted-foreground uppercase">
+          <span className="text-xs tracking-[0.14em] text-muted-foreground/70 uppercase">
             Level {i + 1}
           </span>
           <span
             className={cn(
-              "text-lg font-semibold",
+              "text-xl font-medium tracking-[-0.01em]",
               i === SAFETY_LEVELS.length - 1
                 ? "text-primary"
                 : "text-foreground"

@@ -4,7 +4,7 @@ import { PricingClose } from "@/components/pricing/pricing-close"
 
 export function PricingPage() {
   return (
-    <main className="pt-20">
+    <main className="pt-16 md:pt-20">
       <PricingHero />
       <PricingPlans />
       <PricingClose />

@@ -2,6 +2,7 @@ import { Check, Minus } from "lucide-react"
 import type { Billing, PlusPrice } from "@/lib/pricing"
 import { planRows } from "@/lib/plans"
 import { cn } from "@/lib/utils"
+import { CardHeading } from "@/components/shared/ledger"
 import { BillingToggle } from "./billing-toggle"
 import { PriceLine } from "./price-line"
 
@@ -19,15 +20,23 @@ export function PlanColumns({
   className,
 }: PlanLayoutProps) {
   return (
-    <div className={cn("grid-cols-[2fr_3fr] gap-4", className)}>
-      <div className="flex flex-col gap-8 rounded-3xl border border-xo-outline-variant/40 p-10">
-        <div className="flex flex-col gap-2">
-          <h2 className="text-2xl font-semibold text-foreground">Free</h2>
-          <p className="text-muted-foreground">
+    <div
+      className={cn(
+        "grid-cols-[2fr_3fr] gap-px overflow-hidden rounded-2xl border border-border bg-border",
+        className
+      )}
+    >
+      <div className="flex flex-col gap-10 bg-background p-10">
+        <div className="flex flex-col gap-4">
+          <CardHeading>Free</CardHeading>
+          <p className="text-5xl leading-none font-medium tracking-[-0.025em] text-foreground md:text-[3.5rem]">
+            Nothing to pay
+          </p>
+          <p className="text-sm text-muted-foreground">
             Everything you need to reflect.
           </p>
         </div>
-        <ul className="flex flex-col gap-5">
+        <ul className="flex flex-col border-t border-border">
           {planRows.map((row) => (
             <PlanFeature
               key={row.id}
@@ -35,7 +44,7 @@ export function PlanColumns({
               detail={row.free ?? "Part of Plus."}
               icon={
                 row.free ? (
-                  <Check aria-hidden className="text-accent" />
+                  <Check aria-hidden className="text-primary" />
                 ) : (
                   <Minus aria-hidden className="text-muted-foreground/50" />
                 )
@@ -45,12 +54,10 @@ export function PlanColumns({
         </ul>
       </div>
 
-      <div className="flex flex-col gap-8 rounded-3xl bg-xo-surface-low p-10 ring-1 ring-primary/30">
+      <div className="flex flex-col gap-10 bg-primary/[0.04] p-10">
         <div className="flex flex-col gap-4">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <h2 className="text-2xl font-semibold text-foreground">
-              Xolace Plus
-            </h2>
+            <CardHeading className="text-primary">Xolace Plus</CardHeading>
             <BillingToggle
               billing={billing}
               onChange={onBillingChange}
@@ -59,7 +66,7 @@ export function PlanColumns({
           </div>
           <PriceLine billing={billing} price={price} savingTag />
         </div>
-        <ul className="grid grid-cols-2 gap-5">
+        <ul className="grid grid-cols-2 gap-x-8 border-t border-border">
           {planRows.map((row) => (
             <PlanFeature
               key={row.id}
@@ -84,11 +91,15 @@ function PlanFeature({
   icon: React.ReactNode
 }) {
   return (
-    <li className="flex gap-3">
-      <span className="mt-1 shrink-0 [&_svg]:size-4">{icon}</span>
+    <li className="flex gap-3 border-b border-border py-4">
+      <span className="mt-0.5 shrink-0 [&_svg]:size-4 [&_svg]:stroke-[1.5]">
+        {icon}
+      </span>
       <div className="flex flex-col gap-0.5">
-        <span className="font-medium text-foreground">{name}</span>
-        <span className="text-sm text-muted-foreground">{detail}</span>
+        <span className="text-foreground">{name}</span>
+        <span className="text-sm leading-relaxed text-muted-foreground">
+          {detail}
+        </span>
       </div>
     </li>
   )

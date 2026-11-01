@@ -9,7 +9,7 @@ import { Invitation } from "@/components/manifesto/invitation"
 
 export function ManifestoPageV2() {
   return (
-    <main className="pt-40">
+    <main className="pt-16 md:pt-20">
       <OpeningV2 />
       <SpaceBetween />
       <ItStacks />

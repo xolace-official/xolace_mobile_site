@@ -1,9 +1,6 @@
 "use client"
 
-import React, { useRef, useState, useCallback, useEffect } from "react"
 import {
-  ArrowLeft,
-  ArrowRight,
   MessageCircleOff,
   Rss,
   Megaphone,
@@ -11,191 +8,65 @@ import {
   ShieldOff,
   Hourglass,
 } from "lucide-react"
-import type { LucideIcon } from "lucide-react"
-import { m as motion } from "motion/react"
 import { ScrollReveal } from "@/components/manifesto/v2/shared/scroll-reveal"
+import {
+  FeatureCard,
+  type Feature,
+} from "@/components/manifesto/v2/shared/feature-card"
+import { Eyebrow, SectionHeading } from "@/components/shared/ledger"
 
-const neverStatements: {
-  headline: string
-  body: string
-  Icon: LucideIcon
-}[] = [
+const neverStatements: Feature[] = [
   {
-    headline: "Never a chatbot therapist.",
+    title: "Never a chatbot therapist.",
     body: "We don't diagnose. The mirror reflects; it doesn't prescribe. When you need support, it comes from what we built, not from an algorithm making it up.",
     Icon: MessageCircleOff,
   },
   {
-    headline: "Never a social feed.",
+    title: "Never a social feed.",
     body: "No followers, no likes, no content to perform for. What you write is yours. Nothing containing your words reaches anyone else unless you choose to share it.",
     Icon: Rss,
   },
   {
-    headline: "Never showing you ads.",
+    title: "Never showing you ads.",
     body: "Not now. Not ever. Showing an ad to someone who just typed something honest would break everything this is supposed to be.",
     Icon: Megaphone,
   },
   {
-    headline: "Never replacing a therapist.",
-    body: "When you need more than Xolace, our job is to get you there sooner, not to hold on to you. We know what we are. We know what we\u2019re not.",
+    title: "Never replacing a therapist.",
+    body: "When you need more than Xolace, our job is to get you there sooner, not to hold on to you. We know what we are. We know what we’re not.",
     Icon: Stethoscope,
   },
   {
-    headline: "Never selling your data.",
-    body: "Your emotional life is not a product. Your late-night honesty is not a data point for someone else\u2019s ad targeting model. We\u2019d rather shut down than cross that line.",
+    title: "Never selling your data.",
+    body: "Your emotional life is not a product. Your late-night honesty is not a data point for someone else’s ad targeting model. We’d rather shut down than cross that line.",
     Icon: ShieldOff,
   },
   {
-    headline: "Never keeping you for the sake of it.",
+    title: "Never keeping you for the sake of it.",
     body: "Come back because it helps. Time in the app isn’t a win for us, and heavy late-night use is something we watch, not something we celebrate.",
     Icon: Hourglass,
   },
 ]
 
 export function Never() {
-  const scrollRef = useRef<HTMLDivElement>(null)
-  const [canScrollLeft, setCanScrollLeft] = useState(false)
-  const [canScrollRight, setCanScrollRight] = useState(true)
-
-  const checkScrollability = useCallback(() => {
-    if (scrollRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current
-      setCanScrollLeft(scrollLeft > 0)
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1)
-    }
-  }, [])
-
-  useEffect(() => {
-    checkScrollability()
-  }, [checkScrollability])
-
-  const scroll = (direction: "left" | "right") => {
-    if (!scrollRef.current) return
-    const amount = direction === "left" ? -460 : 460
-    scrollRef.current.scrollBy({ left: amount, behavior: "smooth" })
-  }
-
   return (
-    <section className="section-spacing-y bg-xo-surface-lowest">
-      {/* Header with navigation */}
-      <div className="section-container-wide mb-4">
+    <section className="section-spacing-tight bg-primary/[0.03]">
+      <div className="section-container-wide">
         <ScrollReveal>
-          <div className="flex items-end justify-between">
-            <h2 className="font-serif text-5xl leading-[1.1] font-semibold text-foreground md:text-6xl lg:text-[4.25rem]">
-              What Xolace Will Never Be.
-            </h2>
-            <div className="hidden gap-3 md:flex">
-              <button
-                onClick={() => scroll("left")}
-                disabled={!canScrollLeft}
-                className="flex size-10 items-center justify-center rounded-full bg-xo-surface-low ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:cursor-not-allowed disabled:opacity-30"
-                aria-label="Scroll left"
-              >
-                <ArrowLeft className="size-4 text-foreground/70" />
-              </button>
-              <button
-                onClick={() => scroll("right")}
-                disabled={!canScrollRight}
-                className="flex size-10 items-center justify-center rounded-full bg-xo-surface-low ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:cursor-not-allowed disabled:opacity-30"
-                aria-label="Scroll right"
-              >
-                <ArrowRight className="size-4 text-foreground/70" />
-              </button>
-            </div>
-          </div>
+          <Eyebrow>Lines we hold</Eyebrow>
+          <SectionHeading className="mt-5">
+            What Xolace Will Never Be.
+          </SectionHeading>
         </ScrollReveal>
-      </div>
 
-      {/* Horizontally scrollable cards */}
-      <div
-        ref={scrollRef}
-        onScroll={checkScrollability}
-        className="flex w-full overflow-x-auto scroll-smooth py-6 [-ms-overflow-style:none] [scrollbar-width:none] md:py-10 [&::-webkit-scrollbar]:hidden"
-      >
-        <div className="flex gap-5 pr-[clamp(2rem,15vw,12rem)] pl-[clamp(2rem,10vw,8rem)]">
+        <div className="mt-12 grid gap-5 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
           {neverStatements.map((statement, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{
-                duration: 0.5,
-                delay: 0.1 * i,
-                ease: "easeOut",
-              }}
-              className="shrink-0"
-            >
-              <NeverCard statement={statement} index={i} />
-            </motion.div>
+            <ScrollReveal key={statement.title} delay={(i % 3) * 0.08}>
+              <FeatureCard feature={statement} index={i} label="Never" />
+            </ScrollReveal>
           ))}
         </div>
       </div>
-
-      {/* Mobile navigation arrows */}
-      <div className="mt-2 flex gap-3 pl-[clamp(2rem,10vw,8rem)] md:hidden">
-        <button
-          onClick={() => scroll("left")}
-          disabled={!canScrollLeft}
-          className="flex size-10 items-center justify-center rounded-full bg-xo-surface-low ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:cursor-not-allowed disabled:opacity-30"
-          aria-label="Scroll left"
-        >
-          <ArrowLeft className="size-4 text-foreground/70" />
-        </button>
-        <button
-          onClick={() => scroll("right")}
-          disabled={!canScrollRight}
-          className="flex size-10 items-center justify-center rounded-full bg-xo-surface-low ring-1 ring-xo-outline-variant/15 transition-all duration-300 hover:bg-xo-surface-bright disabled:cursor-not-allowed disabled:opacity-30"
-          aria-label="Scroll right"
-        >
-          <ArrowRight className="size-4 text-foreground/70" />
-        </button>
-      </div>
     </section>
-  )
-}
-
-function NeverCard({
-  statement,
-  index,
-}: {
-  statement: { headline: string; body: string; Icon: LucideIcon }
-  index: number
-}) {
-  const { Icon } = statement
-  return (
-    <motion.div
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-      className="group relative h-64 w-88 overflow-hidden rounded-2xl bg-xo-surface-lowest ring-1 ring-xo-outline-variant/10 transition-shadow duration-500 hover:shadow-[0_0_40px_var(--primary)/0.05] hover:ring-primary/15 md:h-72 md:w-md"
-    >
-      {/* Large faded number in background */}
-      <span className="pointer-events-none absolute -right-2 -bottom-6 text-[10rem] leading-none font-light text-foreground/3 tabular-nums select-none md:text-[12rem]">
-        {String(index + 1).padStart(2, "0")}
-      </span>
-
-      {/* Thin accent bar at top */}
-      <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-primary/30 via-primary/10 to-transparent" />
-
-      {/* Content */}
-      <div className="relative z-10 flex h-full flex-col justify-between p-7 md:p-9">
-        <div>
-          <div className="mb-4 flex items-center justify-between">
-            <p className="text-xs tracking-widest text-primary/50 uppercase">
-              Never
-            </p>
-            <div className="flex size-9 items-center justify-center rounded-full border border-border/60 bg-background/60">
-              <Icon className="size-[15px] text-primary/60" strokeWidth={1.5} />
-            </div>
-          </div>
-          <h3 className="text-xl leading-snug font-light text-foreground md:text-2xl">
-            {statement.headline}
-          </h3>
-        </div>
-        <p className="line-clamp-4 font-serif text-sm leading-relaxed text-muted-foreground md:text-[15px]">
-          {statement.body}
-        </p>
-      </div>
-    </motion.div>
   )
 }
