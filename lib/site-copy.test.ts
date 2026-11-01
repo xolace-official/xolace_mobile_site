@@ -22,7 +22,8 @@ const files = [
   ...["app", "components", "lib", "hooks", "providers"].flatMap(sourceFiles),
   join(root, "public/llms.txt"),
 ].map((path) => ({
-  path: relative(root, path),
+  // Forward slashes on every OS, so the startsWith filters below also match on Windows
+  path: relative(root, path).replaceAll("\\", "/"),
   source: readFileSync(path, "utf8"),
 }))
 
