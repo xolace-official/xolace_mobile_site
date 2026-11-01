@@ -292,6 +292,12 @@
         padding-bottom: var(--section-py);
     }
 
+    /* Ledger sections on the document pages: a hairline carries the break, so they need less air */
+    .section-spacing-tight {
+        padding-top:    calc(var(--section-py) * 0.6);
+        padding-bottom: calc(var(--section-py) * 0.6);
+    }
+
     /* Vertical-only alias — explicit name for full-bleed sections */
     .section-spacing-y {
         padding-top:    var(--section-py);
