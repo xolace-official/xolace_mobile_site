@@ -32,10 +32,7 @@ export function BillingToggle({
       onValueChange={(value) => value && onChange(value as Billing)}
       aria-label="Billing"
       spacing={1}
-      className={cn(
-        "rounded-full border border-xo-outline-variant/50 p-1",
-        className
-      )}
+      className={cn("rounded-full border border-border p-1", className)}
     >
       {OPTIONS.map(({ value, label }) => (
         <ToggleGroupItem

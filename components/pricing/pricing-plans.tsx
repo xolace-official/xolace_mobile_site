@@ -15,7 +15,7 @@ export function PricingPlans() {
   const props = { billing, onBillingChange: setBilling, price }
 
   return (
-    <FadeIn className="section-spacing-x pb-(--section-py)">
+    <FadeIn className="pb-(--section-py)">
       <div className="section-container-wide">
         <PlanColumns {...props} className="hidden lg:grid" />
         <PlanTable {...props} className="lg:hidden" />

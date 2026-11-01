@@ -31,8 +31,8 @@ export function PriceLine({
         )}
         <span
           className={cn(
-            "font-semibold tracking-tight text-foreground tabular-nums",
-            size === "lg" ? "text-5xl md:text-6xl" : "text-3xl"
+            "font-medium tracking-[-0.025em] text-foreground tabular-nums",
+            size === "lg" ? "text-5xl md:text-[3.5rem]" : "text-3xl"
           )}
         >
           {amount}
