@@ -125,6 +125,7 @@ Every design decision should feel like it belongs in the same room as the app: *
 - **Sans (`font-sans`, Space Grotesk)** — for UI: buttons, labels, navigation
 - **Minimal motion** — fades and breath animations only. Nothing bouncy except the download/celebration moment.
 - **Global utility classes** (defined in `globals.css`): `.texture`, `.cta-gradient`, `.animate-gentle-pulse`, `.screen-content-gradient`
+- **Document pages (manifesto, pricing, safety) use the ledger style** from `components/shared/ledger.tsx`: `Eyebrow`, `DisplayHeading` (h1), `SectionHeading` (h2), `CardHeading` (h3), `Lead`, `Body`, `Hairline`, `LedgerSection` (label left, content right, hairline above) and `ledgerButton` classes, plus `HeroGlow` for the soft rose/teal light behind each page hero. "Warm Stripe": `font-medium` headings (never semibold/bold), tight tracking, left-aligned, hairline dividers between sections, `rounded-2xl` cards on `bg-xo-surface-lowest`, pill buttons and toggles, no drop shadows. Rose tints (`bg-primary/[0.03–0.04]`) mark the warm moments: the Never band, example quotes, the Plus column, the closing panel. `accent` only marks crisis help. Use these components instead of typing sizes, so the scale stays the same across pages. All three pages use `section-container-wide` and `main.pt-16 md:pt-20`.
 
 ---
 
@@ -211,7 +212,7 @@ ManifestoPageV2.tsx — the brief from #28; argues why, mechanics live on How it
   ├── ItStacks        — compounding, and "fewer people reach the queue" framed as a bet
   ├── WhyAI           — 80/20, the campfire, the Fire and Kindlings; quotes labelled as examples
   ├── Beliefs         — five cards; the safety card links to /safety
-  ├── Never           — six cards; bodies stay short (the card clamps to four lines)
+  ├── Never           — six cards in a static grid (shares FeatureCard with Beliefs; was a carousel)
   ├── QuietPart       — skincare vision and the two habits
   └── Invitation      — "Come home." + "The mirror is free, and always will be." No sign-up or time claim
 ```
@@ -260,6 +261,8 @@ All section spacing is driven by CSS tokens in `app/globals.css`. **Never hardco
 **Utility classes:**
 - `.section-spacing` — full padding (y + x) — use on every `<section>`
 - `.section-spacing-y` — vertical only — use when content must be full-bleed horizontally (e.g. marquee)
+- `.section-spacing-tight` — 0.6× vertical padding — for ledger sections whose hairline already marks the break
+- Containers already carry `--section-px`; never add `.section-spacing-x` to a section that wraps a container (it doubles the side padding)
 - `.section-spacing-x` — horizontal only — use on inner containers that need to match section px
 - `.section-container` — standard `max-width: --content-w`, centered, no padding
 - `.section-container-wide` — `max-width: --content-w-wide`
