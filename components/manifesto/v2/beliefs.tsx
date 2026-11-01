@@ -1,127 +1,58 @@
 "use client"
 
-import Link from "next/link"
-import { cn } from "@/lib/utils"
-import {
-  ArrowRight,
-  Sunrise,
-  Droplets,
-  Users,
-  Feather,
-  ShieldCheck,
-} from "lucide-react"
-import type { LucideIcon } from "lucide-react"
+import { Sunrise, Droplets, Users, Feather, ShieldCheck } from "lucide-react"
 import { ScrollReveal } from "@/components/manifesto/v2/shared/scroll-reveal"
+import {
+  FeatureCard,
+  type Feature,
+} from "@/components/manifesto/v2/shared/feature-card"
+import { Eyebrow, Hairline, SectionHeading } from "@/components/shared/ledger"
 
-const beliefs: {
-  title: string
-  body: string
-  link?: { text: string; href: string }
-  accent: string
-  dot: string
-  iconColor: string
-  Icon: LucideIcon
-}[] = [
+const beliefs: Feature[] = [
   {
     title: "Healing happens in honest moments.",
     body: "Not in grand breakthroughs, but in the small act of telling the truth to yourself. The moment you spend naming what you feel matters more than you think.",
-    accent: "border-primary/20 bg-primary/[0.03]",
-    dot: "bg-primary/50",
-    iconColor: "text-primary/70",
     Icon: Sunrise,
   },
   {
     title: "Skincare for your mind.",
     body: "You don't wait for your skin to get bad before you look after it. Your mind deserves the same small, daily care, whether or not anything is wrong.",
-    accent: "border-accent/20 bg-accent/[0.03]",
-    dot: "bg-accent/50",
-    iconColor: "text-accent/70",
     Icon: Droplets,
   },
   {
     title: "AI should make human connection more reachable, not replace it.",
     body: "AI prepares people for each other. What stops us reaching someone is often friction: no words for it, fear of judgment, not knowing who to go to. AI can clear that, so you walk into a conversation already knowing what you want to say.",
-    accent: "border-chart-2/20 bg-chart-2/[0.03]",
-    dot: "bg-chart-2/50",
-    iconColor: "text-chart-2/70",
     Icon: Users,
   },
   {
     title: "People deserve a place to be human without performing.",
     body: "You are not a brand. You are not an audience. You are not a data point. You are a person carrying something, and you walked in here because you needed somewhere to set it down. That's enough.",
-    accent: "border-primary/20 bg-primary/[0.03]",
-    dot: "bg-primary/50",
-    iconColor: "text-primary/70",
     Icon: Feather,
   },
   {
     title: "Safe spaces need structure, not just intention.",
     body: "Anyone can say “this is a safe space.” We build it in: every message is screened before the AI responds, and the AI routes you to support from a sandbox we built. It never invents support. Safety is architecture, not a promise.",
     link: { text: "How Xolace keeps you safe", href: "/safety" },
-    accent: "border-accent/20 bg-accent/[0.03]",
-    dot: "bg-accent/50",
-    iconColor: "text-accent/70",
     Icon: ShieldCheck,
   },
 ]
 
 export function Beliefs() {
   return (
-    <section className="section-spacing">
+    <section className="section-spacing-tight">
       <div className="section-container-wide">
+        <Hairline className="mb-10 md:mb-14" />
         <ScrollReveal>
-          <h2 className="mb-16 font-serif text-5xl leading-[1.1] font-semibold text-foreground md:mb-24 md:text-6xl lg:text-[4.25rem]">
-            What We Believe.
-          </h2>
+          <Eyebrow>Beliefs</Eyebrow>
+          <SectionHeading className="mt-5">What We Believe.</SectionHeading>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-3 md:gap-y-24">
-          {beliefs.map((belief, i) => {
-            const { Icon } = belief
-            return (
-              <ScrollReveal key={i} delay={i * 0.1}>
-                <div
-                  className={cn(
-                    "h-full space-y-4 rounded-2xl border p-7",
-                    belief.accent,
-                    i % 2 === 0 ? "md:translate-y-12" : ""
-                  )}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex size-9 items-center justify-center rounded-full border border-border/60 bg-background/60">
-                      <Icon
-                        className={cn("size-[15px]", belief.iconColor)}
-                        strokeWidth={1.5}
-                      />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span
-                        className={`size-1.5 shrink-0 rounded-full ${belief.dot}`}
-                      />
-                      <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground/30 uppercase">
-                        {String(i + 1).padStart(2, "0")}
-                      </p>
-                    </div>
-                  </div>
-                  <h3 className="font-serif text-xl leading-snug font-medium text-foreground md:text-2xl">
-                    {belief.title}
-                  </h3>
-                  <p className="font-serif text-sm leading-relaxed text-muted-foreground/70 md:text-[15px]">
-                    {belief.body}
-                  </p>
-                  {belief.link && (
-                    <Link
-                      href={belief.link.href}
-                      className="inline-flex items-center gap-1.5 text-sm text-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
-                    >
-                      {belief.link.text}
-                      <ArrowRight className="size-3.5" strokeWidth={1.5} />
-                    </Link>
-                  )}
-                </div>
-              </ScrollReveal>
-            )
-          })}
+        <div className="mt-12 grid gap-5 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
+          {beliefs.map((belief, i) => (
+            <ScrollReveal key={belief.title} delay={i * 0.08}>
+              <FeatureCard feature={belief} index={i} />
+            </ScrollReveal>
+          ))}
         </div>
       </div>
     </section>
