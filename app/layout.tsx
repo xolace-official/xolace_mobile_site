@@ -8,7 +8,7 @@ import { Navbar } from "@/components/shared/navbar"
 import { Footer } from "@/components/shared/footer"
 import { cn } from "@/lib/utils"
 import { MotionProvider } from "@/providers/motion-provider"
-import { SITE_DESCRIPTION } from "@/lib/site"
+import { SHARE_TITLE, SITE_DESCRIPTION, SITE_URL } from "@/lib/site"
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -23,11 +23,25 @@ const fontMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Xolace",
     template: "%s | Xolace",
   },
   description: SITE_DESCRIPTION,
+  // The image comes from app/opengraph-image.tsx; X falls back to it for its card
+  openGraph: {
+    type: "website",
+    siteName: "Xolace",
+    title: SHARE_TITLE,
+    description: SITE_DESCRIPTION,
+    locale: "en",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SHARE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
   creator: "XOLACEINC LTD",
   publisher: "XOLACEINC LTD",
   formatDetection: {

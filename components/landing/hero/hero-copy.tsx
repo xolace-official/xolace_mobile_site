@@ -3,12 +3,18 @@
 import { m as motion } from "motion/react"
 import { cn } from "@/lib/utils"
 import { DownloadButtons } from "@/components/shared/download-buttons"
+import { ProductHuntBadge } from "@/components/shared/product-hunt-badge"
+import { ProductHuntNote } from "@/components/landing/hero/product-hunt-note"
+import { useProductHunt } from "@/hooks/use-product-hunt"
 
 const ease = [0.16, 1, 0.3, 1] as const
 
 export function HeroCopy({ slot }: { slot: React.ReactNode }) {
+  const productHunt = useProductHunt()
+
   return (
     <div className="flex flex-col text-center lg:text-left">
+      <ProductHuntNote />
       <motion.h1
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -35,6 +41,9 @@ export function HeroCopy({ slot }: { slot: React.ReactNode }) {
         className="mt-10"
       >
         <DownloadButtons align="center" className="lg:justify-start" />
+        {productHunt.show && (
+          <ProductHuntBadge placement="hero" className="mt-5" />
+        )}
       </motion.div>
     </div>
   )
