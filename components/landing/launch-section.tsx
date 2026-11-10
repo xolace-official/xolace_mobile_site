@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { m as motion } from "motion/react"
 import { DownloadButtons } from "@/components/shared/download-buttons"
+import { ProductHuntBadge } from "@/components/shared/product-hunt-badge"
 
 export function LaunchSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -75,6 +76,7 @@ export function LaunchSection() {
             transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
           >
             <DownloadButtons align="center" />
+            <ProductHuntBadge placement="launch-section" className="mt-6" />
           </motion.div>
         </div>
       </div>

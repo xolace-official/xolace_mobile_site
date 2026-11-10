@@ -7,6 +7,7 @@ import { TikTokLight } from "@/components/socials/tiktok-icon-light"
 import { Reddit } from "@/components/socials/reddit-icon"
 import { CrisisLineInline } from "@/components/shared/crisis-lines"
 import { DANGER_LINE } from "@/lib/crisis-resources"
+import { ProductHuntBadge } from "@/components/shared/product-hunt-badge"
 
 type NavLink = { label: string; href: string; external?: boolean }
 
@@ -112,6 +113,8 @@ export function Footer() {
                 </Link>
               ))}
             </div>
+
+            <ProductHuntBadge placement="footer" />
           </div>
 
           {/* Link columns */}
