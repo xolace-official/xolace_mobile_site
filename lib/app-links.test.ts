@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test"
 import {
   ANDROID_PACKAGE,
+  ANDROID_SHA256_CERT_FINGERPRINT,
   appSchemeUrl,
   appleAppSiteAssociation,
   assetLinks,
@@ -42,6 +43,11 @@ describe("assetlinks.json", () => {
         },
       },
     ])
+  })
+
+  test("ships the Play app signing fingerprint", () => {
+    expect(isCertFingerprint(ANDROID_SHA256_CERT_FINGERPRINT)).toBe(true)
+    expect(assetLinks()).toHaveLength(1)
   })
 
   test("uses the package the Play Store link points at", () => {

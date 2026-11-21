@@ -231,7 +231,7 @@ A Lantern entry shared from the app is `https://www.xolaceinc.com/lantern/<slug>
 
 - `lib/lantern-preview.ts` reads the preview server-side from `GET {XOLACE_CONVEX_SITE_URL}/lantern/preview?slug=`, with a 3s timeout, `revalidate: 3600` and zod validation. It returns `ok`, `not_found` (404/400, or a slug that isn't kebab-case, checked before any request) or `unavailable` (env missing, timeout, 5xx, bad body). `not_found` → `notFound()`; `unavailable` → the generic "This piece lives in the Xolace app" page. Never let it throw.
 - The page is `noindex` through metadata, not `robots.txt`: a robots.txt Disallow would also stop X's unfurl bot. Don't add `/lantern/*` to the sitemap.
-- `lib/app-links.ts` holds the Team ID, bundle id, Android package and the Play app-signing SHA-256, and builds `/.well-known/apple-app-site-association` and `/.well-known/assetlinks.json` (route handlers in `app/.well-known/`, so the content type is always `application/json`). Only `/lantern/*` opens the app. `assetlinks.json` is `[]` until the fingerprint constant holds a real value.
+- `lib/app-links.ts` holds the Team ID, bundle id, Android package and the Play app-signing SHA-256, and builds `/.well-known/apple-app-site-association` and `/.well-known/assetlinks.json` (route handlers in `app/.well-known/`, so the content type is always `application/json`). Only `/lantern/*` opens the app. The fingerprint is Google's app signing key from the Play Console, not the EAS upload key; if it's ever malformed, `assetlinks.json` falls back to `[]`.
 - Covers render with `next/image` `unoptimized`, since their host isn't in `remotePatterns`.
 
 ### Region swap
