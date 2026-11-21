@@ -94,6 +94,7 @@ Do not:
 ```
 NEXT_PUBLIC_SUPABASE_URL
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_OR_ANON_KEY
+XOLACE_CONVEX_SITE_URL   # server-only; the app's Convex HTTP site, read by /lantern/[slug]
 ```
 
 The committed `.env` points at a local Supabase instance. Override with production values via Vercel. Phase 2 will add `NEXT_PUBLIC_POSTHOG_KEY`, `NEXT_PUBLIC_POSTHOG_HOST`, and — when the mini-Mirror API is built — `ANTHROPIC_API_KEY`, `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`.
@@ -146,6 +147,7 @@ app/safety/page.tsx       →  components/safety/page/SafetyPage.tsx
 app/privacy/page.tsx      →  components/privacy/page/PrivacyPage.tsx
 app/terms/page.tsx        →  components/terms/page/TermsPage.tsx
 app/support/page.tsx      →  components/support/page/SupportPage.tsx
+app/lantern/[slug]/page.tsx → components/lantern/page/LanternEntryPage.tsx
 ```
 
 ### Provider Stack (`layout.tsx`)
@@ -222,6 +224,15 @@ ManifestoPageV2.tsx — the brief from #28; argues why, mechanics live on How it
 ### Share previews
 
 `metadataBase`, Open Graph and the X card live in `app/layout.tsx`; `app/opengraph-image.tsx` draws the 1200×630 image for every page. It can't read CSS variables, so its colours are the dark tokens from `globals.css` converted to hex — the one allowed exception to the tokens-only rule. Change the tokens first, then the hex.
+
+### Lantern share links
+
+A Lantern entry shared from the app is `https://www.xolaceinc.com/lantern/<slug>?from=share`. With the app installed the phone opens it directly; otherwise `/lantern/[slug]` shows a preview only (cover, kind, title, dek, story descriptor, read time) and the store buttons. The entry body is never on the web.
+
+- `lib/lantern-preview.ts` reads the preview server-side from `GET {XOLACE_CONVEX_SITE_URL}/lantern/preview?slug=`, with a 3s timeout, `revalidate: 3600` and zod validation. It returns `ok`, `not_found` (404/400, or a slug that isn't kebab-case, checked before any request) or `unavailable` (env missing, timeout, 5xx, bad body). `not_found` → `notFound()`; `unavailable` → the generic "This piece lives in the Xolace app" page. Never let it throw.
+- The page is `noindex` through metadata, not `robots.txt`: a robots.txt Disallow would also stop X's unfurl bot. Don't add `/lantern/*` to the sitemap.
+- `lib/app-links.ts` holds the Team ID, bundle id, Android package and the Play app-signing SHA-256, and builds `/.well-known/apple-app-site-association` and `/.well-known/assetlinks.json` (route handlers in `app/.well-known/`, so the content type is always `application/json`). Only `/lantern/*` opens the app. `assetlinks.json` is `[]` until the fingerprint constant holds a real value.
+- Covers render with `next/image` `unoptimized`, since their host isn't in `remotePatterns`.
 
 ### Region swap
 
